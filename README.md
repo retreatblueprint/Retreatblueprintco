@@ -4,7 +4,7 @@ One-page marketing site for Retreat Blueprint Co. Plain HTML, CSS and a little J
 There is nothing to install and no build step: what you see in this folder is what gets published.
 
 Live address (once connected): https://retreatblueprintco.com
-Contact: hello.retreatblueprint@gmail.com
+Contact: hello@retreatblueprintco.com
 
 ## What's in here
 
@@ -50,7 +50,7 @@ Setting the custom domain makes GitHub add a `CNAME` file to the repo. Run `git 
 - **A photo:** replace the file in `assets/img/` and keep the same filename. Keep each under about 300 KB.
   The `-1200` versions are what phones load, so replace those too.
 - **Booking link:** search `calendly.com` in `index.html` (it appears in the nav and twice on the page).
-- **Email:** search `hello.retreatblueprint@gmail.com` in `index.html` (CTA section and footer).
+- **Email:** search `hello@retreatblueprintco.com` in `index.html` (CTA section and footer).
 
 ## Known limitations
 
