@@ -30,7 +30,7 @@ nav {
 .nav-links { display: flex; align-items: center; gap: 2rem; }
 .nav-link { font-size: 0.82rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
 .nav-link:hover { color: var(--earth); }
-.nav-cta { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage-dark); text-decoration: none; border: 1px solid var(--sage-dark); padding: 0.5rem 1.25rem; border-radius: 2px; transition: background 0.2s, color 0.2s; }
+.nav-cta { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage-dark); text-decoration: none; border: 1px solid var(--sage-dark); padding: 0.5rem 1.25rem; border-radius: 8px; transition: background 0.2s, color 0.2s; }
 .nav-cta:hover { background: var(--sage-dark); color: white; }
 
 /* HERO */
@@ -61,7 +61,7 @@ nav {
 
 .hero-sub { font-size: 1.05rem; color: var(--earth-mid); max-width: 48ch; line-height: 1.85; margin-bottom: 2.5rem; font-weight: 300; }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-.btn-primary { background: var(--sage-dark); color: white; padding: 0.9rem 2rem; border-radius: 2px; text-decoration: none; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.03em; transition: background 0.2s; display: inline-block; }
+.btn-primary { background: var(--sage-dark); color: white; padding: 0.9rem 2rem; border-radius: 8px; text-decoration: none; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.03em; transition: background 0.2s; display: inline-block; }
 .btn-primary:hover { background: #3a5a3e; }
 .btn-ghost { color: var(--earth-mid); padding: 0.9rem 0; text-decoration: none; font-size: 0.875rem; border-bottom: 1px solid rgba(90,72,50,0.25); transition: color 0.2s; }
 .btn-ghost:hover { color: var(--earth); }
@@ -170,11 +170,6 @@ section { padding: 6rem 2.5rem; }
 .service-card { border: 1px solid var(--border); border-radius: 6px; padding: 2rem 1.75rem; background: var(--warm-white); position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
 .service-card.wide { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 .service-card:hover { border-color: var(--sage); transform: translateY(-2px); }
-.service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
-.s1::before { background: var(--terracotta); }
-.s2::before { background: var(--sage); }
-.s3::before { background: var(--earth-mid); }
-.s4::before { background: #A07840; }
 .service-num { font-family: 'Lora', serif; font-size: 2rem; color: var(--cream-dark); font-weight: 400; margin-bottom: 1.25rem; display: block; }
 .service-name { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 500; color: var(--earth); margin-bottom: 0.4rem; }
 .service-hiring { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; color: var(--sage-dark); background: var(--sage-light); padding: 0.2rem 0.6rem; border-radius: 2px; font-weight: 500; margin-bottom: 0.75rem; }
@@ -212,7 +207,7 @@ section { padding: 6rem 2.5rem; }
 .cta-title { font-family: 'Lora', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 400; color: #EEF4EE; margin-bottom: 1.25rem; line-height: 1.2; }
 .cta-title em { font-style: italic; color: var(--sage-mid); }
 .cta-body { font-size: 1rem; color: #A8C0A8; max-width: 46ch; margin: 0 auto 2.5rem; line-height: 1.85; font-weight: 300; }
-.btn-cta { display: inline-block; background: var(--terracotta); color: white; padding: 1rem 2.5rem; border-radius: 2px; text-decoration: none; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.2s; }
+.btn-cta { display: inline-block; background: var(--terracotta); color: white; padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.2s; }
 .btn-cta:hover { background: #963a22; }
 .cta-note { margin-top: 1.25rem; font-size: 0.82rem; color: #88A888; }
 
@@ -269,7 +264,7 @@ summary:hover { opacity: 0.75; }
 .testimonial-card.is-active .testimonial-teaser,
 .testimonial-card.is-active .testimonial-hint { display: none; }
 .testimonial-more { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease 0.05s; }
-.testimonial-card.is-active .testimonial-more { max-height: 900px; opacity: 1; margin-top: 1rem; }
+.testimonial-card.is-active .testimonial-more { max-height: 3000px; opacity: 1; margin-top: 1rem; }
 @media (max-width: 720px) {
   .testimonial-row { flex-direction: column; }
   .testimonial-card { flex: none !important; }
@@ -288,3 +283,22 @@ summary:hover { opacity: 0.75; }
 .footer-copy a { color: #88A888; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
 .cta-alt a:hover, .footer-copy a:hover { color: #EEF4EE; }
 .cta-alt a:focus-visible, .footer-copy a:focus-visible { outline: 2px solid #C8A080; outline-offset: 3px; border-radius: 2px; }
+
+/* Testimonials: once a full review is open, the toggle moves to the bottom as "Collapse review" */
+.testimonial-card details[open] > summary { display: none !important; }
+.review-collapse { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 1.1rem; padding: 0; background: none; border: none; font: inherit; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.03em; color: var(--terracotta); cursor: pointer; }
+.review-collapse:hover { opacity: 0.75; }
+.review-collapse:focus-visible, summary:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 3px; border-radius: 2px; }
+
+/* Small phones: keep the nav on one line */
+@media (max-width: 480px) {
+  nav { padding: 0.9rem 1.1rem; gap: 0.6rem; }
+  .nav-logo-wrap { gap: 0.5rem; }
+  .nav-logo-text { font-size: 0.92rem; white-space: nowrap; }
+  .nav-cta { white-space: nowrap; padding: 0.45rem 0.85rem; font-size: 0.7rem; }
+}
+@media (max-width: 360px) {
+  .nav-logo-icon { width: 26px; height: 26px; }
+  .nav-logo-text { font-size: 0.82rem; }
+  .nav-cta { padding: 0.45rem 0.7rem; }
+}

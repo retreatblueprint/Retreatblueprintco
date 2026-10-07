@@ -109,3 +109,22 @@ function seekAudio2(e) {
   const pct = (e.clientX - rect.left) / rect.width;
   audio2.currentTime = pct * audio2.duration;
 }
+
+// Close an open full review from the button at its bottom, then bring the card back into view
+function collapseReview(btn) {
+  const details = btn.closest('details');
+  const card = details.closest('.testimonial-card');
+  details.open = false;
+  details.querySelector('summary').focus({ preventScroll: true });
+  const r = card.getBoundingClientRect();
+  if (r.top < 90 || r.bottom > window.innerHeight) {
+    card.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+}
+
+// Touch devices have no hover, so say "Tap" instead
+if (!canHoverTestimonials) {
+  document.querySelectorAll('.testimonial-hint span').forEach(function (el) {
+    el.textContent = 'Tap to listen';
+  });
+}
