@@ -170,9 +170,9 @@ section { padding: 6rem 2.5rem; }
 .service-card { border: 1px solid var(--border); border-radius: 6px; padding: 2rem 1.75rem; background: var(--warm-white); position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
 .service-card.wide { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 .service-card:hover { border-color: var(--sage); transform: translateY(-2px); }
-.service-num { font-family: 'Lora', serif; font-size: 2rem; color: var(--cream-dark); font-weight: 400; margin-bottom: 1.25rem; display: block; }
+.service-num { font-family: 'Lora', serif; font-size: 2rem; color: #DCD2BC; font-weight: 400; margin-bottom: 1.25rem; display: block; }
 .service-name { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 500; color: var(--earth); margin-bottom: 0.4rem; }
-.service-hiring { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; color: var(--sage-dark); background: var(--sage-light); padding: 0.2rem 0.6rem; border-radius: 2px; font-weight: 500; margin-bottom: 0.75rem; }
+.service-hiring { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; color: var(--sage-dark); background: var(--sage-light); padding: 0.2rem 0.6rem; border-radius: 6px; font-weight: 500; margin-bottom: 0.75rem; }
 .service-price { font-size: 0.78rem; color: var(--terracotta); font-weight: 500; letter-spacing: 0.04em; margin-bottom: 1rem; }
 .service-desc { font-size: 0.84rem; color: var(--earth-mid); line-height: 1.75; margin-bottom: 1.25rem; }
 .service-items { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }

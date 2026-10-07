@@ -1,8 +1,12 @@
 const canHoverTestimonials = window.matchMedia('(hover: hover)').matches;
 
 function setActiveTestimonial(who) {
-  document.getElementById('card-cris').classList.toggle('is-active', who === 'cris');
-  document.getElementById('card-jon').classList.toggle('is-active', who === 'jon');
+  ['cris', 'jon'].forEach(function (id) {
+    const card = document.getElementById('card-' + id);
+    const reviewOpen = card.querySelector('details[open]') !== null;
+    // A card whose full review is open stays open until "Collapse review" is pressed
+    card.classList.toggle('is-active', who === id || reviewOpen);
+  });
 }
 
 function handleTestimonialHover(who) {
