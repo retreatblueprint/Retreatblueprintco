@@ -10,11 +10,18 @@ function setActiveTestimonial(who) {
 }
 
 function handleTestimonialHover(who) {
-  if (canHoverTestimonials) setActiveTestimonial(who);
+  if (!canHoverTestimonials || Date.now() < ignoreHoverUntil) return;
+  pinnedTestimonial = null;
+  setActiveTestimonial(who);
 }
 
+// Set when a visitor jumps here from "Hear ... voice note", so the card stays open
+let pinnedTestimonial = null;
+let ignoreHoverUntil = 0; // cards slide under a still mouse while the page scrolls to them
+
 function resetTestimonials() {
-  if (canHoverTestimonials) setActiveTestimonial(null);
+  if (!canHoverTestimonials || Date.now() < ignoreHoverUntil) return;
+  setActiveTestimonial(pinnedTestimonial);
 }
 
 function handleTestimonialTap(who) {
@@ -131,4 +138,45 @@ if (!canHoverTestimonials) {
   document.querySelectorAll('.testimonial-hint span').forEach(function (el) {
     el.textContent = 'Tap to listen';
   });
+}
+
+
+// In practice: tabbed case studies, each linked to its client's testimonial below
+const practiceCases = [
+  { who: 'cris', label: "Hear Cris's voice note" },
+  { who: 'jon', label: "Hear Jonathon's voice note" }
+];
+let practiceIndex = 0;
+
+function showPractice(i) {
+  practiceIndex = (i + practiceCases.length) % practiceCases.length;
+  practiceCases.forEach(function (_, n) {
+    const on = n === practiceIndex;
+    const tab = document.getElementById('ptab-' + n);
+    const panel = document.getElementById('ppanel-' + n);
+    tab.classList.toggle('is-active', on);
+    tab.setAttribute('aria-selected', on ? 'true' : 'false');
+    panel.classList.toggle('is-active', on);
+    panel.hidden = !on;
+  });
+  document.querySelectorAll('.practice-dots span').forEach(function (d, n) {
+    d.classList.toggle('is-active', n === practiceIndex);
+  });
+  const c = practiceCases[practiceIndex];
+  document.getElementById('practiceVoiceText').textContent = c.label;
+  document.getElementById('practiceVoice').setAttribute('href', '#card-' + c.who);
+}
+
+function stepPractice(dir) { showPractice(practiceIndex + dir); }
+
+function goToTestimonial(e) {
+  e.preventDefault();
+  const who = practiceCases[practiceIndex].who;
+  const card = document.getElementById('card-' + who);
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  pinnedTestimonial = who;
+  ignoreHoverUntil = Date.now() + 1500;
+  setActiveTestimonial(who);
+  card.classList.add('is-spotlit');
+  setTimeout(function () { card.classList.remove('is-spotlit'); }, 2400);
 }

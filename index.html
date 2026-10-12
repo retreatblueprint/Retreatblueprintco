@@ -197,18 +197,86 @@
           </div>
         </div>
         <div>
-          <div class="built-case">
-            <p class="built-case-location">In practice: Ometepe, Nicaragua</p>
-            <p class="built-case-title">Three months. One complete business transformation.</p>
-            <p class="built-case-body">An established retreat center with years of experience but no operational infrastructure. By the end of the engagement: a custom lead generation app, full booking and payment pipeline, guest communication automation, marketing rebrand, content strategy, and a mapped sales cycle.</p>
-            <p class="built-case-body">The business went from informal and reactive to structured and scalable.</p>
-            <div class="built-tags">
-              <span class="built-tag">Lead gen app</span>
-              <span class="built-tag">Booking systems</span>
-              <span class="built-tag">Automations</span>
-              <span class="built-tag">Marketing rebrand</span>
-              <span class="built-tag">Sales mapping</span>
-              <span class="built-tag">Content strategy</span>
+          <div class="built-case practice" id="practice">
+            <div class="practice-head">
+              <p class="practice-label">In practice</p>
+              <div class="practice-arrows">
+                <button type="button" class="practice-arrow" aria-label="Previous case" onclick="stepPractice(-1)">&larr;</button>
+                <button type="button" class="practice-arrow" aria-label="Next case" onclick="stepPractice(1)">&rarr;</button>
+              </div>
+            </div>
+            <div class="practice-tabs" role="tablist">
+              <button type="button" role="tab" id="ptab-0" class="practice-tab is-active" aria-selected="true" aria-controls="ppanel-0" onclick="showPractice(0)">Revive</button>
+              <button type="button" role="tab" id="ptab-1" class="practice-tab" aria-selected="false" aria-controls="ppanel-1" onclick="showPractice(1)">Systemize</button>
+            </div>
+
+            <!-- Revive: Infinity Retreat -->
+            <div class="practice-panel is-active" id="ppanel-0" role="tabpanel" aria-labelledby="ptab-0">
+              <p class="built-case-location">Infinity Retreat &middot; Ometepe, Nicaragua &middot; 3 months</p>
+              <p class="practice-title">A beautiful venue with no business behind it, rebuilt from the ground up.</p>
+              <p class="practice-sub">The situation</p>
+              <p class="practice-body">An established retreat center that had gone inactive, with no operational infrastructure. Inquiries, bookings and payments all ran informally through the owner.</p>
+              <p class="practice-sub">What I built</p>
+              <div class="practice-built">
+              <ul>
+                <li>Streamlined booking systems</li>
+                <li>Payment pipeline</li>
+                <li>Guest communication automations</li>
+              </ul>
+              <ul>
+                <li>Marketing rebrand and website</li>
+                <li>Content strategy</li>
+                <li>Mapped sales cycle</li>
+                <li>Custom lead generation app</li>
+              </ul>
+              </div>
+              <div class="practice-result">
+                <p class="practice-sub">The result</p>
+                <ul>
+                  <li>Every booking now runs through one streamlined system, from inquiry to payment</li>
+                  <li>Guests are looked after automatically, without the owner chasing messages</li>
+                  <li>Relaunched with a new brand, website and paid ads across Costa Rica and Nicaragua</li>
+                  <li>Retained as an ongoing consultant after the build</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Systemize: Airborne Arts -->
+            <div class="practice-panel" id="ppanel-1" role="tabpanel" aria-labelledby="ptab-1" hidden>
+              <p class="built-case-location">Airborne Arts &middot; Dominical, Costa Rica &middot; 10+ years operating</p>
+              <p class="practice-title">A system that replaced a full-time admin role.</p>
+              <p class="practice-sub">The situation</p>
+              <p class="practice-body">A decade-old retreat business that needed a full-time employee just to keep up with admin. Finances felt messy, past guest contacts were scattered, and daily tasks pulled time away from the work that made money.</p>
+              <p class="practice-sub">What I built</p>
+              <div class="practice-built">
+              <ul>
+                <li>One operating system for the business</li>
+                <li>Organized booking management</li>
+                <li>Client communication workflows</li>
+              </ul>
+              <ul>
+                <li>Financial tracking and reporting</li>
+                <li>Kitchen communication process</li>
+                <li>Past-client and guest database</li>
+              </ul>
+              </div>
+              <div class="practice-result">
+                <p class="practice-sub">The result</p>
+                <ul>
+                  <li>Eliminated the need for a full-time admin role, saving a full salary</li>
+                  <li>Full financial clarity where things had felt messy</li>
+                  <li>Every past client and guest contact in one place, ready for marketing</li>
+                  <li>A business working toward its goals, not stuck in admin</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="practice-foot">
+              <a href="#card-cris" class="practice-voice" id="practiceVoice" onclick="goToTestimonial(event)">
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor" aria-hidden="true"><polygon points="0,0 12,7 0,14"/></svg>
+                <span id="practiceVoiceText">Hear Cris's voice note</span>
+              </a>
+              <div class="practice-dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
             </div>
           </div>
         </div>

@@ -164,6 +164,49 @@ section { padding: 6rem 2.5rem; }
 .built-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .built-tag { font-size: 0.7rem; padding: 0.25rem 0.6rem; background: rgba(184,208,186,0.15); color: #B8D0BA; border-radius: 2px; font-weight: 500; }
 
+/* In practice: tabbed case studies */
+.practice { padding: 1.75rem 2rem 1.25rem; }
+.practice-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.practice-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #C8D8C8; }
+.practice-arrows { display: flex; gap: 0.4rem; }
+.practice-arrow { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(184,208,186,0.45); background: transparent; color: #D8ECD8; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s, border-color 0.2s; }
+.practice-arrow:hover { background: rgba(184,208,186,0.12); border-color: rgba(184,208,186,0.8); }
+.practice-tabs { display: flex; border-bottom: 1px solid rgba(255,255,255,0.12); margin-bottom: 1.25rem; }
+.practice-tab { background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 0.55rem 1.1rem; font-family: inherit; font-size: 0.9rem; color: #88A888; cursor: pointer; transition: color 0.2s, border-color 0.2s; }
+.practice-tab:hover { color: #C8DCC8; }
+.practice-tab.is-active { color: #EEF4EE; border-bottom-color: var(--sage-mid); }
+.practice-panel[hidden] { display: none; }
+.practice-panel.is-active { animation: practiceFade 0.35s ease; }
+@keyframes practiceFade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.practice .built-case-location { line-height: 1.6; }
+.practice-title { font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 500; color: #EEF4EE; line-height: 1.35; margin-bottom: 1.1rem; }
+.practice-sub { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #C8D8C8; margin-bottom: 0.5rem; }
+.practice-body { font-size: 0.84rem; color: #A8C0A8; line-height: 1.8; margin-bottom: 1.1rem; }
+.practice-built { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.25rem; margin-bottom: 1.25rem; }
+.practice-built ul, .practice-result ul { list-style: none; margin: 0; padding: 0; }
+.practice-built li { position: relative; padding-left: 1.1rem; font-size: 0.82rem; color: #D8ECD8; line-height: 1.5; margin-bottom: 0.45rem; }
+.practice-built li::before { content: ''; position: absolute; left: 0; top: 0.42em; width: 6px; height: 6px; border-radius: 1px; background: var(--sage-mid); }
+.practice-result { background: rgba(255,255,255,0.07); border-radius: 6px; padding: 1.1rem 1.25rem 0.75rem; margin-bottom: 1.1rem; }
+.practice-result .practice-sub { margin-bottom: 0.75rem; }
+.practice-result li { position: relative; padding-left: 1.4rem; font-size: 0.84rem; color: #E4F0E4; line-height: 1.55; margin-bottom: 0.55rem; }
+.practice-result li::before { content: '\2713'; position: absolute; left: 0; top: 0; color: var(--sage-mid); }
+.practice-foot { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 1rem; }
+.practice-voice { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.86rem; color: #EEF4EE; text-decoration: none; }
+.practice-voice svg { transition: transform 0.2s; }
+.practice-voice:hover { color: #fff; }
+.practice-voice:hover svg { transform: translateX(2px); }
+.practice-dots { display: flex; gap: 0.4rem; }
+.practice-dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(184,208,186,0.3); transition: background 0.2s; }
+.practice-dots span.is-active { background: #D8ECD8; }
+.testimonial-row .testimonial-card.is-spotlit { box-shadow: 0 0 0 2px var(--sage), 0 12px 32px rgba(42,34,24,0.12); transition: box-shadow 0.4s; }
+@media (max-width: 480px) {
+  .practice { padding: 1.5rem 1.25rem 1rem; }
+  .practice-built { gap: 0 0.9rem; }
+}
+@media (max-width: 340px) {
+  .practice-built { grid-template-columns: 1fr; }
+}
+
 /* SERVICES */
 .services { background: var(--cream-dark); }
 .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
