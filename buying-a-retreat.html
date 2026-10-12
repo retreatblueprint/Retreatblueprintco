@@ -230,6 +230,32 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 
 [id]{scroll-margin-top:72px}
 
+
+/* Section rhythm: alternating tones, wave edges, photo bands */
+.how{background:var(--warm-white)}
+.proof-sec{background:var(--warm-white)}
+.faq{background:var(--warm-white)}
+.report,.pk{background:var(--cream-dark)}
+.trust{background:var(--sage-light)}
+.trust-grid > div{background:var(--warm-white);border:1px solid var(--border);border-top:3px solid var(--sage);border-radius:6px;padding:22px}
+.wt,.wb{position:relative}
+.wt::before,.wb::after{content:"";position:absolute;left:0;right:0;height:48px;z-index:1;pointer-events:none;-webkit-mask-size:100% 100%;mask-size:100% 100%}
+.wt::before{top:-1px;background:var(--wave);-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201440%2056%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C0%20L1440%2C0%20L1440%2C36%20C1200%2C8%20960%2C56%20720%2C32%20C480%2C8%20240%2C56%200%2C22%20Z%27/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201440%2056%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C0%20L1440%2C0%20L1440%2C36%20C1200%2C8%20960%2C56%20720%2C32%20C480%2C8%20240%2C56%200%2C22%20Z%27/%3E%3C/svg%3E")}
+.wb::after{bottom:-1px;background:var(--wave-b);-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201440%2056%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C56%20C240%2C0%20480%2C56%20720%2C24%20C960%2C0%201200%2C48%201440%2C20%20L1440%2C56%20Z%27/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201440%2056%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C56%20C240%2C0%20480%2C56%20720%2C24%20C960%2C0%201200%2C48%201440%2C20%20L1440%2C56%20Z%27/%3E%3C/svg%3E")}
+.wt > *,.wb > *{position:relative;z-index:2}
+.band > .band-bg,.band > .band-ov{position:absolute;z-index:0}
+.band-bg{background:url('assets/img/built.jpg') center 60%/cover}
+.band-ov{background:linear-gradient(90deg,rgba(10,20,12,.88) 0%,rgba(10,20,12,.84) 55%,rgba(10,20,12,.76) 100%)}
+.band > .sec{padding-top:120px;padding-bottom:120px}
+.cta{background:#1E2F21 url('assets/img/cta.jpg') center/cover;color:#EEF4EE;overflow:hidden;padding-top:128px;padding-bottom:120px}
+.cta > .cta-ov{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(20,36,22,.90),rgba(20,36,22,.80))}
+.cta .label{color:#DDB797}.cta .label::before{background:#DDB797}
+.cta .title{color:#EEF4EE}.cta .lead{color:#C2D6C2}
+.cta .email,.cta .email a{color:#E2C2A4}
+.cta .btn.primary{background:#985033;border-color:#985033;color:#fff}
+.cta .btn.primary:hover{background:#7E4029;border-color:#7E4029}
+@media (max-width:700px){.wt::before,.wb::after{height:28px}.band > .sec{padding-top:88px;padding-bottom:88px}.cta{padding-top:96px;padding-bottom:88px}}
+
 /* For real estate agents: seller and buyer cards */
 .lanes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:2.5rem 0 2rem}
 .lane{background:var(--warm-white);color:var(--earth);border-radius:8px;padding:28px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
@@ -295,7 +321,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   </div>
 </nav>
 
-<header class="hero" id="top">
+<header class="hero wb" id="top" style="--wave-b:var(--cream-dark)">
   <div class="inner">
     <div>
       <p class="label">For buyers and new owners of retreat venues</p>
@@ -328,7 +354,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   </div>
 </section>
 
-<section class="sec" id="review">
+<section class="sec wt" id="review" style="--wave:var(--cream-dark)">
   <div class="inner">
     <p class="label">Two ways I help</p>
     <h2 class="title">Before you buy, and after you get the keys</h2>
@@ -351,7 +377,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   </div>
 </section>
 
-<div class="band">
+<div class="band wt wb" style="--wave:var(--warm-white);--wave-b:var(--cream-dark)">
   <div class="band-bg" aria-hidden="true"></div>
   <div class="band-ov" aria-hidden="true"></div>
   <section class="sec">
@@ -395,7 +421,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   </div>
 </section>
 
-<section class="sec">
+<section class="sec how wt" style="--wave:var(--cream-dark)">
   <div class="inner">
     <p class="label">How it works</p>
     <h2 class="title">7 to 10 business days, inside your due diligence window</h2>
@@ -410,7 +436,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   </div>
 </section>
 
-<section class="sec trust">
+<section class="sec trust wt" style="--wave:var(--warm-white)">
   <div class="inner">
     <p class="label">Independent and confidential</p>
     <h2 class="title">A clear picture you can trust, on both sides of the deal</h2>
@@ -422,7 +448,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   </div>
 </section>
 
-<section class="sec pk" id="packages">
+<section class="sec pk wt" id="packages" style="--wave:var(--sage-light)">
   <div class="inner">
     <p class="label">Packages</p>
     <h2 class="title">A small cost against a six- or seven-figure decision</h2>
@@ -439,7 +465,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   </div>
 </section>
 
-<section class="sec">
+<section class="sec proof-sec wt" style="--wave:var(--cream-dark)">
   <div class="inner">
     <p class="label">Proof</p>
     <h2 class="title">I build the operations behind retreats like the one you're buying</h2>
@@ -461,11 +487,11 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   </div>
 </section>
 
-<section class="sec agents" id="agents">
+<section class="sec agents wt" id="agents" style="--wave:var(--warm-white)">
   <div class="inner">
     <p class="label">For real estate agents</p>
     <h2 class="title">Help retreat deals close, on both sides</h2>
-    <p class="lead">Whether you're listing a retreat property or representing a buyer, I answer the operating questions agents can't, without slowing the deal down.</p>
+    <p class="lead">Whether you're listing a retreat property or representing a buyer, I add an independent view of how the business runs, without slowing the deal down.</p>
     <div class="lanes">
       <div class="lane" id="listing-snapshot">
         <button class="lane-pages" type="button" data-viewer="snapshot" data-page="1" aria-label="Open the sample Listing Snapshot"><img src="assets/img/buying-a-retreat/sample-listing-snapshot-page-1.jpg" alt="Page 1 of the sample Listing Snapshot"><img src="assets/img/buying-a-retreat/sample-listing-snapshot-page-2.jpg" alt="Page 2 of the sample Listing Snapshot"></button>
@@ -500,7 +526,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   </div>
 </section>
 
-<section class="sec faq">
+<section class="sec faq wt" style="--wave:var(--sage-dark)">
   <div class="inner">
     <p class="label">Questions</p>
     <h2 class="title">Before you book</h2>
@@ -514,7 +540,8 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   </div>
 </section>
 
-<section class="sec cta">
+<section class="sec cta wt" style="--wave:var(--warm-white)">
+  <div class="cta-ov" aria-hidden="true"></div>
   <div class="inner">
     <p class="label">Start with a conversation</p>
     <h2 class="title">Tell me about the property you're looking at</h2>
