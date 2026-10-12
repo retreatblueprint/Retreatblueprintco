@@ -25,7 +25,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=2026-10-12c">
+<link rel="stylesheet" href="css/styles.css?v=2026-10-12d">
+<link rel="stylesheet" href="css/menu.css?v=2026-10-12d">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -45,7 +46,7 @@
 <body>
 
 <!-- NAV -->
-<nav>
+<nav data-menu>
   <a href="#" class="nav-logo-wrap">
     <!-- LOGO OPTION A: Leaf with midrib (current style, refined) -->
     <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,13 +58,17 @@
     </svg>
     <span class="nav-logo-text">Retreat Blueprint Co.</span>
   </a>
-  <div class="nav-links">
+  <div class="nav-links" id="site-menu" data-menu-links>
     <a href="#work" class="nav-link">The approach</a>
     <a href="#testimonials" class="nav-link">Testimonials</a>
     <a href="#about" class="nav-link">About</a>
     <a href="#services" class="nav-link">Services</a>
+    <a href="/buying-a-retreat" class="nav-link">Buying a retreat?</a>
   </div>
-  <a href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener" class="nav-cta">Book a call</a>
+  <div class="nav-right">
+    <a href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener" class="nav-cta">Book a call</a>
+    <button type="button" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" data-menu-toggle><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -391,7 +396,8 @@
   </div>
 </section>
 
-<script src="js/main.js?v=2026-10-12c" defer></script>
+<script src="js/main.js?v=2026-10-12d" defer></script>
+<script src="js/menu.js?v=2026-10-12d" defer></script>
 
 
 

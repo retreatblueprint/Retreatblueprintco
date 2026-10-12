@@ -1,0 +1,31 @@
+/* Phone and tablet menu, shared by every page. Links fold into a menu button below 960px. */
+.nav-right { display: flex; align-items: center; gap: 0.6rem; }
+.menu-toggle {
+  display: none; width: 40px; height: 40px; padding: 0; flex-shrink: 0;
+  border: 1px solid rgba(74,110,78,0.35); border-radius: 8px; background: transparent; cursor: pointer;
+  flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+}
+.menu-toggle span { display: block; width: 18px; height: 1.5px; background: #4A6E4E; border-radius: 1px; transition: transform 0.25s ease, opacity 0.2s ease; }
+.menu-open .menu-toggle span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+.menu-toggle:focus-visible { outline: 2px solid #4A6E4E; outline-offset: 2px; }
+
+@media (max-width: 960px) {
+  .menu-toggle { display: flex; }
+  [data-menu] [data-menu-links] { display: none !important; }
+  [data-menu].menu-open [data-menu-links] {
+    display: flex !important; flex-direction: column; align-items: stretch; gap: 0; text-align: left;
+    position: absolute; top: 100%; left: 0; right: 0;
+    padding: 0.25rem 1.25rem 0.75rem;
+    background: rgba(253,252,249,0.98); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(90,72,50,0.12);
+    box-shadow: 0 14px 28px rgba(42,34,24,0.08);
+  }
+  [data-menu].menu-open [data-menu-links] a {
+    display: block; width: 100%; padding: 0.9rem 0; font-size: 0.95rem; color: #2A2218; text-decoration: none;
+    border-bottom: 1px solid rgba(90,72,50,0.08);
+  }
+  [data-menu].menu-open [data-menu-links] a:last-child { border-bottom: none; }
+  [data-menu].menu-open [data-menu-links] a[aria-current="page"] { color: #4A6E4E; font-weight: 500; }
+}
