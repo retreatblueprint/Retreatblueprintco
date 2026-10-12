@@ -50,6 +50,7 @@ Setting the custom domain makes GitHub add a `CNAME` file to the repo. Run `git 
 - **A photo:** replace the file in `assets/img/` and keep the same filename. Keep each under about 300 KB.
   The `-1200` versions are what phones load, so replace those too.
 - **Booking link:** search `calendly.com` in `index.html` (it appears in the nav and twice on the page).
+- **After editing `styles.css` or `main.js`:** bump the `?v=` date on their links in `index.html` so browsers fetch the new file instead of a cached one.
 - **Email:** search `hello@retreatblueprintco.com` in `index.html` (CTA section and footer).
 
 ## Known limitations
