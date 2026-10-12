@@ -23,9 +23,9 @@
 :root{
   --sage:#7A9E7E; --sage-light:#EEF4EE; --sage-mid:#B8D0BA; --sage-dark:#4A6E4E;
   --cream:#FAF8F3; --cream-dark:#F0EBE0; --warm-white:#FDFCF9;
-  --earth:#2A2218; --earth-mid:#5A4832; --terracotta:#B06040; --muted:#8A806E;
+  --earth:#2A2218; --earth-mid:#5A4832; --terracotta:#985033; --muted:#6B6252;
   --border:rgba(90,72,50,0.12);
-  --on-dark-title:#EEF4EE; --on-dark-body:#A8C0A8; --on-dark-item:#D8ECD8; --clay:#C8A080;
+  --on-dark-title:#EEF4EE; --on-dark-body:#C2D6C2; --on-dark-item:#D8ECD8; --clay:#DDB797;
   --serif:"Lora", Georgia, serif; --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   color-scheme:light;
 }
@@ -66,9 +66,9 @@ a{color:inherit}
 .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,5.6vw,4rem);line-height:1.1;margin-bottom:1.5rem;text-wrap:balance}
 .hero h1 em{color:var(--sage-dark)}
 .hero .lead{margin-bottom:1rem}
-.hint{font-size:.85rem;color:var(--muted);margin-bottom:2rem;max-width:600px}
+.hint{font-size:.85rem;color:var(--earth-mid);margin-bottom:2rem;max-width:600px}
 .who{display:grid;gap:12px}
-.who-card{background:rgba(253,252,249,.85);border:1px solid var(--border);border-radius:6px;padding:20px 22px;display:grid;gap:4px}
+.who-card{background:rgba(253,252,249,.94);border:1px solid var(--border);border-radius:6px;padding:20px 22px;display:grid;gap:4px}
 .who-card .k{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
 .who-card .h{font-family:var(--serif);font-size:1.2rem;line-height:1.3}
 .who-card p{font-size:.88rem;color:var(--earth-mid)}
@@ -111,7 +111,7 @@ a{color:inherit}
 .area{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:20px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:grid;gap:6px;align-content:start}
 .area .n{font-family:var(--serif);font-size:1.4rem;color:var(--sage-mid);line-height:1}
 .area h4{font-size:.9rem;font-weight:500;color:var(--on-dark-item)}
-.area p{font-size:.8rem;line-height:1.6;color:#88A888}
+.area p{font-size:.8rem;line-height:1.6;color:#B6CEB6}
 .flags{margin-top:2.5rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 40px}
 .flags .h{grid-column:1/-1;font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--clay)}
 .flag{display:flex;gap:12px;font-size:.88rem;color:var(--on-dark-item)}
@@ -170,16 +170,16 @@ a{color:inherit}
 
 /* agents */
 .agents{background:var(--sage-dark);color:#fff}
-.agents .label{color:var(--sage-mid)}
+.agents .label{color:#E6EFE6}
 .agents .title{color:#fff}
 .agents .lead{color:var(--sage-light)}
 .agents .btn{background:#fff;color:var(--sage-dark);border-color:#fff}
-.ag-h{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-mid);margin-bottom:12px}
+.ag-h{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#E6EFE6;margin-bottom:12px}
 .ag-steps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:2rem;counter-reset:a}
 .ag-steps li{counter-increment:a;background:rgba(255,255,255,.08);border-radius:6px;padding:18px;display:grid;gap:4px;align-content:start}
 .ag-steps li::before{content:counter(a);font-family:var(--serif);font-size:1.4rem;color:var(--sage-mid);line-height:1}
 .ag-steps b{font-weight:500}
-.ag-steps p{font-size:.86rem;color:var(--sage-light)}
+.ag-steps p{font-size:.86rem;color:#F4F8F4}
 
 /* faq */
 .faq details{border-bottom:1px solid var(--border);padding:18px 0}
@@ -230,6 +230,10 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 
 [id]{scroll-margin-top:72px}
 
+
+/* Hero photo: a retreat deck (swap for a real property photo when available) */
+.hero{background:linear-gradient(105deg,rgba(250,248,243,.96) 0%,rgba(250,248,243,.88) 45%,rgba(250,248,243,.30) 100%),#EDE6DA url('assets/img/about.jpg') right 55%/cover}
+@media (max-width:860px){.hero{background:linear-gradient(180deg,rgba(250,248,243,.92) 0%,rgba(250,248,243,.86) 100%),#EDE6DA url('assets/img/about.jpg') center 55%/cover}}
 
 /* Section rhythm: alternating tones, wave edges, photo bands */
 .how{background:var(--warm-white)}
