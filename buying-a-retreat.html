@@ -232,6 +232,26 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 @media (max-width:860px){.rp-head{grid-template-columns:1fr;gap:20px}.rp-pages{grid-template-columns:repeat(5,minmax(150px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.rp-page{scroll-snap-align:start}}
 @media (max-width:480px){.nav{padding:.9rem 1.1rem;gap:.6rem}.logo{gap:.5rem;font-size:.92rem}.btn-nav{padding:.45rem .85rem;font-size:.7rem}}
 @media (max-width:360px){.logo svg{width:26px;height:26px}.logo{font-size:.82rem}.btn-nav{padding:.45rem .7rem}}
+
+/* Sample report viewer: opens over the page */
+.rp-open{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:4px;transition:transform .2s ease}
+.rp-open:hover{transform:translateY(-3px)}
+.rp-open:focus-visible{outline:2px solid var(--sage-dark);outline-offset:3px}
+.rv{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:transparent;color:var(--earth)}
+.rv[open]{display:flex;flex-direction:column}
+.rv::backdrop{background:rgba(18,26,20,.86);backdrop-filter:blur(3px)}
+.rv-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;background:#FDFCF9;border-bottom:1px solid var(--border);box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.rv-k{display:block;font-size:.66rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
+.rv-t{display:block;font-family:var(--serif);font-size:1.05rem;line-height:1.3}
+.rv-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.rv-count{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.rv-dl{font-size:.8rem;font-weight:500;color:var(--sage-dark);text-decoration:underline;text-underline-offset:3px}
+.rv-x{width:40px;height:40px;display:grid;place-items:center;border:1px solid rgba(74,110,78,.35);border-radius:8px;background:transparent;color:var(--sage-dark);cursor:pointer}
+.rv-x:hover{background:var(--sage-light)}
+.rv-x:focus-visible,.rv-dl:focus-visible{outline:2px solid var(--sage-dark);outline-offset:2px}
+.rv-body{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:28px 16px 56px;display:grid;gap:22px;justify-items:center;align-content:start}
+.rv-body img{width:100%;max-width:860px;height:auto;aspect-ratio:1400/1812;display:block;background:#fff;border-radius:3px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+@media (max-width:600px){.rv-bar{padding:10px 12px;gap:10px}.rv-t{font-size:.92rem}.rv-count{display:none}.rv-body{padding:14px 8px 40px;gap:12px}}
 </style>
 </head>
 <body>
@@ -344,9 +364,9 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
         <h2 class="title">A detailed 5-page report, so you know <em>exactly</em> what you're buying</h2>
         <p class="lead">Every review ends with a detailed 5-page report. You'll know what the business really earns and costs, what could go wrong after closing and what to ask for before you sign, plus a week-by-week plan for your first 90 days. Written in plain language and ready to share with your lawyer, accountant and agent.</p>
       </div>
-      <a class="btn primary" href="assets/docs/sample-report.pdf" target="_blank" rel="noopener">View the sample report</a>
+      <a class="btn primary" href="assets/docs/sample-report.pdf" target="_blank" rel="noopener" data-report-page="1">View the sample report</a>
     </div>
-    <div class="rp-pages"><figure class="rp-page"><img src="assets/img/buying-a-retreat/sample-report-page-1.jpg" alt="Page 1 of the sample report: Score &amp; summary" loading="lazy"><span class="n">Page 1</span><h4>Score &amp; summary</h4><p>Your Operations Health Score across 8 areas, the verified revenue and the true cost at a glance.</p></figure><figure class="rp-page"><img src="assets/img/buying-a-retreat/sample-report-page-2.jpg" alt="Page 2 of the sample report: Findings" loading="lazy"><span class="n">Page 2</span><h4>Findings</h4><p>Key business metrics, the listing checked against real records, and each risk with a suggested next step.</p></figure><figure class="rp-page"><img src="assets/img/buying-a-retreat/sample-report-page-3.jpg" alt="Page 3 of the sample report: Costs &amp; upside" loading="lazy"><span class="n">Page 3</span><h4>Costs &amp; upside</h4><p>The true monthly cost to operate, what the venue could earn with stronger operations, and the bottom line.</p></figure><figure class="rp-page"><img src="assets/img/buying-a-retreat/sample-report-page-4.jpg" alt="Page 4 of the sample report: Roadmap: before closing to day 30" loading="lazy"><span class="n">Page 4</span><h4>Roadmap: before closing to day 30</h4><p>What to secure before you sign, and how to protect bookings, accounts and the team in month one.</p></figure><figure class="rp-page"><img src="assets/img/buying-a-retreat/sample-report-page-5.jpg" alt="Page 5 of the sample report: Roadmap: days 31 to 90" loading="lazy"><span class="n">Page 5</span><h4>Roadmap: days 31 to 90</h4><p>Systems, procedures and training, then the plan to fill the calendar, with targets to track.</p></figure></div>
+    <div class="rp-pages"><figure class="rp-page"><button type="button" class="rp-open" data-report-page="1" aria-label="Open page 1 of the sample report"><img src="assets/img/buying-a-retreat/sample-report-page-1.jpg" alt="Page 1 of the sample report: Score &amp; summary" loading="lazy"></button><span class="n">Page 1</span><h4>Score &amp; summary</h4><p>Your Operations Health Score across 8 areas, the verified revenue and the true cost at a glance.</p></figure><figure class="rp-page"><button type="button" class="rp-open" data-report-page="2" aria-label="Open page 2 of the sample report"><img src="assets/img/buying-a-retreat/sample-report-page-2.jpg" alt="Page 2 of the sample report: Findings" loading="lazy"></button><span class="n">Page 2</span><h4>Findings</h4><p>Key business metrics, the listing checked against real records, and each risk with a suggested next step.</p></figure><figure class="rp-page"><button type="button" class="rp-open" data-report-page="3" aria-label="Open page 3 of the sample report"><img src="assets/img/buying-a-retreat/sample-report-page-3.jpg" alt="Page 3 of the sample report: Costs &amp; upside" loading="lazy"></button><span class="n">Page 3</span><h4>Costs &amp; upside</h4><p>The true monthly cost to operate, what the venue could earn with stronger operations, and the bottom line.</p></figure><figure class="rp-page"><button type="button" class="rp-open" data-report-page="4" aria-label="Open page 4 of the sample report"><img src="assets/img/buying-a-retreat/sample-report-page-4.jpg" alt="Page 4 of the sample report: Roadmap: before closing to day 30" loading="lazy"></button><span class="n">Page 4</span><h4>Roadmap: before closing to day 30</h4><p>What to secure before you sign, and how to protect bookings, accounts and the team in month one.</p></figure><figure class="rp-page"><button type="button" class="rp-open" data-report-page="5" aria-label="Open page 5 of the sample report"><img src="assets/img/buying-a-retreat/sample-report-page-5.jpg" alt="Page 5 of the sample report: Roadmap: days 31 to 90" loading="lazy"></button><span class="n">Page 5</span><h4>Roadmap: days 31 to 90</h4><p>Systems, procedures and training, then the plan to fill the calendar, with targets to track.</p></figure></div>
     <p class="rp-note">Sample report for a fictional venue, prepared as an On-Site Review. Every report is prepared under NDA and released only with your permission.</p>
   </div>
 </section>
@@ -463,6 +483,50 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 </section>
 
 <footer><span class="f-logo">Retreat Blueprint Co.</span><span>© 2026 · <a href="mailto:hello@retreatblueprintco.com">hello@retreatblueprintco.com</a></span></footer>
+<dialog class="rv" id="reportViewer" aria-labelledby="rvTitle">
+  <div class="rv-bar">
+    <div><span class="rv-k">Sample report</span><span class="rv-t" id="rvTitle">Casa Ceiba Retreat (fictional venue)</span></div>
+    <div class="rv-actions">
+      <span class="rv-count" id="rvCount" aria-live="polite">Page 1 of 5</span>
+      <a class="rv-dl" href="assets/docs/sample-report.pdf" download>Download PDF</a>
+      <button type="button" class="rv-x" id="rvClose" aria-label="Close sample report"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+  <div class="rv-body" id="rvBody">
+    <img id="rv-p1" data-n="1" src="assets/img/buying-a-retreat/sample-report-full-1.jpg" alt="Sample report, page 1 of 5" width="1400" height="1812" loading="lazy" decoding="async">
+    <img id="rv-p2" data-n="2" src="assets/img/buying-a-retreat/sample-report-full-2.jpg" alt="Sample report, page 2 of 5" width="1400" height="1812" loading="lazy" decoding="async">
+    <img id="rv-p3" data-n="3" src="assets/img/buying-a-retreat/sample-report-full-3.jpg" alt="Sample report, page 3 of 5" width="1400" height="1812" loading="lazy" decoding="async">
+    <img id="rv-p4" data-n="4" src="assets/img/buying-a-retreat/sample-report-full-4.jpg" alt="Sample report, page 4 of 5" width="1400" height="1812" loading="lazy" decoding="async">
+    <img id="rv-p5" data-n="5" src="assets/img/buying-a-retreat/sample-report-full-5.jpg" alt="Sample report, page 5 of 5" width="1400" height="1812" loading="lazy" decoding="async">
+  </div>
+</dialog>
+<script>
+(function () {
+  var dlg = document.getElementById('reportViewer');
+  if (!dlg || typeof dlg.showModal !== 'function') return; // old browsers keep the plain PDF link
+  var body = document.getElementById('rvBody'), count = document.getElementById('rvCount');
+  function open(n) {
+    dlg.showModal();
+    document.documentElement.style.overflow = 'hidden';
+    var pg = document.getElementById('rv-p' + n);
+    body.scrollTop = n > 1 && pg ? pg.getBoundingClientRect().top - body.getBoundingClientRect().top + body.scrollTop - 16 : 0;
+    count.textContent = 'Page ' + n + ' of 5';
+  }
+  document.querySelectorAll('[data-report-page]').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); open(+el.getAttribute('data-report-page')); });
+  });
+  document.getElementById('rvClose').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('close', function () { document.documentElement.style.overflow = ''; });
+  // Clicking the dark area around the pages closes the viewer
+  dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target === body) dlg.close(); });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) count.textContent = 'Page ' + en.target.getAttribute('data-n') + ' of 5'; });
+    }, { root: body, rootMargin: '-45% 0px -45% 0px' });
+    body.querySelectorAll('img').forEach(function (img) { io.observe(img); });
+  }
+})();
+</script>
 <script src="js/menu.js?v=2026-10-12d" defer></script>
 </body>
 </html>
