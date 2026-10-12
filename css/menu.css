@@ -29,3 +29,18 @@
   [data-menu].menu-open [data-menu-links] a:last-child { border-bottom: none; }
   [data-menu].menu-open [data-menu-links] a[aria-current="page"] { color: #4A6E4E; font-weight: 500; }
 }
+
+/* Small phones: keep logo, Book a call and the menu button on one line */
+@media (max-width: 400px) {
+  [data-menu] { padding-left: 0.9rem; padding-right: 0.9rem; gap: 0.4rem; }
+  [data-menu] .nav-right { gap: 0.4rem; }
+  [data-menu] .nav-logo-wrap, [data-menu] .logo { gap: 0.4rem; min-width: 0; font-size: 0.86rem; }
+  [data-menu] .nav-logo-text { font-size: 0.86rem; }
+  [data-menu] .nav-logo-icon, [data-menu] .logo svg { width: 26px; height: 26px; flex-shrink: 0; }
+  [data-menu] .nav-cta, [data-menu] .btn-nav { padding: 0.42rem 0.65rem; font-size: 0.66rem; letter-spacing: 0.05em; }
+  [data-menu] .menu-toggle { width: 38px; height: 38px; }
+}
+/* Very small phones: "Book a call" buttons stay on the page itself */
+@media (max-width: 340px) {
+  [data-menu] .nav-cta, [data-menu] .btn-nav { display: none; }
+}
