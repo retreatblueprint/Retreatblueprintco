@@ -260,6 +260,19 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 .cta .btn.primary:hover{background:#7E4029;border-color:#7E4029}
 @media (max-width:700px){.wt::before,.wb::after{height:28px}.band > .sec{padding-top:88px;padding-bottom:88px}.cta{padding-top:96px;padding-bottom:88px}}
 
+/* Packages: outcome-led lists */
+.pkg{display:flex !important;flex-direction:column;gap:12px !important}
+.pkg-for{font-family:var(--serif);font-style:italic;font-size:1.02rem;line-height:1.4;color:var(--earth-mid);margin-top:-4px}
+.pkg .price{margin-top:4px}
+.pkg-h{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-dark);border-top:1px solid var(--border);padding-top:14px;margin-top:4px}
+.pkg .pkg-h + ul{border-top:0;padding-top:0}
+.pkg ul + .pkg-h{border-top:0;padding-top:6px}
+.pkg-credit{align-self:flex-start;font-size:.8rem;font-weight:500;color:#7E4029;background:#F6E9DF;border-radius:3px;padding:4px 9px}
+.pkg-meta{margin-top:auto;display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted);border-top:1px solid var(--border);padding-top:14px}
+.pkg.feature{position:relative}
+.pkg-badge{position:absolute;top:-11px;right:22px;background:var(--sage-dark);color:#fff;font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:3px}
+.pkg-meta svg{width:16px;height:16px;flex:none;color:var(--sage-dark)}
+
 /* For real estate agents: seller and buyer cards */
 .lanes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:2.5rem 0 2rem}
 .lane{background:var(--warm-white);color:var(--earth);border-radius:8px;padding:28px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
@@ -457,12 +470,28 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
     <p class="label">Packages</p>
     <h2 class="title">A small cost against a six- or seven-figure decision</h2>
     <div class="pkgs">
-      <div class="pkg"><span class="tag">Remote · Anywhere in the world</span><h3>Desk Review</h3><p class="price">$1,200</p>
-        <ul><li>Remote review of all 8 areas</li><li>Mystery-shop inquiry test</li><li>5-page written report and scorecard</li><li>60-minute debrief</li><li>7 business days</li></ul></div>
-      <div class="pkg feature"><span class="tag">Before you make an offer</span><h3>On-Site Review</h3><p class="price">$2,500 <small>+ travel</small></p>
-        <ul><li>Everything in the Desk Review</li><li>2–3 days on the property</li><li>In-person guest experience audit</li><li>Changeover or live retreat observed</li><li>Team interviews and assessment</li><li>Calls with past retreat leaders</li><li>Upside plan: the venue's earning potential</li><li>10 business days</li></ul></div>
-      <div class="pkg"><span class="tag">After closing</span><h3>The First 90 Days</h3><p class="price"><small>Priced on scope · Half your review fee credited</small></p>
-        <ul><li>Seller handover and know-how captured</li><li>A streamlined operating system: one place to see administration, finances and client relationships</li><li>Every booked guest and leader kept</li><li>Team steadied, roles and SOPs set</li><li>Cash flow, pricing and a numbers dashboard</li><li>Calendar filled and a 12-month growth plan</li></ul></div>
+      <div class="pkg"><span class="tag">Remote · Anywhere in the world</span><h3>Desk Review</h3>
+        <p class="pkg-for">Know what you're really buying, without getting on a plane.</p>
+        <p class="price">$1,200</p>
+        <p class="pkg-h">What you get</p>
+        <ul><li>An Operations Health Score across all 8 areas</li><li>The listing's numbers checked against real records</li><li>The true monthly cost to run it under new ownership</li><li>Every risk flagged, with a suggested next step</li><li>A mystery-shop inquiry, so you see what guests see</li><li>A 5-page report with a week-by-week 90-day roadmap</li><li>A 60-minute debrief on findings and negotiation points</li></ul>
+        <p class="pkg-meta"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Delivered in 7 business days</p></div>
+      <div class="pkg feature"><span class="pkg-badge">Most complete</span><span class="tag">Before you make an offer</span><h3>On-Site Review</h3>
+        <p class="pkg-for">See the operation running before you sign.</p>
+        <p class="price">$2,500 <small>+ travel</small></p>
+        <p class="pkg-h">Everything in the Desk Review, plus</p>
+        <ul><li>2–3 days on the property with the owner and team</li><li>A changeover or live retreat observed first-hand</li><li>The guest experience tested in person</li><li>Team interviews: who does what, and who the business depends on</li><li>Calls with past retreat leaders, to test whether they'll keep booking</li><li>An upside plan: what the venue could earn with stronger operations</li></ul>
+        <p class="pkg-meta"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Delivered in 10 business days</p></div>
+      <div class="pkg"><span class="tag">After closing</span><h3>The First 90 Days</h3>
+        <p class="pkg-for">Take over without losing a season.</p>
+        <p class="price"><small>Priced on scope</small></p>
+        <p class="pkg-credit">Half your review fee credited</p>
+        <p class="pkg-h">Days 1–30 · Protect</p>
+        <ul><li>The seller's know-how captured before they leave</li><li>Every booked guest and retreat leader kept</li><li>The team steadied through the handover</li></ul>
+        <p class="pkg-h">Days 31–60 · Build</p>
+        <ul><li>One operating system for administration, finances and client relationships</li><li>Clear roles and SOPs</li><li>Cash flow, pricing and a numbers dashboard</li></ul>
+        <p class="pkg-h">Days 61–90 · Grow</p>
+        <ul><li>The calendar filled and past guests reconnected</li><li>A 12-month growth plan</li></ul></div>
     </div>
     <div class="remote"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#4A6E4E" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg><div><b>Buying a retreat property anywhere in the world?</b><p>The Desk Review is fully remote, so it works for retreat venues in any country, and for buyers who can't be on site yet.</p></div></div>
     <p class="fine">This review covers operations only. Legal, structural and tax checks stay with your lawyer, inspector and accountant.</p>
