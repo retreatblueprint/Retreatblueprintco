@@ -14,7 +14,9 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="stylesheet" href="css/menu.css?v=2026-10-12e">
+<link rel="stylesheet" href="css/menu.css?v=2026-10-13a">
+<link rel="preconnect" href="https://calendly.com">
+<link rel="preconnect" href="https://assets.calendly.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap">
@@ -188,6 +190,9 @@ a{color:inherit}
 .faq summary::after{content:"+";color:var(--sage-dark);font-size:1.2rem;line-height:1}
 .faq details[open] summary::after{content:"\2013"}
 .faq details p{margin-top:10px;color:var(--earth-mid);max-width:680px}
+.faq details{overflow:hidden}
+.faq summary::after{transition:transform .25s ease}
+.faq details[open] summary::after{transform:rotate(180deg)}
 
 /* cta */
 .cta{background:var(--cream-dark);text-align:center}
@@ -303,9 +308,13 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 .rp-open{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:4px;transition:transform .2s ease}
 .rp-open:hover{transform:translateY(-3px)}
 .rp-open:focus-visible{outline:2px solid var(--sage-dark);outline-offset:3px}
-.rv{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:transparent;color:var(--earth)}
+.rv{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:rgba(18,26,20,.86);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);color:var(--earth);opacity:0;transition:opacity .28s ease}
+.rv.is-in{opacity:1}
+.rv .rv-body{transform:translateY(14px);transition:transform .32s ease}
+.rv.is-in .rv-body{transform:none}
+@media (prefers-reduced-motion:reduce){.rv,.rv .rv-body{transition:none}}
 .rv[open]{display:flex;flex-direction:column}
-.rv::backdrop{background:rgba(18,26,20,.86);backdrop-filter:blur(3px)}
+.rv::backdrop{background:transparent}
 .rv-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;background:#FDFCF9;border-bottom:1px solid var(--border);box-shadow:0 6px 20px rgba(0,0,0,.12)}
 .rv-k{display:block;font-size:.66rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
 .rv-t{display:block;font-family:var(--serif);font-size:1.05rem;line-height:1.3}
@@ -536,13 +545,13 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
         <button class="btn" type="button" data-viewer="snapshot" data-page="1">See a sample Listing Snapshot</button>
       </div>
       <div class="lane">
-        <a class="lane-pages" href="#sample" aria-label="See the sample Pre-Purchase report"><img src="assets/img/buying-a-retreat/sample-report-page-1.jpg" alt="Page 1 of the sample Pre-Purchase report"><img src="assets/img/buying-a-retreat/sample-report-page-4.jpg" alt="Page 4 of the sample Pre-Purchase report"></a>
+        <a class="lane-pages" href="#sample" data-viewer="report" data-page="1" aria-label="Open the sample Pre-Purchase report"><img src="assets/img/buying-a-retreat/sample-report-page-1.jpg" alt="Page 1 of the sample Pre-Purchase report"><img src="assets/img/buying-a-retreat/sample-report-page-4.jpg" alt="Page 4 of the sample Pre-Purchase report"></a>
         <span class="lane-k">For your buyers · Pre-Purchase Review</span>
         <h3>Help your buyers close with confidence</h3>
         <p>I don't tell buyers whether to buy. I give them a clear picture and a plan, inside their due diligence window.</p>
         <ul><li>A detailed 5-page report</li><li>Delivered within 10 business days</li><li>Support through their first 90 days</li></ul>
         <p class="lane-price">From $1,200</p>
-        <a class="btn" href="#sample">See the sample report</a>
+        <a class="btn" href="#sample" data-viewer="report" data-page="1">See the sample report</a>
       </div>
     </div>
     <div class="ag-perks">
@@ -566,7 +575,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
     <details><summary>Does this replace a lawyer or building inspection?</summary><p>No. I review how the business operates and flag anything your lawyer, inspector or accountant should look at.</p></details>
     <details><summary>How is this different from my accountant?</summary><p>Your accountant checks the books, taxes and how the deal is structured. I look at whether the revenue keeps coming under a new owner: bookings, guests, team and systems. I work alongside your accountant and flag anything they should look at.</p></details>
     <details><summary>What if some records aren't available?</summary><p>That's common with small venues. I work from what's available, such as booking platforms, reviews and a mystery-shop inquiry, and note anything to follow up before closing.</p></details>
-    <details><summary>Selling a retreat property? Can you help?</summary><p>Yes. A <a href="#listing-snapshot" style="color:var(--sage-dark)">Listing Snapshot</a> gives buyers an independent picture of how your business runs before they offer, so serious buyers move faster. It's priced per property.</p></details>
+    <details><summary>Selling a retreat property? Can you help?</summary><p>Yes. A <a href="#listing-snapshot" data-viewer="snapshot" data-page="1" style="color:var(--sage-dark)">Listing Snapshot</a> gives buyers an independent picture of how your business runs before they offer, so serious buyers move faster. It's priced per property.</p></details>
 <details><summary>I already bought. Is it too late?</summary><p>Not at all. The 90-day plan is built for new owners, and it works best in your first season.</p></details>
     <details><summary>Where do you work?</summary><p>On-site reviews across Costa Rica, Panama, Nicaragua and Guatemala. Remote Desk Reviews are available for retreat properties anywhere in the world.</p></details>
     <details><summary>Can I compare two or three properties?</summary><p>Yes. Many buyers start with Desk Reviews on a shortlist, then book an On-Site Review for the one they want to offer on.</p></details>
@@ -612,7 +621,14 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
     report:   { kicker: 'Sample report', title: 'Casa Ceiba Retreat (fictional venue)', pdf: 'assets/docs/sample-report.pdf', pages: 5 },
     snapshot: { kicker: 'Sample Listing Snapshot', title: 'Casa Montaña Retreat (fictional venue)', pdf: 'assets/docs/sample-listing-snapshot.pdf', pages: 2 }
   };
-  var body = document.getElementById('rvBody'), count = document.getElementById('rvCount'), current = 'report';
+  var body = document.getElementById('rvBody'), count = document.getElementById('rvCount'), current = 'report', closing;
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function shut() {
+    if (!dlg.open) return;
+    dlg.classList.remove('is-in');
+    clearTimeout(closing);
+    closing = setTimeout(function () { dlg.close(); }, calm ? 0 : 280); // let the fade finish
+  }
   function setCount(n) { count.textContent = 'Page ' + n + ' of ' + docs[current].pages; }
   function open(doc, n) {
     current = doc; var d = docs[doc];
@@ -621,8 +637,10 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
     document.getElementById('rvPdf').setAttribute('href', d.pdf);
     dlg.setAttribute('aria-label', d.kicker);
     body.querySelectorAll('img').forEach(function (img) { img.hidden = img.getAttribute('data-doc') !== doc; });
+    clearTimeout(closing);
     dlg.showModal();
     document.documentElement.style.overflow = 'hidden';
+    requestAnimationFrame(function () { requestAnimationFrame(function () { dlg.classList.add('is-in'); }); });
     var pg = document.getElementById('rv-' + doc + '-' + n);
     body.scrollTop = n > 1 && pg ? pg.getBoundingClientRect().top - body.getBoundingClientRect().top + body.scrollTop - 16 : 0;
     setCount(n);
@@ -630,16 +648,44 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   document.querySelectorAll('[data-viewer]').forEach(function (el) {
     el.addEventListener('click', function (e) { e.preventDefault(); open(el.getAttribute('data-viewer'), +(el.getAttribute('data-page') || 1)); });
   });
-  document.getElementById('rvClose').addEventListener('click', function () { dlg.close(); });
-  dlg.addEventListener('close', function () { document.documentElement.style.overflow = ''; });
+  document.getElementById('rvClose').addEventListener('click', shut);
+  dlg.addEventListener('cancel', function (e) { e.preventDefault(); shut(); }); // Esc key fades out too
+  dlg.addEventListener('close', function () { dlg.classList.remove('is-in'); document.documentElement.style.overflow = ''; });
   // Clicking the dark area around the pages closes the viewer
-  dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target === body) dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target === body) shut(); });
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting && !en.target.hidden) setCount(en.target.getAttribute('data-n')); });
     }, { root: body, rootMargin: '-45% 0px -45% 0px' });
     body.querySelectorAll('img').forEach(function (img) { io.observe(img); });
   }
+})();
+</script>
+<script>
+// FAQ: questions slide open and closed, and only one stays open at a time
+(function () {
+  var items = Array.prototype.slice.call(document.querySelectorAll('.faq details'));
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animate(d, open) {
+    var summary = d.querySelector('summary');
+    if (d._anim) d._anim.cancel();
+    var start = d.offsetHeight;
+    if (open) d.open = true;
+    var end = open ? d.scrollHeight : summary.offsetHeight + parseFloat(getComputedStyle(d).paddingTop) + parseFloat(getComputedStyle(d).paddingBottom);
+    if (calm || !d.animate) { if (!open) d.open = false; return; }
+    d._anim = d.animate({ height: [start + 'px', end + 'px'] }, { duration: 280, easing: 'ease' });
+    d._anim.onfinish = function () { d._anim = null; if (!open) d.open = false; };
+    d._anim.oncancel = function () { d._anim = null; };
+  }
+  items.forEach(function (d) {
+    d.querySelector('summary').addEventListener('click', function (e) {
+      e.preventDefault();
+      var opening = !d.open || (d._anim && d._closing);
+      items.forEach(function (o) { if (o !== d && o.open) { o._closing = true; animate(o, false); } });
+      d._closing = !opening;
+      animate(d, opening);
+    });
+  });
 })();
 </script>
 <script src="js/menu.js?v=2026-10-12d" defer></script>
