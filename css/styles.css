@@ -239,6 +239,9 @@ section { padding: 6rem 2.5rem; }
 .service-items { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
 .service-items li { font-size: 0.79rem; color: var(--text-muted); padding-left: 1rem; position: relative; line-height: 1.55; }
 .service-items li::before { content: '–'; position: absolute; left: 0; color: var(--sage-mid); }
+.service-price-note { font-size: 0.76rem; color: var(--text-muted); margin: -0.75rem 0 1rem; line-height: 1.5; }
+.service-roles { gap: 0.7rem; }
+.service-roles li b { display: block; font-weight: 500; color: var(--earth); font-size: 0.82rem; margin-bottom: 0.1rem; }
 
 /* HOW */
 .how { background: var(--warm-white); }
