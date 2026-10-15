@@ -27,8 +27,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=2026-10-15b">
-<link rel="stylesheet" href="css/menu.css?v=2026-10-13a">
+<link rel="stylesheet" href="css/styles.css?v=2026-10-16a">
+<link rel="stylesheet" href="css/menu.css?v=2026-10-16a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -65,8 +65,14 @@
     <a href="#work" class="nav-link">The approach</a>
     <a href="#testimonials" class="nav-link">Testimonials</a>
     <a href="#about" class="nav-link">About</a>
-    <a href="#services" class="nav-link">Services</a>
-    <a href="/buying-a-retreat" class="nav-link">Buying a retreat?</a>
+    <div class="nav-dd" data-dd><button type="button" class="nav-link dd-btn" aria-expanded="false" aria-controls="svc-menu">Services <svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="dd-panel" id="svc-menu">
+      <a href="/foundation-sprint"><b>Foundation sprint</b><span>The systems your retreat runs on, built in one go</span></a>
+      <a href="/strategy-retainer"><b>Strategy retainer</b><span>A monthly partner for direction and growth</span></a>
+      <a href="/concierge-ops"><b>Concierge ops</b><span>Your day-to-day admin, handled</span></a>
+      <a href="/growth-marketing"><b>Growth marketing</b><span>Get your retreat seen by the right people</span></a>
+      <a href="/buying-a-retreat" class="dd-feature"><b>Buying a retreat? <i>New</i></b><span>Pre-purchase review and your first 90 days</span></a>
+      <a href="/#services" class="dd-all">Compare all services →</a>
+    </div></div>
   </div>
   <div class="nav-right">
     <a href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener" class="nav-cta">Book a call</a>
@@ -400,7 +406,7 @@
 </section>
 
 <script src="js/main.js?v=2026-10-12d" defer></script>
-<script src="js/menu.js?v=2026-10-12d" defer></script>
+<script src="js/menu.js?v=2026-10-16a" defer></script>
 
 
 
@@ -486,6 +492,7 @@
           <li>Guest welcome package</li>
           <li>SOPs and operational tools</li>
         </ul>
+        <a class="service-more" href="/foundation-sprint">See foundation sprint details <span aria-hidden="true">→</span></a>
       </div>
 
       <div class="service-card s2">
@@ -500,6 +507,7 @@
           <li>Ongoing SOP refinements</li>
           <li>Growth planning</li>
         </ul>
+        <a class="service-more" href="/strategy-retainer">See strategy retainer details <span aria-hidden="true">→</span></a>
       </div>
 
       <div class="service-card s3">
@@ -514,6 +522,7 @@
           <li><b>Retreats that run smoothly</b>Organizers kept in the loop, with rooming lists and schedules ready before anyone arrives.</li>
           <li><b>Books you can trust</b>Invoices sent, payments tracked, and records organized in one place.</li>
         </ul>
+        <a class="service-more" href="/concierge-ops">See concierge ops details <span aria-hidden="true">→</span></a>
       </div>
 
       <div class="service-card s4">
@@ -534,7 +543,32 @@
           <li>Dedicated marketing lead, fully managed</li>
           <li>Content creation handled end to end</li>
         </ul>
+        <a class="service-more" href="/growth-marketing">See growth marketing details <span aria-hidden="true">→</span></a>
       </div>
+
+      <a class="service-card wide buy" href="/buying-a-retreat">
+        <div class="buy-intro">
+          <span class="service-num">05</span>
+          <span class="service-tag">For buyers and new owners</span>
+          <p class="service-name">Buying a retreat</p>
+          <p class="service-desc">An independent look at how the business really runs before you sign, then hands-on help so you take over without losing a season.</p>
+          <span class="service-more as-text">See the buyer's page <span aria-hidden="true">→</span></span>
+        </div>
+        <div class="buy-pkgs">
+          <div class="buy-pkg">
+            <p class="buy-k">Before you buy</p>
+            <p class="buy-h">Pre-Purchase Operations Review</p>
+            <p class="service-price">From $1,200 · Desk or On-Site</p>
+            <ul class="service-items"><li>Operations Health Score across 8 areas</li><li>The listing's numbers checked against real records</li><li>A 5-page report and a 90-day roadmap</li></ul>
+          </div>
+          <div class="buy-pkg">
+            <p class="buy-k">After you get the keys</p>
+            <p class="buy-h">The First 90 Days</p>
+            <p class="service-price">Priced on scope · half your review fee credited</p>
+            <ul class="service-items"><li>Seller's know-how captured before they leave</li><li>Every booked guest and retreat leader kept</li><li>One operating system, then a 12-month growth plan</li></ul>
+          </div>
+        </div>
+      </a>
 
     </div>
   </div>

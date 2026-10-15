@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concierge Ops · Retreat Blueprint Co.</title>
+<meta name="description" content="A dedicated team, led by your Retreat Operations Director, runs your retreat's day-to-day admin: inquiries, guests, coordination and the back office. From $250 a month.">
+<meta property="og:title" content="Concierge Ops: your day-to-day admin, handled.">
+<meta property="og:description" content="Inquiries answered fast, guests looked after, invoices tracked. From $250 a month.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://retreatblueprintco.com/concierge-ops">
+<meta property="og:image" content="https://retreatblueprintco.com/assets/img/buying-a-retreat/sample-report-page-1.jpg">
+<link rel="canonical" href="https://retreatblueprintco.com/concierge-ops">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="css/menu.css?v=2026-10-16a">
+<link rel="preconnect" href="https://calendly.com">
+<link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: a sub-page of retreatblueprintco.com, built from the live site's own tokens — cream sections, one dark forest band, Lora headings, dash labels */
+:root{
+  --sage:#7A9E7E; --sage-light:#EEF4EE; --sage-mid:#B8D0BA; --sage-dark:#4A6E4E;
+  --cream:#FAF8F3; --cream-dark:#F0EBE0; --warm-white:#FDFCF9;
+  --earth:#2A2218; --earth-mid:#5A4832; --terracotta:#985033; --muted:#6B6252;
+  --border:rgba(90,72,50,0.12);
+  --on-dark-title:#EEF4EE; --on-dark-body:#C2D6C2; --on-dark-item:#D8ECD8; --clay:#DDB797;
+  --serif:"Lora", Georgia, serif; --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--warm-white);color:var(--earth);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+
+/* nav (matches live site) */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;padding:1.25rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:16px;background:rgba(253,252,249,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:.75rem;font-family:var(--serif);font-size:1rem;font-weight:500;text-decoration:none;color:var(--earth);white-space:nowrap}
+.logo svg{width:32px;height:32px}
+.nav-right{display:flex;align-items:center;gap:10px}
+.links{display:flex;gap:1.75rem;font-size:.82rem;color:var(--earth-mid)}
+.links a{text-decoration:none}
+.links a.here{color:var(--sage-dark);font-weight:500}
+.btn-nav{border:1px solid var(--sage-dark);color:var(--sage-dark);border-radius:4px;padding:.55rem 1rem;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+
+/* shared */
+.sec{padding:96px 40px}
+.inner{max-width:960px;margin:0 auto}
+.label{display:flex;align-items:center;gap:.6rem;font-size:.72rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--terracotta);margin-bottom:1rem}
+.label::before{content:"";width:22px;height:1px;background:currentColor}
+.title{font-family:var(--serif);font-weight:400;font-size:2.5rem;line-height:1.2;margin-bottom:1.25rem;text-wrap:balance}
+.title em{font-style:italic;color:var(--sage-dark)}
+.lead{color:var(--earth-mid);max-width:600px}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:4px;font-size:.9rem;font-weight:500;text-decoration:none;border:1px solid var(--sage-dark)}
+.btn.primary{background:var(--sage-dark);color:#fff}
+.btn.text{border:none;border-bottom:1px solid var(--earth-mid);border-radius:0;padding:.4rem 0;color:var(--earth-mid)}
+.btn:focus-visible,summary:focus-visible,.links a:focus-visible{outline:2px solid var(--sage-dark);outline-offset:3px}
+.row{display:flex;flex-wrap:wrap;gap:20px;align-items:center}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:120px 40px 110px;background:
+  radial-gradient(70% 90% at 85% 10%, rgba(122,158,126,.35), transparent 70%),
+  radial-gradient(60% 80% at 100% 100%, rgba(74,110,78,.25), transparent 70%),
+  linear-gradient(180deg, var(--sage-light), var(--cream))}
+.hero .inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,5.6vw,4rem);line-height:1.1;margin-bottom:1.5rem;text-wrap:balance}
+.hero h1 em{color:var(--sage-dark)}
+.hero .lead{margin-bottom:1rem}
+.hint{font-size:.85rem;color:var(--earth-mid);margin-bottom:2rem;max-width:600px}
+.who{display:grid;gap:12px}
+.who-card{background:rgba(253,252,249,.94);border:1px solid var(--border);border-radius:6px;padding:20px 22px;display:grid;gap:4px}
+.who-card .k{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
+.who-card .h{font-family:var(--serif);font-size:1.2rem;line-height:1.3}
+.who-card p{font-size:.88rem;color:var(--earth-mid)}
+.who-card a{font-size:.82rem;color:var(--sage-dark);font-weight:500;text-decoration:none}
+
+/* gap */
+.gap{background:var(--cream-dark)}
+.gap-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:2.5rem}
+.gap-grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gap-grid > div{border:1px solid var(--border);border-radius:6px;padding:24px;background:var(--warm-white);display:grid;gap:6px}
+.gap-grid .k{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gap-grid .v{font-family:var(--serif);font-size:1.35rem;line-height:1.25}
+.gap-grid .me{background:var(--sage-dark);border-color:var(--sage-dark);color:#fff}
+.gap-grid .me .k{color:var(--sage-mid)}
+.gap-quote{margin-top:2.5rem;font-family:var(--serif);font-size:1.35rem;line-height:1.5;color:var(--earth-mid);max-width:720px;font-style:italic}
+
+/* offers (two paths) */
+.paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:2.5rem}
+.path{border:1px solid var(--border);border-radius:6px;padding:32px;background:var(--warm-white);display:grid;gap:16px;align-content:start}
+.path .step{font-family:var(--serif);font-size:2.4rem;line-height:1;color:var(--sage-mid)}
+.path h3{font-family:var(--serif);font-weight:400;font-size:1.6rem;line-height:1.2}
+.path .for{font-size:.82rem;color:var(--terracotta);font-weight:500}
+.path p{color:var(--earth-mid);font-size:.95rem}
+.path ul{list-style:none;display:grid;gap:8px}
+.path li{position:relative;padding-left:18px;font-size:.92rem}
+.path li::before{content:"";position:absolute;left:0;top:.65em;width:6px;height:6px;border-radius:50%;background:var(--sage)}
+
+/* dark band: what I review */
+.band{position:relative;overflow:hidden;color:var(--on-dark-title)}
+.band-bg{position:absolute;inset:0;background:
+  radial-gradient(55% 50% at 80% 20%, rgba(150,170,90,.5), transparent 70%),
+  radial-gradient(45% 40% at 95% 75%, rgba(110,130,60,.4), transparent 70%),
+  linear-gradient(160deg,#3E5A2C,#1F3420 45%,#0E1A10)}
+.band-ov{position:absolute;inset:0;background:linear-gradient(90deg, rgba(10,20,12,.86) 0%, rgba(10,20,12,.78) 55%, rgba(10,20,12,.5) 100%)}
+.band .sec{position:relative}
+.band .label{color:var(--sage-mid)}
+.band .title{color:var(--on-dark-title)}
+.band .lead{color:var(--on-dark-body)}
+.areas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:2.5rem}
+.area{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:20px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:grid;gap:6px;align-content:start}
+.area .n{font-family:var(--serif);font-size:1.4rem;color:var(--sage-mid);line-height:1}
+.area h4{font-size:.9rem;font-weight:500;color:var(--on-dark-item)}
+.area p{font-size:.8rem;line-height:1.6;color:#B6CEB6}
+.flags{margin-top:2.5rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 40px}
+.flags .h{grid-column:1/-1;font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--clay)}
+.flag{display:flex;gap:12px;font-size:.88rem;color:var(--on-dark-item)}
+.flag span{flex:none;width:20px;height:20px;border-radius:3px;background:rgba(200,160,128,.2);color:var(--clay);display:grid;place-items:center;font-size:.72rem;font-weight:600}
+
+/* process */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;margin-top:2.5rem;counter-reset:s}
+.steps li{counter-increment:s;border-top:1px solid var(--sage);padding-top:16px;display:grid;gap:6px;align-content:start}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);font-size:1.5rem;color:var(--sage)}
+.steps h4{font-size:.92rem;font-weight:500}
+.steps .d{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--terracotta)}
+.steps p{font-size:.85rem;color:var(--earth-mid)}
+
+/* timing + trust + about */
+.timing{margin-top:1.5rem;background:var(--sage-light);border-radius:6px;padding:18px 22px;display:grid;gap:4px;max-width:760px}
+.timing .k{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-dark)}
+.timing p{font-size:.92rem;color:var(--earth-mid)}
+.trust{background:var(--cream-dark)}
+.trust-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:2rem}
+.trust-grid > div{border-top:2px solid var(--sage);padding-top:14px;display:grid;gap:6px}
+.trust-grid b{font-family:var(--serif);font-weight:500;font-size:1.15rem}
+.trust-grid p{font-size:.9rem;color:var(--earth-mid)}
+.me-row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--border)}
+.avatar{width:96px;height:96px;border-radius:50%;background:var(--sage-light);border:1px solid var(--sage-mid);display:block;object-fit:cover}
+.me-row p{color:var(--earth-mid);max-width:620px}
+.me-row a{color:var(--sage-dark);font-weight:500;text-decoration:none;font-size:.9rem}
+.remote{margin-top:1.25rem;display:flex;gap:12px;align-items:flex-start;background:var(--warm-white);border:1px solid var(--border);border-radius:6px;padding:16px 20px;max-width:760px}
+.remote b{display:block}
+.remote p{font-size:.9rem;color:var(--earth-mid)}
+.remote svg{flex:none;width:22px;height:22px;margin-top:2px}
+
+/* packages */
+.pk{background:var(--cream)}
+.pkgs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:2.5rem}
+.pkg{border:1px solid var(--border);border-radius:6px;background:var(--warm-white);padding:30px;display:grid;gap:14px;align-content:start}
+.pkg.feature{border:1.5px solid var(--sage-dark)}
+.pkg .tag{justify-self:start;font-size:.66rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;background:var(--sage-light);color:var(--sage-dark);padding:4px 9px;border-radius:2px}
+.pkg h3{font-family:var(--serif);font-weight:400;font-size:1.45rem}
+.pkg .price{font-family:var(--serif);font-size:2.2rem;line-height:1}
+.pkg .price small{font-family:var(--sans);font-size:.85rem;color:var(--muted)}
+.pkg ul{list-style:none;display:grid;gap:7px;border-top:1px solid var(--border);padding-top:14px}
+.pkg li{position:relative;padding-left:18px;font-size:.88rem;color:var(--earth-mid)}
+.pkg li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--sage)}
+.fine{margin-top:1.5rem;font-size:.85rem;color:var(--muted);max-width:720px}
+
+/* proof */
+.proof-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:2.5rem}
+.proof{border:1px solid var(--border);border-radius:6px;padding:28px;display:grid;gap:10px;background:var(--warm-white)}
+.proof .loc{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--terracotta)}
+.proof h3{font-family:var(--serif);font-weight:400;font-size:1.3rem;line-height:1.3}
+.proof ul{list-style:none;display:grid;gap:6px}
+.proof li{position:relative;padding-left:20px;font-size:.88rem;color:var(--earth-mid)}
+.proof li::before{content:"\2713";position:absolute;left:0;color:var(--sage-dark);font-weight:600}
+.proof blockquote{border-top:1px solid var(--border);padding-top:12px;font-family:var(--serif);font-style:italic;color:var(--earth-mid);font-size:.98rem}
+.proof cite{display:block;font-family:var(--sans);font-style:normal;font-size:.8rem;color:var(--muted);margin-top:6px}
+
+/* agents */
+.agents{background:var(--sage-dark);color:#fff}
+.agents .label{color:#E6EFE6}
+.agents .title{color:#fff}
+.agents .lead{color:var(--sage-light)}
+.agents .btn{background:#fff;color:var(--sage-dark);border-color:#fff}
+.ag-h{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#E6EFE6;margin-bottom:12px}
+.ag-steps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:2rem;counter-reset:a}
+.ag-steps li{counter-increment:a;background:rgba(255,255,255,.08);border-radius:6px;padding:18px;display:grid;gap:4px;align-content:start}
+.ag-steps li::before{content:counter(a);font-family:var(--serif);font-size:1.4rem;color:var(--sage-mid);line-height:1}
+.ag-steps b{font-weight:500}
+.ag-steps p{font-size:.86rem;color:#F4F8F4}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--border);padding:18px 0}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--sage-dark);font-size:1.2rem;line-height:1}
+.faq details[open] summary::after{content:"\2013"}
+.faq details p{margin-top:10px;color:var(--earth-mid);max-width:680px}
+.faq details{overflow:hidden}
+.faq summary::after{transition:transform .25s ease}
+.faq details[open] summary::after{transform:rotate(180deg)}
+
+/* cta */
+.cta{background:var(--cream-dark);text-align:center}
+.cta .inner{display:grid;justify-items:center;gap:1.25rem}
+.cta .title{max-width:620px;margin:0}
+.cta .lead{margin:0 auto}
+.email{font-size:.9rem;color:var(--muted)}
+.email a,footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+footer{padding:28px 40px;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem;color:var(--muted)}
+footer .f-logo{font-family:var(--serif);color:var(--earth)}
+
+@media (max-width:900px){
+  .nav{padding:1rem 16px}.links{display:none}
+  .sec,.hero{padding-left:16px;padding-right:16px}
+  .sec{padding-top:72px;padding-bottom:72px}
+  .hero{padding-top:72px;padding-bottom:72px}
+  .hero .inner,.paths,.proof-grid,.flags{grid-template-columns:1fr}
+  .gap-grid,.gap-grid.four,.pkgs,.trust-grid,.ag-steps{grid-template-columns:1fr}
+  .me-row{grid-template-columns:1fr}
+  .areas{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:1fr 1fr}
+  .title{font-size:2rem}
+  footer{padding:24px 16px}
+}
+@media (max-width:480px){.areas,.steps{grid-template-columns:1fr}}
+
+/* sample report */
+.report{background:var(--cream)}
+.rp-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
+.rp-pages{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:2.5rem}
+.rp-page{display:grid;gap:10px;align-content:start}
+.rp-page img{width:100%;height:auto;aspect-ratio:816/1056;display:block;border:1px solid var(--border);border-radius:4px;box-shadow:0 8px 24px rgba(42,34,24,.08);background:#fff}
+.rp-page .n{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
+.rp-page h4{font-family:var(--serif);font-weight:400;font-size:1.05rem;line-height:1.25}
+.rp-page p{font-size:.82rem;line-height:1.5;color:var(--earth-mid)}
+.rp-note{margin-top:1.75rem;font-size:.82rem;color:var(--muted)}
+@media (max-width:860px){.rp-head{grid-template-columns:1fr;gap:20px}.rp-pages{grid-template-columns:repeat(5,minmax(150px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.rp-page{scroll-snap-align:start}}
+@media (max-width:480px){.nav{padding:.9rem 1.1rem;gap:.5rem}.nav-right{gap:.45rem}.logo{gap:.5rem;font-size:.92rem}.btn-nav{padding:.45rem .85rem;font-size:.7rem}}
+@media (max-width:360px){.logo svg{width:26px;height:26px}.logo{font-size:.82rem}.btn-nav{padding:.45rem .7rem}}
+
+[id]{scroll-margin-top:72px}
+
+
+/* Hero photo: a retreat deck (swap for a real property photo when available) */
+.hero{background:linear-gradient(105deg,rgba(250,248,243,.96) 0%,rgba(250,248,243,.88) 45%,rgba(250,248,243,.30) 100%),#EDE6DA url('assets/img/about.jpg') right 55%/cover}
+@media (max-width:860px){.hero{background:linear-gradient(180deg,rgba(250,248,243,.92) 0%,rgba(250,248,243,.86) 100%),#EDE6DA url('assets/img/about.jpg') center 55%/cover}}
+
+/* Section rhythm: alternating tones, wave edges, photo bands */
+.how{background:var(--warm-white)}
+.proof-sec{background:var(--warm-white)}
+.faq{background:var(--warm-white)}
+.report,.pk{background:var(--cream-dark)}
+.trust{background:var(--sage-light)}
+.trust-grid > div{background:var(--warm-white);border:1px solid var(--border);border-top:3px solid var(--sage);border-radius:6px;padding:22px}
+.wt,.wb{position:relative}
+.wt::before,.wb::after{content:"";position:absolute;left:0;right:0;height:48px;z-index:1;pointer-events:none;-webkit-mask-size:100% 100%;mask-size:100% 100%}
+.wt::before{top:-1px;background:var(--wave);-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201440%2056%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C0%20L1440%2C0%20L1440%2C36%20C1200%2C8%20960%2C56%20720%2C32%20C480%2C8%20240%2C56%200%2C22%20Z%27/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201440%2056%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C0%20L1440%2C0%20L1440%2C36%20C1200%2C8%20960%2C56%20720%2C32%20C480%2C8%20240%2C56%200%2C22%20Z%27/%3E%3C/svg%3E")}
+.wb::after{bottom:-1px;background:var(--wave-b);-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201440%2056%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C56%20C240%2C0%20480%2C56%20720%2C24%20C960%2C0%201200%2C48%201440%2C20%20L1440%2C56%20Z%27/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201440%2056%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C56%20C240%2C0%20480%2C56%20720%2C24%20C960%2C0%201200%2C48%201440%2C20%20L1440%2C56%20Z%27/%3E%3C/svg%3E")}
+.wt > *,.wb > *{position:relative;z-index:2}
+.band > .band-bg,.band > .band-ov{position:absolute;z-index:0}
+.band-bg{background:url('assets/img/built.jpg') center 60%/cover}
+.band-ov{background:linear-gradient(90deg,rgba(10,20,12,.88) 0%,rgba(10,20,12,.84) 55%,rgba(10,20,12,.76) 100%)}
+.band > .sec{padding-top:120px;padding-bottom:120px}
+.cta{background:#1E2F21 url('assets/img/cta.jpg') center/cover;color:#EEF4EE;overflow:hidden;padding-top:128px;padding-bottom:120px}
+.cta > .cta-ov{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(20,36,22,.90),rgba(20,36,22,.80))}
+.cta .label{color:#DDB797}.cta .label::before{background:#DDB797}
+.cta .title{color:#EEF4EE}.cta .lead{color:#C2D6C2}
+.cta .email,.cta .email a{color:#E2C2A4}
+.cta .btn.primary{background:#985033;border-color:#985033;color:#fff}
+.cta .btn.primary:hover{background:#7E4029;border-color:#7E4029}
+@media (max-width:700px){.wt::before,.wb::after{height:28px}.band > .sec{padding-top:88px;padding-bottom:88px}.cta{padding-top:96px;padding-bottom:88px}}
+
+/* Packages: outcome-led lists */
+.pkg{display:flex !important;flex-direction:column;gap:12px !important}
+.pkg-for{font-family:var(--serif);font-style:italic;font-size:1.02rem;line-height:1.4;color:var(--earth-mid);margin-top:-4px}
+.pkg .price{margin-top:4px}
+.pkg-h{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-dark);border-top:1px solid var(--border);padding-top:14px;margin-top:4px}
+.pkg .pkg-h + ul{border-top:0;padding-top:0}
+.pkg ul + .pkg-h{border-top:0;padding-top:6px}
+.pkg-credit{align-self:flex-start;font-size:.8rem;font-weight:500;color:#7E4029;background:#F6E9DF;border-radius:3px;padding:4px 9px}
+.pkg-meta{margin-top:auto;display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted);border-top:1px solid var(--border);padding-top:14px}
+.pkg.feature{position:relative}
+.pkg-badge{position:absolute;top:-11px;right:22px;background:var(--sage-dark);color:#fff;font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:3px}
+.pkg-meta svg{width:16px;height:16px;flex:none;color:var(--sage-dark)}
+
+/* For real estate agents: seller and buyer cards */
+.lanes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:2.5rem 0 2rem}
+.lane{background:var(--warm-white);color:var(--earth);border-radius:8px;padding:28px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.lane-pages{position:relative;display:block;width:100%;height:210px;margin-bottom:8px;border:0;padding:0;border-radius:6px;background:var(--cream-dark);overflow:hidden;cursor:zoom-in}
+.lane-pages img{position:absolute;bottom:-40px;width:42%;height:auto;aspect-ratio:816/1056;border-radius:3px;box-shadow:0 10px 26px rgba(42,34,24,.2);transition:transform .25s ease}
+.lane-pages img:first-child{left:12%;transform:rotate(-4deg);z-index:2}
+.lane-pages img:last-child{right:12%;transform:rotate(4deg)}
+.lane-pages:hover img:first-child{transform:rotate(-6deg) translateY(-6px)}
+.lane-pages:hover img:last-child{transform:rotate(6deg) translateY(-6px)}
+.lane-pages:focus-visible{outline:2px solid var(--sage-dark);outline-offset:3px}
+.lane-k{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
+.lane h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.2}
+.lane > p{color:var(--earth-mid);font-size:.93rem}
+.lane ul{list-style:none;display:grid;gap:6px}
+.lane li{position:relative;padding-left:18px;font-size:.9rem}
+.lane li::before{content:"";position:absolute;left:0;top:.65em;width:6px;height:6px;border-radius:50%;background:var(--sage)}
+.lane-price{font-size:.85rem;color:var(--muted);margin-top:auto;padding-top:6px}
+.agents .lane .btn{background:var(--sage-dark);color:#fff;border-color:var(--sage-dark);cursor:pointer;font-family:inherit}
+.ag-perks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-bottom:2.5rem}
+.ag-perks > div{border-top:1px solid rgba(255,255,255,.25);padding-top:14px;display:grid;gap:4px}
+.ag-perks b{font-weight:500}
+.ag-perks p{font-size:.86rem;color:var(--sage-light)}
+@media (max-width:860px){.lanes,.ag-perks{grid-template-columns:1fr}.lane{padding:22px}}
+@media (max-width:860px){.ag-steps{grid-template-columns:1fr}}
+.lane .btn{margin-top:4px}
+
+/* Sample report viewer: opens over the page */
+.rp-open{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:4px;transition:transform .2s ease}
+.rp-open:hover{transform:translateY(-3px)}
+.rp-open:focus-visible{outline:2px solid var(--sage-dark);outline-offset:3px}
+.rv{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:rgba(18,26,20,.86);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);color:var(--earth);opacity:0;transition:opacity .28s ease}
+.rv.is-in{opacity:1}
+.rv .rv-body{transform:translateY(14px);transition:transform .32s ease}
+.rv.is-in .rv-body{transform:none}
+@media (prefers-reduced-motion:reduce){.rv,.rv .rv-body{transition:none}}
+.rv[open]{display:flex;flex-direction:column}
+.rv::backdrop{background:transparent}
+.rv-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;background:#FDFCF9;border-bottom:1px solid var(--border);box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.rv-k{display:block;font-size:.66rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
+.rv-t{display:block;font-family:var(--serif);font-size:1.05rem;line-height:1.3}
+.rv-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.rv-count{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.rv-dl{font-size:.8rem;font-weight:500;color:var(--sage-dark);text-decoration:underline;text-underline-offset:3px}
+.rv-x{width:40px;height:40px;display:grid;place-items:center;border:1px solid rgba(74,110,78,.35);border-radius:8px;background:transparent;color:var(--sage-dark);cursor:pointer}
+.rv-x:hover{background:var(--sage-light)}
+.rv-x:focus-visible,.rv-dl:focus-visible{outline:2px solid var(--sage-dark);outline-offset:2px}
+.rv-body{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:28px 16px 56px;display:grid;gap:22px;justify-items:center;align-content:start}
+.rv-body img[hidden]{display:none}
+.rv-body img{width:100%;max-width:860px;height:auto;aspect-ratio:1400/1812;display:block;background:#fff;border-radius:3px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+@media (max-width:600px){.rv-bar{padding:10px 12px;gap:10px}.rv-t{font-size:.92rem}.rv-count{display:none}.rv-body{padding:14px 8px 40px;gap:12px}}
+</style>
+<style>
+.co-price{background:var(--warm-white);border:1px solid var(--border);border-radius:8px;padding:28px;display:grid;gap:10px;box-shadow:0 18px 40px rgba(42,34,24,.08)}
+.co-price .k{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
+.co-price .amt{font-family:var(--serif);font-size:2.6rem;line-height:1}
+.co-price .amt small{font-family:var(--sans);font-size:.9rem;color:var(--muted)}
+.co-price p{font-size:.88rem;color:var(--earth-mid)}
+.co-price ul{list-style:none;display:grid;gap:8px;border-top:1px solid var(--border);padding-top:14px;margin-top:4px}
+.co-price li{display:flex;gap:10px;font-size:.9rem}
+.co-price li::before{content:"✓";color:var(--sage-dark);font-weight:600}
+.outcomes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:2.5rem}
+.outcomes > div{background:var(--warm-white);border:1px solid var(--border);border-top:3px solid var(--sage);border-radius:6px;padding:22px;display:grid;gap:8px;align-content:start}
+.outcomes b{font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.25}
+.outcomes p{font-size:.9rem;color:var(--earth-mid)}
+.roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:2.5rem}
+.role{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:22px;border:1px solid rgba(255,255,255,.14);border-radius:8px;background:rgba(255,255,255,.06)}
+.role svg{width:52px;height:52px;padding:12px;border-radius:50%;background:rgba(184,208,186,.16);fill:none;stroke:#D2E2D3;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.role h3{font-family:var(--serif);font-weight:400;font-size:1.25rem;color:#F2F6F1;margin-bottom:4px}
+.role p{font-size:.9rem;color:var(--on-dark-body)}
+.others{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:2rem}
+.others a{display:grid;gap:6px;padding:20px;border:1px solid var(--border);border-radius:6px;background:var(--warm-white);text-decoration:none;color:var(--earth);transition:border-color .2s,transform .2s}
+.others a:hover{border-color:var(--sage);transform:translateY(-2px)}
+.others b{font-family:var(--serif);font-weight:500;font-size:1.05rem}
+.others span{font-size:.84rem;color:var(--muted)}
+.others em{font-style:normal;font-size:.8rem;font-weight:500;color:var(--sage-dark);margin-top:4px}
+.how .steps{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.how .steps{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.how .steps{grid-template-columns:1fr}}
+.draft-note{font-size:.8rem;color:var(--terracotta);font-style:italic;margin-top:1rem}
+@media (max-width:900px){.outcomes,.others{grid-template-columns:repeat(2,minmax(0,1fr))}.roles{grid-template-columns:1fr}}
+@media (max-width:520px){.outcomes,.others{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav" data-menu>
+  <a class="logo" href="/"><svg class="logo-icon" aria-hidden="true" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 3 C22 7 28 14 25 22 C22 30 10 31 7 22 C4 13 10 7 16 3Z" fill="#7A9E7E" opacity="0.22"/>
+      <path d="M16 3 C22 7 28 14 25 22 C22 30 10 31 7 22 C4 13 10 7 16 3Z" stroke="#4A6E4E" stroke-width="1.2" fill="none"/>
+      <line x1="16" y1="3" x2="16" y2="30" stroke="#4A6E4E" stroke-width="1"/>
+      <line x1="16" y1="13" x2="10" y2="18" stroke="#4A6E4E" stroke-width="0.8"/>
+      <line x1="16" y1="20" x2="22" y2="24" stroke="#4A6E4E" stroke-width="0.8"/>
+    </svg>Retreat Blueprint Co.</a>
+  <div class="links" id="site-menu" data-menu-links><a href="/">Home</a><a href="/#work">The approach</a><a href="/#testimonials">Testimonials</a><a href="/#about">About</a><div class="nav-dd" data-dd><button type="button" class="dd-btn" aria-expanded="false" aria-controls="svc-menu">Services <svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="dd-panel" id="svc-menu">
+      <a href="/foundation-sprint"><b>Foundation sprint</b><span>The systems your retreat runs on, built in one go</span></a>
+      <a href="/strategy-retainer"><b>Strategy retainer</b><span>A monthly partner for direction and growth</span></a>
+      <a href="/concierge-ops" aria-current="page"><b>Concierge ops</b><span>Your day-to-day admin, handled</span></a>
+      <a href="/growth-marketing"><b>Growth marketing</b><span>Get your retreat seen by the right people</span></a>
+      <a href="/buying-a-retreat" class="dd-feature"><b>Buying a retreat? <i>New</i></b><span>Pre-purchase review and your first 90 days</span></a>
+      <a href="/#services" class="dd-all">Compare all services →</a>
+    </div></div></div>
+  <div class="nav-right">
+    <a class="btn-nav" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a call</a>
+    <button type="button" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" data-menu-toggle><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero wb" id="top" style="--wave-b:var(--cream-dark)">
+  <div class="inner">
+    <div>
+      <p class="label">Concierge Ops</p>
+      <h1>Your day-to-day admin, <em>handled.</em></h1>
+      <p class="lead">Every inquiry answered fast, every guest looked after, every invoice tracked. A dedicated team, led by your Retreat Operations Director, runs your day-to-day admin so you can focus on the experience and on selling.</p>
+      <div class="row">
+        <a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a>
+        <a class="btn text" href="#team">Meet your team ↓</a>
+      </div>
+    </div>
+    <div class="co-price">
+      <span class="k">Monthly</span>
+      <p class="amt">From $250 <small>/ month</small></p>
+      <p>Priced on your average monthly bookings and retreat capacity.</p>
+      <ul><li>Inquiries and bookings</li><li>Guest communication</li><li>Retreat coordination</li><li>Invoices and records</li></ul>
+    </div>
+  </div>
+</header>
+
+<section class="sec gap">
+  <div class="inner">
+    <p class="label">What changes</p>
+    <h2 class="title">Less time in the inbox. More time on <em>the experience.</em></h2>
+    <div class="outcomes">
+      <div><b>No more missed bookings</b><p>Inquiries answered within hours, with follow-ups until they book or say no.</p></div>
+      <div><b>Guests who feel looked after</b><p>Pre-arrival emails, forms, reminders, and review requests sent on time, every time.</p></div>
+      <div><b>Retreats that run smoothly</b><p>Organizers kept in the loop, with rooming lists and schedules ready before anyone arrives.</p></div>
+      <div><b>Books you can trust</b><p>Invoices sent, payments tracked, and records organized in one place.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="band wt wb" id="team" style="--wave:var(--cream-dark);--wave-b:var(--warm-white)">
+  <div class="band-bg" aria-hidden="true"></div>
+  <div class="band-ov" aria-hidden="true"></div>
+  <section class="sec">
+    <div class="inner">
+      <p class="label">Your team</p>
+      <h2 class="title">Four roles, one team, led by your Retreat Operations Director</h2>
+      <div class="roles">
+        <div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z M4 6l8 7 8-7"/></svg><div><h3>Remote Booking Assistant</h3><p>Inquiry responses, follow-ups, reservations and confirmations.</p></div></div>
+        <div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6z M10 19a2 2 0 0 0 4 0"/></svg><div><h3>Guest Experience Assistant</h3><p>Guest emails, forms, reminders, feedback and review requests.</p></div></div>
+        <div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z M5 9h14 M9 4v16"/></svg><div><h3>Operations Coordinator</h3><p>Event preparation, organizer communication, rooming lists and schedules.</p></div></div>
+        <div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v18l-2.5-1.5L12 21l-2.5-1.5L7 21z M10 8h4 M10 12h4"/></svg><div><h3>Back Office Administrator</h3><p>Invoices, payment tracking, spreadsheets and digital records.</p></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="sec how">
+  <div class="inner">
+    <p class="label">How it starts</p>
+    <h2 class="title">From first call to a team that runs it</h2>
+    <ol class="steps">
+      <li><h4>Free call</h4><p>Your bookings, your tools, and where the admin piles up.</p></li>
+      <li><h4>Set-up</h4><p>Access to your inbox and booking system; your voice, policies and templates written down.</p></li>
+      <li><h4>Your team takes over</h4><p>Inquiries, guests, coordination and the back office, handled every day.</p></li>
+      <li><h4>Monthly check-in</h4><p>What came in, what got booked, and what to improve next.</p></li>
+    </ol>
+    <p class="draft-note">Mock-up note: these four steps are draft wording for you to confirm or rewrite.</p>
+  </div>
+</section>
+
+<section class="sec trust wt" style="--wave:var(--warm-white)">
+  <div class="inner">
+    <p class="label">Other services</p>
+    <h2 class="title">Need something different?</h2>
+    <div class="others">
+      <a href="/foundation-sprint"><b>Foundation sprint</b><span>The systems your retreat runs on, built in one go.</span><em>From $3,000 →</em></a>
+      <a href="/strategy-retainer"><b>Strategy retainer</b><span>A monthly partner for direction and growth.</span><em>From $1,000 / month →</em></a>
+      <a href="/growth-marketing"><b>Growth marketing</b><span>Get your retreat seen by the right people.</span><em>Pricing on inquiry →</em></a>
+      <a href="/buying-a-retreat"><b>Buying a retreat?</b><span>Pre-purchase review and your first 90 days.</span><em>From $1,200 →</em></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec cta wt" style="--wave:var(--sage-light)">
+  <div class="cta-ov" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="label">Start with a conversation</p>
+    <h2 class="title">Hand off the admin. Keep the experience.</h2>
+    <p class="lead">A free 30-minute call. No obligation, just a clear next step.</p>
+    <a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a>
+    <p class="email"><a href="mailto:hello@retreatblueprintco.com?subject=Concierge%20Ops%20inquiry">hello@retreatblueprintco.com</a></p>
+  </div>
+</section>
+
+<footer><span class="f-logo">Retreat Blueprint Co.</span><span>© 2026 · <a href="mailto:hello@retreatblueprintco.com">hello@retreatblueprintco.com</a></span></footer>
+<script src="js/menu.js?v=2026-10-16a" defer></script>
+</body>
+</html>

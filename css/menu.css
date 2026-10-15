@@ -48,3 +48,34 @@
 /* Section links glide to their target instead of jumping (both pages) */
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Services drop-down (desktop) / expandable list (phone menu) */
+.nav-dd { position: relative; display: flex; align-items: center; }
+.dd-btn { display: inline-flex; align-items: center; gap: 6px; background: none; border: 0; padding: 0; font-family: inherit; line-height: inherit; cursor: pointer; }
+.links .dd-btn { font-size: inherit; color: inherit; }
+.dd-btn svg { width: 10px; height: 10px; transition: transform .25s ease; }
+.nav-dd.open .dd-btn svg { transform: rotate(180deg); }
+.dd-btn:focus-visible { outline: 2px solid #4A6E4E; outline-offset: 3px; border-radius: 2px; }
+.dd-panel {
+  position: absolute; top: calc(100% + 18px); left: 50%; width: 340px; margin-left: -170px;
+  display: grid; gap: 2px; padding: 10px; background: #FDFCF9; border: 1px solid rgba(90,72,50,0.12); border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(42,34,24,0.14); opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s; z-index: 50;
+}
+.nav-dd.open .dd-panel { opacity: 1; visibility: visible; transform: none; transition: opacity .2s ease, transform .2s ease; }
+.dd-panel a { display: grid; gap: 2px; padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #2A2218; }
+.dd-panel a:hover, .dd-panel a:focus-visible { background: #EEF4EE; outline: none; }
+.dd-panel a b { font-weight: 500; font-size: 0.86rem; display: flex; align-items: center; gap: 8px; }
+.dd-panel a span { font-size: 0.76rem; color: #6B6252; line-height: 1.4; }
+.dd-panel a b i { font-style: normal; font-size: 0.62rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: #985033; border-radius: 4px; padding: 2px 6px; }
+.dd-panel .dd-feature { background: #F6F1E8; margin-top: 4px; }
+.dd-panel .dd-all { display: block; font-size: 0.78rem; font-weight: 500; color: #4A6E4E; border-top: 1px solid rgba(90,72,50,0.1); border-radius: 0 0 8px 8px; margin-top: 4px; padding-top: 12px; }
+@media (prefers-reduced-motion: reduce) { .dd-panel, .dd-btn svg { transition: none; } }
+@media (max-width: 960px) {
+  [data-menu].menu-open [data-menu-links] .nav-dd { display: block; border-bottom: 1px solid rgba(90,72,50,0.08); }
+  [data-menu].menu-open [data-menu-links] .dd-btn { width: 100%; justify-content: space-between; padding: 0.9rem 0; font-size: 0.95rem; color: #2A2218; }
+  [data-menu].menu-open [data-menu-links] .dd-panel { position: static; width: auto; margin: 0 0 10px; padding: 4px 0 4px 12px; border: 0; border-left: 2px solid #B8D0BA; border-radius: 0; box-shadow: none; background: transparent; display: none; opacity: 1; visibility: visible; transform: none; }
+  [data-menu].menu-open [data-menu-links] .nav-dd.open .dd-panel { display: grid; }
+  [data-menu].menu-open [data-menu-links] .dd-panel a { padding: 8px 10px; border-bottom: 0; }
+  [data-menu].menu-open [data-menu-links] .dd-panel .dd-all { border-top: 0; padding-top: 8px; }
+}
