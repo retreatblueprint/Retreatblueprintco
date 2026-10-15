@@ -6,10 +6,10 @@
 <title>Concierge Ops · Retreat Blueprint Co.</title>
 <meta name="description" content="A dedicated team, led by your Retreat Operations Director, runs your retreat's day-to-day admin: inquiries, guests, coordination and the back office. From $250 a month.">
 <meta property="og:title" content="Concierge Ops: your day-to-day admin, handled.">
-<meta property="og:description" content="Inquiries answered fast, guests looked after, invoices tracked. From $250 a month.">
+<meta property="og:description" content="A dedicated team, led by your Retreat Operations Director, runs your retreat's day-to-day admin: inquiries, guests, coordination and the back office. From $250 a month.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://retreatblueprintco.com/concierge-ops">
-<meta property="og:image" content="https://retreatblueprintco.com/assets/img/buying-a-retreat/sample-report-page-1.jpg">
+<meta property="og:image" content="https://images.unsplash.com/photo-1777913308049-a2c79af7380a?auto=format&fit=crop&w=1200&h=630&q=75">
 <link rel="canonical" href="https://retreatblueprintco.com/concierge-ops">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
@@ -331,47 +331,84 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 @media (max-width:600px){.rv-bar{padding:10px 12px;gap:10px}.rv-t{font-size:.92rem}.rv-count{display:none}.rv-body{padding:14px 8px 40px;gap:12px}}
 </style>
 <style>
-.co-price{background:var(--warm-white);border:1px solid var(--border);border-radius:8px;padding:28px;display:grid;gap:10px;box-shadow:0 18px 40px rgba(42,34,24,.08)}
+/* Service page template */
+.svc-name{font-family:var(--serif);font-weight:400;font-size:clamp(3.2rem,8vw,6.2rem);line-height:.98;letter-spacing:-.02em;margin:0 0 1rem;color:var(--earth);text-wrap:balance}
+.svc-tag{font-family:var(--serif);font-size:clamp(1.35rem,2.5vw,1.85rem);line-height:1.25;color:var(--earth-mid);margin:0 0 1.5rem;max-width:30ch}
+.co-price{background:var(--warm-white);border:1px solid var(--border);border-radius:8px;padding:28px;display:grid;gap:10px;box-shadow:0 18px 40px rgba(42,34,24,.10)}
 .co-price .k{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
-.co-price .amt{font-family:var(--serif);font-size:2.6rem;line-height:1}
-.co-price .amt small{font-family:var(--sans);font-size:.9rem;color:var(--muted)}
+.co-price .amt{font-family:var(--serif);font-size:2.5rem;line-height:1.05}
+.co-price .amt small{font-family:var(--sans);font-size:.9rem;color:var(--muted);white-space:nowrap}
 .co-price p{font-size:.88rem;color:var(--earth-mid)}
 .co-price ul{list-style:none;display:grid;gap:8px;border-top:1px solid var(--border);padding-top:14px;margin-top:4px}
 .co-price li{display:flex;gap:10px;font-size:.9rem}
-.co-price li::before{content:"✓";color:var(--sage-dark);font-weight:600}
+.co-price li::before{content:"\2713";color:var(--acc);font-weight:600}
 .outcomes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:2.5rem}
-.outcomes > div{background:var(--warm-white);border:1px solid var(--border);border-top:3px solid var(--sage);border-radius:6px;padding:22px;display:grid;gap:8px;align-content:start}
+.outcomes > div{background:var(--warm-white);border:1px solid var(--border);border-top:3px solid var(--acc-soft);border-radius:6px;padding:22px;display:grid;gap:8px;align-content:start}
 .outcomes b{font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.25}
 .outcomes p{font-size:.9rem;color:var(--earth-mid)}
 .roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:2.5rem}
 .role{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:22px;border:1px solid rgba(255,255,255,.14);border-radius:8px;background:rgba(255,255,255,.06)}
-.role svg{width:52px;height:52px;padding:12px;border-radius:50%;background:rgba(184,208,186,.16);fill:none;stroke:#D2E2D3;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.role h3{font-family:var(--serif);font-weight:400;font-size:1.25rem;color:#F2F6F1;margin-bottom:4px}
-.role p{font-size:.9rem;color:var(--on-dark-body)}
+.role svg{width:52px;height:52px;padding:12px;border-radius:50%;background:rgba(255,255,255,.10);fill:none;stroke:var(--on-band-soft);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.role h3{font-family:var(--serif);font-weight:400;font-size:1.25rem;color:#F4F6F2;margin-bottom:4px}
+.role p,.role li{font-size:.9rem;color:var(--on-band)}
+.role ul{list-style:none;display:grid;gap:4px}
+.role li::before{content:"\2013  ";color:var(--on-band-soft)}
+.band-note{margin-top:1.75rem;font-size:.92rem;color:var(--on-band);display:flex;gap:10px;align-items:center}
+.band-note b{color:#fff;font-weight:500}
+.cycle{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:2.75rem;position:relative}
+.cycle li{position:relative;display:grid;gap:8px;align-content:start;padding:22px 18px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+.cycle li span{font-family:var(--serif);font-size:1.6rem;color:var(--on-band-soft);line-height:1}
+.cycle li b{font-family:var(--serif);font-weight:400;font-size:1.15rem;color:#F4F6F2}
+.cycle li p{font-size:.86rem;color:var(--on-band)}
+.cycle li:not(:last-child)::after{content:"\2192";position:absolute;right:-13px;top:26px;width:12px;text-align:center;color:var(--on-band-soft);font-size:.9rem}
+.cycle-loop{margin-top:16px;font-size:.85rem;color:var(--on-band);display:flex;align-items:center;gap:8px}
+.cycle-loop svg{width:18px;height:18px;fill:none;stroke:var(--on-band-soft);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.levels{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px;margin-top:2.5rem}
+.level{border-radius:8px;padding:28px;display:grid;gap:12px;align-content:start}
+.level.lite{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06)}
+.level.full{background:#FDFCF9;color:var(--earth);box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.level .k{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-band-soft)}
+.level.full .k{color:var(--acc)}
+.level h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;color:#F4F6F2}
+.level.full h3{color:var(--earth)}
+.level p{font-size:.92rem;color:var(--on-band)}
+.level.full p{color:var(--earth-mid)}
+.level ul{list-style:none;display:grid;gap:8px;border-top:1px solid rgba(255,255,255,.15);padding-top:14px}
+.level.full ul{border-top-color:var(--border)}
+.level li{display:flex;gap:10px;font-size:.92rem;color:#EEF2EC}
+.level.full li{color:var(--earth)}
+.level li::before{content:"\2713";color:var(--on-band-soft);font-weight:600}
+.level.full li::before{color:var(--acc)}
+.level .plus{font-size:.86rem;font-weight:500;color:var(--acc)}
+.proof li::before{color:var(--acc)}
+.proof-more{margin-top:1.5rem;font-size:.9rem}
+.proof-more a{color:var(--acc);font-weight:500;text-decoration:underline;text-underline-offset:3px}
 .others{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:2rem}
 .others a{display:grid;gap:6px;padding:20px;border:1px solid var(--border);border-radius:6px;background:var(--warm-white);text-decoration:none;color:var(--earth);transition:border-color .2s,transform .2s}
-.others a:hover{border-color:var(--sage);transform:translateY(-2px)}
+.others a:hover{border-color:var(--acc-soft);transform:translateY(-2px)}
 .others b{font-family:var(--serif);font-weight:500;font-size:1.05rem}
 .others span{font-size:.84rem;color:var(--muted)}
-.others em{font-style:normal;font-size:.8rem;font-weight:500;color:var(--sage-dark);margin-top:4px}
-.how .steps{grid-template-columns:repeat(4,minmax(0,1fr))}
-@media (max-width:900px){.how .steps{grid-template-columns:1fr 1fr}}
-@media (max-width:480px){.how .steps{grid-template-columns:1fr}}
-.draft-note{font-size:.8rem;color:var(--terracotta);font-style:italic;margin-top:1rem}
-@media (max-width:900px){.outcomes,.others{grid-template-columns:repeat(2,minmax(0,1fr))}.roles{grid-template-columns:1fr}}
-@media (max-width:520px){.outcomes,.others{grid-template-columns:1fr}}
+.others em{font-style:normal;font-size:.8rem;font-weight:500;color:var(--acc);margin-top:4px}
+.how .steps{grid-template-columns:repeat(var(--cols,4),minmax(0,1fr))}
+.steps li{border-top-color:var(--acc-soft)}
+.steps li::before{color:var(--acc)}
+.title em,.svc-tag em,.hero h1 em{color:var(--acc)}
+.btn.primary{background:var(--acc);border-color:var(--acc)}
+.btn.primary:hover{background:var(--acc-dark);border-color:var(--acc-dark)}
+@media (max-width:900px){.outcomes,.others{grid-template-columns:repeat(2,minmax(0,1fr))}.roles,.levels{grid-template-columns:1fr}.cycle{grid-template-columns:1fr 1fr}.cycle li::after{display:none}.how .steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.outcomes,.others,.cycle{grid-template-columns:1fr}.how .steps{grid-template-columns:1fr}}
 
-/* Concierge Ops: own look (no photos shared with other pages) */
-.hero{background:linear-gradient(100deg,rgba(250,248,243,.97) 0%,rgba(250,248,243,.9) 42%,rgba(250,248,243,.35) 72%,rgba(250,248,243,.1) 100%),#3B4A33 url('https://images.unsplash.com/photo-1777913308049-a2c79af7380a?auto=format&fit=crop&q=72&w=2000') 60% 55%/cover !important}
-@media (max-width:860px){.hero{background:linear-gradient(180deg,rgba(250,248,243,.93) 0%,rgba(250,248,243,.88) 100%),#3B4A33 url('https://images.unsplash.com/photo-1777913308049-a2c79af7380a?auto=format&fit=crop&q=72&w=1100') 60% 50%/cover !important}}
-.svc-name{font-family:var(--serif);font-weight:400;font-size:clamp(3.4rem,8.5vw,6.4rem);line-height:.98;letter-spacing:-.02em;margin:0 0 1rem;color:var(--earth)}
-.svc-tag{font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.25;color:var(--earth-mid);margin:0 0 1.5rem}
-.svc-tag em{color:var(--sage-dark)}
+/* Theme: Concierge Ops */
+:root{--acc:#4A6E4E;--acc-dark:#3A5A3E;--acc-soft:#7A9E7E;--on-band:#C2D6C2;--on-band-soft:#B8D0BA}
+.hero{background:linear-gradient(100deg,rgba(250,248,243,.97) 0%,rgba(250,248,243,.9) 42%,rgba(250,248,243,.35) 72%,rgba(250,248,243,.08) 100%),#3B4A33 url('https://images.unsplash.com/photo-1777913308049-a2c79af7380a?auto=format&fit=crop&q=72&w=2000') 60% 55%/cover !important}
+@media (max-width:860px){.hero{background:linear-gradient(180deg,rgba(250,248,243,.93) 0%,rgba(250,248,243,.88) 100%),#3B4A33 url('https://images.unsplash.com/photo-1777913308049-a2c79af7380a?auto=format&fit=crop&q=72&w=1100') 60% 55%/cover !important}}
 .band-bg{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201440%20900%27%20preserveAspectRatio%3D%27none%27%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23B8D0BA%27%20stroke-opacity%3D%27.10%27%20stroke-width%3D%271.2%27%20vector-effect%3D%27non-scaling-stroke%27%3E%3Cpath%20d%3D%27M0%2080%20C240%2030%20480%20150%20720%2080%20S1200%2020%201440%2075%27/%3E%3Cpath%20d%3D%27M0%20138%20C240%2088%20480%20208%20720%20138%20S1200%2078%201440%20133%27/%3E%3Cpath%20d%3D%27M0%20196%20C240%20146%20480%20266%20720%20196%20S1200%20136%201440%20191%27/%3E%3Cpath%20d%3D%27M0%20254%20C240%20204%20480%20324%20720%20254%20S1200%20194%201440%20249%27/%3E%3Cpath%20d%3D%27M0%20312%20C240%20262%20480%20382%20720%20312%20S1200%20252%201440%20307%27/%3E%3Cpath%20d%3D%27M0%20370%20C240%20320%20480%20440%20720%20370%20S1200%20310%201440%20365%27/%3E%3Cpath%20d%3D%27M0%20428%20C240%20378%20480%20498%20720%20428%20S1200%20368%201440%20423%27/%3E%3Cpath%20d%3D%27M0%20486%20C240%20436%20480%20556%20720%20486%20S1200%20426%201440%20481%27/%3E%3Cpath%20d%3D%27M0%20544%20C240%20494%20480%20614%20720%20544%20S1200%20484%201440%20539%27/%3E%3Cpath%20d%3D%27M0%20602%20C240%20552%20480%20672%20720%20602%20S1200%20542%201440%20597%27/%3E%3Cpath%20d%3D%27M0%20660%20C240%20610%20480%20730%20720%20660%20S1200%20600%201440%20655%27/%3E%3Cpath%20d%3D%27M0%20718%20C240%20668%20480%20788%20720%20718%20S1200%20658%201440%20713%27/%3E%3Cpath%20d%3D%27M0%20776%20C240%20726%20480%20846%20720%20776%20S1200%20716%201440%20771%27/%3E%3Cpath%20d%3D%27M0%20834%20C240%20784%20480%20904%20720%20834%20S1200%20774%201440%20829%27/%3E%3Cpath%20d%3D%27M0%20892%20C240%20842%20480%20962%20720%20892%20S1200%20832%201440%20887%27/%3E%3C/g%3E%3C/svg%3E") center/100% 100% no-repeat,linear-gradient(160deg,#25402B 0%,#1A2E1F 55%,#132217 100%) !important}
 .band-ov{background:radial-gradient(60% 60% at 85% 10%, rgba(122,158,126,.22), transparent 70%) !important}
-.cta{background:#1E2F21 url('https://images.unsplash.com/photo-1644612105654-b6b0a941ecde?auto=format&fit=crop&q=72&w=2000') center 60%/cover !important}
+.band .label{color:var(--on-band-soft)}.band .lead{color:var(--on-band)}
+.cta{background:#3B4A33 url('https://images.unsplash.com/photo-1644612105654-b6b0a941ecde?auto=format&fit=crop&q=72&w=2000') center 60%/cover !important}
 @media (max-width:860px){.cta{background-image:url('https://images.unsplash.com/photo-1644612105654-b6b0a941ecde?auto=format&fit=crop&q=72&w=1100') !important}}
 .cta > .cta-ov{background:linear-gradient(180deg,rgba(18,30,21,.78) 0%,rgba(18,30,21,.70) 50%,rgba(18,30,21,.82) 100%) !important}
+.cta .btn.primary{background:#985033;border-color:#985033}
 </style>
 </head>
 <body>
@@ -423,15 +460,9 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   <div class="inner">
     <p class="label">What changes</p>
     <h2 class="title">Less time in the inbox. More time on <em>the experience.</em></h2>
-    <div class="outcomes">
-      <div><b>No more missed bookings</b><p>Inquiries answered within hours, with follow-ups until they book or say no.</p></div>
-      <div><b>Guests who feel looked after</b><p>Pre-arrival emails, forms, reminders, and review requests sent on time, every time.</p></div>
-      <div><b>Retreats that run smoothly</b><p>Organizers kept in the loop, with rooming lists and schedules ready before anyone arrives.</p></div>
-      <div><b>Books you can trust</b><p>Invoices sent, payments tracked, and records organized in one place.</p></div>
-    </div>
+    <div class="outcomes"><div><b>No more missed bookings</b><p>Inquiries answered within hours, with follow-ups until they book or say no.</p></div><div><b>Guests who feel looked after</b><p>Pre-arrival emails, forms, reminders, and review requests sent on time, every time.</p></div><div><b>Retreats that run smoothly</b><p>Organizers kept in the loop, with rooming lists and schedules ready before anyone arrives.</p></div><div><b>Books you can trust</b><p>Invoices sent, payments tracked, and records organized in one place.</p></div></div>
   </div>
 </section>
-
 <div class="band wt wb" id="team" style="--wave:var(--cream-dark);--wave-b:var(--warm-white)">
   <div class="band-bg" aria-hidden="true"></div>
   <div class="band-ov" aria-hidden="true"></div>
@@ -439,39 +470,22 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
     <div class="inner">
       <p class="label">Your team</p>
       <h2 class="title">Four roles, one team, led by your Retreat Operations Director</h2>
-      <div class="roles">
-        <div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z M4 6l8 7 8-7"/></svg><div><h3>Remote Booking Assistant</h3><p>Inquiry responses, follow-ups, reservations and confirmations.</p></div></div>
-        <div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6z M10 19a2 2 0 0 0 4 0"/></svg><div><h3>Guest Experience Assistant</h3><p>Guest emails, forms, reminders, feedback and review requests.</p></div></div>
-        <div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z M5 9h14 M9 4v16"/></svg><div><h3>Operations Coordinator</h3><p>Event preparation, organizer communication, rooming lists and schedules.</p></div></div>
-        <div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v18l-2.5-1.5L12 21l-2.5-1.5L7 21z M10 8h4 M10 12h4"/></svg><div><h3>Back Office Administrator</h3><p>Invoices, payment tracking, spreadsheets and digital records.</p></div></div>
-      </div>
+      <div class="roles"><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z M4 6l8 7 8-7"/></svg><div><h3>Remote Booking Assistant</h3><p>Inquiry responses, follow-ups, reservations and confirmations.</p></div></div><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6z M10 19a2 2 0 0 0 4 0"/></svg><div><h3>Guest Experience Assistant</h3><p>Guest emails, forms, reminders, feedback and review requests.</p></div></div><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z M5 9h14 M9 4v16"/></svg><div><h3>Operations Coordinator</h3><p>Event preparation, organizer communication, rooming lists and schedules.</p></div></div><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v18l-2.5-1.5L12 21l-2.5-1.5L7 21z M10 8h4 M10 12h4"/></svg><div><h3>Back Office Administrator</h3><p>Invoices, payment tracking, spreadsheets and digital records.</p></div></div></div>
     </div>
   </section>
 </div>
-
-<section class="sec how">
+<section class="sec how" style="--cols:4;">
   <div class="inner">
     <p class="label">How it starts</p>
     <h2 class="title">From first call to a team that runs it</h2>
-    <ol class="steps">
-      <li><h4>Free call</h4><p>Your bookings, your tools, and where the admin piles up.</p></li>
-      <li><h4>Set-up</h4><p>Access to your inbox and booking system; your voice, policies and templates handed over.</p></li>
-      <li><h4>Your team takes over</h4><p>Inquiries, guests, coordination and the back office, handled every day.</p></li>
-      <li><h4>Monthly check-in</h4><p>What came in, what got booked, and what to improve next.</p></li>
-    </ol>
+    <ol class="steps"><li><h4>Free call</h4><p>Your bookings, your tools, and where the admin piles up.</p></li><li><h4>Set-up</h4><p>Access to your inbox and booking system; your voice, policies and templates handed over.</p></li><li><h4>Your team takes over</h4><p>Inquiries, guests, coordination and the back office, handled every day.</p></li><li><h4>Monthly check-in</h4><p>What came in, what got booked, and what to improve next.</p></li></ol>
   </div>
 </section>
-
 <section class="sec trust wt" style="--wave:var(--warm-white)">
   <div class="inner">
     <p class="label">Other services</p>
     <h2 class="title">Need something different?</h2>
-    <div class="others">
-      <a href="/foundation-sprint"><b>Foundation sprint</b><span>The systems your retreat runs on, built in one go.</span><em>From $3,000 →</em></a>
-      <a href="/strategy-retainer"><b>Strategy retainer</b><span>A monthly partner for direction and growth.</span><em>From $1,000 / month →</em></a>
-      <a href="/growth-marketing"><b>Growth marketing</b><span>Get your retreat seen by the right people.</span><em>Pricing on inquiry →</em></a>
-      <a href="/buying-a-retreat"><b>Buying a retreat?</b><span>Pre-purchase review and your first 90 days.</span><em>From $1,200 →</em></a>
-    </div>
+    <div class="others"><a href="/foundation-sprint"><b>Foundation sprint</b><span>The systems your retreat runs on, built in one go.</span><em>$3,000 – $6,000 →</em></a><a href="/strategy-retainer"><b>Strategy retainer</b><span>A monthly partner for direction and growth.</span><em>From $1,000 / month →</em></a><a href="/growth-marketing"><b>Growth marketing</b><span>Get your retreat seen by the right people.</span><em>Pricing on inquiry →</em></a><a href="/buying-a-retreat"><b>Buying a retreat?</b><span>Pre-purchase review and your first 90 days.</span><em>From $1,200 →</em></a></div>
   </div>
 </section>
 
