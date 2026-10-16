@@ -5,6 +5,7 @@ They share the Buying a Retreat page's base styles, nav and footer, plus one ser
 Each page has its own theme (accent colour, photos, band pattern) and its own sections.
 Run from the repo root:  python3 scripts/build_service_pages.py
 """
+import json
 import re
 import urllib.parse
 
@@ -363,6 +364,14 @@ def build(pg):
     head = head.replace(f'<a href="{pg["menu"]}">', f'<a href="{pg["menu"]}" aria-current="page">')
     if 'href="https://images.unsplash.com"' not in head:
         head = head.replace('<link rel="preconnect" href="https://calendly.com">', '<link rel="preconnect" href="https://images.unsplash.com">\n<link rel="preconnect" href="https://calendly.com">', 1)
+    # structured data: this page's service (Google reads it; nothing visible changes)
+    ld = {"@context": "https://schema.org", "@type": "Service", "name": pg["name"],
+          "serviceType": "Retreat center operations consulting", "description": pg["desc"],
+          "url": f"https://retreatblueprintco.com/{pg['slug']}",
+          "provider": {"@type": "ProfessionalService", "@id": "https://retreatblueprintco.com/#business", "name": "Retreat Blueprint Co."},
+          "areaServed": {"@type": "Place", "name": "Worldwide"},
+          "audience": {"@type": "Audience", "audienceType": "Retreat centers, eco-lodges and wellness properties that host retreats"}}
+    head = head.replace("</head>", '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + "</script>\n</head>", 1)
     head = head.replace("</head>", "<style>" + SHARED_CSS + theme_css(pg["theme"]) + pg.get("name_css", "") + "</style>\n</head>", 1)
 
     p = pg["price"]

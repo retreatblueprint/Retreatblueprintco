@@ -32,16 +32,65 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Retreat Blueprint Co.",
-  "url": "https://retreatblueprintco.com/",
-  "image": "https://retreatblueprintco.com/assets/img/og-image.jpg",
-  "email": "hello@retreatblueprintco.com",
-  "description": "Retreat Operations Director for retreat owners who are ready to grow. Business systems, team operations, and growth marketing built for the retreat industry.",
-  "founder": {
-    "@type": "Person",
-    "name": "Shila Kandiah"
-  }
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://retreatblueprintco.com/#business",
+      "name": "Retreat Blueprint Co.",
+      "url": "https://retreatblueprintco.com/",
+      "image": "https://retreatblueprintco.com/assets/img/og-image.jpg",
+      "logo": "https://retreatblueprintco.com/assets/img/apple-touch-icon.png",
+      "email": "hello@retreatblueprintco.com",
+      "description": "Retreat operations consulting for retreat venues: retreat centers, eco-lodges and wellness properties that host retreats. Business systems, team operations and growth marketing, plus pre-purchase operations reviews for buyers of retreat properties. Remote worldwide; on-site across North, Central and South America.",
+      "founder": {
+        "@id": "https://retreatblueprintco.com/#shila"
+      },
+      "areaServed": [
+        {
+          "@type": "Place",
+          "name": "Worldwide"
+        },
+        {
+          "@type": "Continent",
+          "name": "North America"
+        },
+        {
+          "@type": "Place",
+          "name": "Central America"
+        },
+        {
+          "@type": "Continent",
+          "name": "South America"
+        }
+      ],
+      "knowsAbout": [
+        "Retreat center operations",
+        "Retreat center consulting",
+        "Eco-lodge operations",
+        "Retreat booking systems",
+        "Retreat center marketing",
+        "Buying a retreat center"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://retreatblueprintco.com/#shila",
+      "name": "Shila Kandiah",
+      "jobTitle": "Retreat Operations Director",
+      "description": "Operations consultant for retreat centers, eco-lodges and wellness properties that host retreats. 10 years in operations management.",
+      "image": "https://retreatblueprintco.com/assets/img/shila-kandiah.jpg",
+      "url": "https://retreatblueprintco.com/#about",
+      "worksFor": {
+        "@id": "https://retreatblueprintco.com/#business"
+      },
+      "knowsAbout": [
+        "Retreat center operations",
+        "Retreat venue management",
+        "Hospitality systems and SOPs",
+        "Pre-purchase due diligence for retreat properties"
+      ]
+    }
+  ]
 }
 </script>
 </head>
