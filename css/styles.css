@@ -55,7 +55,7 @@ nav {
   line-height: 1.15;
   color: var(--earth);
   margin-bottom: 1.75rem;
-  max-width: 14ch;
+  max-width: 18ch;
 }
 .hero h1 em { font-style: italic; color: var(--sage-dark); }
 
