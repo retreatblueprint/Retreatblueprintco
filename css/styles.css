@@ -387,7 +387,7 @@ summary:hover { opacity: 0.75; }
 }
 
 /* "Not sure where to start?" guide under the services intro */
-.start-guide { margin-top: 2.25rem; padding: 1.5rem 1.75rem; background: var(--warm-white); border: 1px solid var(--border); border-left: 3px solid var(--terracotta); border-radius: 6px; max-width: 860px; }
+.start-guide { margin-top: 2.25rem; padding: 1.5rem 1.75rem; background: var(--warm-white); border: 1px solid var(--border); border-left: 3px solid var(--terracotta); border-radius: 6px; }
 .start-guide .start-h { font-family: 'Lora', serif; font-size: 1.2rem; color: var(--earth); margin-bottom: 0.9rem; }
 .start-guide ul { list-style: none; display: grid; gap: 0.65rem; }
 .start-guide li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; align-items: baseline; font-size: 0.92rem; color: var(--earth-mid); padding-bottom: 0.65rem; border-bottom: 1px dashed var(--border); }
