@@ -202,10 +202,10 @@ PAGES = [
         label="For retreat venues · Monthly", tag="Your day-to-day admin, <em>handled.</em>",
         lead="Every inquiry answered fast, every guest looked after, every invoice tracked. A dedicated team, led by your Retreat Operations Director, runs your day-to-day admin so you can focus on the experience and on selling.",
         jump=("#team", "Meet your team ↓"),
-        price=dict(k="Monthly", amt="From $250 <small>/ month</small>", note="Priced on your average monthly bookings and retreat capacity.",
+        price=dict(k="Monthly", amt="From $250 <small>USD / month</small>", note="Priced on your average monthly bookings, team size and retreat capacity.",
                    items=["Inquiries and bookings", "Guest communication", "Retreat coordination", "Invoices and records"]),
         changes=("What changes", "Less time in the inbox. More time on <em>the experience.</em>", [
-            ("No more missed bookings", "Inquiries answered within hours, with follow-ups until they book or say no."),
+            ("No more missed bookings", "Inquiries answered within 2 business hours, with follow-ups until they book or say no."),
             ("Guests who feel looked after", "Pre-arrival emails, forms, reminders, and review requests sent on time, every time."),
             ("Retreats that run smoothly", "Organizers kept in the loop, with rooming lists and schedules ready before anyone arrives."),
             ("Books you can trust", "Invoices sent, payments tracked, and records organized in one place.")]),
@@ -220,6 +220,14 @@ PAGES = [
             ("Set-up", "Access to your inbox and booking system; your voice, policies and templates handed over."),
             ("Your team takes over", "Inquiries, guests, coordination and the back office, handled every day."),
             ("Monthly check-in", "What came in, what got booked, and what to improve next.")]),
+        faq=[
+            ("How fast are guests answered?", "Within 2 hours during business hours, and within 12 hours outside them. Follow-ups continue until the guest books or says no."),
+            ("What decides the monthly price?", "Your average bookings per month, which sets how much time the work takes, plus your team size and retreat capacity. Pricing starts at $250 USD a month and is agreed on a free call."),
+            ("Who will my guests be talking to?", "Your Concierge Ops team writes in your voice, using your policies and templates. I lead the team and I'm your point of contact, so you always know who is responsible."),
+            ("Do I need to change my booking system or inbox?", "No. The team works inside the inbox and booking system you already use. If something is slowing you down, I'll suggest a better setup, and the <a href=\"/foundation-sprint\">Foundation Sprint</a> can build it."),
+            ("How is this different from the Fractional Retreat Operations Director?", "Concierge Ops does the day-to-day admin. The <a href=\"/fractional-operations-director\">Fractional Retreat Operations Director</a> leads the operations: priorities, numbers, team and systems. Many venues combine the two."),
+            ("Where do you work?", "Fully remote, so it works for retreat properties anywhere in the world."),
+        ],
         cta_title="Hand off the admin. Keep the experience.",
     ),
     dict(
@@ -235,7 +243,7 @@ PAGES = [
         label="For retreat venues · One-time build", tag="Everything your retreat needs to run like a <em>real business.</em>",
         lead="Built, integrated, and ready to run without you in every detail. One focused build that gives your retreat its systems: bookings and payments, your numbers, guest communication and the tools your team uses every day.",
         jump=("#build", "What gets built ↓"),
-        price=dict(k="Fixed fee · Most venues start here", amt="$3,000 – $6,000", note="One project, one price, agreed before the build starts.",
+        price=dict(k="Fixed fee · Most venues start here", amt="$3,000 – $6,000 <small>USD</small>", note="One project, one price, agreed before the build starts. Usually 1–3 months.",
                    items=["Business audit and strategy brief", "Bookings, payments and website", "Dashboards and financial tracking", "Guest communication and SOPs"]),
         changes=("What changes", "From running on memory to running on <em>systems.</em>", [
             ("One booking flow", "Inquiry to confirmed booking to payment, set up and connected."),
@@ -258,6 +266,14 @@ PAGES = [
             ("Plan", "A strategy brief and a build plan, agreed before anything changes."),
             ("Build", "Systems set up, connected and tested."),
             ("Handover", "SOPs, training and a walk-through so your team can run it.")]),
+        faq=[
+            ("How long does it take?", "Usually 1 to 3 months, depending on the scope and the size of your team. The timeline leaves room to hand everything over properly, with training, so your team can run it."),
+            ("Are software subscriptions included?", "No. Booking, payment and other tools are billed to you directly by each provider, so you own every account. I help you choose tools that fit your size and budget."),
+            ("What decides where the price lands?", "The scope: how much needs building or fixing, how many systems need connecting, and the size of your team. The fixed price is agreed after the audit, before the build starts."),
+            ("Can you work with the tools I already use?", "Yes. I audit before I build, so anything that already works stays, and only the gaps get built or replaced."),
+            ("Is it remote or on-site?", "Remote for retreat properties anywhere in the world. On-site visits are available in Costa Rica, Panama, Nicaragua and Guatemala."),
+            ("What happens after the build?", "Your team runs it from the SOPs and training. If you want ongoing support, the <a href=\"/fractional-operations-director\">Fractional Retreat Operations Director</a> or <a href=\"/concierge-ops\">Concierge Ops</a> picks up from there."),
+        ],
         cta_title="Build the foundation once. Run on it every season.",
     ),
     dict(
@@ -274,8 +290,8 @@ PAGES = [
         label="For retreat venues · Monthly · Your part-time COO", tag="Senior operations leadership,<br><em>without a full-time hire.</em>",
         lead="I run the operations side of your venue with you: the automations, guest messages and coordination, and the digital systems behind them. I make sure it all runs efficiently, change the processes that stop making sense, and lead the team that does the work.",
         jump=("#role", "What the role covers ↓"),
-        price=dict(k="Monthly retainer", amt="From $1,000 <small>/ month</small>", note="Operations leadership at a fraction of a full-time salary.",
-                   items=["Owns operations priorities with you", "Monthly numbers review", "Team leadership and clarity", "SOPs and growth planning"]),
+        price=dict(k="Monthly retainer", amt="From $1,000 <small>USD / month</small>", note="Operations leadership at a fraction of a full-time salary. 6-month minimum.",
+                   items=["Two scheduled touchpoints a month", "Owns operations priorities with you", "Monthly numbers review", "Team leadership, SOPs and growth planning"]),
         changes=("How we work together", "You keep the vision. <em>I take the operations.</em>", [
             ("Someone owns operations", "Decisions about bookings, team and systems don't all wait for you."),
             ("Decisions start from numbers", "Bookings, revenue and costs reviewed every month, against your goals."),
@@ -301,6 +317,14 @@ PAGES = [
             ("Free call", "Where the business is now, and where you want it to go."),
             ("Operations review", "Your baseline numbers, team and systems, and the first set of priorities."),
             ("Monthly rhythm", "Review the numbers, set priorities, lead the team, refine the systems. Repeat.")], 3),
+        faq=[
+            ("How much of your time do I get?", "Two scheduled touchpoints a month, plus the operations work in between. Hours depend on what your retreat needs and the level you choose, and both are agreed before we start."),
+            ("Is there a minimum commitment?", "Six months minimum. I recommend 12, so we work through a full season together, high and low."),
+            ("Is it remote or on-site?", "Remote for retreat properties anywhere in the world. On-site time is available in Costa Rica, Panama, Nicaragua and Guatemala."),
+            ("What if I don't have a team?", "The Retreat Blueprint <a href=\"/concierge-ops\">Concierge Ops</a> team can handle the day-to-day under my direction."),
+            ("What if my systems are a mess?", "Most venues start with the <a href=\"/foundation-sprint\">Foundation Sprint</a> to build the systems, then move to the fractional role to run and improve them."),
+            ("Who makes the final decisions?", "You do. You keep the vision and the big decisions, and you choose what else to hand over."),
+        ],
         cta_title="Bring in your part-time COO.",
     ),
     dict(
@@ -313,7 +337,7 @@ PAGES = [
                    cta="photo-1760774714285-61ff516f86c5", cta_pos="center 60%",
                    cta_tint="linear-gradient(180deg,rgba(28,26,44,.72) 0%,rgba(28,26,44,.58) 50%,rgba(28,26,44,.80) 100%)", cta_btn="#985033",
                    band_pattern=topo("#E2B877"), band_grad="linear-gradient(160deg,#2C2F4A 0%,#232640 55%,#191B30 100%)", band_glow="rgba(226,184,119,.20)"),
-        label="For retreat venues · Fully managed", tag="Getting your retreat seen by <em>the right people.</em>",
+        label="For retreat venues · Strategy to fully managed", tag="Getting your retreat seen by <em>the right people.</em>",
         lead="Scope is built around what you actually need, from strategy only to full execution with a dedicated team. The goal is simple: the guests who fit your retreat find it, trust it and book.",
         jump=("#levels", "Choose your level ↓"),
         price=dict(k="Pricing", amt="On inquiry", note="Scope and price agreed on a free call, based on what you need.",
@@ -326,21 +350,27 @@ PAGES = [
         band=("levels", "Choose your level", "From strategy only to fully managed", "levels", None),
         proof=("In practice", "A venue relaunched and back in front of guests", [
             ("Revive · Infinity Retreat, Ometepe", "Relaunched with a new brand, website and paid ads", ["Marketing rebrand and website", "Content strategy", "Paid ads across Costa Rica and Nicaragua", "Custom lead generation app"],
-             "Shila took on the nearly impossible task of building our entire digital backend from the ground up.", "Cris Ketch, Founder, Infinity Retreat")]),
+             None, None)]),
         how=("How it starts", "From first call to campaigns going out", [
             ("Free call", "Your guests, your goals, and what's worked so far."),
             ("Strategy", "Positioning, channels and a content plan."),
             ("Launch", "Content, campaigns and outreach going out, reviewed month to month.")], 3),
+        faq=[
+            ("How is it priced?", "Scope and price are agreed on a free call, based on what you need: strategy only, or strategy plus a dedicated team running it for you."),
+            ("What's the difference between strategy only and fully managed?", "Strategy only gives your team the positioning, channels and content direction to run with. Fully managed adds a dedicated marketing lead who creates the content, runs your social media and outreach, and builds your lead pipeline."),
+            ("Do I need my systems in place first?", "It helps. Marketing brings in more inquiries, so they need somewhere to land. If bookings still run through your inbox and memory, start with the <a href=\"/foundation-sprint\">Foundation Sprint</a> or pair marketing with <a href=\"/concierge-ops\">Concierge Ops</a>."),
+            ("Where do you work?", "Remote for retreat properties anywhere in the world. On-site visits are available in Costa Rica, Panama, Nicaragua and Guatemala."),
+        ],
         cta_title="Fill the calendar with the right guests.",
     ),
 ]
 
 OTHERS = {
-    "foundation-sprint": ("Foundation sprint", "The systems your retreat runs on, built in one go.", "$3,000 – $6,000 →"),
-    "fractional-operations-director": ("Fractional Operations Director", "Your part-time COO, month to month.", "From $1,000 / month →"),
-    "concierge-ops": ("Concierge ops", "Your day-to-day admin, handled.", "From $250 / month →"),
-    "growth-marketing": ("Growth marketing", "Get your retreat seen by the right people.", "Pricing on inquiry →"),
-    "buying-a-retreat": ("Buying a retreat?", "Pre-purchase review and your first 90 days.", "From $1,200 →"),
+    "foundation-sprint": ("Foundation Sprint", "The systems your retreat runs on, built in one go.", "$3,000 – $6,000 USD →"),
+    "fractional-operations-director": ("Fractional Retreat Operations Director", "Your part-time COO, month to month.", "From $1,000 USD / month →"),
+    "concierge-ops": ("Concierge Ops", "Your day-to-day admin, handled.", "From $250 USD / month →"),
+    "growth-marketing": ("Growth Marketing", "Get your retreat seen by the right people.", "Pricing on inquiry →"),
+    "buying-a-retreat": ("Buying a retreat?", "Pre-purchase review and your first 90 days.", "From $1,200 USD →"),
 }
 
 LEVELS_HTML = """<div class="levels">
@@ -350,6 +380,9 @@ LEVELS_HTML = """<div class="levels">
           <ul><li>Dedicated marketing lead, fully managed</li><li>Content creation handled end to end</li><li>Social media systems and scheduling</li><li>Outreach campaigns and sales funnel</li><li>Custom lead generator</li></ul>
           <span class="plus">Scope discussed on inquiry</span></div>
       </div>"""
+
+
+FAQ_JS = "<script>\n// FAQ: questions slide open and closed, and only one stays open at a time\n(function () {\n  var items = Array.prototype.slice.call(document.querySelectorAll('.faq details'));\n  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;\n  function animate(d, open) {\n    var summary = d.querySelector('summary');\n    if (d._anim) d._anim.cancel();\n    var start = d.offsetHeight;\n    if (open) d.open = true;\n    var end = open ? d.scrollHeight : summary.offsetHeight + parseFloat(getComputedStyle(d).paddingTop) + parseFloat(getComputedStyle(d).paddingBottom);\n    if (calm || !d.animate) { if (!open) d.open = false; return; }\n    d._anim = d.animate({ height: [start + 'px', end + 'px'] }, { duration: 280, easing: 'ease' });\n    d._anim.onfinish = function () { d._anim = null; if (!open) d.open = false; };\n    d._anim.oncancel = function () { d._anim = null; };\n  }\n  items.forEach(function (d) {\n    d.querySelector('summary').addEventListener('click', function (e) {\n      e.preventDefault();\n      var opening = !d.open || (d._anim && d._closing);\n      items.forEach(function (o) { if (o !== d && o.open) { o._closing = true; animate(o, false); } });\n      d._closing = !opening;\n      animate(d, opening);\n    });\n  });\n})();\n</script>"
 
 
 def build(pg):
@@ -372,6 +405,10 @@ def build(pg):
           "provider": {"@type": "ProfessionalService", "@id": "https://retreatblueprintco.com/#business", "name": "Retreat Blueprint Co."},
           "areaServed": {"@type": "Place", "name": "Worldwide"},
           "audience": {"@type": "Audience", "audienceType": "Retreat centers, eco-lodges and wellness properties that host retreats"}}
+    if pg.get("faq"):
+        ld = {"@context": "https://schema.org", "@graph": [ld, {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"<[^>]+>", "", a)}} for q, a in pg["faq"]]}]}
+        del ld["@graph"][0]["@context"]
     head = head.replace("</head>", '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + "</script>\n</head>", 1)
     head = head.replace("</head>", "<style>" + SHARED_CSS + theme_css(pg["theme"]) + pg.get("name_css", "") + "</style>\n</head>", 1)
 
@@ -445,14 +482,14 @@ def build(pg):
     if pg["proof"]:
         plabel, ptitle, cards = pg["proof"]
         cells = "".join(f'''<div class="proof"><span class="loc">{loc}</span><h3>{h}</h3><ul>{''.join(f'<li>{x}</li>' for x in lis)}</ul>
-        <blockquote>"{q}"<cite>{c}</cite></blockquote></div>''' for loc, h, lis, q, c in cards)
+        {f'<blockquote>"{q}"<cite>{c}</cite></blockquote>' if q else ''}</div>''' for loc, h, lis, q, c in cards)
         grid_style = '' if len(cards) > 1 else ' style="grid-template-columns:minmax(0,640px)"'
         out.append(f'''<section class="sec proof-sec">
   <div class="inner">
     <p class="label">{plabel}</p>
     <h2 class="title">{ptitle}</h2>
     <div class="proof-grid"{grid_style}>{cells}</div>
-    <p class="proof-more"><a href="/#testimonials">Hear the voice notes from these clients</a></p>
+    {'<p class="proof-more"><a href="/#testimonials">Hear the voice notes from these clients</a></p>' if any(c[3] for c in cards) else ''}
   </div>
 </section>
 ''')
@@ -471,6 +508,17 @@ def build(pg):
 </section>
 ''')
     prev = "var(--cream-dark)" if pg["proof"] else "var(--warm-white)"
+    if pg.get("faq"):
+        qs = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in pg["faq"])
+        out.append(f'''<section class="sec faq wt" style="--wave:{prev}">
+  <div class="inner">
+    <p class="label">Questions</p>
+    <h2 class="title">Before you book</h2>
+    {qs}
+  </div>
+</section>
+''')
+        prev = "var(--warm-white)"
     others = "".join(f'<a href="/{s}"><b>{n}</b><span>{d}</span><em>{pr}</em></a>' for s, (n, d, pr) in OTHERS.items() if s != pg["slug"])
     out.append(f'''<section class="sec trust wt" style="--wave:{prev}">
   <div class="inner">
@@ -487,12 +535,13 @@ def build(pg):
     <h2 class="title">{pg['cta_title']}</h2>
     <p class="lead">A free 30-minute call. No obligation, just a clear next step.</p>
     <a class="btn primary" href="{CAL}" target="_blank" rel="noopener">Book a free call</a>
-    <p class="email"><a href="mailto:hello@retreatblueprintco.com?subject={urllib.parse.quote(pg['name'])}%20inquiry">hello@retreatblueprintco.com</a></p>
+    <p class="email"><a href="mailto:hello@retreatblueprintco.com?subject={urllib.parse.quote(pg['name'])}%20inquiry">hello@retreatblueprintco.com</a> · <a href="https://wa.me/16479702759" target="_blank" rel="noopener">WhatsApp</a></p>
   </div>
 </section>
 
 <footer><span class="f-logo">Retreat Blueprint Co.</span><span>© 2026 · <a href="mailto:hello@retreatblueprintco.com">hello@retreatblueprintco.com</a></span></footer>
-<script src="js/menu.js?v=2026-10-16a" defer></script>
+{FAQ_JS if pg.get("faq") else ""}
+<script src="js/menu.js?v=2026-10-16b" defer></script>
 </body>
 </html>
 ''')
