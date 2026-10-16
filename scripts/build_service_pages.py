@@ -190,8 +190,8 @@ def steps(items):
 PAGES = [
     dict(
         slug="concierge-ops", menu="/concierge-ops", name="Concierge Ops",
-        title="Concierge Ops · Retreat Blueprint Co.",
-        desc="A dedicated team, led by your Retreat Operations Director, runs your retreat's day-to-day admin: inquiries, guests, coordination and the back office. From $250 a month.",
+        title="Retreat Center Admin & Booking Management · Concierge Ops",
+        desc="Retreat center admin and booking management by a dedicated team: inquiries, guest communication, coordination and back office. From $250 a month.",
         og="Concierge Ops: your day-to-day admin, handled.",
         theme=dict(name="Concierge Ops", acc="#4A6E4E", acc_dark="#3A5A3E", acc_soft="#7A9E7E", on_band="#C2D6C2", on_band_soft="#B8D0BA",
                    hero="photo-1777913308049-a2c79af7380a", hero_pos="60% 55%", hero_fill="#3B4A33",
@@ -223,8 +223,8 @@ PAGES = [
     ),
     dict(
         slug="foundation-sprint", menu="/foundation-sprint", name="Foundation Sprint",
-        title="Foundation Sprint · Retreat Blueprint Co.",
-        desc="One focused build that gives your retreat the systems it runs on: bookings, payments, numbers, guest communication and SOPs. $3,000 to $6,000, fixed fee.",
+        title="Retreat Center Booking System & SOP Setup · Foundation Sprint",
+        desc="Set up your retreat center's booking system, payments, numbers, guest communication and SOPs in one focused build. Fixed fee, $3,000 to $6,000.",
         og="Foundation Sprint: the systems your retreat runs on, built in one go.",
         theme=dict(name="Foundation Sprint", acc="#985033", acc_dark="#7E4029", acc_soft="#C98A63", on_band="#E6D3C3", on_band_soft="#DDB797",
                    hero="photo-1777913319909-1d27d36db93e", hero_pos="65% 50%", hero_fill="#5A4832",
@@ -261,8 +261,8 @@ PAGES = [
     ),
     dict(
         slug="fractional-operations-director", menu="/fractional-operations-director", name="Fractional Retreat Operations Director", name_html="<span>Fractional Retreat</span><span>Operations Director</span>",
-        title="Fractional Retreat Operations Director · Retreat Blueprint Co.",
-        desc="Your part-time COO: senior operations leadership for your retreat without a full-time hire. Direction, numbers, team and systems, owned month to month. From $1,000 a month.",
+        title="Fractional COO for Retreat Centers · Part-Time Operations Director",
+        desc="A part-time COO for your retreat center: operations leadership, numbers, team and systems without a full-time hire. From $1,000 a month.",
         og="Fractional Retreat Operations Director: your part-time COO.",
         name_css=".hero .svc-name{font-size:clamp(2.1rem,3.8vw,3.35rem);line-height:1.06;max-width:none}.svc-name span{display:block}@media (max-width:860px){.hero .svc-name{font-size:clamp(1.9rem,8.6vw,2.8rem)}}",
         theme=dict(name="Fractional Retreat Operations Director", acc="#2F6467", acc_dark="#234D50", acc_soft="#6E9EA0", on_band="#C4DADB", on_band_soft="#9CC4C6",
@@ -304,8 +304,8 @@ PAGES = [
     ),
     dict(
         slug="growth-marketing", menu="/growth-marketing", name="Growth Marketing",
-        title="Growth Marketing · Retreat Blueprint Co.",
-        desc="Marketing for retreat venues: strategy and positioning, content, social media systems, outreach and lead generation, from strategy only to fully managed. Pricing on inquiry.",
+        title="Retreat Center Marketing to Get More Bookings · Growth Marketing",
+        desc="Marketing for retreat centers and eco-lodges: strategy, content, social media and outreach to fill your calendar with the right guests. Pricing on inquiry.",
         og="Growth Marketing: get your retreat seen by the right people.",
         theme=dict(name="Growth Marketing", acc="#8A5414", acc_dark="#6E420F", acc_soft="#C9934A", on_band="#D6D3E2", on_band_soft="#E2B877",
                    hero="photo-1699694927472-46a4fcf68973", hero_pos="62% 40%", hero_fill="#4A4430",
