@@ -16,6 +16,7 @@ Contact: hello@retreatblueprintco.com
 | `assets/img/` | Photos, favicon, and the social share image |
 | `assets/audio/` | The two testimonial voice notes (`.ogg`) |
 | `buying-a-retreat.html` | The "Buying a retreat?" page for property buyers and agents (its styles are inside the file) |
+| `foundation-sprint.html`, `fractional-operations-director.html`, `concierge-ops.html`, `growth-marketing.html` | One page per service. Generated: edit `scripts/build_service_pages.py`, then run `python3 scripts/build_service_pages.py` |
 | `css/menu.css`, `js/menu.js` | The phone menu button, shared by both pages |
 | `assets/img/buying-a-retreat/`, `assets/docs/` | Previews and PDFs for the sample report and sample Listing Snapshot (`-full-` images are the sharp pop-up versions) |
 | `404.html` | Page shown for a broken link |
