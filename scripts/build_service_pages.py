@@ -379,7 +379,7 @@ def build(pg):
     out = [f'''<header class="hero wb" id="top" style="--wave-b:var(--cream-dark)">
   <div class="inner">
     <div>
-      <h1 class="svc-h1"><span class="label">{pg['kw']}</span><span class="svc-name">{pg.get('name_html', pg['name'])}</span></h1>
+      <h1 class="svc-h1"><span class="label">{pg['kw']}</span> <span class="svc-name">{pg.get('name_html', pg['name'])}</span></h1>
       <p class="svc-tag">{pg['tag']}</p>
       <p class="lead">{pg['lead']}</p>
       <p class="venue-hint">For retreat centers, eco-lodges and wellness properties that host retreats.</p>
