@@ -19,6 +19,7 @@ Contact: hello@retreatblueprintco.com
 | `foundation-sprint.html`, `fractional-operations-director.html`, `concierge-ops.html`, `growth-marketing.html` | One page per service. Generated: edit `scripts/build_service_pages.py`, then run `python3 scripts/build_service_pages.py` |
 | `css/menu.css`, `js/menu.js` | The phone menu button, shared by both pages |
 | `assets/img/buying-a-retreat/`, `assets/docs/` | Previews and PDFs for the sample report and sample Listing Snapshot (`-full-` images are the sharp pop-up versions) |
+| `content/field-notes/` | Field Notes articles, one file each (settings at the top, then the article). Generated into `field-notes/`: run `python3 scripts/build_field_notes.py` (add `--preview` to see drafts locally). To publish: set `"status": "published"`, check the date, rebuild, push. The build refuses to publish an article that still has `[SHILA` placeholders |
 | `404.html` | Page shown for a broken link |
 | `sitemap.xml`, `robots.txt` | Help Google find and index the site |
 | `.nojekyll` | Tells GitHub Pages to publish the files exactly as they are |
