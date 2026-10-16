@@ -334,6 +334,10 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 /* Service page template */
 .svc-name{font-family:var(--serif);font-weight:400;font-size:clamp(3.2rem,8vw,6.2rem);line-height:.98;letter-spacing:-.02em;margin:0 0 1rem;color:var(--earth);text-wrap:balance}
 .svc-tag{font-family:var(--serif);font-size:clamp(1.35rem,2.5vw,1.85rem);line-height:1.25;color:var(--earth-mid);margin:0 0 1.5rem;max-width:30ch}
+.venue-hint{font-size:.85rem;color:var(--earth-mid);margin:-.25rem 0 1.5rem;display:flex;gap:8px;align-items:center}
+.venue-hint::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none}
+.svc-tag em{white-space:nowrap}
+.band-note a{color:#fff;text-decoration:underline;text-underline-offset:3px}
 .co-price{background:var(--warm-white);border:1px solid var(--border);border-radius:8px;padding:28px;display:grid;gap:10px;box-shadow:0 18px 40px rgba(42,34,24,.10)}
 .co-price .k{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
 .co-price .amt{font-family:var(--serif);font-size:2.5rem;line-height:1.05}
@@ -450,10 +454,11 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 <header class="hero wb" id="top" style="--wave-b:var(--cream-dark)">
   <div class="inner">
     <div>
-      <p class="label">Service · Monthly</p>
+      <p class="label">For retreat venues · Monthly</p>
       <h1 class="svc-name">Concierge Ops</h1>
       <p class="svc-tag">Your day-to-day admin, <em>handled.</em></p>
       <p class="lead">Every inquiry answered fast, every guest looked after, every invoice tracked. A dedicated team, led by your Retreat Operations Director, runs your day-to-day admin so you can focus on the experience and on selling.</p>
+      <p class="venue-hint">For retreat centers, eco-lodges and wellness properties that host retreats.</p>
       <div class="row">
         <a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a>
         <a class="btn text" href="#team">Meet your team ↓</a>

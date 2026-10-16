@@ -42,6 +42,10 @@ SHARED_CSS = """
 /* Service page template */
 .svc-name{font-family:var(--serif);font-weight:400;font-size:clamp(3.2rem,8vw,6.2rem);line-height:.98;letter-spacing:-.02em;margin:0 0 1rem;color:var(--earth);text-wrap:balance}
 .svc-tag{font-family:var(--serif);font-size:clamp(1.35rem,2.5vw,1.85rem);line-height:1.25;color:var(--earth-mid);margin:0 0 1.5rem;max-width:30ch}
+.venue-hint{font-size:.85rem;color:var(--earth-mid);margin:-.25rem 0 1.5rem;display:flex;gap:8px;align-items:center}
+.venue-hint::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none}
+.svc-tag em{white-space:nowrap}
+.band-note a{color:#fff;text-decoration:underline;text-underline-offset:3px}
 .co-price{background:var(--warm-white);border:1px solid var(--border);border-radius:8px;padding:28px;display:grid;gap:10px;box-shadow:0 18px 40px rgba(42,34,24,.10)}
 .co-price .k{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
 .co-price .amt{font-family:var(--serif);font-size:2.5rem;line-height:1.05}
@@ -156,7 +160,7 @@ PAGES = [
                    cta="photo-1644612105654-b6b0a941ecde", cta_pos="center 60%",
                    cta_tint="linear-gradient(180deg,rgba(18,30,21,.78) 0%,rgba(18,30,21,.70) 50%,rgba(18,30,21,.82) 100%)", cta_btn="#985033",
                    band_pattern=topo("#B8D0BA"), band_grad="linear-gradient(160deg,#25402B 0%,#1A2E1F 55%,#132217 100%)", band_glow="rgba(122,158,126,.22)"),
-        label="Service · Monthly", tag="Your day-to-day admin, <em>handled.</em>",
+        label="For retreat venues · Monthly", tag="Your day-to-day admin, <em>handled.</em>",
         lead="Every inquiry answered fast, every guest looked after, every invoice tracked. A dedicated team, led by your Retreat Operations Director, runs your day-to-day admin so you can focus on the experience and on selling.",
         jump=("#team", "Meet your team ↓"),
         price=dict(k="Monthly", amt="From $250 <small>/ month</small>", note="Priced on your average monthly bookings and retreat capacity.",
@@ -189,10 +193,10 @@ PAGES = [
                    cta="photo-1565214988145-8e826f79d8c2", cta_pos="center",
                    cta_tint="linear-gradient(180deg,rgba(42,26,17,.80) 0%,rgba(42,26,17,.70) 50%,rgba(42,26,17,.84) 100%)", cta_btn="#985033",
                    band_pattern=blueprint("#DDB797"), band_grad="linear-gradient(160deg,#4A3021 0%,#3A251A 55%,#2A1A11 100%)", band_glow="rgba(221,183,151,.18)"),
-        label="Service · Fixed fee", tag="Everything your retreat needs to run like a <em>real business.</em>",
+        label="For retreat venues · One-time build", tag="Everything your retreat needs to run like a <em>real business.</em>",
         lead="Built, integrated, and ready to run without you in every detail. One focused build that gives your retreat its systems: bookings and payments, your numbers, guest communication and the tools your team uses every day.",
         jump=("#build", "What gets built ↓"),
-        price=dict(k="Fixed fee · Most owners start here", amt="$3,000 – $6,000", note="One project, one price, agreed before the build starts.",
+        price=dict(k="Fixed fee · Most venues start here", amt="$3,000 – $6,000", note="One project, one price, agreed before the build starts.",
                    items=["Business audit and strategy brief", "Bookings, payments and website", "Dashboards and financial tracking", "Guest communication and SOPs"]),
         changes=("What changes", "From running on memory to running on <em>systems.</em>", [
             ("One booking flow", "Inquiry to confirmed booking to payment, set up and connected."),
@@ -218,18 +222,18 @@ PAGES = [
         cta_title="Build the foundation once. Run on it every season.",
     ),
     dict(
-        slug="fractional-operations-director", menu="/fractional-operations-director", name="Fractional Retreat Operations Director",
+        slug="fractional-operations-director", menu="/fractional-operations-director", name="Fractional Retreat Operations Director", name_html="<span>Fractional Retreat</span><span>Operations Director</span>",
         title="Fractional Retreat Operations Director · Retreat Blueprint Co.",
         desc="Your part-time COO: senior operations leadership for your retreat without a full-time hire. Direction, numbers, team and systems, owned month to month. From $1,000 a month.",
         og="Fractional Retreat Operations Director: your part-time COO.",
-        name_css=".svc-name{font-size:clamp(2.6rem,5.6vw,4.6rem);max-width:13ch}",
+        name_css=".svc-name{font-size:clamp(2.3rem,4.1vw,3.55rem);line-height:1.04;max-width:none}.svc-name span{display:block}@media (max-width:860px){.svc-name{font-size:clamp(2.2rem,9vw,3rem)}}",
         theme=dict(name="Fractional Retreat Operations Director", acc="#2F6467", acc_dark="#234D50", acc_soft="#6E9EA0", on_band="#C4DADB", on_band_soft="#9CC4C6",
                    hero="photo-1782139186009-6fcc4f2326ea", hero_pos="60% 60%", hero_fill="#2F4A4C",
                    cta="photo-1782061419033-591356402cd4", cta_pos="center 55%",
                    cta_tint="linear-gradient(180deg,rgba(12,34,36,.78) 0%,rgba(12,34,36,.66) 50%,rgba(12,34,36,.82) 100%)", cta_btn="#985033",
                    band_pattern=topo("#9CC4C6"), band_grad="linear-gradient(160deg,#1E4547 0%,#163638 55%,#0F2829 100%)", band_glow="rgba(156,196,198,.18)"),
-        label="Service · Monthly · Your part-time COO", tag="Senior operations leadership, <em>without a full-time hire.</em>",
-        lead="Someone who owns the operations side of your retreat with you: sets direction, tracks the numbers, leads the team and keeps the systems working. A seat at the table every month, so the business keeps moving when you're busy hosting.",
+        label="For retreat venues · Monthly · Your part-time COO", tag="Senior operations leadership,<br><em>without a full-time hire.</em>",
+        lead="I run the operations side of your venue with you: the automations, guest messages and coordination, and the digital systems behind them. I make sure it all runs efficiently, change the processes that stop making sense, and lead the team that does the work.",
         jump=("#role", "What the role covers ↓"),
         price=dict(k="Monthly retainer", amt="From $1,000 <small>/ month</small>", note="Operations leadership at a fraction of a full-time salary.",
                    items=["Owns operations priorities with you", "Monthly numbers review", "Team leadership and clarity", "SOPs and growth planning"]),
@@ -241,9 +245,9 @@ PAGES = [
         band=("role", "What the role covers", "Four things your director owns", "roles", [
             ("compass", "Direction", ["Priorities for the month and the season", "Growth planning: the next offer, the next hire"]),
             ("chart", "Numbers", ["Monthly metrics review", "Bookings, revenue and costs against your goals"]),
-            ("people", "Team", ["Team management and clarity", "Roles and expectations as the team grows"]),
-            ("grid", "Systems", ["SOP refinements as things change", "Your systems kept working, season after season"])],
-            "<b>Pairs with Concierge Ops:</b> your director leads the team that runs the day-to-day admin."),
+            ("people", "Team and day-to-day", ["Lead the team, with clear roles and expectations", "Messages, coordination and automations running efficiently", "Processes changed when they stop making sense"]),
+            ("grid", "Digital systems", ["Own your digital infrastructure: booking, payments, website, automations and team tools", "Connected, so nothing is typed in twice", "SOPs kept current, season after season"])],
+            "<b>Two ways to run it:</b> I lead your in-house team, or, if you don't have one, the Retreat Blueprint <a href=\"/concierge-ops\">Concierge Ops</a> remote team handles the day-to-day under my direction."),
         compare=("Why fractional", "The leadership of a full&#8209;time hire, sized to your retreat", [
             ("Doing it all yourself", ["Every decision waits for you", "Numbers checked when there's time", "The team asks you everything", "Growth happens between guest arrivals"], False),
             ("Fractional director", ["Operations owned with you, every month", "Numbers reviewed on a set rhythm", "A leader the team can go to", "A plan for the season ahead", "A monthly retainer, no long hiring process"], True),
@@ -267,7 +271,7 @@ PAGES = [
                    cta="photo-1760774714285-61ff516f86c5", cta_pos="center 60%",
                    cta_tint="linear-gradient(180deg,rgba(28,26,44,.72) 0%,rgba(28,26,44,.58) 50%,rgba(28,26,44,.80) 100%)", cta_btn="#985033",
                    band_pattern=topo("#E2B877"), band_grad="linear-gradient(160deg,#2C2F4A 0%,#232640 55%,#191B30 100%)", band_glow="rgba(226,184,119,.20)"),
-        label="Service · Fully managed", tag="Getting your retreat seen by <em>the right people.</em>",
+        label="For retreat venues · Fully managed", tag="Getting your retreat seen by <em>the right people.</em>",
         lead="Scope is built around what you actually need, from strategy only to full execution with a dedicated team. The goal is simple: the guests who fit your retreat find it, trust it and book.",
         jump=("#levels", "Choose your level ↓"),
         price=dict(k="Pricing", amt="On inquiry", note="Scope and price agreed on a free call, based on what you need.",
@@ -326,9 +330,10 @@ def build(pg):
   <div class="inner">
     <div>
       <p class="label">{pg['label']}</p>
-      <h1 class="svc-name">{pg['name']}</h1>
+      <h1 class="svc-name">{pg.get('name_html', pg['name'])}</h1>
       <p class="svc-tag">{pg['tag']}</p>
       <p class="lead">{pg['lead']}</p>
+      <p class="venue-hint">For retreat centers, eco-lodges and wellness properties that host retreats.</p>
       <div class="row">
         <a class="btn primary" href="{CAL}" target="_blank" rel="noopener">Book a free call</a>
         <a class="btn text" href="{pg['jump'][0]}">{pg['jump'][1]}</a>

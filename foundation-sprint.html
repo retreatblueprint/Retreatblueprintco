@@ -334,6 +334,10 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 /* Service page template */
 .svc-name{font-family:var(--serif);font-weight:400;font-size:clamp(3.2rem,8vw,6.2rem);line-height:.98;letter-spacing:-.02em;margin:0 0 1rem;color:var(--earth);text-wrap:balance}
 .svc-tag{font-family:var(--serif);font-size:clamp(1.35rem,2.5vw,1.85rem);line-height:1.25;color:var(--earth-mid);margin:0 0 1.5rem;max-width:30ch}
+.venue-hint{font-size:.85rem;color:var(--earth-mid);margin:-.25rem 0 1.5rem;display:flex;gap:8px;align-items:center}
+.venue-hint::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none}
+.svc-tag em{white-space:nowrap}
+.band-note a{color:#fff;text-decoration:underline;text-underline-offset:3px}
 .co-price{background:var(--warm-white);border:1px solid var(--border);border-radius:8px;padding:28px;display:grid;gap:10px;box-shadow:0 18px 40px rgba(42,34,24,.10)}
 .co-price .k{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
 .co-price .amt{font-family:var(--serif);font-size:2.5rem;line-height:1.05}
@@ -450,17 +454,18 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 <header class="hero wb" id="top" style="--wave-b:var(--cream-dark)">
   <div class="inner">
     <div>
-      <p class="label">Service · Fixed fee</p>
+      <p class="label">For retreat venues · One-time build</p>
       <h1 class="svc-name">Foundation Sprint</h1>
       <p class="svc-tag">Everything your retreat needs to run like a <em>real business.</em></p>
       <p class="lead">Built, integrated, and ready to run without you in every detail. One focused build that gives your retreat its systems: bookings and payments, your numbers, guest communication and the tools your team uses every day.</p>
+      <p class="venue-hint">For retreat centers, eco-lodges and wellness properties that host retreats.</p>
       <div class="row">
         <a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a>
         <a class="btn text" href="#build">What gets built ↓</a>
       </div>
     </div>
     <div class="co-price">
-      <span class="k">Fixed fee · Most owners start here</span>
+      <span class="k">Fixed fee · Most venues start here</span>
       <p class="amt">$3,000 – $6,000</p>
       <p>One project, one price, agreed before the build starts.</p>
       <ul><li>Business audit and strategy brief</li><li>Bookings, payments and website</li><li>Dashboards and financial tracking</li><li>Guest communication and SOPs</li></ul>

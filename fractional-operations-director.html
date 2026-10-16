@@ -334,6 +334,10 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 /* Service page template */
 .svc-name{font-family:var(--serif);font-weight:400;font-size:clamp(3.2rem,8vw,6.2rem);line-height:.98;letter-spacing:-.02em;margin:0 0 1rem;color:var(--earth);text-wrap:balance}
 .svc-tag{font-family:var(--serif);font-size:clamp(1.35rem,2.5vw,1.85rem);line-height:1.25;color:var(--earth-mid);margin:0 0 1.5rem;max-width:30ch}
+.venue-hint{font-size:.85rem;color:var(--earth-mid);margin:-.25rem 0 1.5rem;display:flex;gap:8px;align-items:center}
+.venue-hint::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none}
+.svc-tag em{white-space:nowrap}
+.band-note a{color:#fff;text-decoration:underline;text-underline-offset:3px}
 .co-price{background:var(--warm-white);border:1px solid var(--border);border-radius:8px;padding:28px;display:grid;gap:10px;box-shadow:0 18px 40px rgba(42,34,24,.10)}
 .co-price .k{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
 .co-price .amt{font-family:var(--serif);font-size:2.5rem;line-height:1.05}
@@ -421,7 +425,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 @media (max-width:860px){.cta{background-image:url('https://images.unsplash.com/photo-1782061419033-591356402cd4?auto=format&fit=crop&q=72&w=1100') !important}}
 .cta > .cta-ov{background:linear-gradient(180deg,rgba(12,34,36,.78) 0%,rgba(12,34,36,.66) 50%,rgba(12,34,36,.82) 100%) !important}
 .cta .btn.primary{background:#985033;border-color:#985033}
-.svc-name{font-size:clamp(2.6rem,5.6vw,4.6rem);max-width:13ch}</style>
+.svc-name{font-size:clamp(2.3rem,4.1vw,3.55rem);line-height:1.04;max-width:none}.svc-name span{display:block}@media (max-width:860px){.svc-name{font-size:clamp(2.2rem,9vw,3rem)}}</style>
 </head>
 <body>
 
@@ -450,10 +454,11 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 <header class="hero wb" id="top" style="--wave-b:var(--cream-dark)">
   <div class="inner">
     <div>
-      <p class="label">Service · Monthly · Your part-time COO</p>
-      <h1 class="svc-name">Fractional Retreat Operations Director</h1>
-      <p class="svc-tag">Senior operations leadership, <em>without a full-time hire.</em></p>
-      <p class="lead">Someone who owns the operations side of your retreat with you: sets direction, tracks the numbers, leads the team and keeps the systems working. A seat at the table every month, so the business keeps moving when you're busy hosting.</p>
+      <p class="label">For retreat venues · Monthly · Your part-time COO</p>
+      <h1 class="svc-name"><span>Fractional Retreat</span><span>Operations Director</span></h1>
+      <p class="svc-tag">Senior operations leadership,<br><em>without a full-time hire.</em></p>
+      <p class="lead">I run the operations side of your venue with you: the automations, guest messages and coordination, and the digital systems behind them. I make sure it all runs efficiently, change the processes that stop making sense, and lead the team that does the work.</p>
+      <p class="venue-hint">For retreat centers, eco-lodges and wellness properties that host retreats.</p>
       <div class="row">
         <a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a>
         <a class="btn text" href="#role">What the role covers ↓</a>
@@ -482,7 +487,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
     <div class="inner">
       <p class="label">What the role covers</p>
       <h2 class="title">Four things your director owns</h2>
-      <div class="roles"><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18z M15.5 8.5l-2 5-5 2 2-5z"/></svg><div><h3>Direction</h3><ul><li>Priorities for the month and the season</li><li>Growth planning: the next offer, the next hire</li></ul></div></div><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10 M10 20V4 M16 20v-7 M3 20h18"/></svg><div><h3>Numbers</h3><ul><li>Monthly metrics review</li><li>Bookings, revenue and costs against your goals</li></ul></div></div><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11a3 3 0 1 0 0-6a3 3 0 0 0 0 6z M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6 M16 5.5a3 3 0 0 1 0 5.5 M18 14.5c1.8.8 3 2.7 3 5"/></svg><div><h3>Team</h3><ul><li>Team management and clarity</li><li>Roles and expectations as the team grows</li></ul></div></div><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z M5 9h14 M9 4v16"/></svg><div><h3>Systems</h3><ul><li>SOP refinements as things change</li><li>Your systems kept working, season after season</li></ul></div></div></div><p class="band-note"><b>Pairs with Concierge Ops:</b> your director leads the team that runs the day-to-day admin.</p>
+      <div class="roles"><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18z M15.5 8.5l-2 5-5 2 2-5z"/></svg><div><h3>Direction</h3><ul><li>Priorities for the month and the season</li><li>Growth planning: the next offer, the next hire</li></ul></div></div><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10 M10 20V4 M16 20v-7 M3 20h18"/></svg><div><h3>Numbers</h3><ul><li>Monthly metrics review</li><li>Bookings, revenue and costs against your goals</li></ul></div></div><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11a3 3 0 1 0 0-6a3 3 0 0 0 0 6z M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6 M16 5.5a3 3 0 0 1 0 5.5 M18 14.5c1.8.8 3 2.7 3 5"/></svg><div><h3>Team and day-to-day</h3><ul><li>Lead the team, with clear roles and expectations</li><li>Messages, coordination and automations running efficiently</li><li>Processes changed when they stop making sense</li></ul></div></div><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z M5 9h14 M9 4v16"/></svg><div><h3>Digital systems</h3><ul><li>Own your digital infrastructure: booking, payments, website, automations and team tools</li><li>Connected, so nothing is typed in twice</li><li>SOPs kept current, season after season</li></ul></div></div></div><p class="band-note"><b>Two ways to run it:</b> I lead your in-house team, or, if you don't have one, the Retreat Blueprint <a href="/concierge-ops">Concierge Ops</a> remote team handles the day-to-day under my direction.</p>
     </div>
   </section>
 </div>
