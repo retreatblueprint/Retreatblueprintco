@@ -68,8 +68,8 @@ SHARED_CSS = """
 .band-note{margin-top:1.75rem;font-size:.92rem;color:var(--on-band);display:flex;gap:10px;align-items:center}
 .band-note:has(.route){display:grid;grid-template-columns:1fr 1fr;gap:14px 20px;align-items:stretch}
 .routes-h{grid-column:1/-1;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-band-soft)}
-.route{display:grid;gap:4px;padding:16px 18px;border-radius:8px;border:1px dashed rgba(255,255,255,.25)}
-.route b{color:#fff;font-weight:500;font-family:var(--serif);font-size:1.05rem}
+.route{display:block;padding:16px 18px;border-radius:8px;border:1px dashed rgba(255,255,255,.25)}
+.route b{display:block;margin-bottom:6px;color:#fff;font-weight:500;font-family:var(--serif);font-size:1.05rem}
 @media (max-width:700px){.band-note:has(.route){grid-template-columns:1fr}}
 .band-note b{color:#fff;font-weight:500}
 .cycle{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:2.75rem;position:relative}
