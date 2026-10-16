@@ -226,7 +226,7 @@ PAGES = [
         title="Fractional Retreat Operations Director · Retreat Blueprint Co.",
         desc="Your part-time COO: senior operations leadership for your retreat without a full-time hire. Direction, numbers, team and systems, owned month to month. From $1,000 a month.",
         og="Fractional Retreat Operations Director: your part-time COO.",
-        name_css=".svc-name{font-size:clamp(2.3rem,4.1vw,3.55rem);line-height:1.04;max-width:none}.svc-name span{display:block}@media (max-width:860px){.svc-name{font-size:clamp(2.2rem,9vw,3rem)}}",
+        name_css=".hero .svc-name{font-size:clamp(2.1rem,3.8vw,3.35rem);line-height:1.06;max-width:none}.svc-name span{display:block}@media (max-width:860px){.hero .svc-name{font-size:clamp(1.9rem,8.6vw,2.8rem)}}",
         theme=dict(name="Fractional Retreat Operations Director", acc="#2F6467", acc_dark="#234D50", acc_soft="#6E9EA0", on_band="#C4DADB", on_band_soft="#9CC4C6",
                    hero="photo-1782139186009-6fcc4f2326ea", hero_pos="60% 60%", hero_fill="#2F4A4C",
                    cta="photo-1782061419033-591356402cd4", cta_pos="center 55%",
