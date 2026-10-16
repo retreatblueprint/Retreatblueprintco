@@ -66,6 +66,11 @@ SHARED_CSS = """
 .role ul{list-style:none;display:grid;gap:4px}
 .role li::before{content:"\\2013  ";color:var(--on-band-soft)}
 .band-note{margin-top:1.75rem;font-size:.92rem;color:var(--on-band);display:flex;gap:10px;align-items:center}
+.band-note:has(.route){display:grid;grid-template-columns:1fr 1fr;gap:14px 20px;align-items:stretch}
+.routes-h{grid-column:1/-1;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-band-soft)}
+.route{display:grid;gap:4px;padding:16px 18px;border-radius:8px;border:1px dashed rgba(255,255,255,.25)}
+.route b{color:#fff;font-weight:500;font-family:var(--serif);font-size:1.05rem}
+@media (max-width:700px){.band-note:has(.route){grid-template-columns:1fr}}
 .band-note b{color:#fff;font-weight:500}
 .cycle{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:2.75rem;position:relative}
 .cycle li{position:relative;display:grid;gap:8px;align-content:start;padding:22px 18px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
@@ -247,7 +252,7 @@ PAGES = [
             ("chart", "Numbers", ["Monthly metrics review", "Bookings, revenue and costs against your goals"]),
             ("people", "Team and day-to-day", ["Lead the team, with clear roles and expectations", "Messages, coordination and automations running efficiently", "Processes changed when they stop making sense"]),
             ("grid", "Digital systems", ["Own your digital infrastructure: booking, payments, website, automations and team tools", "Connected, so nothing is typed in twice", "SOPs kept current, season after season"])],
-            "<b>Two ways to run it:</b> I lead your in-house team, or, if you don't have one, the Retreat Blueprint <a href=\"/concierge-ops\">Concierge Ops</a> remote team handles the day-to-day under my direction."),
+            "<span class=\"routes-h\">Two ways to run it</span><span class=\"route\"><b>You have a team</b>I lead your in-house team and run the operations through them.</span><span class=\"route\"><b>You don't have one yet</b>The Retreat Blueprint <a href=\"/concierge-ops\">Concierge Ops</a> remote team handles the day-to-day, under my direction.</span>"),
         compare=("Why fractional", "The leadership of a full&#8209;time hire, sized to your retreat", [
             ("Doing it all yourself", ["Every decision waits for you", "Numbers checked when there's time", "The team asks you everything", "Growth happens between guest arrivals"], False),
             ("Fractional director", ["Operations owned with you, every month", "Numbers reviewed on a set rhythm", "A leader the team can go to", "A plan for the season ahead", "A monthly retainer, no long hiring process"], True),
