@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds the four service pages (concierge-ops, foundation-sprint, strategy-retainer, growth-marketing).
+"""Builds the four service pages (concierge-ops, foundation-sprint, fractional-operations-director, growth-marketing).
 
 They share the Buying a Retreat page's base styles, nav and footer, plus one service-page template.
 Each page has its own theme (accent colour, photos, band pattern) and its own sections.
@@ -88,6 +88,18 @@ SHARED_CSS = """
 .level li::before{content:"\\2713";color:var(--on-band-soft);font-weight:600}
 .level.full li::before{color:var(--acc)}
 .level .plus{font-size:.86rem;font-weight:500;color:var(--acc)}
+.compare{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr) minmax(0,.9fr);gap:16px;margin-top:2.5rem;align-items:stretch}
+.cmp{border:1px solid var(--border);border-radius:8px;padding:24px;background:var(--warm-white);display:grid;gap:12px;align-content:start}
+.cmp h3{font-family:var(--serif);font-weight:400;font-size:1.2rem;color:var(--muted)}
+.cmp ul{list-style:none;display:grid;gap:8px}
+.cmp li{font-size:.9rem;color:var(--earth-mid);padding-left:18px;position:relative}
+.cmp li::before{content:"\\2013";position:absolute;left:0;color:var(--muted)}
+.cmp.on{border:2px solid var(--acc);box-shadow:0 18px 40px rgba(42,34,24,.10);transform:translateY(-6px)}
+.cmp.on h3{color:var(--earth);font-size:1.4rem}
+.cmp.on li{color:var(--earth)}
+.cmp.on li::before{content:"\\2713";color:var(--acc);font-weight:600}
+.cmp .pick{justify-self:start;font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--acc);border-radius:4px;padding:3px 8px}
+@media (max-width:900px){.compare{grid-template-columns:1fr}.cmp.on{transform:none}}
 .proof li::before{color:var(--acc)}
 .proof-more{margin-top:1.5rem;font-size:.9rem}
 .proof-more a{color:var(--acc);font-weight:500;text-decoration:underline;text-underline-offset:3px}
@@ -206,39 +218,44 @@ PAGES = [
         cta_title="Build the foundation once. Run on it every season.",
     ),
     dict(
-        slug="strategy-retainer", menu="/strategy-retainer", name="Strategy Retainer",
-        title="Strategy Retainer · Retreat Blueprint Co.",
-        desc="An ongoing strategic partner for your retreat: monthly strategy sessions, metrics and priorities, team clarity, SOP refinements and growth planning. $1,000 to $2,000 a month.",
-        og="Strategy Retainer: a partner who keeps your retreat moving forward.",
-        theme=dict(name="Strategy Retainer", acc="#2F6467", acc_dark="#234D50", acc_soft="#6E9EA0", on_band="#C4DADB", on_band_soft="#9CC4C6",
+        slug="fractional-operations-director", menu="/fractional-operations-director", name="Fractional Retreat Operations Director",
+        title="Fractional Retreat Operations Director · Retreat Blueprint Co.",
+        desc="Your part-time COO: senior operations leadership for your retreat without a full-time hire. Direction, numbers, team and systems, owned month to month. $1,000 to $2,000 a month.",
+        og="Fractional Retreat Operations Director: your part-time COO.",
+        name_css=".svc-name{font-size:clamp(2.6rem,5.6vw,4.6rem);max-width:13ch}",
+        theme=dict(name="Fractional Retreat Operations Director", acc="#2F6467", acc_dark="#234D50", acc_soft="#6E9EA0", on_band="#C4DADB", on_band_soft="#9CC4C6",
                    hero="photo-1782139186009-6fcc4f2326ea", hero_pos="60% 60%", hero_fill="#2F4A4C",
                    cta="photo-1782061419033-591356402cd4", cta_pos="center 55%",
                    cta_tint="linear-gradient(180deg,rgba(12,34,36,.78) 0%,rgba(12,34,36,.66) 50%,rgba(12,34,36,.82) 100%)", cta_btn="#985033",
                    band_pattern=topo("#9CC4C6"), band_grad="linear-gradient(160deg,#1E4547 0%,#163638 55%,#0F2829 100%)", band_glow="rgba(156,196,198,.18)"),
-        label="Service · Monthly", tag="A partner who keeps the business <em>moving forward.</em>",
-        lead="An ongoing strategic partner who sets direction, tracks what's working, and keeps the business moving forward. Every month: the numbers reviewed, priorities set, and a clear plan for what comes next.",
-        jump=("#rhythm", "Your monthly rhythm ↓"),
-        price=dict(k="Monthly", amt="$1,000 – $2,000", note="Per month. Ongoing direction once your systems are in place.",
-                   items=["Monthly strategy sessions", "Metrics review and priority setting", "Team management and clarity", "SOP refinements and growth planning"]),
-        changes=("What changes", "Fewer guesses. <em>Clearer decisions.</em>", [
-            ("Know your numbers", "Metrics reviewed every month, so decisions start from what's actually happening."),
-            ("Focus on what matters", "Priorities set together, so the month goes to the work that moves the business."),
-            ("A team that's clear", "Roles and expectations kept clear as the business and the team grow."),
-            ("Systems that keep up", "SOPs refined as things change, so nothing drifts back to how it was.")]),
-        band=("rhythm", "Every month", "Your monthly rhythm", "cycle", [
-            ("Review the numbers", "Bookings, revenue and costs, against last month and your goals."),
-            ("Set priorities", "The few things that will move the business most this month."),
-            ("Strategy session", "Decisions made together, with clear owners and next steps."),
-            ("Team and SOPs", "Roles clarified and procedures updated where things changed."),
-            ("Plan growth", "The next season, the next offer, the next hire.")]),
+        label="Service · Monthly · Your part-time COO", tag="Senior operations leadership, <em>without a full-time hire.</em>",
+        lead="Someone who owns the operations side of your retreat with you: sets direction, tracks the numbers, leads the team and keeps the systems working. A seat at the table every month, so the business keeps moving when you're busy hosting.",
+        jump=("#role", "What the role covers ↓"),
+        price=dict(k="Monthly retainer", amt="$1,000 – $2,000", note="Per month. Operations leadership at a fraction of a full-time salary.",
+                   items=["Owns operations priorities with you", "Monthly numbers review", "Team leadership and clarity", "SOPs and growth planning"]),
+        changes=("What changes", "You stop being <em>the bottleneck.</em>", [
+            ("Someone owns operations", "Decisions about bookings, team and systems don't all wait for you."),
+            ("Decisions start from numbers", "Bookings, revenue and costs reviewed every month, against your goals."),
+            ("A team that's led", "Clear roles, expectations and someone they can go to."),
+            ("Systems that keep up", "SOPs refined as the business changes, so nothing drifts back.")]),
+        band=("role", "What the role covers", "Four things your director owns", "roles", [
+            ("compass", "Direction", ["Priorities for the month and the season", "Growth planning: the next offer, the next hire"]),
+            ("chart", "Numbers", ["Monthly metrics review", "Bookings, revenue and costs against your goals"]),
+            ("people", "Team", ["Team management and clarity", "Roles and expectations as the team grows"]),
+            ("grid", "Systems", ["SOP refinements as things change", "Your systems kept working, season after season"])],
+            "<b>Pairs with Concierge Ops:</b> your director leads the team that runs the day-to-day admin."),
+        compare=("Why fractional", "The leadership of a full-time hire, sized to your retreat", [
+            ("Doing it all yourself", ["Every decision waits for you", "Numbers checked when there's time", "The team asks you everything", "Growth happens between guest arrivals"], False),
+            ("Fractional director", ["Operations owned with you, every month", "Numbers reviewed on a set rhythm", "A leader the team can go to", "A plan for the season ahead", "A monthly retainer, no long hiring process"], True),
+            ("Full-time hire", ["Operations owned, full time", "A full salary, every month of the year", "Months to recruit and onboard", "Hard to scale back in low season"], False)]),
         proof=("In practice", "The work doesn't stop at the build", [
             ("Infinity Retreat · Ometepe, Nicaragua", "Kept on as an ongoing consultant after the build", ["Bookings, guests and payments in one system", "Relaunched with a new brand, website and paid ads", "Retained as an ongoing consultant"],
              "Shila has continued working with me as a consultant, a testament to the value she brings and the confidence I have in her abilities.", "Cris Ketch, Founder, Infinity Retreat")]),
-        how=("How it starts", "Three steps to a steady rhythm", [
+        how=("How it starts", "From first call to a steady rhythm", [
             ("Free call", "Where the business is now, and where you want it to go."),
-            ("First session", "Your baseline numbers and the first set of priorities."),
-            ("Monthly rhythm", "Review, decide, act, repeat.")], 3),
-        cta_title="Keep the business moving forward.",
+            ("Operations review", "Your baseline numbers, team and systems, and the first set of priorities."),
+            ("Monthly rhythm", "Review the numbers, set priorities, lead the team, refine the systems. Repeat.")], 3),
+        cta_title="Bring in your part-time COO.",
     ),
     dict(
         slug="growth-marketing", menu="/growth-marketing", name="Growth Marketing",
@@ -274,7 +291,7 @@ PAGES = [
 
 OTHERS = {
     "foundation-sprint": ("Foundation sprint", "The systems your retreat runs on, built in one go.", "$3,000 – $6,000 →"),
-    "strategy-retainer": ("Strategy retainer", "A monthly partner for direction and growth.", "From $1,000 / month →"),
+    "fractional-operations-director": ("Fractional Operations Director", "Your part-time COO, month to month.", "From $1,000 / month →"),
     "concierge-ops": ("Concierge ops", "Your day-to-day admin, handled.", "From $250 / month →"),
     "growth-marketing": ("Growth marketing", "Get your retreat seen by the right people.", "Pricing on inquiry →"),
     "buying-a-retreat": ("Buying a retreat?", "Pre-purchase review and your first 90 days.", "From $1,200 →"),
@@ -302,7 +319,7 @@ def build(pg):
     head = head.replace(f'<a href="{pg["menu"]}">', f'<a href="{pg["menu"]}" aria-current="page">')
     if 'href="https://images.unsplash.com"' not in head:
         head = head.replace('<link rel="preconnect" href="https://calendly.com">', '<link rel="preconnect" href="https://images.unsplash.com">\n<link rel="preconnect" href="https://calendly.com">', 1)
-    head = head.replace("</head>", "<style>" + SHARED_CSS + theme_css(pg["theme"]) + "</style>\n</head>", 1)
+    head = head.replace("</head>", "<style>" + SHARED_CSS + theme_css(pg["theme"]) + pg.get("name_css", "") + "</style>\n</head>", 1)
 
     p = pg["price"]
     out = [f'''<header class="hero wb" id="top" style="--wave-b:var(--cream-dark)">
@@ -357,6 +374,17 @@ def build(pg):
     </div>
   </section>
 </div>
+''')
+    if pg.get("compare"):
+        cl, ct, cols3 = pg["compare"]
+        cells = "".join(('<div class="cmp on"><span class="pick">Best fit for most retreats</span>' if on else '<div class="cmp">') + f"<h3>{h}</h3><ul>" + "".join(f"<li>{x}</li>" for x in lis) + "</ul></div>" for h, lis, on in cols3)
+        out.append(f'''<section class="sec proof-sec">
+  <div class="inner">
+    <p class="label">{cl}</p>
+    <h2 class="title">{ct}</h2>
+    <div class="compare">{cells}</div>
+  </div>
+</section>
 ''')
     after_band = "var(--warm-white)"
     if pg["proof"]:
