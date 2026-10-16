@@ -220,7 +220,7 @@ PAGES = [
     dict(
         slug="fractional-operations-director", menu="/fractional-operations-director", name="Fractional Retreat Operations Director",
         title="Fractional Retreat Operations Director · Retreat Blueprint Co.",
-        desc="Your part-time COO: senior operations leadership for your retreat without a full-time hire. Direction, numbers, team and systems, owned month to month. $1,000 to $2,000 a month.",
+        desc="Your part-time COO: senior operations leadership for your retreat without a full-time hire. Direction, numbers, team and systems, owned month to month. From $1,000 a month.",
         og="Fractional Retreat Operations Director: your part-time COO.",
         name_css=".svc-name{font-size:clamp(2.6rem,5.6vw,4.6rem);max-width:13ch}",
         theme=dict(name="Fractional Retreat Operations Director", acc="#2F6467", acc_dark="#234D50", acc_soft="#6E9EA0", on_band="#C4DADB", on_band_soft="#9CC4C6",
@@ -231,7 +231,7 @@ PAGES = [
         label="Service · Monthly · Your part-time COO", tag="Senior operations leadership, <em>without a full-time hire.</em>",
         lead="Someone who owns the operations side of your retreat with you: sets direction, tracks the numbers, leads the team and keeps the systems working. A seat at the table every month, so the business keeps moving when you're busy hosting.",
         jump=("#role", "What the role covers ↓"),
-        price=dict(k="Monthly retainer", amt="$1,000 – $2,000", note="Per month. Operations leadership at a fraction of a full-time salary.",
+        price=dict(k="Monthly retainer", amt="From $1,000 <small>/ month</small>", note="Operations leadership at a fraction of a full-time salary.",
                    items=["Owns operations priorities with you", "Monthly numbers review", "Team leadership and clarity", "SOPs and growth planning"]),
         changes=("What changes", "You stop being <em>the bottleneck.</em>", [
             ("Someone owns operations", "Decisions about bookings, team and systems don't all wait for you."),
