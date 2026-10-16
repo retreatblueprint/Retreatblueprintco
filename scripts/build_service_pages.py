@@ -218,7 +218,7 @@ PAGES = [
         label="Service · Monthly", tag="A partner who keeps the business <em>moving forward.</em>",
         lead="An ongoing strategic partner who sets direction, tracks what's working, and keeps the business moving forward. Every month: the numbers reviewed, priorities set, and a clear plan for what comes next.",
         jump=("#rhythm", "Your monthly rhythm ↓"),
-        price=dict(k="Monthly", amt="$1,000&nbsp;–&nbsp;$2,000 <small>/ month</small>", note="Ongoing direction once your systems are in place.",
+        price=dict(k="Monthly", amt="$1,000 – $2,000", note="Per month. Ongoing direction once your systems are in place.",
                    items=["Monthly strategy sessions", "Metrics review and priority setting", "Team management and clarity", "SOP refinements and growth planning"]),
         changes=("What changes", "Fewer guesses. <em>Clearer decisions.</em>", [
             ("Know your numbers", "Metrics reviewed every month, so decisions start from what's actually happening."),
