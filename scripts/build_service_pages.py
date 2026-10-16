@@ -41,6 +41,7 @@ def blueprint(color):
 
 SHARED_CSS = """
 /* Service page template */
+.svc-h1 .label{font-family:var(--sans)}.svc-h1 .svc-name{display:block;font-size:inherit;line-height:inherit;margin:0}
 .svc-name{font-family:var(--serif);font-weight:400;font-size:clamp(3.2rem,8vw,6.2rem);line-height:.98;letter-spacing:-.02em;margin:0 0 1rem;color:var(--earth);text-wrap:balance}
 .svc-tag{font-family:var(--serif);font-size:clamp(1.35rem,2.5vw,1.85rem);line-height:1.25;color:var(--earth-mid);margin:0 0 1.5rem;max-width:30ch}
 .venue-hint{font-size:.85rem;color:var(--earth-mid);margin:-.25rem 0 1.5rem;display:flex;gap:8px;align-items:center}
@@ -189,7 +190,7 @@ def steps(items):
 
 PAGES = [
     dict(
-        slug="concierge-ops", menu="/concierge-ops", name="Concierge Ops",
+        slug="concierge-ops", kw="Retreat center admin &amp; booking management", menu="/concierge-ops", name="Concierge Ops",
         title="Retreat Center Admin & Booking Management · Concierge Ops",
         desc="Retreat center admin and booking management by a dedicated team: inquiries, guest communication, coordination and back office. From $250 a month.",
         og="Concierge Ops: your day-to-day admin, handled.",
@@ -222,7 +223,7 @@ PAGES = [
         cta_title="Hand off the admin. Keep the experience.",
     ),
     dict(
-        slug="foundation-sprint", menu="/foundation-sprint", name="Foundation Sprint",
+        slug="foundation-sprint", kw="Retreat center booking system &amp; SOP setup", menu="/foundation-sprint", name="Foundation Sprint",
         title="Retreat Center Booking System & SOP Setup · Foundation Sprint",
         desc="Set up your retreat center's booking system, payments, numbers, guest communication and SOPs in one focused build. Fixed fee, $3,000 to $6,000.",
         og="Foundation Sprint: the systems your retreat runs on, built in one go.",
@@ -260,7 +261,7 @@ PAGES = [
         cta_title="Build the foundation once. Run on it every season.",
     ),
     dict(
-        slug="fractional-operations-director", menu="/fractional-operations-director", name="Fractional Retreat Operations Director", name_html="<span>Fractional Retreat</span><span>Operations Director</span>",
+        slug="fractional-operations-director", kw="Fractional COO for retreat centers", menu="/fractional-operations-director", name="Fractional Retreat Operations Director", name_html="<span>Fractional Retreat</span><span>Operations Director</span>",
         title="Fractional COO for Retreat Centers · Part-Time Operations Director",
         desc="A part-time COO for your retreat center: operations leadership, numbers, team and systems without a full-time hire. From $1,000 a month.",
         og="Fractional Retreat Operations Director: your part-time COO.",
@@ -303,7 +304,7 @@ PAGES = [
         cta_title="Bring in your part-time COO.",
     ),
     dict(
-        slug="growth-marketing", menu="/growth-marketing", name="Growth Marketing",
+        slug="growth-marketing", kw="Retreat center marketing", menu="/growth-marketing", name="Growth Marketing",
         title="Retreat Center Marketing to Get More Bookings · Growth Marketing",
         desc="Marketing for retreat centers and eco-lodges: strategy, content, social media and outreach to fill your calendar with the right guests. Pricing on inquiry.",
         og="Growth Marketing: get your retreat seen by the right people.",
@@ -378,8 +379,7 @@ def build(pg):
     out = [f'''<header class="hero wb" id="top" style="--wave-b:var(--cream-dark)">
   <div class="inner">
     <div>
-      <p class="label">{pg['label']}</p>
-      <h1 class="svc-name">{pg.get('name_html', pg['name'])}</h1>
+      <h1 class="svc-h1"><span class="label">{pg['kw']}</span><span class="svc-name">{pg.get('name_html', pg['name'])}</span></h1>
       <p class="svc-tag">{pg['tag']}</p>
       <p class="lead">{pg['lead']}</p>
       <p class="venue-hint">For retreat centers, eco-lodges and wellness properties that host retreats.</p>
