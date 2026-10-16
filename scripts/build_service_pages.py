@@ -55,6 +55,26 @@ SHARED_CSS = """
 .co-price li{display:flex;gap:10px;font-size:.9rem}
 .co-price li::before{content:"\\2713";color:var(--acc);font-weight:600}
 .outcomes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:2.5rem}
+.outcomes.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.split-intro{margin-top:1rem;max-width:640px;color:var(--earth-mid);font-size:1rem}
+.split{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr) minmax(0,1fr);gap:0;margin-top:2rem;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--warm-white)}
+.split-col{padding:26px 26px 24px;display:grid;gap:12px;align-content:start;position:relative}
+.split-col + .split-col{border-left:1px solid var(--border)}
+.split-k{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.split-col ul{list-style:none;display:grid;gap:9px}
+.split-col li{font-family:var(--serif);font-size:1.12rem;line-height:1.3;color:var(--earth)}
+.split-col.flex{background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(47,100,103,.045) 10px 20px)}
+.split-col.flex li{display:flex;gap:10px;align-items:baseline}
+.split-col.flex li::before{content:"\\21C4";font-family:var(--sans);font-size:.8rem;color:var(--acc)}
+.split-note{font-size:.85rem;color:var(--earth-mid)}
+.split-col.mine{background:var(--acc);}
+.split-col.mine .split-k{color:rgba(255,255,255,.75)}
+.split-col.mine li{color:#fff}
+.split-col.keep li::before,.split-col.mine li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:10px;vertical-align:middle;background:var(--acc-soft)}
+.split-col.mine li::before{background:rgba(255,255,255,.7)}
+.split-then{margin-top:2.5rem;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
+.split-then + .outcomes{margin-top:1rem}
+@media (max-width:900px){.split{grid-template-columns:1fr}.split-col + .split-col{border-left:0;border-top:1px solid var(--border)}.outcomes.three{grid-template-columns:1fr}}
 .outcomes > div{background:var(--warm-white);border:1px solid var(--border);border-top:3px solid var(--acc-soft);border-radius:6px;padding:22px;display:grid;gap:8px;align-content:start}
 .outcomes b{font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.25}
 .outcomes p{font-size:.9rem;color:var(--earth-mid)}
@@ -144,6 +164,18 @@ def theme_css(t):
 .cta > .cta-ov{{background:{t['cta_tint']} !important}}
 .cta .btn.primary{{background:{t['cta_btn']};border-color:{t['cta_btn']}}}
 """
+
+
+def split_html(pg):
+    if not pg.get("split"):
+        return ""
+    intro, cols = pg["split"]
+    cells = []
+    for col in cols:
+        h, kind, items = col[0], col[1], col[2]
+        note = f'<p class="split-note">{col[3]}</p>' if len(col) > 3 else ""
+        cells.append(f'<div class="split-col {kind}"><span class="split-k">{h}</span><ul>' + "".join(f"<li>{x}</li>" for x in items) + f"</ul>{note}</div>")
+    return f'<p class="split-intro">{intro}</p><div class="split">{"".join(cells)}</div><p class="split-then">What changes for you</p>'
 
 
 def outcomes(items):
@@ -242,11 +274,14 @@ PAGES = [
         jump=("#role", "What the role covers ↓"),
         price=dict(k="Monthly retainer", amt="From $1,000 <small>/ month</small>", note="Operations leadership at a fraction of a full-time salary.",
                    items=["Owns operations priorities with you", "Monthly numbers review", "Team leadership and clarity", "SOPs and growth planning"]),
-        changes=("What changes", "You stop being <em>the bottleneck.</em>", [
+        changes=("How we work together", "You keep the vision. <em>I take the operations.</em>", [
             ("Someone owns operations", "Decisions about bookings, team and systems don't all wait for you."),
             ("Decisions start from numbers", "Bookings, revenue and costs reviewed every month, against your goals."),
-            ("A team that's led", "Clear roles, expectations and someone they can go to."),
             ("Systems that keep up", "SOPs refined as the business changes, so nothing drifts back.")]),
+        split=("You decide where the line sits. Some owners keep the guest relationships close; others hand over everything but the vision.", [
+            ("Always yours", "keep", ["The vision for your retreat", "The big decisions"]),
+            ("Your call", "flex", ["Guest experience", "Retreat leader relationships", "Hiring", "Marketing"], "Keep any of these, or hand them over."),
+            ("Always mine", "mine", ["The systems", "The numbers", "The processes", "Keeping the team running"])]),
         band=("role", "What the role covers", "Four things your director owns", "roles", [
             ("compass", "Direction", ["Priorities for the month and the season", "Growth planning: the next offer, the next hire"]),
             ("chart", "Numbers", ["Monthly metrics review", "Bookings, revenue and costs against your goals"]),
@@ -357,7 +392,8 @@ def build(pg):
   <div class="inner">
     <p class="label">{pg['changes'][0]}</p>
     <h2 class="title">{pg['changes'][1]}</h2>
-    <div class="outcomes">{outcomes(pg['changes'][2])}</div>
+    {split_html(pg)}
+    <div class="outcomes{' three' if len(pg['changes'][2]) == 3 else ''}">{outcomes(pg['changes'][2])}</div>
   </div>
 </section>
 ''']

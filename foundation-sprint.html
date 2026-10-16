@@ -347,6 +347,26 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 .co-price li{display:flex;gap:10px;font-size:.9rem}
 .co-price li::before{content:"\2713";color:var(--acc);font-weight:600}
 .outcomes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:2.5rem}
+.outcomes.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.split-intro{margin-top:1rem;max-width:640px;color:var(--earth-mid);font-size:1rem}
+.split{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr) minmax(0,1fr);gap:0;margin-top:2rem;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--warm-white)}
+.split-col{padding:26px 26px 24px;display:grid;gap:12px;align-content:start;position:relative}
+.split-col + .split-col{border-left:1px solid var(--border)}
+.split-k{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.split-col ul{list-style:none;display:grid;gap:9px}
+.split-col li{font-family:var(--serif);font-size:1.12rem;line-height:1.3;color:var(--earth)}
+.split-col.flex{background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(47,100,103,.045) 10px 20px)}
+.split-col.flex li{display:flex;gap:10px;align-items:baseline}
+.split-col.flex li::before{content:"\21C4";font-family:var(--sans);font-size:.8rem;color:var(--acc)}
+.split-note{font-size:.85rem;color:var(--earth-mid)}
+.split-col.mine{background:var(--acc);}
+.split-col.mine .split-k{color:rgba(255,255,255,.75)}
+.split-col.mine li{color:#fff}
+.split-col.keep li::before,.split-col.mine li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:10px;vertical-align:middle;background:var(--acc-soft)}
+.split-col.mine li::before{background:rgba(255,255,255,.7)}
+.split-then{margin-top:2.5rem;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
+.split-then + .outcomes{margin-top:1rem}
+@media (max-width:900px){.split{grid-template-columns:1fr}.split-col + .split-col{border-left:0;border-top:1px solid var(--border)}.outcomes.three{grid-template-columns:1fr}}
 .outcomes > div{background:var(--warm-white);border:1px solid var(--border);border-top:3px solid var(--acc-soft);border-radius:6px;padding:22px;display:grid;gap:8px;align-content:start}
 .outcomes b{font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.25}
 .outcomes p{font-size:.9rem;color:var(--earth-mid)}
@@ -482,6 +502,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   <div class="inner">
     <p class="label">What changes</p>
     <h2 class="title">From running on memory to running on <em>systems.</em></h2>
+    
     <div class="outcomes"><div><b>One booking flow</b><p>Inquiry to confirmed booking to payment, set up and connected.</p></div><div><b>Numbers you can see</b><p>Financial tracking and dashboards that show how the business is doing at a glance.</p></div><div><b>Guests looked after automatically</b><p>A guest communication playbook, automations and a welcome package.</p></div><div><b>A team that knows what to do</b><p>SOPs and operational tools, so the business doesn't depend on you for every detail.</p></div></div>
   </div>
 </section>

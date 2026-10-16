@@ -347,6 +347,26 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 .co-price li{display:flex;gap:10px;font-size:.9rem}
 .co-price li::before{content:"\2713";color:var(--acc);font-weight:600}
 .outcomes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:2.5rem}
+.outcomes.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.split-intro{margin-top:1rem;max-width:640px;color:var(--earth-mid);font-size:1rem}
+.split{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr) minmax(0,1fr);gap:0;margin-top:2rem;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--warm-white)}
+.split-col{padding:26px 26px 24px;display:grid;gap:12px;align-content:start;position:relative}
+.split-col + .split-col{border-left:1px solid var(--border)}
+.split-k{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.split-col ul{list-style:none;display:grid;gap:9px}
+.split-col li{font-family:var(--serif);font-size:1.12rem;line-height:1.3;color:var(--earth)}
+.split-col.flex{background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(47,100,103,.045) 10px 20px)}
+.split-col.flex li{display:flex;gap:10px;align-items:baseline}
+.split-col.flex li::before{content:"\21C4";font-family:var(--sans);font-size:.8rem;color:var(--acc)}
+.split-note{font-size:.85rem;color:var(--earth-mid)}
+.split-col.mine{background:var(--acc);}
+.split-col.mine .split-k{color:rgba(255,255,255,.75)}
+.split-col.mine li{color:#fff}
+.split-col.keep li::before,.split-col.mine li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:10px;vertical-align:middle;background:var(--acc-soft)}
+.split-col.mine li::before{background:rgba(255,255,255,.7)}
+.split-then{margin-top:2.5rem;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
+.split-then + .outcomes{margin-top:1rem}
+@media (max-width:900px){.split{grid-template-columns:1fr}.split-col + .split-col{border-left:0;border-top:1px solid var(--border)}.outcomes.three{grid-template-columns:1fr}}
 .outcomes > div{background:var(--warm-white);border:1px solid var(--border);border-top:3px solid var(--acc-soft);border-radius:6px;padding:22px;display:grid;gap:8px;align-content:start}
 .outcomes b{font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.25}
 .outcomes p{font-size:.9rem;color:var(--earth-mid)}
@@ -480,9 +500,10 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 
 <section class="sec gap">
   <div class="inner">
-    <p class="label">What changes</p>
-    <h2 class="title">You stop being <em>the bottleneck.</em></h2>
-    <div class="outcomes"><div><b>Someone owns operations</b><p>Decisions about bookings, team and systems don't all wait for you.</p></div><div><b>Decisions start from numbers</b><p>Bookings, revenue and costs reviewed every month, against your goals.</p></div><div><b>A team that's led</b><p>Clear roles, expectations and someone they can go to.</p></div><div><b>Systems that keep up</b><p>SOPs refined as the business changes, so nothing drifts back.</p></div></div>
+    <p class="label">How we work together</p>
+    <h2 class="title">You keep the vision. <em>I take the operations.</em></h2>
+    <p class="split-intro">You decide where the line sits. Some owners keep the guest relationships close; others hand over everything but the vision.</p><div class="split"><div class="split-col keep"><span class="split-k">Always yours</span><ul><li>The vision for your retreat</li><li>The big decisions</li></ul></div><div class="split-col flex"><span class="split-k">Your call</span><ul><li>Guest experience</li><li>Retreat leader relationships</li><li>Hiring</li><li>Marketing</li></ul><p class="split-note">Keep any of these, or hand them over.</p></div><div class="split-col mine"><span class="split-k">Always mine</span><ul><li>The systems</li><li>The numbers</li><li>The processes</li><li>Keeping the team running</li></ul></div></div><p class="split-then">What changes for you</p>
+    <div class="outcomes three"><div><b>Someone owns operations</b><p>Decisions about bookings, team and systems don't all wait for you.</p></div><div><b>Decisions start from numbers</b><p>Bookings, revenue and costs reviewed every month, against your goals.</p></div><div><b>Systems that keep up</b><p>SOPs refined as the business changes, so nothing drifts back.</p></div></div>
   </div>
 </section>
 <div class="band wt wb" id="role" style="--wave:var(--cream-dark);--wave-b:var(--warm-white)">
