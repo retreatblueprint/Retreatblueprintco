@@ -244,7 +244,7 @@ PAGES = [
             ("people", "Team", ["Team management and clarity", "Roles and expectations as the team grows"]),
             ("grid", "Systems", ["SOP refinements as things change", "Your systems kept working, season after season"])],
             "<b>Pairs with Concierge Ops:</b> your director leads the team that runs the day-to-day admin."),
-        compare=("Why fractional", "The leadership of a full-time hire, sized to your retreat", [
+        compare=("Why fractional", "The leadership of a full&#8209;time hire, sized to your retreat", [
             ("Doing it all yourself", ["Every decision waits for you", "Numbers checked when there's time", "The team asks you everything", "Growth happens between guest arrivals"], False),
             ("Fractional director", ["Operations owned with you, every month", "Numbers reviewed on a set rhythm", "A leader the team can go to", "A plan for the season ahead", "A monthly retainer, no long hiring process"], True),
             ("Full-time hire", ["Operations owned, full time", "A full salary, every month of the year", "Months to recruit and onboard", "Hard to scale back in low season"], False)]),
