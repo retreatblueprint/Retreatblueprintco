@@ -202,7 +202,7 @@ PAGES = [
         label="For retreat venues · Monthly", tag="Your day-to-day admin, <em>handled.</em>",
         lead="Every inquiry answered fast, every guest looked after, every invoice tracked. A dedicated team, led by your Retreat Operations Director, runs your day-to-day admin so you can focus on the experience and on selling.",
         jump=("#team", "Meet your team ↓"),
-        price=dict(k="Monthly", amt="From $250 <small>USD / month</small>", note="Priced on your average monthly bookings, team size and retreat capacity.",
+        price=dict(k="Monthly", amt="From $250 <small>USD / month</small>", note="Priced on your average monthly bookings, team size and retreat capacity. 3-month minimum.",
                    items=["Inquiries and bookings", "Guest communication", "Retreat coordination", "Invoices and records"]),
         changes=("What changes", "Less time in the inbox. More time on <em>the experience.</em>", [
             ("No more missed bookings", "Inquiries answered within 2 business hours, with follow-ups until they book or say no."),
@@ -226,6 +226,7 @@ PAGES = [
             ("Who will my guests be talking to?", "Your Concierge Ops team writes in your voice, using your policies and templates. I lead the team and I'm your point of contact, so you always know who is responsible."),
             ("Do I need to change my booking system or inbox?", "No. The team works inside the inbox and booking system you already use. If something is slowing you down, I'll suggest a better setup, and the <a href=\"/foundation-sprint\">Foundation Sprint</a> can build it."),
             ("How is this different from the Fractional Retreat Operations Director?", "Concierge Ops does the day-to-day admin. The <a href=\"/fractional-operations-director\">Fractional Retreat Operations Director</a> leads the operations: priorities, numbers, team and systems. Many venues combine the two."),
+            ("Is there a minimum commitment?", "Three months, so the team has time to learn your voice, your guests and your policies, and you can see the difference it makes."),
             ("Where do you work?", "Fully remote, so it works for retreat properties anywhere in the world."),
         ],
         cta_title="Hand off the admin. Keep the experience.",
