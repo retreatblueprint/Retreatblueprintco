@@ -347,7 +347,7 @@ def related_block(items):
     links = "".join(
         f'<li style="margin:.35rem 0"><a href="/field-notes/{a["slug"]}" style="color:var(--sage-dark);font-weight:500;text-underline-offset:3px">{html.escape(a["title"])}</a></li>'
         for a in items)
-    return ('<!-- field-notes:related --><div class="fn-related" style="margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--border)">'
+    return ('<!-- field-notes:related --><div class="fn-related" style="margin-top:2.25rem">'
             '<p style="font-size:.7rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--terracotta);margin-bottom:.4rem">Further reading · Field Notes</p>'
             f'<ul style="list-style:none;padding:0;margin:0">{links}</ul></div><!-- /field-notes:related -->')
 
