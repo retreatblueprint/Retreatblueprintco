@@ -35,7 +35,7 @@ PREVIEW = "--preview" in sys.argv
 AUTHOR = {
     "name": "Shila Kandiah",
     "role": "Retreat Operations Director, Retreat Blueprint Co.",
-    "bio": "Shila has spent 10 years in operations management and now works with retreat centers, eco-lodges and wellness venues across Central America on their systems, teams and growth.",
+    "bio": "Shila has 10 years of operations management experience across healthcare, wellness and hospitality, and works with retreat centers, eco-lodges and wellness venues on their systems, teams and growth.",
     "avatar": "/assets/img/shila-avatar.jpg",
 }
 
@@ -128,6 +128,7 @@ def nice_date(d):
 # ---------------------------------------------------------------- shared page head
 BASE = open("buying-a-retreat.html", encoding="utf-8").read()
 HEAD = BASE[: BASE.index('<header class="hero')]
+MENU_V = re.search(r"js/menu\.js\?v=([\w-]+)", BASE).group(1)  # same version as the other pages
 # pages live in /field-notes/, so every local path must start at the site root
 HEAD = (HEAD.replace('href="css/', 'href="/css/').replace('href="assets/', 'href="/assets/')
         .replace("url('assets/", "url('/assets/").replace('src="js/', 'src="/js/'))
@@ -240,12 +241,12 @@ def tail():
     <h2 class="title">Questions about your retreat venue?</h2>
     <p class="lead">A free 30-minute call. No obligation, just a clear next step.</p>
     <a class="btn primary" href="{CAL}" target="_blank" rel="noopener">Book a free call</a>
-    <p class="email"><a href="mailto:hello@retreatblueprintco.com?subject=Field%20Notes">hello@retreatblueprintco.com</a></p>
+    <p class="email"><a href="mailto:hello@retreatblueprintco.com?subject=Field%20Notes">hello@retreatblueprintco.com</a> · <a href="https://wa.me/16479702759" target="_blank" rel="noopener">WhatsApp</a></p>
   </div>
 </section>
 
 <footer><span class="f-logo">Retreat Blueprint Co.</span><span>© 2026 · <a href="mailto:hello@retreatblueprintco.com">hello@retreatblueprintco.com</a></span></footer>
-<script src="/js/menu.js?v=2026-10-16a" defer></script>
+<script src="/js/menu.js?v={MENU_V}" defer></script>
 {PRINT_JS}
 </body>
 </html>
