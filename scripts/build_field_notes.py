@@ -35,7 +35,7 @@ PREVIEW = "--preview" in sys.argv
 AUTHOR = {
     "name": "Shila Kandiah",
     "role": "Retreat Operations Director, Retreat Blueprint Co.",
-    "bio": "Shila Kandiah has 10 years of operations management experience across healthcare, wellness and hospitality, and works with retreat centers, eco-lodges and wellness venues on their systems, teams and growth.",
+    "bio": "Shila has 10 years of operations management experience across healthcare, wellness and hospitality, and works with retreat centers, eco-lodges and wellness venues on their systems, teams and growth.",
     "avatar": "/assets/img/shila-avatar.jpg",
 }
 
