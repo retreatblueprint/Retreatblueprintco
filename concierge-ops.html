@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Concierge Ops · Retreat Blueprint Co.</title>
-<meta name="description" content="A dedicated team, led by your Retreat Operations Director, runs your retreat's day-to-day admin: inquiries, guests, coordination and the back office. From $250 a month.">
+<title>Retreat Center Admin & Booking Management · Concierge Ops</title>
+<meta name="description" content="Retreat center admin and booking management by a dedicated team: inquiries, guest communication, coordination and back office. From $250 a month.">
 <meta property="og:title" content="Concierge Ops: your day-to-day admin, handled.">
-<meta property="og:description" content="A dedicated team, led by your Retreat Operations Director, runs your retreat's day-to-day admin: inquiries, guests, coordination and the back office. From $250 a month.">
+<meta property="og:description" content="Retreat center admin and booking management by a dedicated team: inquiries, guest communication, coordination and back office. From $250 a month.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://retreatblueprintco.com/concierge-ops">
 <meta property="og:image" content="https://images.unsplash.com/photo-1777913308049-a2c79af7380a?auto=format&fit=crop&w=1200&h=630&q=75">
@@ -14,7 +14,7 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="stylesheet" href="css/menu.css?v=2026-10-16a">
+<link rel="stylesheet" href="css/menu.css?v=2026-10-16b">
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://calendly.com">
 <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
@@ -51,6 +51,7 @@ a{color:inherit}
 .inner{max-width:960px;margin:0 auto}
 .label{display:flex;align-items:center;gap:.6rem;font-size:.72rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--terracotta);margin-bottom:1rem}
 .label::before{content:"";width:22px;height:1px;background:currentColor}
+.hero h1 .h1-kw{font-family:var(--sans);line-height:1.5}.hero h1 .h1-main{display:block}
 .title{font-family:var(--serif);font-weight:400;font-size:2.5rem;line-height:1.2;margin-bottom:1.25rem;text-wrap:balance}
 .title em{font-style:italic;color:var(--sage-dark)}
 .lead{color:var(--earth-mid);max-width:600px}
@@ -158,6 +159,7 @@ a{color:inherit}
 .pkg ul{list-style:none;display:grid;gap:7px;border-top:1px solid var(--border);padding-top:14px}
 .pkg li{position:relative;padding-left:18px;font-size:.88rem;color:var(--earth-mid)}
 .pkg li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--sage)}
+.pkg-after{font-size:.85rem;color:var(--earth-mid);border-top:1px solid var(--border);padding-top:14px;line-height:1.6}.pkg-after a{color:var(--sage-dark)}
 .fine{margin-top:1.5rem;font-size:.85rem;color:var(--muted);max-width:720px}
 
 /* proof */
@@ -330,8 +332,17 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 .rv-body img{width:100%;max-width:860px;height:auto;aspect-ratio:1400/1812;display:block;background:#fff;border-radius:3px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
 @media (max-width:600px){.rv-bar{padding:10px 12px;gap:10px}.rv-t{font-size:.92rem}.rv-count{display:none}.rv-body{padding:14px 8px 40px;gap:12px}}
 </style>
+<!-- Umami analytics (cookie-free). Counts visits plus "Book a call", WhatsApp and email clicks. -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="cfc183e2-a82d-4efb-9e96-f9599b56f316" data-domains="retreatblueprintco.com"></script>
+<script>
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||!window.umami)return;var h=a.href,n=null;
+if(h.indexOf('calendly.com')>-1)n='Book a call';else if(h.indexOf('wa.me/')>-1||h.indexOf('whatsapp.com')>-1)n='WhatsApp';else if(h.indexOf('mailto:')===0)n='Email';
+if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,40)})}catch(_){}},true);
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Concierge Ops", "serviceType": "Retreat center operations consulting", "description": "Retreat center admin and booking management by a dedicated team: inquiries, guest communication, coordination and back office. From $250 a month.", "url": "https://retreatblueprintco.com/concierge-ops", "provider": {"@type": "ProfessionalService", "@id": "https://retreatblueprintco.com/#business", "name": "Retreat Blueprint Co."}, "areaServed": {"@type": "Place", "name": "Worldwide"}, "audience": {"@type": "Audience", "audienceType": "Retreat centers, eco-lodges and wellness properties that host retreats"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How fast are guests answered?", "acceptedAnswer": {"@type": "Answer", "text": "Within 2 hours during business hours, and within 12 hours outside them. Follow-ups continue until the guest books or says no."}}, {"@type": "Question", "name": "What decides the monthly price?", "acceptedAnswer": {"@type": "Answer", "text": "Your average bookings per month, which sets how much time the work takes, plus your team size and retreat capacity. Pricing starts at $250 USD a month and is agreed on a free call."}}, {"@type": "Question", "name": "Who will my guests be talking to?", "acceptedAnswer": {"@type": "Answer", "text": "Your Concierge Ops team writes in your voice, using your policies and templates. I lead the team and I'm your point of contact, so you always know who is responsible."}}, {"@type": "Question", "name": "Do I need to change my booking system or inbox?", "acceptedAnswer": {"@type": "Answer", "text": "No. The team works inside the inbox and booking system you already use. If something is slowing you down, I'll suggest a better setup, and the Foundation Sprint can build it."}}, {"@type": "Question", "name": "How is this different from the Fractional Retreat Operations Director?", "acceptedAnswer": {"@type": "Answer", "text": "Concierge Ops does the day-to-day admin. The Fractional Retreat Operations Director leads the operations: priorities, numbers, team and systems. Many venues combine the two."}}, {"@type": "Question", "name": "Is there a minimum commitment?", "acceptedAnswer": {"@type": "Answer", "text": "Three months, so the team has time to learn your voice, your guests and your policies, and you can see the difference it makes."}}, {"@type": "Question", "name": "Where do you work?", "acceptedAnswer": {"@type": "Answer", "text": "Fully remote, so it works for retreat properties anywhere in the world."}}]}]}</script>
 <style>
 /* Service page template */
+.svc-h1 .label{font-family:var(--sans)}.svc-h1 .svc-name{display:block;font-size:inherit;line-height:inherit;margin:0}
 .svc-name{font-family:var(--serif);font-weight:400;font-size:clamp(3.2rem,8vw,6.2rem);line-height:.98;letter-spacing:-.02em;margin:0 0 1rem;color:var(--earth);text-wrap:balance}
 .svc-tag{font-family:var(--serif);font-size:clamp(1.35rem,2.5vw,1.85rem);line-height:1.25;color:var(--earth-mid);margin:0 0 1.5rem;max-width:30ch}
 .venue-hint{font-size:.85rem;color:var(--earth-mid);margin:-.25rem 0 1.5rem;display:flex;gap:8px;align-items:center}
@@ -463,10 +474,10 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
       <line x1="16" y1="20" x2="22" y2="24" stroke="#4A6E4E" stroke-width="0.8"/>
     </svg>Retreat Blueprint Co.</a>
   <div class="links" id="site-menu" data-menu-links><a href="/">Home</a><a href="/#work">The approach</a><a href="/#testimonials">Testimonials</a><a href="/#about">About</a><div class="nav-dd" data-dd><button type="button" class="dd-btn" aria-expanded="false" aria-controls="svc-menu">Services <svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="dd-panel" id="svc-menu">
-      <a href="/foundation-sprint"><b>Foundation sprint</b><span>The systems your retreat runs on, built in one go</span></a>
-      <a href="/fractional-operations-director"><b>Fractional Operations Director</b><span>Your part-time COO, month to month</span></a>
-      <a href="/concierge-ops" aria-current="page"><b>Concierge ops</b><span>Your day-to-day admin, handled</span></a>
-      <a href="/growth-marketing"><b>Growth marketing</b><span>Get your retreat seen by the right people</span></a>
+      <a href="/foundation-sprint"><b>Foundation Sprint</b><span>The systems your retreat runs on, built in one go</span></a>
+      <a href="/fractional-operations-director"><b>Fractional Retreat Operations Director</b><span>Your part-time COO, month to month</span></a>
+      <a href="/concierge-ops" aria-current="page"><b>Concierge Ops</b><span>Your day-to-day admin, handled</span></a>
+      <a href="/growth-marketing"><b>Growth Marketing</b><span>Get your retreat seen by the right people</span></a>
       <a href="/buying-a-retreat" class="dd-feature"><b>Buying a retreat? <i>New</i></b><span>Pre-purchase review and your first 90 days</span></a>
       <a href="/#services" class="dd-all">Compare all services →</a>
     </div></div><a href="/field-notes/">Field Notes</a></div>
@@ -479,8 +490,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 <header class="hero wb" id="top" style="--wave-b:var(--cream-dark)">
   <div class="inner">
     <div>
-      <p class="label">For retreat venues · Monthly</p>
-      <h1 class="svc-name">Concierge Ops</h1>
+      <h1 class="svc-h1"><span class="label">Retreat center admin &amp; booking management</span> <span class="svc-name">Concierge Ops</span></h1>
       <p class="svc-tag">Your day-to-day admin, <em>handled.</em></p>
       <p class="lead">Every inquiry answered fast, every guest looked after, every invoice tracked. A dedicated team, led by your Retreat Operations Director, runs your day-to-day admin so you can focus on the experience and on selling.</p>
       <p class="venue-hint">For retreat centers, eco-lodges and wellness properties that host retreats.</p>
@@ -491,8 +501,8 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
     </div>
     <div class="co-price">
       <span class="k">Monthly</span>
-      <p class="amt">From $250 <small>/ month</small></p>
-      <p>Priced on your average monthly bookings and retreat capacity.</p>
+      <p class="amt">From $250 <small>USD / month</small></p>
+      <p>Priced on your average monthly bookings, team size and retreat capacity. 3-month minimum.</p>
       <ul><li>Inquiries and bookings</li><li>Guest communication</li><li>Retreat coordination</li><li>Invoices and records</li></ul>
     </div>
   </div>
@@ -503,7 +513,7 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
     <p class="label">What changes</p>
     <h2 class="title">Less time in the inbox. More time on <em>the experience.</em></h2>
     
-    <div class="outcomes"><div><b>No more missed bookings</b><p>Inquiries answered within hours, with follow-ups until they book or say no.</p></div><div><b>Guests who feel looked after</b><p>Pre-arrival emails, forms, reminders, and review requests sent on time, every time.</p></div><div><b>Retreats that run smoothly</b><p>Organizers kept in the loop, with rooming lists and schedules ready before anyone arrives.</p></div><div><b>Books you can trust</b><p>Invoices sent, payments tracked, and records organized in one place.</p></div></div>
+    <div class="outcomes"><div><b>No more missed bookings</b><p>Inquiries answered within 2 business hours, with follow-ups until they book or say no.</p></div><div><b>Guests who feel looked after</b><p>Pre-arrival emails, forms, reminders, and review requests sent on time, every time.</p></div><div><b>Retreats that run smoothly</b><p>Organizers kept in the loop, with rooming lists and schedules ready before anyone arrives.</p></div><div><b>Books you can trust</b><p>Invoices sent, payments tracked, and records organized in one place.</p></div></div>
   </div>
 </section>
 <div class="band wt wb" id="team" style="--wave:var(--cream-dark);--wave-b:var(--warm-white)">
@@ -524,11 +534,18 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
     <ol class="steps"><li><h4>Free call</h4><p>Your bookings, your tools, and where the admin piles up.</p></li><li><h4>Set-up</h4><p>Access to your inbox and booking system; your voice, policies and templates handed over.</p></li><li><h4>Your team takes over</h4><p>Inquiries, guests, coordination and the back office, handled every day.</p></li><li><h4>Monthly check-in</h4><p>What came in, what got booked, and what to improve next.</p></li></ol>
   </div>
 </section>
+<section class="sec faq wt" style="--wave:var(--warm-white)">
+  <div class="inner">
+    <p class="label">Questions</p>
+    <h2 class="title">Before you book</h2>
+    <details><summary>How fast are guests answered?</summary><p>Within 2 hours during business hours, and within 12 hours outside them. Follow-ups continue until the guest books or says no.</p></details><details><summary>What decides the monthly price?</summary><p>Your average bookings per month, which sets how much time the work takes, plus your team size and retreat capacity. Pricing starts at $250 USD a month and is agreed on a free call.</p></details><details><summary>Who will my guests be talking to?</summary><p>Your Concierge Ops team writes in your voice, using your policies and templates. I lead the team and I'm your point of contact, so you always know who is responsible.</p></details><details><summary>Do I need to change my booking system or inbox?</summary><p>No. The team works inside the inbox and booking system you already use. If something is slowing you down, I'll suggest a better setup, and the <a href="/foundation-sprint">Foundation Sprint</a> can build it.</p></details><details><summary>How is this different from the Fractional Retreat Operations Director?</summary><p>Concierge Ops does the day-to-day admin. The <a href="/fractional-operations-director">Fractional Retreat Operations Director</a> leads the operations: priorities, numbers, team and systems. Many venues combine the two.</p></details><details><summary>Is there a minimum commitment?</summary><p>Three months, so the team has time to learn your voice, your guests and your policies, and you can see the difference it makes.</p></details><details><summary>Where do you work?</summary><p>Fully remote, so it works for retreat properties anywhere in the world.</p></details>
+  </div>
+</section>
 <section class="sec trust wt" style="--wave:var(--warm-white)">
   <div class="inner">
     <p class="label">Other services</p>
     <h2 class="title">Need something different?</h2>
-    <div class="others"><a href="/foundation-sprint"><b>Foundation sprint</b><span>The systems your retreat runs on, built in one go.</span><em>$3,000 – $6,000 →</em></a><a href="/fractional-operations-director"><b>Fractional Operations Director</b><span>Your part-time COO, month to month.</span><em>From $1,000 / month →</em></a><a href="/growth-marketing"><b>Growth marketing</b><span>Get your retreat seen by the right people.</span><em>Pricing on inquiry →</em></a><a href="/buying-a-retreat"><b>Buying a retreat?</b><span>Pre-purchase review and your first 90 days.</span><em>From $1,200 →</em></a></div>
+    <div class="others"><a href="/foundation-sprint"><b>Foundation Sprint</b><span>The systems your retreat runs on, built in one go.</span><em>$3,000 – $6,000 USD →</em></a><a href="/fractional-operations-director"><b>Fractional Retreat Operations Director</b><span>Your part-time COO, month to month.</span><em>From $1,000 USD / month →</em></a><a href="/growth-marketing"><b>Growth Marketing</b><span>Get your retreat seen by the right people.</span><em>Pricing on inquiry →</em></a><a href="/buying-a-retreat"><b>Buying a retreat?</b><span>Pre-purchase review and your first 90 days.</span><em>From $1,200 USD →</em></a></div>
   </div>
 </section>
 
@@ -539,11 +556,38 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
     <h2 class="title">Hand off the admin. Keep the experience.</h2>
     <p class="lead">A free 30-minute call. No obligation, just a clear next step.</p>
     <a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a>
-    <p class="email"><a href="mailto:hello@retreatblueprintco.com?subject=Concierge%20Ops%20inquiry">hello@retreatblueprintco.com</a></p>
+    <p class="email"><a href="mailto:hello@retreatblueprintco.com?subject=Concierge%20Ops%20inquiry">hello@retreatblueprintco.com</a> · <a href="https://wa.me/16479702759" target="_blank" rel="noopener">WhatsApp</a></p>
   </div>
 </section>
 
 <footer><span class="f-logo">Retreat Blueprint Co.</span><span>© 2026 · <a href="mailto:hello@retreatblueprintco.com">hello@retreatblueprintco.com</a></span></footer>
-<script src="js/menu.js?v=2026-10-16a" defer></script>
+<script>
+// FAQ: questions slide open and closed, and only one stays open at a time
+(function () {
+  var items = Array.prototype.slice.call(document.querySelectorAll('.faq details'));
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animate(d, open) {
+    var summary = d.querySelector('summary');
+    if (d._anim) d._anim.cancel();
+    var start = d.offsetHeight;
+    if (open) d.open = true;
+    var end = open ? d.scrollHeight : summary.offsetHeight + parseFloat(getComputedStyle(d).paddingTop) + parseFloat(getComputedStyle(d).paddingBottom);
+    if (calm || !d.animate) { if (!open) d.open = false; return; }
+    d._anim = d.animate({ height: [start + 'px', end + 'px'] }, { duration: 280, easing: 'ease' });
+    d._anim.onfinish = function () { d._anim = null; if (!open) d.open = false; };
+    d._anim.oncancel = function () { d._anim = null; };
+  }
+  items.forEach(function (d) {
+    d.querySelector('summary').addEventListener('click', function (e) {
+      e.preventDefault();
+      var opening = !d.open || (d._anim && d._closing);
+      items.forEach(function (o) { if (o !== d && o.open) { o._closing = true; animate(o, false); } });
+      d._closing = !opening;
+      animate(d, opening);
+    });
+  });
+})();
+</script>
+<script src="js/menu.js?v=2026-10-16b" defer></script>
 </body>
 </html>

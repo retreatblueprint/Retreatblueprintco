@@ -79,3 +79,12 @@ html { scroll-behavior: smooth; }
   [data-menu].menu-open [data-menu-links] .dd-panel a { padding: 8px 10px; border-bottom: 0; }
   [data-menu].menu-open [data-menu-links] .dd-panel .dd-all { border-top: 0; padding-top: 8px; }
 }
+
+/* WhatsApp button, bottom right on every page */
+.wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 900; display: inline-flex; align-items: center; gap: 8px; height: 52px; padding: 0 18px 0 14px; border-radius: 999px; background: #1F8A4C; color: #fff; font: 500 0.9rem/1 'Inter', system-ui, sans-serif; text-decoration: none; box-shadow: 0 6px 20px rgba(20, 40, 25, 0.28); transition: transform .2s ease, box-shadow .2s ease, opacity .25s ease; }
+.wa-float:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(20, 40, 25, 0.32); }
+.wa-float:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.wa-float svg { width: 24px; height: 24px; flex: none; }
+body.menu-open .wa-float { opacity: 0; pointer-events: none; }
+@media (max-width: 700px) { .wa-float { right: 14px; bottom: 14px; width: 52px; padding: 0; justify-content: center; } .wa-float span { display: none; } }
+@media (prefers-reduced-motion: reduce) { .wa-float { transition: none; } }

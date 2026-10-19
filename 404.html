@@ -17,6 +17,13 @@
   a.btn { display: inline-block; background: #4A6E4E; color: #fff; text-decoration: none; padding: 0.85rem 1.75rem; border-radius: 8px; font-size: 0.9rem; font-weight: 500; }
   a.btn:hover { background: #3a5a3e; }
 </style>
+<!-- Umami analytics (cookie-free). Counts visits plus "Book a call", WhatsApp and email clicks. -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="cfc183e2-a82d-4efb-9e96-f9599b56f316" data-domains="retreatblueprintco.com"></script>
+<script>
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||!window.umami)return;var h=a.href,n=null;
+if(h.indexOf('calendly.com')>-1)n='Book a call';else if(h.indexOf('wa.me/')>-1||h.indexOf('whatsapp.com')>-1)n='WhatsApp';else if(h.indexOf('mailto:')===0)n='Email';
+if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,40)})}catch(_){}},true);
+</script>
 </head>
 <body>
   <main>
