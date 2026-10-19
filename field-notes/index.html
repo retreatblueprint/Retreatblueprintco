@@ -341,11 +341,16 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Blog", "name": "Field Notes", "url": "https://retreatblueprintco.com/field-notes/", "description": "Practical notes for retreat venue owners and buyers: operations, buying, low season and growth, from Retreat Blueprint Co.", "publisher": {"@type": "Organization", "name": "Retreat Blueprint Co.", "url": "https://retreatblueprintco.com"}}</script>
 <style>
 /* Field Notes */
-.fn-head{background:var(--cream);border-bottom:1px solid var(--border);padding:72px 24px 48px}
+.fn-head{background:var(--cream);padding:72px 24px 48px}
 .fn-head .inner{max-width:760px}
 .fn-crumb{font-size:.72rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--terracotta);margin-bottom:1rem;display:flex;gap:.5rem;align-items:center}
 .fn-crumb a{text-decoration:none}.fn-crumb a:hover{text-decoration:underline}
 .fn-head h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.12;letter-spacing:-.01em;text-wrap:balance;margin-bottom:1rem}
+.fn-hero{max-width:1100px;margin:0 auto;padding:0 24px;transform:translateY(-1px)}
+.fn-hero img{display:block;width:100%;height:clamp(220px,42vw,460px);object-fit:cover;border-radius:0 0 10px 10px;background:var(--cream-dark)}
+.fn-photo{margin:1.75rem 0 2rem}
+.fn-photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:8px;background:var(--cream-dark)}
+.fn-photo figcaption{font-size:.8rem;color:var(--muted);margin-top:.45rem}
 .fn-dek{font-family:var(--serif);font-size:clamp(1.15rem,2.2vw,1.35rem);line-height:1.45;color:var(--earth-mid);max-width:36em;margin-bottom:1.5rem}
 .fn-meta{display:flex;align-items:center;gap:12px;font-size:.88rem;color:var(--muted)}
 .fn-meta img{width:40px;height:40px;border-radius:50%;object-fit:cover}
@@ -412,7 +417,7 @@ mark.todo{background:#FFF0A8;color:var(--earth);padding:2px 5px;border-radius:3p
 .fn-card small{color:var(--muted);font-size:.82rem}
 .fn-card em{font-style:normal;color:var(--sage-dark);font-weight:500;font-size:.9rem}
 .fn-empty{color:var(--muted)}
-@media (max-width:640px){.fn-head{padding:48px 16px 36px}.fn-body{padding:40px 16px 24px;font-size:1.02rem}.fn-author,.fn-list{padding-left:16px;padding-right:16px}.fn-check,.fn-next{padding:22px}.fn-field,.fn-answer{padding:20px}}
+@media (max-width:640px){.fn-hero{padding:0}.fn-hero img{border-radius:0}.fn-head{padding:48px 16px 36px}.fn-body{padding:40px 16px 24px;font-size:1.02rem}.fn-author,.fn-list{padding-left:16px;padding-right:16px}.fn-check,.fn-next{padding:22px}.fn-field,.fn-answer{padding:20px}}
 @media print{
   html.print-check body *{visibility:hidden}
   html.print-check .fn-check,html.print-check .fn-check *{visibility:visible}

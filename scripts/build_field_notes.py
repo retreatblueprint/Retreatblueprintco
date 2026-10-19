@@ -97,6 +97,21 @@ def chart_html(cid):
             + f'<figcaption>{c["caption"]}</figcaption></figure>')
 
 
+# ---------------------------------------------------------------- photos
+U = "https://images.unsplash.com/"
+
+
+def photo_url(pid, w, h=None):
+    return f"{U}{pid}?auto=format&fit=crop&w={w}" + (f"&h={h}" if h else "") + "&q=72"
+
+
+def photo_html(pid, alt, caption=""):
+    cap = f"<figcaption>{caption}</figcaption>" if caption else ""
+    return (f'<figure class="fn-photo"><img src="{photo_url(pid, 1440)}" '
+            f'srcset="{photo_url(pid, 720)} 720w, {photo_url(pid, 1440)} 1440w" sizes="(max-width:760px) 100vw, 720px" '
+            f'alt="{html.escape(alt)}" loading="lazy" width="1440" height="900">{cap}</figure>')
+
+
 # ---------------------------------------------------------------- articles
 def load_articles():
     arts = []
@@ -137,11 +152,16 @@ HEAD = HEAD.replace('<a href="/field-notes/">Field Notes</a>', '<a href="/field-
 
 CSS = """
 /* Field Notes */
-.fn-head{background:var(--cream);border-bottom:1px solid var(--border);padding:72px 24px 48px}
+.fn-head{background:var(--cream);padding:72px 24px 48px}
 .fn-head .inner{max-width:760px}
 .fn-crumb{font-size:.72rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--terracotta);margin-bottom:1rem;display:flex;gap:.5rem;align-items:center}
 .fn-crumb a{text-decoration:none}.fn-crumb a:hover{text-decoration:underline}
 .fn-head h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.12;letter-spacing:-.01em;text-wrap:balance;margin-bottom:1rem}
+.fn-hero{max-width:1100px;margin:0 auto;padding:0 24px;transform:translateY(-1px)}
+.fn-hero img{display:block;width:100%;height:clamp(220px,42vw,460px);object-fit:cover;border-radius:0 0 10px 10px;background:var(--cream-dark)}
+.fn-photo{margin:1.75rem 0 2rem}
+.fn-photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:8px;background:var(--cream-dark)}
+.fn-photo figcaption{font-size:.8rem;color:var(--muted);margin-top:.45rem}
 .fn-dek{font-family:var(--serif);font-size:clamp(1.15rem,2.2vw,1.35rem);line-height:1.45;color:var(--earth-mid);max-width:36em;margin-bottom:1.5rem}
 .fn-meta{display:flex;align-items:center;gap:12px;font-size:.88rem;color:var(--muted)}
 .fn-meta img{width:40px;height:40px;border-radius:50%;object-fit:cover}
@@ -208,7 +228,7 @@ mark.todo{background:#FFF0A8;color:var(--earth);padding:2px 5px;border-radius:3p
 .fn-card small{color:var(--muted);font-size:.82rem}
 .fn-card em{font-style:normal;color:var(--sage-dark);font-weight:500;font-size:.9rem}
 .fn-empty{color:var(--muted)}
-@media (max-width:640px){.fn-head{padding:48px 16px 36px}.fn-body{padding:40px 16px 24px;font-size:1.02rem}.fn-author,.fn-list{padding-left:16px;padding-right:16px}.fn-check,.fn-next{padding:22px}.fn-field,.fn-answer{padding:20px}}
+@media (max-width:640px){.fn-hero{padding:0}.fn-hero img{border-radius:0}.fn-head{padding:48px 16px 36px}.fn-body{padding:40px 16px 24px;font-size:1.02rem}.fn-author,.fn-list{padding-left:16px;padding-right:16px}.fn-check,.fn-next{padding:22px}.fn-field,.fn-answer{padding:20px}}
 @media print{
   html.print-check body *{visibility:hidden}
   html.print-check .fn-check,html.print-check .fn-check *{visibility:visible}
@@ -259,19 +279,23 @@ def build_article(a):
     svc_href, svc_text = a["service"]
     body = body.replace("{{mid_cta}}", f'<p class="fn-mid"><span>{a["mid_cta"]}</span><a href="{svc_href}">{svc_text} →</a></p>')
     body = re.sub(r"\{\{chart:([\w-]+)\}\}", lambda m: chart_html(m.group(1)), body)
+    body = re.sub(r"\{\{photo:([^|}]+)\|([^|}]+)(?:\|([^}]*))?\}\}", lambda m: photo_html(m.group(1).strip(), m.group(2).strip(), (m.group(3) or "").strip()), body)
+    hero = a.get("hero")
+    og_image = photo_url(hero["photo"], 1200, 630) if hero else f"{SITE}/assets/img/og-image.jpg"
+    hero_html = (f'<div class="fn-hero"><img src="{photo_url(hero["photo"], 1600, 760)}" srcset="{photo_url(hero["photo"], 800, 520)} 800w, {photo_url(hero["photo"], 1600, 760)} 1600w" '
+                 f'sizes="(max-width:1100px) 100vw, 1100px" alt="{html.escape(hero["alt"])}" width="1600" height="760" fetchpriority="high"></div>') if hero else ""
     minutes = max(1, round(words(a["body"]) / 220))
     jsonld = {
         "@context": "https://schema.org", "@type": "BlogPosting",
         "headline": a["title"], "description": a["description"],
         "datePublished": a["date"], "dateModified": a.get("updated") or a["date"],
-        "mainEntityOfPage": url, "image": f"{SITE}/assets/img/og-image.jpg",
+        "mainEntityOfPage": url, "image": og_image,
         "author": {"@type": "Person", "name": AUTHOR["name"], "jobTitle": AUTHOR["role"], "url": f"{SITE}/#about"},
         "publisher": {"@type": "Organization", "name": "Retreat Blueprint Co.", "url": SITE},
     }
     upd = f' · Updated {nice_date(a["updated"])}' if a.get("updated") else ""
     draft = '<div class="fn-draft">Draft preview: not published. Highlighted text still needs your input.</div>' if a["status"] != "published" else ""
-    page = head(a.get("seo_title", a["title"]) + " · Retreat Blueprint Co.", a["description"], url,
-                f"{SITE}/assets/img/og-image.jpg", jsonld)
+    page = head(a.get("seo_title", a["title"]) + " · Retreat Blueprint Co.", a["description"], url, og_image, jsonld)
     page += f'''{draft}
 <header class="fn-head">
   <div class="inner">
@@ -281,7 +305,7 @@ def build_article(a):
     <p class="fn-meta"><img src="{AUTHOR["avatar"]}" alt="" width="40" height="40"><span>By <b>{AUTHOR["name"]}</b> · {nice_date(a["date"])}{upd} · {minutes} min read</span></p>
   </div>
 </header>
-
+{hero_html}
 <article class="fn-body">
 {body}
 </article>
