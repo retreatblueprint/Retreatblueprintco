@@ -333,6 +333,41 @@ def update_sitemap(arts):
     print("sitemap:", len(live), "article(s) listed")
 
 
+# ---------------------------------------------------------------- related Field Notes on service pages
+# Each article's "service" field names the page it supports. That page gets a small
+# "Further reading" block (inside its FAQ section, between the field-notes:related markers)
+# listing the published articles for it, newest first. Run AFTER build_service_pages.py.
+RELATED_PAGES = ["buying-a-retreat", "foundation-sprint", "fractional-operations-director", "concierge-ops", "growth-marketing"]
+REL_RE = re.compile(r"<!-- field-notes:related -->.*?<!-- /field-notes:related -->", re.S)
+
+
+def related_block(items):
+    if not items:
+        return "<!-- field-notes:related --><!-- /field-notes:related -->"
+    links = "".join(
+        f'<li style="margin:.35rem 0"><a href="/field-notes/{a["slug"]}" style="color:var(--sage-dark);font-weight:500;text-underline-offset:3px">{html.escape(a["title"])}</a></li>'
+        for a in items)
+    return ('<!-- field-notes:related --><div class="fn-related" style="margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--border)">'
+            '<p style="font-size:.7rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--terracotta);margin-bottom:.4rem">Further reading · Field Notes</p>'
+            f'<ul style="list-style:none;padding:0;margin:0">{links}</ul></div><!-- /field-notes:related -->')
+
+
+def update_related(arts):
+    for slug in RELATED_PAGES:
+        path = f"{slug}.html"
+        if not os.path.exists(path):
+            continue
+        src = open(path, encoding="utf-8").read()
+        if not REL_RE.search(src):
+            print("related: no markers in", path)
+            continue
+        items = [a for a in arts if a.get("service") and a["service"][0].rstrip("/") == f"/{slug}"]
+        new = REL_RE.sub(lambda m: related_block(items), src, count=1)
+        if new != src:
+            open(path, "w", encoding="utf-8").write(new)
+        print(f"related: {path} lists {len(items)} article(s)")
+
+
 if __name__ == "__main__":
     articles = load_articles()
     # remove pages from earlier builds that shouldn't be live (e.g. a draft built with --preview)
@@ -344,5 +379,6 @@ if __name__ == "__main__":
     for art in articles:
         build_article(art)
     build_index(articles)
+    update_related(articles)
     if not PREVIEW:
         update_sitemap(articles)
