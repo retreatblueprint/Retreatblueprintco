@@ -35,7 +35,7 @@ PREVIEW = "--preview" in sys.argv
 AUTHOR = {
     "name": "Shila Kandiah",
     "role": "Retreat Operations Director, Retreat Blueprint Co.",
-    "bio": "Shila has spent 10 years in operations management and now works with retreat centers, eco-lodges and wellness venues across Central America on their systems, teams and growth.",
+    "bio": "Shila Kandiah has 10 years of operations management experience across healthcare, wellness and hospitality, and works with retreat centers, eco-lodges and wellness venues on their systems, teams and growth.",
     "avatar": "/assets/img/shila-avatar.jpg",
 }
 
@@ -245,7 +245,7 @@ def tail():
 </section>
 
 <footer><span class="f-logo">Retreat Blueprint Co.</span><span>© 2026 · <a href="mailto:hello@retreatblueprintco.com">hello@retreatblueprintco.com</a></span></footer>
-<script src="/js/menu.js?v=2026-10-16a" defer></script>
+<script src="/js/menu.js?v=2026-10-16b" defer></script>
 {PRINT_JS}
 </body>
 </html>
