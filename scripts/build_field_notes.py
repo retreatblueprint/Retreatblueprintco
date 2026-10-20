@@ -222,6 +222,11 @@ mark.todo{background:#FFF0A8;color:var(--earth);padding:2px 5px;border-radius:3p
 .fn-list{max-width:820px;margin:0 auto;padding:48px 24px 88px;display:grid;gap:18px}
 .fn-card{display:grid;gap:8px;padding:28px;border:1px solid var(--border);border-radius:8px;background:var(--warm-white);text-decoration:none;color:var(--earth);transition:border-color .2s,transform .2s,box-shadow .2s}
 .fn-card:hover{border-color:var(--sage-mid);transform:translateY(-2px);box-shadow:0 14px 34px rgba(42,34,24,.08)}
+.fn-card.has-img{grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:0;padding:0;overflow:hidden}
+.fn-card.has-img img{display:block;width:100%;height:100%;min-height:240px;object-fit:cover;background:var(--cream-dark)}
+.fn-card-txt{display:grid;gap:8px;align-content:center}
+.fn-card.has-img .fn-card-txt{padding:28px}
+@media (max-width:640px){.fn-card.has-img{grid-template-columns:1fr}.fn-card.has-img img{min-height:0;aspect-ratio:16/10;height:auto}.fn-card.has-img .fn-card-txt{padding:22px}}
 .fn-card .fn-k{margin:0;font-size:.7rem;color:var(--terracotta)}
 .fn-card h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;text-wrap:balance}
 .fn-card p{color:var(--earth-mid);font-size:.98rem}
@@ -321,6 +326,14 @@ def build_article(a):
     print("built", f"field-notes/{a['slug']}.html", "(draft)" if a["status"] != "published" else "")
 
 
+def card_img(a):
+    h = a.get("hero")
+    if not h:
+        return ""
+    return (f'<img src="{photo_url(h["photo"], 760, 520)}" srcset="{photo_url(h["photo"], 380, 260)} 380w, {photo_url(h["photo"], 760, 520)} 760w" '
+            f'sizes="(max-width:640px) 100vw, 340px" alt="{html.escape(h["alt"])}" width="760" height="520" loading="lazy">')
+
+
 def build_index(arts):
     url = f"{SITE}/field-notes/"
     desc = "Practical notes for retreat venue owners and buyers: operations, buying, low season and growth, from Retreat Blueprint Co."
@@ -328,8 +341,8 @@ def build_index(arts):
               "publisher": {"@type": "Organization", "name": "Retreat Blueprint Co.", "url": SITE}}
     page = head("Field Notes · Retreat Blueprint Co.", desc, url, f"{SITE}/assets/img/og-image.jpg", jsonld, "website")
     cards = "".join(
-        f'''<a class="fn-card" href="/field-notes/{a["slug"]}"><p class="fn-k">{a["topic"]}{" · Draft" if a["status"] != "published" else ""}</p>
-<h2>{a["title"]}</h2><p>{a["dek"]}</p><small>{nice_date(a["date"])} · {max(1, round(words(a["body"]) / 220))} min read</small><em>Read →</em></a>'''
+        f'''<a class="fn-card{' has-img' if a.get('hero') else ''}" href="/field-notes/{a["slug"]}">{card_img(a)}<div class="fn-card-txt"><p class="fn-k">{a["topic"]}{" · Draft" if a["status"] != "published" else ""}</p>
+<h2>{a["title"]}</h2><p>{a["dek"]}</p><small>{nice_date(a["date"])} · {max(1, round(words(a["body"]) / 220))} min read</small><em>Read →</em></div></a>'''
         for a in arts) or '<p class="fn-empty">The first notes are on their way.</p>'
     page += f'''<header class="fn-head">
   <div class="inner">
