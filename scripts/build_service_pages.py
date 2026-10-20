@@ -516,6 +516,7 @@ def build(pg):
     <p class="label">Questions</p>
     <h2 class="title">Before you book</h2>
     {qs}
+    <!-- field-notes:related --><!-- /field-notes:related -->
   </div>
 </section>
 ''')
