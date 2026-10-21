@@ -270,7 +270,7 @@ def tail():
   </div>
 </section>
 
-<footer><span class="f-logo">Retreat Blueprint Co.</span><span>© 2026 · <a href="mailto:hello@retreatblueprintco.com">hello@retreatblueprintco.com</a></span></footer>
+<footer><span class="f-logo">Retreat Blueprint Co.</span><span>© 2026 · <a href="mailto:hello@retreatblueprintco.com">hello@retreatblueprintco.com</a> · <a href="https://www.linkedin.com/in/shila-kandiah" target="_blank" rel="noopener me">LinkedIn</a></span></footer>
 <script src="/js/menu.js?v={MENU_V}" defer></script>
 {PRINT_JS}
 </body>
@@ -295,7 +295,7 @@ def build_article(a):
         "headline": a["title"], "description": a["description"],
         "datePublished": a["date"], "dateModified": a.get("updated") or a["date"],
         "mainEntityOfPage": url, "image": og_image,
-        "author": {"@type": "Person", "name": AUTHOR["name"], "jobTitle": AUTHOR["role"], "url": f"{SITE}/#about"},
+        "author": {"@type": "Person", "name": AUTHOR["name"], "jobTitle": AUTHOR["role"], "url": f"{SITE}/#about", "sameAs": ["https://www.linkedin.com/in/shila-kandiah"]},
         "publisher": {"@type": "Organization", "name": "Retreat Blueprint Co.", "url": SITE},
     }
     upd = f' · Updated {nice_date(a["updated"])}' if a.get("updated") else ""

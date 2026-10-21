@@ -541,7 +541,7 @@ def build(pg):
   </div>
 </section>
 
-<footer><span class="f-logo">Retreat Blueprint Co.</span><span>© 2026 · <a href="mailto:hello@retreatblueprintco.com">hello@retreatblueprintco.com</a></span></footer>
+<footer><span class="f-logo">Retreat Blueprint Co.</span><span>© 2026 · <a href="mailto:hello@retreatblueprintco.com">hello@retreatblueprintco.com</a> · <a href="https://www.linkedin.com/in/shila-kandiah" target="_blank" rel="noopener me">LinkedIn</a></span></footer>
 {FAQ_JS if pg.get("faq") else ""}
 <script src="js/menu.js?v=2026-10-16b" defer></script>
 </body>
