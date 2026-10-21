@@ -228,7 +228,7 @@ CSS = """
 .fn-mid span{margin-right:.35rem}
 .fn-mid a{font-style:normal;color:var(--sage-dark)}
 .fn-field{position:relative;background:none;border:0;border-radius:0;padding:6px 0 0 2.6rem;margin:2.25rem 0 2.5rem;font-family:var(--serif);font-size:1.22rem;line-height:1.55;color:var(--earth)}
-.fn-field::before{content:"\201C";position:absolute;left:0;top:-.25rem;font-family:var(--serif);font-size:3.6rem;line-height:1;color:var(--terracotta)}
+.fn-field::before{content:"\\201C";position:absolute;left:0;top:-.25rem;font-family:var(--serif);font-size:3.6rem;line-height:1;color:var(--terracotta)}
 .fn-field .fn-k{display:none}
 .fn-sig{display:flex;align-items:center;gap:10px;margin-top:1rem;font-family:var(--sans);font-size:.85rem;color:var(--muted)}
 .fn-sig img{width:32px;height:32px;border-radius:50%;object-fit:cover}
