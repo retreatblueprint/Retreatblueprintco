@@ -409,6 +409,32 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 .fn-author b{font-family:var(--serif);font-weight:500;font-size:1.1rem;display:block}
 .fn-author span{font-size:.8rem;color:var(--muted);display:block;margin-bottom:4px}
 .fn-author p{font-size:.92rem;color:var(--earth-mid)}
+/* Editorial treatment (Oct 21): fewer boxes, labels and rails; reads like a printed field journal */
+.fn-body > p:first-of-type::first-letter{font-family:var(--serif);float:left;font-size:3.6em;line-height:.82;padding:.08em .1em 0 0;color:var(--terracotta)}
+.fn-k{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.05rem;letter-spacing:0;text-transform:none;color:var(--terracotta);margin-bottom:.5rem}
+.fn-answer{background:none;border:0;border-top:1px solid var(--earth);border-bottom:1px solid var(--border);border-radius:0;padding:18px 0 20px;margin:2rem 0 2.25rem}
+.fn-answer .fn-k{color:var(--earth)}
+.fn-answer ol{list-style:none;padding:0;margin:0;counter-reset:a;display:grid;gap:.55rem}
+.fn-answer li{counter-increment:a;display:grid;grid-template-columns:2rem 1fr;align-items:baseline;margin:0}
+.fn-answer li::before{content:counter(a);font-family:var(--serif);font-size:1.35rem;line-height:1;color:var(--terracotta)}
+.fn-mid{display:block;border:0;border-radius:0;padding:0;margin:0 0 2.25rem;font-size:.98rem;font-style:italic;color:var(--earth-mid)}
+.fn-mid span{margin-right:.35rem}
+.fn-mid a{font-style:normal;color:var(--sage-dark)}
+.fn-field{background:none;border:0;border-top:1px solid var(--terracotta);border-bottom:1px solid var(--border);border-radius:0;padding:16px 0 18px;margin:2rem 0 2.25rem;font-family:var(--serif);font-size:1.12rem;line-height:1.6;color:var(--earth)}
+.fn-field .fn-k{display:block;font-size:1rem;margin-bottom:.4rem}
+.fn-check{border:0;border-top:3px double var(--earth);border-radius:0;box-shadow:none;background:none;padding:22px 0 8px;margin:3rem 0}
+.fn-check ul{margin-bottom:1.25rem}
+.fn-check li{padding:.7rem 0 .7rem 34px;margin:0;border-bottom:1px solid var(--border)}
+.fn-check li::before{top:.95rem;border-radius:2px;border-color:var(--earth-mid)}
+.fn-print{border-radius:3px}
+.fn-next{background:var(--cream-dark);color:var(--earth);border-radius:0;padding:30px 30px 28px;gap:12px;margin:3rem 0}
+.fn-next .fn-k{color:var(--earth);font-size:1.45rem;font-style:normal}
+.fn-next p{color:var(--earth-mid)}
+.fn-next .btn{background:var(--sage-dark);color:#fff;border-color:var(--sage-dark)}
+.fn-photo img{border-radius:2px}
+.fn-photo figcaption{font-style:italic}
+.fn-hero img{border-radius:0}
+@media (max-width:640px){.fn-field{font-size:1.06rem}.fn-next{padding:22px}}
 mark.todo{background:#FFF0A8;color:var(--earth);padding:2px 5px;border-radius:3px;font-family:var(--sans);font-size:.92em}
 .fn-draft{background:#FFF0A8;text-align:center;font-size:.85rem;padding:8px 16px}
 /* index */
@@ -428,11 +454,14 @@ mark.todo{background:#FFF0A8;color:var(--earth);padding:2px 5px;border-radius:3p
 .fn-empty{color:var(--muted)}
 @media (max-width:640px){.fn-hero{padding:0}.fn-hero img{border-radius:0}.fn-head{padding:48px 16px 36px}.fn-body{padding:40px 16px 24px;font-size:1.02rem}.fn-author,.fn-list{padding-left:16px;padding-right:16px}.fn-check,.fn-next{padding:22px}.fn-field,.fn-answer{padding:20px}}
 @media print{
-  html.print-check body *{visibility:hidden}
-  html.print-check .fn-check,html.print-check .fn-check *{visibility:visible}
-  html.print-check .fn-check{position:absolute;inset:0 auto auto 0;width:100%;border:0;box-shadow:none}
-  .fn-print,.nav,footer,.cta{display:none!important}
+  html.print-check body > *:not(#fn-print-area){display:none!important}
+  #fn-print-area{display:block!important}
+  #fn-print-area .fn-check{margin:0;padding-top:12px}
+  #fn-print-area .fn-print{display:none}
+  .fn-print-src{margin-top:18px;font-size:10pt;color:#6B6252}
+  .fn-print,.nav,footer,.cta,.wa-float{display:none!important}
 }
+#fn-print-area{display:none}
 </style>
 </head>
 <body>
@@ -497,7 +526,7 @@ mark.todo{background:#FFF0A8;color:var(--earth);padding:2px 5px;border-radius:3p
 <p>Guests use far more water than a family home. Construction permits need a water availability letter from the local ASADA or from AyA, the national water utility, and a drilled well usually needs its own concession from the Dirección de Agua.<sup><a href="#s5">5</a></sup> Ask for the letter or concession in writing, and ask the staff what happens to water at the end of the dry season, when it's needed most.</p>
 <p>If the water runs on an electric pump, a power cut or surge can stop the water too.</p>
 <aside class="fn-field">
-  <p class="fn-k">From the field</p>
+  <p class="fn-k">A note from the field</p>
   <p>I've often seen a retreat center lose its water while guests were on site, because power surges knocked out the supply. It never shows up in the paperwork, and it's exactly the kind of problem guests remember. Before you buy, ask how often the water has cut out in the past year, and what the backup is: a storage tank big enough for a full house, a backup pump, and a generator to run it. Ask the staff as well as the owner. They're the ones who deal with it.</p>
 </aside>
 
@@ -576,11 +605,11 @@ mark.todo{background:#FFF0A8;color:var(--earth);padding:2px 5px;border-radius:3p
     <li>Staff contracts, payroll and CCSS records, and an agreement on who pays what</li>
     <li>A day spent watching operations, and a written handover plan</li>
   </ul>
-  <button type="button" class="fn-print" onclick="window.print()">Print this checklist</button>
+  <button type="button" class="fn-print">Print this checklist</button>
 </div>
 
 <div class="fn-next">
-  <p class="fn-k">The next step</p>
+  <p class="fn-k">Want a second pair of eyes?</p>
   <p>Your lawyer covers title and contracts, and your inspector covers the buildings. The pre-purchase review covers how the business actually runs: bookings, staff, systems and the first 90 days after you take over. It works on-site or remotely, and takes 7–10 business days.</p>
   <a class="btn primary" href="/buying-a-retreat">See the pre-purchase review</a>
 </div>
@@ -622,6 +651,6 @@ mark.todo{background:#FFF0A8;color:var(--earth);padding:2px 5px;border-radius:3p
 
 <footer><span class="f-brand"><span class="f-logo">Retreat Blueprint Co.</span><a class="f-li" href="https://www.linkedin.com/in/shila-kandiah" target="_blank" rel="noopener me" aria-label="Shila Kandiah on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></span><span>© 2026 · <a href="mailto:hello@retreatblueprintco.com">hello@retreatblueprintco.com</a></span></footer>
 <script src="/js/menu.js?v=2026-10-21a" defer></script>
-<script>document.addEventListener('click',function(e){if(e.target.closest('.fn-print')){document.documentElement.classList.add('print-check');window.print();document.documentElement.classList.remove('print-check')}})</script>
+<script>document.addEventListener('click',function(e){var btn=e.target.closest('.fn-print');if(!btn)return;e.preventDefault();var r=document.documentElement,src=btn.closest('.fn-check'),box=document.getElementById('fn-print-area');if(!box){box=document.createElement('div');box.id='fn-print-area';document.body.appendChild(box)}box.innerHTML='';box.appendChild(src.cloneNode(true));var f=document.createElement('p');f.className='fn-print-src';f.textContent='From Field Notes by Retreat Blueprint Co. · '+location.hostname+location.pathname;box.appendChild(f);r.classList.add('print-check');window.addEventListener('afterprint',function(){r.classList.remove('print-check')},{once:true});window.print()})</script>
 </body>
 </html>
