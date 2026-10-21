@@ -292,10 +292,10 @@ PAGES = [
         lead="I run the operations side of your venue with you: the automations, guest messages and coordination, and the digital systems behind them. I make sure it all runs efficiently, change the processes that stop making sense, and lead the team that does the work.",
         jump=("#role", "What the role covers ↓"),
         price=dict(k="Monthly retainer", amt="From $1,000 <small>USD / month</small>", note="Operations leadership at a fraction of a full-time salary. 6-month minimum.",
-                   items=["Two scheduled touchpoints a month", "Owns operations priorities with you", "Monthly numbers review", "Team leadership, SOPs and growth planning"]),
+                   items=["Two scheduled touchpoints a month", "Owns operations priorities with you", "P&amp;L, budget and forecast owned", "Team leadership, SOPs and growth planning"]),
         changes=("How we work together", "You keep the vision. <em>I take the operations.</em>", [
             ("Someone owns operations", "Decisions about bookings, team and systems don't all wait for you."),
-            ("Decisions start from numbers", "Bookings, revenue and costs reviewed every month, against your goals."),
+            ("Decisions start from numbers", "Revenue, ROI, EBITDA and guest retention reviewed every month, against your budget and forecast."),
             ("Systems that keep up", "SOPs refined as the business changes, so nothing drifts back.")]),
         split=("You decide where the line sits. Some owners keep the guest relationships close; others hand over everything but the vision.", [
             ("Always yours", "keep", ["The vision for your retreat", "The big decisions"]),
@@ -303,7 +303,7 @@ PAGES = [
             ("Always mine", "mine", ["The systems", "The numbers", "The processes", "Keeping the team running"])]),
         band=("role", "What the role covers", "Four things your director owns", "roles", [
             ("compass", "Direction", ["Priorities for the month and the season", "Growth planning: the next offer, the next hire"]),
-            ("chart", "Numbers", ["Monthly metrics review", "Bookings, revenue and costs against your goals"]),
+            ("chart", "Financial management", ["Full P&amp;L responsibility, focused on revenue, ROI, EBITDA and guest retention", "Own the budget and forecast, reviewed monthly, quarterly and annually"]),
             ("people", "Team and day-to-day", ["Lead the team, with clear roles and expectations", "Messages, coordination and automations running efficiently", "Processes changed when they stop making sense"]),
             ("grid", "Digital systems", ["Own your digital infrastructure: booking, payments, website, automations and team tools", "Connected, so nothing is typed in twice", "SOPs kept current, season after season"])],
             "<span class=\"routes-h\">Two ways to run it</span><span class=\"route\"><b>You have a team</b>I lead your in-house team and run the operations through them.</span><span class=\"route\"><b>You don't have one yet</b>The Retreat Blueprint <a href=\"/concierge-ops\">Concierge Ops</a> remote team handles the day-to-day, under my direction.</span>"),
@@ -541,9 +541,9 @@ def build(pg):
   </div>
 </section>
 
-<footer><span class="f-logo">Retreat Blueprint Co.</span><span>© 2026 · <a href="mailto:hello@retreatblueprintco.com">hello@retreatblueprintco.com</a> · <a href="https://www.linkedin.com/in/shila-kandiah" target="_blank" rel="noopener me">LinkedIn</a></span></footer>
+<footer><span class="f-brand"><span class="f-logo">Retreat Blueprint Co.</span><a class="f-li" href="https://www.linkedin.com/in/shila-kandiah" target="_blank" rel="noopener me" aria-label="Shila Kandiah on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></span><span>© 2026 · <a href="mailto:hello@retreatblueprintco.com">hello@retreatblueprintco.com</a></span></footer>
 {FAQ_JS if pg.get("faq") else ""}
-<script src="js/menu.js?v=2026-10-16b" defer></script>
+<script src="js/menu.js?v=2026-10-21a" defer></script>
 </body>
 </html>
 ''')

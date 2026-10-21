@@ -88,3 +88,12 @@ html { scroll-behavior: smooth; }
 body.menu-open .wa-float { opacity: 0; pointer-events: none; }
 @media (max-width: 700px) { .wa-float { right: 14px; bottom: 14px; width: 52px; padding: 0; justify-content: center; } .wa-float span { display: none; } }
 @media (prefers-reduced-motion: reduce) { .wa-float { transition: none; } }
+
+/* Footer: LinkedIn icon beside the logo; room on the right so the WhatsApp button never covers the footer text */
+.f-brand { display: inline-flex; align-items: center; gap: 12px; }
+.f-li { display: inline-flex; width: 30px; height: 30px; align-items: center; justify-content: center; border-radius: 6px; color: #fff; background: #0A66C2; transition: transform .2s ease, background .2s ease; }
+.f-li:hover { transform: translateY(-1px); background: #004182; }
+.f-li:focus-visible { outline: 2px solid #C8A080; outline-offset: 3px; }
+.f-li svg { width: 16px; height: 16px; }
+footer { padding-right: 190px !important; }
+@media (max-width: 860px) { footer { padding-right: 16px !important; padding-bottom: 88px !important; } }
