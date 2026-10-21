@@ -216,6 +216,36 @@ CSS = """
 .fn-author b{font-family:var(--serif);font-weight:500;font-size:1.1rem;display:block}
 .fn-author span{font-size:.8rem;color:var(--muted);display:block;margin-bottom:4px}
 .fn-author p{font-size:.92rem;color:var(--earth-mid)}
+/* Editorial treatment (Oct 21): fewer boxes, labels and rails; reads like a printed field journal */
+.fn-body > p:first-of-type::first-letter{font-family:var(--serif);float:left;font-size:3.6em;line-height:.82;padding:.08em .1em 0 0;color:var(--terracotta)}
+.fn-k{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.05rem;letter-spacing:0;text-transform:none;color:var(--terracotta);margin-bottom:.5rem}
+.fn-answer{background:none;border:0;border-top:1px solid var(--earth);border-bottom:1px solid var(--border);border-radius:0;padding:18px 0 20px;margin:2rem 0 2.25rem}
+.fn-answer .fn-k{color:var(--earth)}
+.fn-answer ol{list-style:none;padding:0;margin:0;counter-reset:a;display:grid;gap:.55rem}
+.fn-answer li{counter-increment:a;display:grid;grid-template-columns:2rem 1fr;align-items:baseline;margin:0}
+.fn-answer li::before{content:counter(a);font-family:var(--serif);font-size:1.35rem;line-height:1;color:var(--terracotta)}
+.fn-mid{display:block;border:0;border-radius:0;padding:0;margin:0 0 2.25rem;font-size:.98rem;font-style:italic;color:var(--earth-mid)}
+.fn-mid span{margin-right:.35rem}
+.fn-mid a{font-style:normal;color:var(--sage-dark)}
+.fn-field{position:relative;background:none;border:0;border-radius:0;padding:6px 0 0 2.6rem;margin:2.25rem 0 2.5rem;font-family:var(--serif);font-size:1.22rem;line-height:1.55;color:var(--earth)}
+.fn-field::before{content:"\201C";position:absolute;left:0;top:-.25rem;font-family:var(--serif);font-size:3.6rem;line-height:1;color:var(--terracotta)}
+.fn-field .fn-k{display:none}
+.fn-sig{display:flex;align-items:center;gap:10px;margin-top:1rem;font-family:var(--sans);font-size:.85rem;color:var(--muted)}
+.fn-sig img{width:32px;height:32px;border-radius:50%;object-fit:cover}
+.fn-sig b{color:var(--earth);font-weight:500}
+.fn-check{border:0;border-top:3px double var(--earth);border-radius:0;box-shadow:none;background:none;padding:22px 0 8px;margin:3rem 0}
+.fn-check ul{margin-bottom:1.25rem}
+.fn-check li{padding:.7rem 0 .7rem 34px;margin:0;border-bottom:1px solid var(--border)}
+.fn-check li::before{top:.95rem;border-radius:2px;border-color:var(--earth-mid)}
+.fn-print{border-radius:3px}
+.fn-next{background:var(--cream-dark);color:var(--earth);border-radius:0;padding:30px 30px 28px;gap:12px;margin:3rem 0}
+.fn-next .fn-k{color:var(--earth);font-size:1.45rem;font-style:normal}
+.fn-next p{color:var(--earth-mid)}
+.fn-next .btn{background:var(--sage-dark);color:#fff;border-color:var(--sage-dark)}
+.fn-photo img{border-radius:2px}
+.fn-photo figcaption{font-style:italic}
+.fn-hero img{border-radius:0}
+@media (max-width:640px){.fn-field{padding-left:2rem;font-size:1.12rem}.fn-field::before{font-size:3rem}.fn-next{padding:22px}}
 mark.todo{background:#FFF0A8;color:var(--earth);padding:2px 5px;border-radius:3px;font-family:var(--sans);font-size:.92em}
 .fn-draft{background:#FFF0A8;text-align:center;font-size:.85rem;padding:8px 16px}
 /* index */
@@ -282,6 +312,8 @@ def build_article(a):
     url = f"{SITE}/field-notes/{a['slug']}"
     body = a["body"]
     svc_href, svc_text = a["service"]
+    body = re.sub(r'(<aside class="fn-field">.*?)(\s*</aside>)', lambda m: m.group(1) + f'\n  <p class="fn-sig"><img src="{AUTHOR["avatar"]}" alt="" width="32" height="32"><span><b>{AUTHOR["name"].split()[0]}</b>, from the field</span></p>' + m.group(2), body, flags=re.S)
+    body = body.replace('<p class="fn-k">The next step</p>', '<p class="fn-k">Want a second pair of eyes?</p>')
     body = body.replace("{{mid_cta}}", f'<p class="fn-mid"><span>{a["mid_cta"]}</span><a href="{svc_href}">{svc_text} →</a></p>')
     body = re.sub(r"\{\{chart:([\w-]+)\}\}", lambda m: chart_html(m.group(1)), body)
     body = re.sub(r"\{\{photo:([^|}]+)\|([^|}]+)(?:\|([^}]*))?\}\}", lambda m: photo_html(m.group(1).strip(), m.group(2).strip(), (m.group(3) or "").strip()), body)
