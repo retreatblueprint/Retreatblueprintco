@@ -261,14 +261,17 @@ mark.todo{background:#FFF0A8;color:var(--earth);padding:2px 5px;border-radius:3p
 .fn-empty{color:var(--muted)}
 @media (max-width:640px){.fn-hero{padding:0}.fn-hero img{border-radius:0}.fn-head{padding:48px 16px 36px}.fn-body{padding:40px 16px 24px;font-size:1.02rem}.fn-author,.fn-list{padding-left:16px;padding-right:16px}.fn-check,.fn-next{padding:22px}.fn-field,.fn-answer{padding:20px}}
 @media print{
-  html.print-check body *{visibility:hidden}
-  html.print-check .fn-check,html.print-check .fn-check *{visibility:visible}
-  html.print-check .fn-check{position:absolute;inset:0 auto auto 0;width:100%;border:0;box-shadow:none}
-  .fn-print,.nav,footer,.cta{display:none!important}
+  html.print-check body > *:not(#fn-print-area){display:none!important}
+  #fn-print-area{display:block!important}
+  #fn-print-area .fn-check{margin:0;padding-top:12px}
+  #fn-print-area .fn-print{display:none}
+  .fn-print-src{margin-top:18px;font-size:10pt;color:#6B6252}
+  .fn-print,.nav,footer,.cta,.wa-float{display:none!important}
 }
+#fn-print-area{display:none}
 """
 
-PRINT_JS = "<script>document.addEventListener('click',function(e){if(e.target.closest('.fn-print')){document.documentElement.classList.add('print-check');window.print();document.documentElement.classList.remove('print-check')}})</script>"
+PRINT_JS = "<script>document.addEventListener('click',function(e){var btn=e.target.closest('.fn-print');if(!btn)return;e.preventDefault();var r=document.documentElement,src=btn.closest('.fn-check'),box=document.getElementById('fn-print-area');if(!box){box=document.createElement('div');box.id='fn-print-area';document.body.appendChild(box)}box.innerHTML='';box.appendChild(src.cloneNode(true));var f=document.createElement('p');f.className='fn-print-src';f.textContent='From Field Notes by Retreat Blueprint Co. \u00b7 '+location.hostname+location.pathname;box.appendChild(f);r.classList.add('print-check');window.addEventListener('afterprint',function(){r.classList.remove('print-check')},{once:true});window.print()})</script>"
 
 
 def head(title, desc, url, og_image, jsonld, og_type="article"):
@@ -310,6 +313,7 @@ def build_article(a):
     svc_href, svc_text = a["service"]
     body = body.replace('<p class="fn-k">From the field</p>', '<p class="fn-k">A note from the field</p>')
     body = body.replace('<p class="fn-k">The next step</p>', '<p class="fn-k">Want a second pair of eyes?</p>')
+    body = body.replace(' onclick="window.print()"', '')
     body = body.replace("{{mid_cta}}", f'<p class="fn-mid"><span>{a["mid_cta"]}</span><a href="{svc_href}">{svc_text} →</a></p>')
     body = re.sub(r"\{\{chart:([\w-]+)\}\}", lambda m: chart_html(m.group(1)), body)
     body = re.sub(r"\{\{photo:([^|}]+)\|([^|}]+)(?:\|([^}]*))?\}\}", lambda m: photo_html(m.group(1).strip(), m.group(2).strip(), (m.group(3) or "").strip()), body)
