@@ -273,6 +273,10 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 .pkg .price{margin-top:4px}
 .pkg-h{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-dark);border-top:1px solid var(--border);padding-top:14px;margin-top:4px}
 .pkg .pkg-h + ul{border-top:0;padding-top:0}
+.covers{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 4px}
+.path .covers li{padding:4px 10px;font-size:.76rem;border-radius:999px;background:var(--sage-light);color:var(--sage-dark);border:1px solid var(--sage-mid)}
+.path .covers li::before{display:none}
+.pkg-scope{font-size:.86rem;color:var(--earth-mid);line-height:1.6;border-top:1px solid var(--border);padding-top:14px}
 .pkg ul + .pkg-h{border-top:0;padding-top:6px}
 .pkg-credit{align-self:flex-start;font-size:.8rem;font-weight:500;color:#7E4029;background:#F6E9DF;border-radius:3px;padding:4px 9px}
 .pkg-meta{margin-top:auto;display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted);border-top:1px solid var(--border);padding-top:14px}
@@ -376,7 +380,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
     </div>
     <div class="who">
       <div class="who-card"><span class="k">Thinking of buying</span><p class="h">See the full picture before you sign.</p><p>Bookings, team, systems and the real cost to run it.</p><a href="#review">The pre-purchase review →</a></div>
-      <div class="who-card"><span class="k">Just bought</span><p class="h">Take over without losing a season.</p><p>Accounts, guests, team and systems, set up in 90 days.</p><a href="#ninety">The 90-day plan →</a></div>
+      <div class="who-card"><span class="k">Just bought</span><p class="h">Take over without losing a season.</p><p>Finances, operations, technology, marketing and team, set up in 90 days.</p><a href="#ninety">The 90-day plan →</a></div>
     </div>
   </div>
 </header>
@@ -411,8 +415,9 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
         <span class="step">02</span>
         <span class="for">For new owners</span>
         <h3>The First 90 Days</h3>
-        <p>Hands-on support to protect what you bought, build the foundation and grow with confidence.</p>
-        <ul><li><b>Days 1–30, Protect:</b> capture the seller's know-how before they leave, keep every booked guest and retreat leader, steady the team and get cash flow under control</li><li><b>Days 31–60, Build:</b> a streamlined operating system, one place to see administration, finances and client relationships, plus guest communication, SOPs and team roles</li><li><b>Days 61–90, Grow:</b> fill the calendar, reconnect past guests and leaders, relaunch your marketing and set a 12-month plan</li></ul>
+        <p>Hands-on support across the whole business. From financial analysis and operational planning to technology, marketing, training, customer experience and the next stage of growth.</p>
+        <ul class="covers" aria-label="What the 90 days cover"><li>Financial analysis</li><li>Operational planning</li><li>Technology</li><li>Marketing</li><li>Training</li><li>Customer experience</li><li>Next stage of growth</li></ul>
+        <ul><li><b>Days 1–30, Protect:</b> a financial analysis and cash flow under control, the seller's know-how captured before they leave, every booked guest and retreat leader kept, and the team steadied</li><li><b>Days 31–60, Build:</b> an operational plan, the technology set up as one system for administration, finances and client relationships, the team trained on clear roles and SOPs, and the customer experience defined from inquiry to checkout</li><li><b>Days 61–90, Grow:</b> your marketing relaunched, past guests and leaders reconnected, and the next stage of growth mapped in a 12-month plan</li></ul>
       </div>
     </div>
   </div>
@@ -510,12 +515,13 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
         <p class="pkg-for">Take over without losing a season.</p>
         <p class="price"><small>Priced on scope</small></p>
         <p class="pkg-credit">Half your review fee credited</p>
+        <p class="pkg-scope">From financial analysis and operational planning to technology, marketing, training, customer experience and the next stage of growth.</p>
         <p class="pkg-h">Days 1–30 · Protect</p>
-        <ul><li>The seller's know-how captured before they leave</li><li>Every booked guest and retreat leader kept</li><li>The team steadied through the handover</li></ul>
+        <ul><li>Financial analysis: cash flow, pricing and the real numbers</li><li>The seller's know-how captured before they leave</li><li>Every booked guest and retreat leader kept</li></ul>
         <p class="pkg-h">Days 31–60 · Build</p>
-        <ul><li>One operating system for administration, finances and client relationships</li><li>Clear roles and SOPs</li><li>Cash flow, pricing and a numbers dashboard</li></ul>
+        <ul><li>Operational planning: clear roles, SOPs and a numbers dashboard</li><li>Technology: one system for administration, finances and client relationships</li><li>Team training on the new way of working</li><li>Customer experience mapped from inquiry to checkout</li></ul>
         <p class="pkg-h">Days 61–90 · Grow</p>
-        <ul><li>The calendar filled and past guests reconnected</li><li>A 12-month growth plan</li></ul>
+        <ul><li>Marketing relaunched and past guests reconnected</li><li>The next stage of growth: a 12-month plan</li></ul>
         <p class="pkg-after">After day 90, keep it running with a <a href="/fractional-operations-director">part-time retreat operations director</a>, or hand the daily admin to <a href="/concierge-ops">Concierge Ops</a>.</p></div>
     </div>
     <div class="remote"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#4A6E4E" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg><div><b>Buying a retreat property anywhere in the world?</b><p>The Desk Review is fully remote, so it works for retreat venues in any country, and for buyers who can't be on site yet.</p></div></div>
