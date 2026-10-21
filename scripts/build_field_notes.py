@@ -227,12 +227,8 @@ CSS = """
 .fn-mid{display:block;border:0;border-radius:0;padding:0;margin:0 0 2.25rem;font-size:.98rem;font-style:italic;color:var(--earth-mid)}
 .fn-mid span{margin-right:.35rem}
 .fn-mid a{font-style:normal;color:var(--sage-dark)}
-.fn-field{position:relative;background:none;border:0;border-radius:0;padding:6px 0 0 2.6rem;margin:2.25rem 0 2.5rem;font-family:var(--serif);font-size:1.22rem;line-height:1.55;color:var(--earth)}
-.fn-field::before{content:"\\201C";position:absolute;left:0;top:-.25rem;font-family:var(--serif);font-size:3.6rem;line-height:1;color:var(--terracotta)}
-.fn-field .fn-k{display:none}
-.fn-sig{display:flex;align-items:center;gap:10px;margin-top:1rem;font-family:var(--sans);font-size:.85rem;color:var(--muted)}
-.fn-sig img{width:32px;height:32px;border-radius:50%;object-fit:cover}
-.fn-sig b{color:var(--earth);font-weight:500}
+.fn-field{background:none;border:0;border-top:1px solid var(--terracotta);border-bottom:1px solid var(--border);border-radius:0;padding:16px 0 18px;margin:2rem 0 2.25rem;font-family:var(--serif);font-size:1.12rem;line-height:1.6;color:var(--earth)}
+.fn-field .fn-k{display:block;font-size:1rem;margin-bottom:.4rem}
 .fn-check{border:0;border-top:3px double var(--earth);border-radius:0;box-shadow:none;background:none;padding:22px 0 8px;margin:3rem 0}
 .fn-check ul{margin-bottom:1.25rem}
 .fn-check li{padding:.7rem 0 .7rem 34px;margin:0;border-bottom:1px solid var(--border)}
@@ -245,7 +241,7 @@ CSS = """
 .fn-photo img{border-radius:2px}
 .fn-photo figcaption{font-style:italic}
 .fn-hero img{border-radius:0}
-@media (max-width:640px){.fn-field{padding-left:2rem;font-size:1.12rem}.fn-field::before{font-size:3rem}.fn-next{padding:22px}}
+@media (max-width:640px){.fn-field{font-size:1.06rem}.fn-next{padding:22px}}
 mark.todo{background:#FFF0A8;color:var(--earth);padding:2px 5px;border-radius:3px;font-family:var(--sans);font-size:.92em}
 .fn-draft{background:#FFF0A8;text-align:center;font-size:.85rem;padding:8px 16px}
 /* index */
@@ -312,7 +308,7 @@ def build_article(a):
     url = f"{SITE}/field-notes/{a['slug']}"
     body = a["body"]
     svc_href, svc_text = a["service"]
-    body = re.sub(r'(<aside class="fn-field">.*?)(\s*</aside>)', lambda m: m.group(1) + f'\n  <p class="fn-sig"><img src="{AUTHOR["avatar"]}" alt="" width="32" height="32"><span><b>{AUTHOR["name"].split()[0]}</b>, from the field</span></p>' + m.group(2), body, flags=re.S)
+    body = body.replace('<p class="fn-k">From the field</p>', '<p class="fn-k">A note from the field</p>')
     body = body.replace('<p class="fn-k">The next step</p>', '<p class="fn-k">Want a second pair of eyes?</p>')
     body = body.replace("{{mid_cta}}", f'<p class="fn-mid"><span>{a["mid_cta"]}</span><a href="{svc_href}">{svc_text} →</a></p>')
     body = re.sub(r"\{\{chart:([\w-]+)\}\}", lambda m: chart_html(m.group(1)), body)
