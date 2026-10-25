@@ -303,13 +303,9 @@ PAGES = [
         split=("You decide where the line sits. Some owners keep the guest relationships close; others hand over everything but the vision.", [
             ("Always yours", "keep", ["The vision for your retreat", "The big decisions"]),
             ("Your call", "flex", ["Priorities for the month and the season", "Growth planning", "Guest experience", "Retreat leader relationships", "Hiring", "Marketing"], "Set these together, keep them, or hand them over. Support or ownership, whichever you prefer."),
-            ("Always mine", "mine", ["Digital systems", "Financial management and the numbers", "The team and day-to-day operations", "The processes"])]),
-        band=("role", "What the role covers", "Four things your director owns", "roles", [
-            ("compass", "Direction, your way", ["Priorities for the month and the season, set together or owned by me, whichever you prefer", "Growth planning: the next offer, the next hire"]),
-            ("chart", "Financial management", ["Full P&amp;L responsibility, focused on revenue, ROI, EBITDA and guest retention", "Own the budget and forecast, reviewed monthly, quarterly and annually"]),
-            ("people", "Team and day-to-day", ["Lead the team, with clear roles and expectations", "Messages, coordination and automations running efficiently", "Processes changed when they stop making sense"]),
-            ("grid", "Digital systems", ["Own your digital infrastructure: booking, payments, website, automations and team tools", "Connected, so nothing is typed in twice", "SOPs kept current, season after season"])],
-            "<span class=\"routes-h\">Two ways to run it</span><span class=\"route\"><b>You have a team</b>I lead your in-house team and run the operations through them.</span><span class=\"route\"><b>You don't have one yet</b>The Retreat Blueprint <a href=\"/concierge-ops\">Concierge Ops</a> remote team handles the day-to-day, under my direction.</span>"),
+            ("Always mine", "mine", ["Digital systems: booking, payments, website, automations and team tools, connected so nothing is typed in twice", "Financial management: P&amp;L, budget and forecast reviewed monthly, quarterly and annually", "The team and day-to-day operations, with clear roles and messages and coordination running smoothly", "The processes: SOPs kept current, season after season"])]),
+        band=None,
+        after_changes="<div class=\"routes-row\"><span class=\"routes-h\">Two ways to run it</span><span class=\"route\"><b>You have a team</b>I lead your in-house team and run the operations through them.</span><span class=\"route\"><b>You don't have one yet</b>The Retreat Blueprint <a href=\"/concierge-ops\">Concierge Ops</a> remote team handles the day-to-day, under my direction.</span></div>",
         compare=("Why fractional", "The leadership of a full&#8209;time hire, sized to your retreat", [
             ("Doing it all yourself", ["Every decision waits for you", "Numbers checked when there's time", "The team asks you everything", "Growth happens between guest arrivals"], False),
             ("Fractional director", ["Operations owned with you, every month", "Numbers reviewed on a set rhythm", "A leader the team can go to", "A plan for the season ahead", "A monthly retainer, no long hiring process"], True),
@@ -445,33 +441,35 @@ def build(pg):
     <h2 class="title">{pg['changes'][1]}</h2>
     {split_html(pg)}
     <div class="outcomes{' three' if len(pg['changes'][2]) == 3 else ''}">{outcomes(pg['changes'][2])}</div>
+    {pg.get("after_changes","")}
   </div>
 </section>
 ''']
-    bid, blabel, btitle, kind, items, *note = pg["band"]
-    if kind == "roles":
-        cells = []
-        for icon, h, body in items:
-            body_html = f"<p>{body}</p>" if isinstance(body, str) else "<ul>" + "".join(f"<li>{x}</li>" for x in body) + "</ul>"
-            cells.append(f'<div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="{ICONS[icon]}"/></svg><div><h3>{h}</h3>{body_html}</div></div>')
-        inner = f'<div class="roles">{"".join(cells)}</div>' + (f'<p class="band-note">{note[0]}</p>' if note else "")
-    elif kind == "cycle":
-        inner = '<ol class="cycle">' + "".join(f"<li><span>{i + 1:02d}</span><b>{h}</b><p>{t}</p></li>" for i, (h, t) in enumerate(items)) + "</ol>" \
-                '<p class="cycle-loop"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6 M20 4v4h-4"/></svg>Then again next month, with the numbers to show what moved.</p>'
-    else:
-        inner = LEVELS_HTML
-    out.append(f'''<div class="band wt wb" id="{bid}" style="--wave:var(--cream-dark);--wave-b:var(--warm-white)">
-  <div class="band-bg" aria-hidden="true"></div>
-  <div class="band-ov" aria-hidden="true"></div>
-  <section class="sec">
-    <div class="inner">
-      <p class="label">{blabel}</p>
-      <h2 class="title">{btitle}</h2>
-      {inner}
+    if pg.get("band"):
+        bid, blabel, btitle, kind, items, *note = pg["band"]
+        if kind == "roles":
+            cells = []
+            for icon, h, body in items:
+                body_html = f"<p>{body}</p>" if isinstance(body, str) else "<ul>" + "".join(f"<li>{x}</li>" for x in body) + "</ul>"
+                cells.append(f'<div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="{ICONS[icon]}"/></svg><div><h3>{h}</h3>{body_html}</div></div>')
+            inner = f'<div class="roles">{"".join(cells)}</div>' + (f'<p class="band-note">{note[0]}</p>' if note else "")
+        elif kind == "cycle":
+            inner = '<ol class="cycle">' + "".join(f"<li><span>{i + 1:02d}</span><b>{h}</b><p>{t}</p></li>" for i, (h, t) in enumerate(items)) + "</ol>" \
+                    '<p class="cycle-loop"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6 M20 4v4h-4"/></svg>Then again next month, with the numbers to show what moved.</p>'
+        else:
+            inner = LEVELS_HTML
+        out.append(f'''<div class="band wt wb" id="{bid}" style="--wave:var(--cream-dark);--wave-b:var(--warm-white)">
+      <div class="band-bg" aria-hidden="true"></div>
+      <div class="band-ov" aria-hidden="true"></div>
+      <section class="sec">
+        <div class="inner">
+          <p class="label">{blabel}</p>
+          <h2 class="title">{btitle}</h2>
+          {inner}
+        </div>
+      </section>
     </div>
-  </section>
-</div>
-''')
+    ''')
     if pg.get("builder"):
         out.append(open(pg["builder"]).read())
     if pg.get("compare"):
