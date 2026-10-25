@@ -343,7 +343,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 if(h.indexOf('calendly.com')>-1)n='Book a call';else if(h.indexOf('wa.me/')>-1||h.indexOf('whatsapp.com')>-1)n='WhatsApp';else if(h.indexOf('mailto:')===0)n='Email';
 if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,40)})}catch(_){}},true);
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Concierge Ops", "serviceType": "Retreat center operations consulting", "description": "Retreat center admin and booking management by a dedicated team: inquiries, guest communication, coordination and back office. From $250 a month.", "url": "https://retreatblueprintco.com/concierge-ops", "provider": {"@type": "ProfessionalService", "@id": "https://retreatblueprintco.com/#business", "name": "Retreat Blueprint Co."}, "areaServed": {"@type": "Place", "name": "Worldwide"}, "audience": {"@type": "Audience", "audienceType": "Retreat centers, eco-lodges and wellness properties that host retreats"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How fast are guests answered?", "acceptedAnswer": {"@type": "Answer", "text": "Within 2 hours during business hours, and within 12 hours outside them. Follow-ups continue until the guest books or says no."}}, {"@type": "Question", "name": "What decides the monthly price?", "acceptedAnswer": {"@type": "Answer", "text": "Your average bookings per month, which sets how much time the work takes, plus your team size and retreat capacity. Pricing starts at $250 USD a month and is agreed on a free call."}}, {"@type": "Question", "name": "Who will my guests be talking to?", "acceptedAnswer": {"@type": "Answer", "text": "Your Concierge Ops team writes in your voice, using your policies and templates. I lead the team and I'm your point of contact, so you always know who is responsible."}}, {"@type": "Question", "name": "Do I need to change my booking system or inbox?", "acceptedAnswer": {"@type": "Answer", "text": "No. The team works inside the inbox and booking system you already use. If something is slowing you down, I'll suggest a better setup, and the Foundation Sprint can build it."}}, {"@type": "Question", "name": "How is this different from the Fractional Retreat Operations Director?", "acceptedAnswer": {"@type": "Answer", "text": "Concierge Ops does the day-to-day admin. The Fractional Retreat Operations Director leads the operations: priorities, numbers, team and systems. Many venues combine the two."}}, {"@type": "Question", "name": "Is there a minimum commitment?", "acceptedAnswer": {"@type": "Answer", "text": "Three months, so the team has time to learn your voice, your guests and your policies, and you can see the difference it makes."}}, {"@type": "Question", "name": "Where do you work?", "acceptedAnswer": {"@type": "Answer", "text": "Fully remote, so it works for retreat properties anywhere in the world."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Concierge Ops", "serviceType": "Retreat center operations consulting", "description": "Retreat center admin and booking management by a dedicated team: inquiries, guest communication, coordination and back office. From $250 a month.", "url": "https://retreatblueprintco.com/concierge-ops", "provider": {"@type": "ProfessionalService", "@id": "https://retreatblueprintco.com/#business", "name": "Retreat Blueprint Co."}, "areaServed": {"@type": "Place", "name": "Worldwide"}, "audience": {"@type": "Audience", "audienceType": "Retreat centers, eco-lodges and wellness properties that host retreats"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How fast are guests answered?", "acceptedAnswer": {"@type": "Answer", "text": "Within 2 business hours, including while a retreat is in session. Interested guests also get a well-timed, polite follow-up in your voice, so they do not go quiet while you are hosting."}}, {"@type": "Question", "name": "What decides the monthly price?", "acceptedAnswer": {"@type": "Answer", "text": "Your average bookings per month, which sets how much time the work takes, plus your team size and retreat capacity. Pricing starts at $250 USD a month and is agreed on a free call."}}, {"@type": "Question", "name": "Who will my guests be talking to?", "acceptedAnswer": {"@type": "Answer", "text": "Your Concierge Ops team writes in your voice, using your policies and templates. I lead the team and I'm your point of contact, so you always know who is responsible."}}, {"@type": "Question", "name": "Do I need to change my booking system or inbox?", "acceptedAnswer": {"@type": "Answer", "text": "No. The team works inside the inbox and booking system you already use. If something is slowing you down, I'll suggest a better setup, and the Foundation Sprint can build it."}}, {"@type": "Question", "name": "How is this different from the Fractional Retreat Operations Director?", "acceptedAnswer": {"@type": "Answer", "text": "Concierge Ops does the day-to-day admin. The Fractional Retreat Operations Director leads the operations: priorities, numbers, team and systems. Many venues combine the two."}}, {"@type": "Question", "name": "Is there a minimum commitment?", "acceptedAnswer": {"@type": "Answer", "text": "Three months, so the team has time to learn your voice, your guests and your policies, and you can see the difference it makes."}}, {"@type": "Question", "name": "How are my accounts and guests' details protected?", "acceptedAnswer": {"@type": "Answer", "text": "You own every account, and nothing is moved or transferred. Each team member only gets the access their role needs, guest information is used only to look after your guests, and access is removed if you stop."}}, {"@type": "Question", "name": "Where do you work?", "acceptedAnswer": {"@type": "Answer", "text": "Fully remote, so it works for retreat properties anywhere in the world."}}]}]}</script>
 <style>
 /* Service page template */
 .svc-h1 .label{font-family:var(--sans)}.svc-h1 .svc-name{display:block;font-size:inherit;line-height:inherit;margin:0}
@@ -496,41 +496,131 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
     <div>
       <h1 class="svc-h1"><span class="label">Retreat center admin &amp; booking management</span> <span class="svc-name">Concierge Ops</span></h1>
       <p class="svc-tag">Your day-to-day admin, <em>handled.</em></p>
-      <p class="lead">Every inquiry answered fast, every guest looked after, every invoice tracked. A dedicated team, led by your Retreat Operations Director, runs your day-to-day admin so you can focus on the experience and on selling.</p>
+      <p class="lead">Every inquiry answered fast, every guest looked after, every invoice tracked. We are the experts in hospitality communications. A dedicated team, led by your Retreat Operations Director, runs your day-to-day admin in your voice, so you are not coordinating everything yourself while you host and build the parts only you can.</p>
       <p class="venue-hint">For retreat centers, eco-lodges and wellness properties that host retreats.</p>
       <div class="row">
         <a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a>
-        <a class="btn text" href="#team">Meet your team ↓</a>
+        <a class="btn text" href="#handoff">See what you hand over ↓</a>
       </div>
     </div>
     <div class="co-price">
       <span class="k">Monthly</span>
       <p class="amt">From $250 <small>USD / month</small></p>
       <p>Priced on your average monthly bookings, team size and retreat capacity. 3-month minimum.</p>
-      <ul><li>Inquiries and bookings</li><li>Guest communication</li><li>Retreat coordination</li><li>Invoices and records</li></ul>
+      <ul><li>Replies within 2 business hours</li><li>Works inside your current inbox</li><li>Your accounts and guest details kept private</li><li>Led by your Retreat Operations Director</li></ul>
     </div>
   </div>
 </header>
 
-<section class="sec gap">
+<style>
+.co-checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:1.75rem 0 1rem}
+.co-checks label{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:8px;padding:14px 16px;cursor:pointer;background:var(--warm-white);line-height:1.5;font-size:.95rem}
+.co-checks label:has(input:checked){border-color:var(--acc);background:#EEF4EE}
+.co-checks label:has(input:focus-visible){outline:2px solid var(--acc)}
+.co-checks input{margin-top:4px;accent-color:var(--acc);width:18px;height:18px;flex:none}
+.co-result{border-radius:8px;background:#1F3524;color:#fff;padding:20px 22px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.co-result b{font-family:var(--serif);font-weight:400;font-size:1.5rem;display:block}
+.co-result span{color:rgba(255,255,255,.85);font-size:.93rem}
+.co-result .btn{background:var(--terracotta);color:#fff;border-color:var(--terracotta)}
+.co-hand{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:2rem}
+.co-card{border:1px solid var(--border);border-radius:8px;padding:22px;background:var(--warm-white)}
+.co-card h3{font-family:var(--serif);font-weight:400;font-size:1.3rem;color:var(--acc-dark);margin-bottom:2px}
+.co-card .who{font-size:.8rem;color:var(--earth-mid);margin:0 0 12px}
+.co-card ul{list-style:none;display:grid;gap:7px;font-size:.93rem}
+.co-card li{display:flex;gap:10px;line-height:1.5}
+.co-card li::before{content:"→";color:var(--acc);flex:none}
+.co-card .keep{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border);font-size:.84rem;color:var(--earth-mid)}
+.co-ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:2rem}
+.co-ba>div{border:1px solid var(--border);border-radius:8px;padding:22px;background:var(--warm-white)}
+.co-ba>div.on{border-color:var(--acc);background:#EEF4EE}
+.co-ba h3{font-family:var(--serif);font-weight:400;font-size:1.25rem;margin-bottom:10px}
+.co-ba ul{padding-left:18px;display:grid;gap:6px;font-size:.93rem;line-height:1.5}
+.co-priv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px;align-items:start}
+.co-priv ul{list-style:none;display:grid;gap:12px}
+.co-priv li{display:flex;gap:12px;line-height:1.5;font-size:.95rem}
+.co-priv li::before{content:"✓";color:var(--acc);font-weight:600;flex:none}
+.co-priv li b{display:block;font-weight:600}
+.co-bar{position:fixed;left:16px;bottom:16px;z-index:40;background:#2A2218;color:#fff;border-radius:10px;padding:10px 12px 10px 18px;display:flex;gap:16px;align-items:center;font-size:.9rem;box-shadow:0 10px 30px rgba(0,0,0,.25);transform:translateY(140%);transition:transform .25s}
+.co-bar.show{transform:none}
+.co-bar .btn{padding:.6rem 1.1rem;font-size:.84rem;background:var(--terracotta);border-color:var(--terracotta);color:#fff}
+@media(prefers-reduced-motion:reduce){.co-bar{transition:none}}
+@media(max-width:860px){.co-hand,.co-ba,.co-priv{grid-template-columns:minmax(0,1fr)}.co-priv{gap:20px}}
+@media(max-width:520px){.co-bar{right:84px;padding:8px 8px 8px 14px}.co-bar span{display:none}.co-bar .btn{width:100%;text-align:center}}
+</style>
+<section class="sec gap" id="fit">
   <div class="inner">
-    <p class="label">What changes</p>
-    <h2 class="title">Less time in the inbox. More time on <em>the experience.</em></h2>
-    
-    <div class="outcomes"><div><b>No more missed bookings</b><p>Inquiries answered within 2 business hours, with follow-ups until they book or say no.</p></div><div><b>Guests who feel looked after</b><p>Pre-arrival emails, forms, reminders, and review requests sent on time, every time.</p></div><div><b>Retreats that run smoothly</b><p>Organizers kept in the loop, with rooming lists and schedules ready before anyone arrives.</p></div><div><b>Books you can trust</b><p>Invoices sent, payments tracked, and records organized in one place.</p></div></div>
+    <p class="label">Is this you?</p>
+    <h2 class="title">Tick what <em>sounds familiar</em></h2>
+    <p class="lead">Every one of these is work your Concierge Ops team takes over.</p>
+    <div class="co-checks" id="co-checks"></div>
+    <div class="co-result" id="co-result"></div>
   </div>
 </section>
-<div class="band wt wb" id="team" style="--wave:var(--cream-dark);--wave-b:var(--warm-white)">
-  <div class="band-bg" aria-hidden="true"></div>
-  <div class="band-ov" aria-hidden="true"></div>
-  <section class="sec">
-    <div class="inner">
-      <p class="label">Your team</p>
-      <h2 class="title">Four roles, one team, led by your Retreat Operations Director</h2>
-      <div class="roles"><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z M4 6l8 7 8-7"/></svg><div><h3>Remote Booking Assistant</h3><p>Inquiry responses, follow-ups, reservations and confirmations.</p></div></div><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6z M10 19a2 2 0 0 0 4 0"/></svg><div><h3>Guest Experience Assistant</h3><p>Guest emails, forms, reminders, feedback and review requests.</p></div></div><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z M5 9h14 M9 4v16"/></svg><div><h3>Operations Coordinator</h3><p>Event preparation, organizer communication, rooming lists and schedules.</p></div></div><div class="role"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v18l-2.5-1.5L12 21l-2.5-1.5L7 21z M10 8h4 M10 12h4"/></svg><div><h3>Back Office Administrator</h3><p>Invoices, payment tracking, spreadsheets and digital records.</p></div></div></div>
+
+<section class="sec" id="handoff">
+  <div class="inner">
+    <p class="label">Exactly what you hand over</p>
+    <h2 class="title">Four roles. <em>Every task named.</em></h2>
+    <p class="lead">You hand it over once. After that, this is what gets done every day, and what stays with you.</p>
+    <div class="co-hand">
+      <div class="co-card"><h3>Inquiries and bookings</h3><p class="who">Remote Booking Assistant</p>
+        <ul><li>Replies to every inquiry in your voice, within 2 business hours</li><li>Well-timed, polite follow-ups, so interested guests don't go quiet, especially while you are hosting</li><li>Confirmations and reservation details sent</li><li>Calendar and booking sites kept current</li></ul>
+        <p class="keep">You keep: pricing decisions and special requests.</p></div>
+      <div class="co-card"><h3>Guest communication</h3><p class="who">Guest Experience Assistant</p>
+        <ul><li>Pre-arrival emails and forms</li><li>Reminders sent on time, every time</li><li>Questions answered before and after the stay</li><li>Feedback and review requests</li></ul>
+        <p class="keep">You keep: the welcome and the experience itself.</p></div>
+      <div class="co-card"><h3>Retreat coordination</h3><p class="who">Operations Coordinator</p>
+        <ul><li>Organizers, guests and your team kept coordinated in one place</li><li>Rooming lists and schedules ready before arrival</li><li>Event preparation checklists</li></ul>
+        <p class="keep">You keep: meeting retreat leaders and hosting.</p></div>
+      <div class="co-card"><h3>Back office</h3><p class="who">Back Office Administrator</p>
+        <ul><li>Invoices sent and payments tracked</li><li>Spreadsheets and records organized in one place</li><li>A month-end summary of what came in</li></ul>
+        <p class="keep">You keep: spending and strategy decisions.</p></div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
+
+<section class="sec gap" id="difference">
+  <div class="inner">
+    <p class="label">What changes</p>
+    <h2 class="title">While you host, <em>the admin keeps moving</em></h2>
+    <div class="co-ba">
+      <div><h3>Doing it yourself</h3><ul><li>When a retreat is in session, inquiries wait</li><li>Replies reach you late at night, between tasks</li><li>You coordinate organizers, guests and team alone</li><li>Invoices are sent when you remember</li></ul></div>
+      <div class="on"><h3>With Concierge Ops</h3><ul><li>Inquiries answered within 2 business hours, retreat or not</li><li>Interested guests get a timely, polite follow-up</li><li>One team keeps everyone coordinated</li><li>Invoices and payments tracked every day</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="privacy">
+  <div class="inner co-priv">
+    <div>
+      <p class="label">Your accounts and your guests' details</p>
+      <h2 class="title">Trusted with your inbox, <em>treated with care.</em></h2>
+      <p class="lead">Handing over access takes trust. We protect and manage the privacy of your accounts, your access and your guests' information, so you are never left wondering who can see what.</p>
+    </div>
+    <ul>
+      <li><span><b>You own every account.</b>Nothing is moved or transferred. We work inside the inbox and booking system you already use.</span></li>
+      <li><span><b>Access only for the work.</b>Each team member gets what their role needs, and nothing more.</span></li>
+      <li><span><b>Guest information stays private.</b>Details are used only to look after your guests.</span></li>
+      <li><span><b>Access ends when you say so.</b>If you stop, access is removed and your accounts stay with you.</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="co-bar" id="co-bar" aria-label="Book a call"><span>Concierge Ops · from $250 USD / month</span><a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a></div>
+<script>
+(function(){
+var C=["When a retreat is in session, the admin stops and inquiries wait","Guests wait for replies and I lose bookings","I answer inquiries late at night or between tasks","I coordinate organizers, guests and my team all by myself","I write the same emails again and again","Pre-arrival forms and reminders go out by hand","Retreat prep, like rooming lists and schedules, is a last-minute scramble","Invoices and payments are tracked in my head or a messy sheet"];
+var box=document.getElementById("co-checks");
+box.innerHTML=C.map(function(c,i){return '<label><input type="checkbox" id="cok'+i+'"><span>'+c+'</span></label>'}).join("");
+var res=document.getElementById("co-result");
+function upd(){var n=box.querySelectorAll("input:checked").length;
+ res.innerHTML=n?'<div><b>'+n+' of '+C.length+' are work the team takes over</b><span>Hand it off, and keep your attention on guests and growth.</span></div><a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a>':'<div><b>Tick what sounds familiar</b><span>Each one is work your team can take off your plate.</span></div>'}
+box.addEventListener("change",upd);upd();
+var bar=document.getElementById("co-bar"),hero=document.getElementById("top");
+function chk(){var past=hero.getBoundingClientRect().bottom<0;var cta=document.querySelector(".cta");var atEnd=cta&&cta.getBoundingClientRect().top<window.innerHeight*.8;bar.classList.toggle("show",past&&!atEnd)}
+window.addEventListener("scroll",chk,{passive:true});chk();
+})();
+</script>
 <section class="sec how" style="--cols:4;">
   <div class="inner">
     <p class="label">How it starts</p>
@@ -542,7 +632,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
   <div class="inner">
     <p class="label">Questions</p>
     <h2 class="title">Before you book</h2>
-    <details><summary>How fast are guests answered?</summary><p>Within 2 hours during business hours, and within 12 hours outside them. Follow-ups continue until the guest books or says no.</p></details><details><summary>What decides the monthly price?</summary><p>Your average bookings per month, which sets how much time the work takes, plus your team size and retreat capacity. Pricing starts at $250 USD a month and is agreed on a free call.</p></details><details><summary>Who will my guests be talking to?</summary><p>Your Concierge Ops team writes in your voice, using your policies and templates. I lead the team and I'm your point of contact, so you always know who is responsible.</p></details><details><summary>Do I need to change my booking system or inbox?</summary><p>No. The team works inside the inbox and booking system you already use. If something is slowing you down, I'll suggest a better setup, and the <a href="/foundation-sprint">Foundation Sprint</a> can build it.</p></details><details><summary>How is this different from the Fractional Retreat Operations Director?</summary><p>Concierge Ops does the day-to-day admin. The <a href="/fractional-operations-director">Fractional Retreat Operations Director</a> leads the operations: priorities, numbers, team and systems. Many venues combine the two.</p></details><details><summary>Is there a minimum commitment?</summary><p>Three months, so the team has time to learn your voice, your guests and your policies, and you can see the difference it makes.</p></details><details><summary>Where do you work?</summary><p>Fully remote, so it works for retreat properties anywhere in the world.</p></details>
+    <details><summary>How fast are guests answered?</summary><p>Within 2 business hours, including while a retreat is in session. Interested guests also get a well-timed, polite follow-up in your voice, so they do not go quiet while you are hosting.</p></details><details><summary>What decides the monthly price?</summary><p>Your average bookings per month, which sets how much time the work takes, plus your team size and retreat capacity. Pricing starts at $250 USD a month and is agreed on a free call.</p></details><details><summary>Who will my guests be talking to?</summary><p>Your Concierge Ops team writes in your voice, using your policies and templates. I lead the team and I'm your point of contact, so you always know who is responsible.</p></details><details><summary>Do I need to change my booking system or inbox?</summary><p>No. The team works inside the inbox and booking system you already use. If something is slowing you down, I'll suggest a better setup, and the <a href="/foundation-sprint">Foundation Sprint</a> can build it.</p></details><details><summary>How is this different from the Fractional Retreat Operations Director?</summary><p>Concierge Ops does the day-to-day admin. The <a href="/fractional-operations-director">Fractional Retreat Operations Director</a> leads the operations: priorities, numbers, team and systems. Many venues combine the two.</p></details><details><summary>Is there a minimum commitment?</summary><p>Three months, so the team has time to learn your voice, your guests and your policies, and you can see the difference it makes.</p></details><details><summary>How are my accounts and guests' details protected?</summary><p>You own every account, and nothing is moved or transferred. Each team member only gets the access their role needs, guest information is used only to look after your guests, and access is removed if you stop.</p></details><details><summary>Where do you work?</summary><p>Fully remote, so it works for retreat properties anywhere in the world.</p></details>
     <!-- field-notes:related --><!-- /field-notes:related -->
   </div>
 </section>

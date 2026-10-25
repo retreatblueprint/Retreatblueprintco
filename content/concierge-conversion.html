@@ -1,0 +1,109 @@
+<style>
+.co-checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:1.75rem 0 1rem}
+.co-checks label{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:8px;padding:14px 16px;cursor:pointer;background:var(--warm-white);line-height:1.5;font-size:.95rem}
+.co-checks label:has(input:checked){border-color:var(--acc);background:#EEF4EE}
+.co-checks label:has(input:focus-visible){outline:2px solid var(--acc)}
+.co-checks input{margin-top:4px;accent-color:var(--acc);width:18px;height:18px;flex:none}
+.co-result{border-radius:8px;background:#1F3524;color:#fff;padding:20px 22px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.co-result b{font-family:var(--serif);font-weight:400;font-size:1.5rem;display:block}
+.co-result span{color:rgba(255,255,255,.85);font-size:.93rem}
+.co-result .btn{background:var(--terracotta);color:#fff;border-color:var(--terracotta)}
+.co-hand{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:2rem}
+.co-card{border:1px solid var(--border);border-radius:8px;padding:22px;background:var(--warm-white)}
+.co-card h3{font-family:var(--serif);font-weight:400;font-size:1.3rem;color:var(--acc-dark);margin-bottom:2px}
+.co-card .who{font-size:.8rem;color:var(--earth-mid);margin:0 0 12px}
+.co-card ul{list-style:none;display:grid;gap:7px;font-size:.93rem}
+.co-card li{display:flex;gap:10px;line-height:1.5}
+.co-card li::before{content:"→";color:var(--acc);flex:none}
+.co-card .keep{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border);font-size:.84rem;color:var(--earth-mid)}
+.co-ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:2rem}
+.co-ba>div{border:1px solid var(--border);border-radius:8px;padding:22px;background:var(--warm-white)}
+.co-ba>div.on{border-color:var(--acc);background:#EEF4EE}
+.co-ba h3{font-family:var(--serif);font-weight:400;font-size:1.25rem;margin-bottom:10px}
+.co-ba ul{padding-left:18px;display:grid;gap:6px;font-size:.93rem;line-height:1.5}
+.co-priv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px;align-items:start}
+.co-priv ul{list-style:none;display:grid;gap:12px}
+.co-priv li{display:flex;gap:12px;line-height:1.5;font-size:.95rem}
+.co-priv li::before{content:"✓";color:var(--acc);font-weight:600;flex:none}
+.co-priv li b{display:block;font-weight:600}
+.co-bar{position:fixed;left:16px;bottom:16px;z-index:40;background:#2A2218;color:#fff;border-radius:10px;padding:10px 12px 10px 18px;display:flex;gap:16px;align-items:center;font-size:.9rem;box-shadow:0 10px 30px rgba(0,0,0,.25);transform:translateY(140%);transition:transform .25s}
+.co-bar.show{transform:none}
+.co-bar .btn{padding:.6rem 1.1rem;font-size:.84rem;background:var(--terracotta);border-color:var(--terracotta);color:#fff}
+@media(prefers-reduced-motion:reduce){.co-bar{transition:none}}
+@media(max-width:860px){.co-hand,.co-ba,.co-priv{grid-template-columns:minmax(0,1fr)}.co-priv{gap:20px}}
+@media(max-width:520px){.co-bar{right:84px;padding:8px 8px 8px 14px}.co-bar span{display:none}.co-bar .btn{width:100%;text-align:center}}
+</style>
+<section class="sec gap" id="fit">
+  <div class="inner">
+    <p class="label">Is this you?</p>
+    <h2 class="title">Tick what <em>sounds familiar</em></h2>
+    <p class="lead">Every one of these is work your Concierge Ops team takes over.</p>
+    <div class="co-checks" id="co-checks"></div>
+    <div class="co-result" id="co-result"></div>
+  </div>
+</section>
+
+<section class="sec" id="handoff">
+  <div class="inner">
+    <p class="label">Exactly what you hand over</p>
+    <h2 class="title">Four roles. <em>Every task named.</em></h2>
+    <p class="lead">You hand it over once. After that, this is what gets done every day, and what stays with you.</p>
+    <div class="co-hand">
+      <div class="co-card"><h3>Inquiries and bookings</h3><p class="who">Remote Booking Assistant</p>
+        <ul><li>Replies to every inquiry in your voice, within 2 business hours</li><li>Well-timed, polite follow-ups, so interested guests don't go quiet, especially while you are hosting</li><li>Confirmations and reservation details sent</li><li>Calendar and booking sites kept current</li></ul>
+        <p class="keep">You keep: pricing decisions and special requests.</p></div>
+      <div class="co-card"><h3>Guest communication</h3><p class="who">Guest Experience Assistant</p>
+        <ul><li>Pre-arrival emails and forms</li><li>Reminders sent on time, every time</li><li>Questions answered before and after the stay</li><li>Feedback and review requests</li></ul>
+        <p class="keep">You keep: the welcome and the experience itself.</p></div>
+      <div class="co-card"><h3>Retreat coordination</h3><p class="who">Operations Coordinator</p>
+        <ul><li>Organizers, guests and your team kept coordinated in one place</li><li>Rooming lists and schedules ready before arrival</li><li>Event preparation checklists</li></ul>
+        <p class="keep">You keep: meeting retreat leaders and hosting.</p></div>
+      <div class="co-card"><h3>Back office</h3><p class="who">Back Office Administrator</p>
+        <ul><li>Invoices sent and payments tracked</li><li>Spreadsheets and records organized in one place</li><li>A month-end summary of what came in</li></ul>
+        <p class="keep">You keep: spending and strategy decisions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gap" id="difference">
+  <div class="inner">
+    <p class="label">What changes</p>
+    <h2 class="title">While you host, <em>the admin keeps moving</em></h2>
+    <div class="co-ba">
+      <div><h3>Doing it yourself</h3><ul><li>When a retreat is in session, inquiries wait</li><li>Replies reach you late at night, between tasks</li><li>You coordinate organizers, guests and team alone</li><li>Invoices are sent when you remember</li></ul></div>
+      <div class="on"><h3>With Concierge Ops</h3><ul><li>Inquiries answered within 2 business hours, retreat or not</li><li>Interested guests get a timely, polite follow-up</li><li>One team keeps everyone coordinated</li><li>Invoices and payments tracked every day</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="privacy">
+  <div class="inner co-priv">
+    <div>
+      <p class="label">Your accounts and your guests' details</p>
+      <h2 class="title">Trusted with your inbox, <em>treated with care.</em></h2>
+      <p class="lead">Handing over access takes trust. We protect and manage the privacy of your accounts, your access and your guests' information, so you are never left wondering who can see what.</p>
+    </div>
+    <ul>
+      <li><span><b>You own every account.</b>Nothing is moved or transferred. We work inside the inbox and booking system you already use.</span></li>
+      <li><span><b>Access only for the work.</b>Each team member gets what their role needs, and nothing more.</span></li>
+      <li><span><b>Guest information stays private.</b>Details are used only to look after your guests.</span></li>
+      <li><span><b>Access ends when you say so.</b>If you stop, access is removed and your accounts stay with you.</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="co-bar" id="co-bar" aria-label="Book a call"><span>Concierge Ops · from $250 USD / month</span><a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a></div>
+<script>
+(function(){
+var C=["When a retreat is in session, the admin stops and inquiries wait","Guests wait for replies and I lose bookings","I answer inquiries late at night or between tasks","I coordinate organizers, guests and my team all by myself","I write the same emails again and again","Pre-arrival forms and reminders go out by hand","Retreat prep, like rooming lists and schedules, is a last-minute scramble","Invoices and payments are tracked in my head or a messy sheet"];
+var box=document.getElementById("co-checks");
+box.innerHTML=C.map(function(c,i){return '<label><input type="checkbox" id="cok'+i+'"><span>'+c+'</span></label>'}).join("");
+var res=document.getElementById("co-result");
+function upd(){var n=box.querySelectorAll("input:checked").length;
+ res.innerHTML=n?'<div><b>'+n+' of '+C.length+' are work the team takes over</b><span>Hand it off, and keep your attention on guests and growth.</span></div><a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a>':'<div><b>Tick what sounds familiar</b><span>Each one is work your team can take off your plate.</span></div>'}
+box.addEventListener("change",upd);upd();
+var bar=document.getElementById("co-bar"),hero=document.getElementById("top");
+function chk(){var past=hero.getBoundingClientRect().bottom<0;var cta=document.querySelector(".cta");var atEnd=cta&&cta.getBoundingClientRect().top<window.innerHeight*.8;bar.classList.toggle("show",past&&!atEnd)}
+window.addEventListener("scroll",chk,{passive:true});chk();
+})();
+</script>

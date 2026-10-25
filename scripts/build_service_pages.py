@@ -200,10 +200,11 @@ PAGES = [
                    cta_tint="linear-gradient(180deg,rgba(18,30,21,.78) 0%,rgba(18,30,21,.70) 50%,rgba(18,30,21,.82) 100%)", cta_btn="#985033",
                    band_pattern=topo("#B8D0BA"), band_grad="linear-gradient(160deg,#25402B 0%,#1A2E1F 55%,#132217 100%)", band_glow="rgba(122,158,126,.22)"),
         label="For retreat venues · Monthly", tag="Your day-to-day admin, <em>handled.</em>",
-        lead="Every inquiry answered fast, every guest looked after, every invoice tracked. A dedicated team, led by your Retreat Operations Director, runs your day-to-day admin so you can focus on the experience and on selling.",
-        jump=("#team", "Meet your team ↓"),
+        lead="Every inquiry answered fast, every guest looked after, every invoice tracked. We are the experts in hospitality communications. A dedicated team, led by your Retreat Operations Director, runs your day-to-day admin in your voice, so you are not coordinating everything yourself while you host and build the parts only you can.",
+        jump=("#handoff", "See what you hand over ↓"),
         price=dict(k="Monthly", amt="From $250 <small>USD / month</small>", note="Priced on your average monthly bookings, team size and retreat capacity. 3-month minimum.",
-                   items=["Inquiries and bookings", "Guest communication", "Retreat coordination", "Invoices and records"]),
+                   items=["Replies within 2 business hours", "Works inside your current inbox", "Your accounts and guest details kept private", "Led by your Retreat Operations Director"]),
+        main="content/concierge-conversion.html",
         changes=("What changes", "Less time in the inbox. More time on <em>the experience.</em>", [
             ("No more missed bookings", "Inquiries answered within 2 business hours, with follow-ups until they book or say no."),
             ("Guests who feel looked after", "Pre-arrival emails, forms, reminders, and review requests sent on time, every time."),
@@ -221,12 +222,13 @@ PAGES = [
             ("Your team takes over", "Inquiries, guests, coordination and the back office, handled every day."),
             ("Monthly check-in", "What came in, what got booked, and what to improve next.")]),
         faq=[
-            ("How fast are guests answered?", "Within 2 hours during business hours, and within 12 hours outside them. Follow-ups continue until the guest books or says no."),
+            ("How fast are guests answered?", "Within 2 business hours, including while a retreat is in session. Interested guests also get a well-timed, polite follow-up in your voice, so they do not go quiet while you are hosting."),
             ("What decides the monthly price?", "Your average bookings per month, which sets how much time the work takes, plus your team size and retreat capacity. Pricing starts at $250 USD a month and is agreed on a free call."),
             ("Who will my guests be talking to?", "Your Concierge Ops team writes in your voice, using your policies and templates. I lead the team and I'm your point of contact, so you always know who is responsible."),
             ("Do I need to change my booking system or inbox?", "No. The team works inside the inbox and booking system you already use. If something is slowing you down, I'll suggest a better setup, and the <a href=\"/foundation-sprint\">Foundation Sprint</a> can build it."),
             ("How is this different from the Fractional Retreat Operations Director?", "Concierge Ops does the day-to-day admin. The <a href=\"/fractional-operations-director\">Fractional Retreat Operations Director</a> leads the operations: priorities, numbers, team and systems. Many venues combine the two."),
             ("Is there a minimum commitment?", "Three months, so the team has time to learn your voice, your guests and your policies, and you can see the difference it makes."),
+            ("How are my accounts and guests' details protected?", "You own every account, and nothing is moved or transferred. Each team member only gets the access their role needs, guest information is used only to look after your guests, and access is removed if you stop."),
             ("Where do you work?", "Fully remote, so it works for retreat properties anywhere in the world."),
         ],
         cta_title="Hand off the admin. Keep the experience.",
@@ -482,6 +484,8 @@ def build(pg):
   </div>
 </section>
 ''')
+    if pg.get("main"):
+        out = [out[0].split('<section class="sec gap">')[0], open(pg["main"]).read()]
     after_band = "var(--warm-white)"
     if pg["proof"]:
         plabel, ptitle, cards = pg["proof"]
