@@ -199,7 +199,7 @@ PAGES = [
                    cta="photo-1644612105654-b6b0a941ecde", cta_pos="center 60%",
                    cta_tint="linear-gradient(180deg,rgba(18,30,21,.78) 0%,rgba(18,30,21,.70) 50%,rgba(18,30,21,.82) 100%)", cta_btn="#985033",
                    band_pattern=topo("#B8D0BA"), band_grad="linear-gradient(160deg,#25402B 0%,#1A2E1F 55%,#132217 100%)", band_glow="rgba(122,158,126,.22)"),
-        label="For retreat venues · Monthly", tag="Your day-to-day admin, <em>handled.</em>",
+        label="For retreat venues · Monthly", tag="Stop answering every inquiry yourself. <em>Hand it to a team that does it daily.</em>",
         lead="Every inquiry answered fast, every guest looked after, every invoice tracked. We are the experts in hospitality communications. A dedicated team, led by your Retreat Operations Director, runs your day-to-day admin in your voice, so you are not coordinating everything yourself while you host and build the parts only you can.",
         jump=("#handoff", "See what you hand over ↓"),
         price=dict(k="Monthly", amt="From $250 <small>USD / month</small>", note="Priced on your average monthly bookings, team size and retreat capacity. 3-month minimum.",
