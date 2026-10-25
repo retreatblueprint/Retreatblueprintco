@@ -234,7 +234,7 @@ PAGES = [
     dict(
         slug="foundation-sprint", kw="Retreat center booking system &amp; SOP setup", menu="/foundation-sprint", name="Foundation Sprint",
         title="Retreat Center Booking System & SOP Setup · Foundation Sprint",
-        desc="Set up your retreat center's booking system, payments, numbers, guest communication and SOPs in one focused build. Fixed fee, $3,000 to $6,000.",
+        desc="Set up your retreat center's booking system, payments, numbers, guest communication and SOPs in one focused build. From $100: build your own quote, no minimum.",
         og="Foundation Sprint: the systems your retreat runs on, built in one go.",
         theme=dict(name="Foundation Sprint", acc="#985033", acc_dark="#7E4029", acc_soft="#C98A63", on_band="#E6D3C3", on_band_soft="#DDB797",
                    hero="photo-1777913319909-1d27d36db93e", hero_pos="65% 50%", hero_fill="#5A4832",
@@ -243,15 +243,15 @@ PAGES = [
                    band_pattern=blueprint("#DDB797"), band_grad="linear-gradient(160deg,#4A3021 0%,#3A251A 55%,#2A1A11 100%)", band_glow="rgba(221,183,151,.18)"),
         label="For retreat venues · One-time build", tag="Everything your retreat needs to run like a <em>real business.</em>",
         lead="Built, integrated, and ready to run without you in every detail. One focused build that gives your retreat its systems: bookings and payments, your numbers, guest communication and the tools your team uses every day.",
-        jump=("#build", "What gets built ↓"),
-        price=dict(k="Fixed fee · Most venues start here", amt="$3,000 – $6,000 <small>USD</small>", note="One project, one price, agreed before the build starts. Usually 1–3 months.",
+        jump=("#quote", "Build your quote ↓"),
+        price=dict(k="Build your own · No minimum", amt="From $100 <small>USD</small>", note="Choose only the pieces you need, see the price as you go, and add more later. 10% off 3 or more pieces, 15% off the full package.",
                    items=["Business audit and strategy brief", "Bookings, payments and website", "Dashboards and financial tracking", "Guest communication and SOPs"]),
         changes=("What changes", "From running on memory to running on <em>systems.</em>", [
             ("One booking flow", "Inquiry to confirmed booking to payment, set up and connected."),
             ("Numbers you can see", "Financial tracking and dashboards that show how the business is doing at a glance."),
             ("Guests looked after automatically", "A guest communication playbook, automations and a welcome package."),
             ("A team that knows what to do", "SOPs and operational tools, so the business doesn't depend on you for every detail.")]),
-        band=("build", "What gets built", "Ten pieces, built and connected", "roles", [
+        band=("build", "What gets built", "Ten pieces, pick what you need", "roles", [
             ("compass", "Strategy", ["Business audit and strategy brief"]),
             ("card", "Bookings and payments", ["Booking system setup and configuration", "Payment processing system", "Website build or optimization"]),
             ("chart", "Your numbers", ["Financial tracking system", "Business overview dashboards"]),
@@ -268,14 +268,15 @@ PAGES = [
             ("Build", "Systems set up, connected and tested."),
             ("Handover", "SOPs, training and a walk-through so your team can run it.")]),
         faq=[
-            ("How long does it take?", "Usually 1 to 3 months, depending on the scope and the size of your team. The timeline leaves room to hand everything over properly, with training, so your team can run it."),
+            ("How long does it take?", "A single piece can take days to a couple of weeks. The full build usually takes 1 to 3 months, depending on the scope and the size of your team. The timeline leaves room to hand everything over properly, with training, so your team can run it."),
             ("Are software subscriptions included?", "No. Booking, payment and other tools are billed to you directly by each provider, so you own every account. I help you choose tools that fit your size and budget."),
-            ("What decides where the price lands?", "The scope: how much needs building or fixing, how many systems need connecting, and the size of your team. The fixed price is agreed after the audit, before the build starts."),
+            ("How is it priced?", "Each piece has its own price, and you only pay for the pieces you pick. Use the quote builder above to see your total. Website optimization, a fully automated financial tracking system and larger dashboards are confirmed on a free call, because the work depends on what you already have. Choose 3 or more pieces for 10% off, or the full package for 15% off."),
             ("Can you work with the tools I already use?", "Yes. I audit before I build, so anything that already works stays, and only the gaps get built or replaced."),
             ("Is it remote or on-site?", "Remote for retreat properties anywhere in the world. On-site visits are available in Costa Rica, Panama, Nicaragua and Guatemala."),
             ("What happens after the build?", "Your team runs it from the SOPs and training. If you want ongoing support, the <a href=\"/fractional-operations-director\">Fractional Retreat Operations Director</a> or <a href=\"/concierge-ops\">Concierge Ops</a> picks up from there."),
         ],
         cta_title="Build the foundation once. Run on it every season.",
+        builder="content/foundation-quote-builder.html",
     ),
     dict(
         slug="fractional-operations-director", kw="Fractional COO for retreat centers", menu="/fractional-operations-director", name="Fractional Retreat Operations Director", name_html="<span>Fractional Retreat</span><span>Operations Director</span>",
@@ -367,7 +368,7 @@ PAGES = [
 ]
 
 OTHERS = {
-    "foundation-sprint": ("Foundation Sprint", "The systems your retreat runs on, built in one go.", "$3,000 – $6,000 USD →"),
+    "foundation-sprint": ("Foundation Sprint", "The systems your retreat runs on, built in one go.", "From $100 · build your own quote →"),
     "fractional-operations-director": ("Fractional Retreat Operations Director", "Your part-time COO, month to month.", "From $1,000 USD / month →"),
     "concierge-ops": ("Concierge Ops", "Your day-to-day admin, handled.", "From $250 USD / month →"),
     "growth-marketing": ("Growth Marketing", "Get your retreat seen by the right people.", "Pricing on inquiry →"),
@@ -468,6 +469,8 @@ def build(pg):
   </section>
 </div>
 ''')
+    if pg.get("builder"):
+        out.append(open(pg["builder"]).read())
     if pg.get("compare"):
         cl, ct, cols3 = pg["compare"]
         cells = "".join(('<div class="cmp on"><span class="pick">Best fit for most retreats</span>' if on else '<div class="cmp">') + f"<h3>{h}</h3><ul>" + "".join(f"<li>{x}</li>" for x in lis) + "</ul></div>" for h, lis, on in cols3)
