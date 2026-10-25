@@ -231,7 +231,7 @@ PAGES = [
             ("How are my accounts and guests' details protected?", "You own every account, and nothing is moved or transferred. Each team member only gets the access their role needs, guest information is used only to look after your guests, and access is removed if you stop."),
             ("Where do you work?", "Fully remote, so it works for retreat properties anywhere in the world."),
         ],
-        cta_title="Hand off the admin. Keep the experience.",
+        cta_title="Give every guest your full attention. We'll handle the admin.",
     ),
     dict(
         slug="foundation-sprint", kw="Retreat center booking system &amp; SOP setup", menu="/foundation-sprint", name="Foundation Sprint",
@@ -302,10 +302,10 @@ PAGES = [
             ("Systems that keep up", "SOPs refined as the business changes, so nothing drifts back.")]),
         split=("You decide where the line sits. Some owners keep the guest relationships close; others hand over everything but the vision.", [
             ("Always yours", "keep", ["The vision for your retreat", "The big decisions"]),
-            ("Your call", "flex", ["Guest experience", "Retreat leader relationships", "Hiring", "Marketing"], "Keep any of these, or hand them over."),
-            ("Always mine", "mine", ["The systems", "The numbers", "The processes", "Keeping the team running"])]),
+            ("Your call", "flex", ["Priorities for the month and the season", "Growth planning", "Guest experience", "Retreat leader relationships", "Hiring", "Marketing"], "Set these together, keep them, or hand them over. Support or ownership, whichever you prefer."),
+            ("Always mine", "mine", ["Digital systems", "Financial management and the numbers", "The team and day-to-day operations", "The processes"])]),
         band=("role", "What the role covers", "Four things your director owns", "roles", [
-            ("compass", "Direction", ["Priorities for the month and the season", "Growth planning: the next offer, the next hire"]),
+            ("compass", "Direction, your way", ["Priorities for the month and the season, set together or owned by me, whichever you prefer", "Growth planning: the next offer, the next hire"]),
             ("chart", "Financial management", ["Full P&amp;L responsibility, focused on revenue, ROI, EBITDA and guest retention", "Own the budget and forecast, reviewed monthly, quarterly and annually"]),
             ("people", "Team and day-to-day", ["Lead the team, with clear roles and expectations", "Messages, coordination and automations running efficiently", "Processes changed when they stop making sense"]),
             ("grid", "Digital systems", ["Own your digital infrastructure: booking, payments, website, automations and team tools", "Connected, so nothing is typed in twice", "SOPs kept current, season after season"])],
@@ -330,6 +330,7 @@ PAGES = [
             ("Who makes the final decisions?", "You do. You keep the vision and the big decisions, and you choose what else to hand over."),
         ],
         cta_title="Bring in your part-time COO.",
+        builder="content/director-additions.html",
     ),
     dict(
         slug="growth-marketing", kw="Retreat center marketing", menu="/growth-marketing", name="Growth Marketing",
