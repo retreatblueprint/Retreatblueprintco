@@ -171,13 +171,14 @@ def theme_css(t):
 def split_html(pg):
     if not pg.get("split"):
         return ""
+    has_out = bool(pg["changes"][2])
     intro, cols = pg["split"]
     cells = []
     for col in cols:
         h, kind, items = col[0], col[1], col[2]
         note = f'<p class="split-note">{col[3]}</p>' if len(col) > 3 else ""
         cells.append(f'<div class="split-col {kind}"><span class="split-k">{h}</span><ul>' + "".join(f"<li>{x}</li>" for x in items) + f"</ul>{note}</div>")
-    return f'<p class="split-intro">{intro}</p><div class="split">{"".join(cells)}</div><p class="split-then">What changes for you</p>'
+    return f'<p class="split-intro">{intro}</p><div class="split">{"".join(cells)}</div>' + ('<p class="split-then">What changes for you</p>' if has_out else '')
 
 
 def outcomes(items):
@@ -296,10 +297,7 @@ PAGES = [
         jump=("#role", "What the role covers ↓"),
         price=dict(k="Monthly retainer", amt="From $1,000 <small>USD / month</small>", note="Operations leadership at a fraction of a full-time salary. 6-month minimum.",
                    items=["Two scheduled touchpoints a month", "Owns operations priorities with you", "P&amp;L, budget and forecast owned", "Team leadership, SOPs and growth planning"]),
-        changes=("How we work together", "You keep the vision. <em>I take the operations.</em>", [
-            ("Someone owns operations", "Decisions about bookings, team and systems don't all wait for you."),
-            ("Decisions start from numbers", "Revenue, ROI, EBITDA and guest retention reviewed every month, against your budget and forecast."),
-            ("Systems that keep up", "SOPs refined as the business changes, so nothing drifts back.")]),
+        changes=("How we work together", "You keep the vision. <em>I take the operations.</em>", []),
         split=("You decide where the line sits. Some owners keep the guest relationships close; others hand over everything but the vision.", [
             ("Always yours", "keep", ["The vision for your retreat", "The big decisions"]),
             ("Your call", "flex", ["Priorities for the month and the season", "Growth planning", "Guest experience", "Retreat leader relationships", "Hiring", "Marketing"], "Set these together, keep them, or hand them over. Support or ownership, whichever you prefer."),
@@ -307,7 +305,6 @@ PAGES = [
         band=None,
         after_changes="<div class=\"routes-row\"><span class=\"routes-h\">Two ways to run it</span><span class=\"route\"><b>You have a team</b>I lead your in-house team and run the operations through them.</span><span class=\"route\"><b>You don't have one yet</b>The Retreat Blueprint <a href=\"/concierge-ops\">Concierge Ops</a> remote team handles the day-to-day, under my direction.</span></div>",
         compare=("Why fractional", "The leadership of a full&#8209;time hire, sized to your retreat", [
-            ("Doing it all yourself", ["Every decision waits for you", "Numbers checked when there's time", "The team asks you everything", "Growth happens between guest arrivals"], False),
             ("Fractional director", ["Operations owned with you, every month", "Numbers reviewed on a set rhythm", "A leader the team can go to", "A plan for the season ahead", "A monthly retainer, no long hiring process"], True),
             ("Full-time hire", ["Operations owned, full time", "A full salary, every month of the year", "Months to recruit and onboard", "Hard to scale back in low season"], False)]),
         proof=("In practice", "The work doesn't stop at the build", [
@@ -440,7 +437,7 @@ def build(pg):
     <p class="label">{pg['changes'][0]}</p>
     <h2 class="title">{pg['changes'][1]}</h2>
     {split_html(pg)}
-    <div class="outcomes{' three' if len(pg['changes'][2]) == 3 else ''}">{outcomes(pg['changes'][2])}</div>
+    {('<div class="outcomes' + (' three' if len(pg['changes'][2]) == 3 else '') + '">' + outcomes(pg['changes'][2]) + '</div>') if pg['changes'][2] else ''}
     {pg.get("after_changes","")}
   </div>
 </section>
