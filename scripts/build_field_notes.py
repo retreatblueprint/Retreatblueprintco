@@ -438,6 +438,30 @@ def update_related(arts):
         print(f"related: {path} lists {len(items)} article(s)")
 
 
+
+# ---------------------------------------------------------------- latest Field Notes on the homepage
+# index.html has a "Field Notes" section; the 3 newest published articles go between the field-notes:latest markers
+LATEST_RE = re.compile(r"<!-- field-notes:latest -->.*?<!-- /field-notes:latest -->", re.S)
+
+
+def update_latest(arts):
+    path = "index.html"
+    src = open(path, encoding="utf-8").read()
+    if not LATEST_RE.search(src):
+        print("latest: no markers in", path)
+        return
+    live = [a for a in arts if a["status"] == "published"][:3]
+    cards = "".join(
+        f'<a class="fl-card" href="/field-notes/{a["slug"]}">'
+        + (f'<img src="{photo_url(a["hero"]["photo"], 760, 507)}" alt="{html.escape(a["hero"]["alt"])}" width="760" height="507" loading="lazy">' if a.get("hero") else "")
+        + f'<div class="fl-txt"><p class="fl-k">{a["topic"]}</p><h3>{a["title"]}</h3><em>Read →</em></div></a>'
+        for a in live)
+    block = f'<!-- field-notes:latest --><div class="fl-grid">{cards}</div><!-- /field-notes:latest -->'
+    new = LATEST_RE.sub(lambda m: block, src, count=1)
+    if new != src:
+        open(path, "w", encoding="utf-8").write(new)
+    print(f"latest: {path} lists {len(live)} article(s)")
+
 if __name__ == "__main__":
     articles = load_articles()
     # remove pages from earlier builds that shouldn't be live (e.g. a draft built with --preview)
@@ -450,5 +474,6 @@ if __name__ == "__main__":
         build_article(art)
     build_index(articles)
     update_related(articles)
+    update_latest(articles)
     if not PREVIEW:
         update_sitemap(articles)
