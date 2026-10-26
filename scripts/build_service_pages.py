@@ -132,6 +132,7 @@ SHARED_CSS = """
 .cmp .pick{justify-self:start;font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--acc);border-radius:4px;padding:3px 8px}
 @media (max-width:900px){.compare{grid-template-columns:1fr}.cmp.on{transform:none}}
 .proof li::before{color:var(--acc)}
+.proof .built{font-size:.86rem;color:var(--earth-mid);line-height:1.55;margin:0 0 .9rem}.proof .built b{font-weight:600;color:var(--earth)}
 .proof-more{margin-top:1.5rem;font-size:.9rem}
 .proof-more a{color:var(--acc);font-weight:500;text-decoration:underline;text-underline-offset:3px}
 .others{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:2rem}
@@ -248,18 +249,18 @@ PAGES = [
         lead="Built, integrated, and ready to run without you in every detail. One focused build that gives your retreat its systems: bookings and payments, your numbers, guest communication and the tools your team uses every day.",
         jump=("#quote", "Build your quote ↓"),
         price=dict(k="Build your own · No minimum", amt="From $100 <small>USD</small>", note="Choose only the pieces you need, see the price as you go, and add more later. 10% off 3 or more pieces, 15% off the full package.",
-                   items=["Business audit and strategy brief", "Bookings, payments and website", "Dashboards and financial tracking", "Guest communication and SOPs"]),
+                   items=["Business audit and strategy brief", "Bookings, payments and website", "Custom operating system and financial tracking", "Guest communication and SOPs"]),
         changes=("What changes", "From running on memory to running on <em>systems.</em>", [
             ("One booking flow", "Inquiry to confirmed booking to payment, set up and connected."),
-            ("Numbers you can see", "Financial tracking and dashboards that show how the business is doing at a glance."),
+            ("Numbers you can see", "Financial tracking and a custom operating system that show how the business is doing at a glance."),
             ("Guests looked after automatically", "A guest communication playbook, automations and a welcome package."),
             ("A team that knows what to do", "SOPs and operational tools, so the business doesn't depend on you for every detail.")]),
         band=None,
         proof=("In practice", "Built for retreats like yours", [
-            ("Systemize · Dominical, Costa Rica", "A system that replaced a full-time admin role", ["A full salary saved", "Full financial clarity", "Every past guest contact in one place"],
-             "Someone who takes big challenges, and turns them into simple systems that just work.", "Jonathon Conant, Founder, Airborne Arts"),
+            ("Systemize · Dominical, Costa Rica", "A custom retreat operating system that replaced a full-time admin role", ["A full-time administrative salary saved", "Revenue, and what each retreat and participant owes, clear at a glance", "Kitchen messages in English and Spanish, sent from the same system", "Every past and present client in one place"],
+             "Someone who takes big challenges, and turns them into simple systems that just work.", "Jonathon Conant, Founder, Airborne Arts", "One custom system connecting guest communication, financial status, bookings, kitchen communication, the client list, and guest, student and kitchen portals."),
             ("Revive · Ometepe, Nicaragua", "An inactive venue rebuilt and taking bookings again", ["Every booking in one streamlined system", "Guest communication automated", "Relaunched with a new brand and paid ads"],
-             "Shila took on the nearly impossible task of building our entire digital backend from the ground up.", "Cris Ketch, Founder, Infinity Retreat")]),
+             "Shila took on the nearly impossible task of building our entire digital backend from the ground up.", "Cris Ketch, Founder, Infinity Retreat", "Business audit and strategy brief, website build and optimization, booking sites, sales process and payment flows, guest communication and automations, and a guest welcome package.")]),
         how=("How it works", "Audit, plan, build, hand over", [
             ("Audit", "How the pieces you chose are handled today, so nothing is built on guesswork."),
             ("Plan", "What needs to change, the cost and the flow, agreed before anything is built."),
@@ -268,7 +269,7 @@ PAGES = [
         faq=[
             ("How long does it take?", "A single piece can take days to a couple of weeks. The full build usually takes 1 to 3 months, depending on the scope and the size of your team. The timeline leaves room to hand everything over properly, with training, so your team can run it."),
             ("Are software subscriptions included?", "No. Booking, payment and other tools are billed to you directly by each provider, so you own every account. I help you choose tools that fit your size and budget."),
-            ("How is it priced?", "Each piece has its own price, and you only pay for the pieces you pick. Use the quote builder above to see your total. Website optimization, a fully automated financial tracking system and larger dashboards are confirmed on a free call, because the work depends on what you already have. Choose 3 or more pieces for 10% off, or the full package for 15% off."),
+            ("How is it priced?", "Each piece has its own price, and you only pay for the pieces you pick. Use the quote builder above to see your total. Website optimization, a fully automated financial tracking system and a larger custom operating system are confirmed on a free call, because the work depends on what you already have. Choose 3 or more pieces for 10% off, or the full package for 15% off."),
             ("Can you work with the tools I already use?", "Yes. I audit before I build, so anything that already works stays, and only the gaps get built or replaced."),
             ("Is it remote or on-site?", "Remote for retreat properties anywhere in the world. On-site visits are available in Costa Rica, Panama, Nicaragua and Guatemala."),
             ("What happens after the build?", "Your team runs it from the SOPs and training. If you want ongoing support, the <a href=\"/fractional-operations-director\">Fractional Retreat Operations Director</a> or <a href=\"/concierge-ops\">Concierge Ops</a> picks up from there."),
@@ -480,8 +481,8 @@ def build(pg):
     after_band = "var(--warm-white)"
     if pg["proof"]:
         plabel, ptitle, cards = pg["proof"]
-        cells = "".join(f'''<div class="proof"><span class="loc">{loc}</span><h3>{h}</h3><ul>{''.join(f'<li>{x}</li>' for x in lis)}</ul>
-        {f'<blockquote>"{q}"<cite>{c}</cite></blockquote>' if q else ''}</div>''' for loc, h, lis, q, c in cards)
+        cells = "".join(f'''<div class="proof"><span class="loc">{loc}</span><h3>{h}</h3>{('<p class="built"><b>What was built:</b> ' + built[0] + '</p>') if built else ''}<ul>{''.join(f'<li>{x}</li>' for x in lis)}</ul>
+        {f'<blockquote>"{q}"<cite>{c}</cite></blockquote>' if q else ''}</div>''' for loc, h, lis, q, c, *built in cards)
         grid_style = '' if len(cards) > 1 else ' style="grid-template-columns:minmax(0,640px)"'
         out.append(f'''<section class="sec proof-sec">
   <div class="inner">

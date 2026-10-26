@@ -87,7 +87,7 @@ var M=[
  {g:"Guests and team",id:"app",t:"Guest welcome package",d:"A mobile app replica made for your retreat, so guests find everything in one place.",p:250},
  {g:"Guests and team",id:"sop",t:"SOPs for your team roles",d:"Written step-by-step procedures. Includes 3 roles, then $75 for each extra.",p:300,opt:"sop"},
  {g:"Your numbers",id:"fin",t:"Financial tracking system",d:"Know what is coming in and going out.",p:150,opt:"fin"},
- {g:"Your numbers",id:"dash",t:"Business overview dashboard",d:"Your key numbers on one screen. Price depends on how many areas it pulls together.",p:500,opt:"dash"}
+ {g:"Your numbers",id:"dash",t:"Custom retreat operating system",d:"Your guest communication, finances, bookings and portals connected in one system built for your venue. Price depends on how many areas it brings together.",p:500,opt:"dash"}
 ];
 var S={sel:{book:true,sales:true,comm:true},roles:3,fin:"basic",dash:500};
 var $=function(i){return document.getElementById(i)};
@@ -109,7 +109,7 @@ function build(){
       '<label for="qbc_'+m.id+'"><span class="qb-t">'+m.t+'</span><span class="qb-d">'+m.d+'</span></label><div class="qb-p">'+pr+'</div></div>';
     if(m.opt==="sop")h+='<div class="qb-opts"'+(on?'':' hidden')+'><span>Roles:</span><span class="qb-step"><button type="button" id="qb-rm" aria-label="Fewer roles">−</button><output>'+S.roles+'</output><button type="button" id="qb-rp" aria-label="More roles">+</button></span><span class="qb-roles">For example: '+ROLES.join(", ")+'.</span></div>';
     if(m.opt==="fin")h+='<div class="qb-opts"'+(on?'':' hidden')+'><div class="qb-seg"><label><input type="radio" name="qbfin" value="basic"'+(S.fin==="basic"?' checked':'')+'><b>Basic · $150</b><span class="qb-sub">Pre-built Google Sheet with your categories, a monthly summary and a quiet-month cash view, plus a short walkthrough.</span></label><label><input type="radio" name="qbfin" value="full"'+(S.fin==="full"?' checked':'')+'><b>Full · from $300</b><span class="qb-sub">Automated tracking: monthly imports from booking and bank exports, budget vs actuals, a seasonal cash forecast and a reserve tracker. Final price confirmed on a call, once I see how complex your data is.</span></label></div></div>';
-    if(m.opt==="dash")h+='<div class="qb-opts"'+(on?'':' hidden')+'><div class="qb-seg">'+[[500,"1–2 areas","e.g. bookings and cash"],[750,"3–4 areas","adds guests and team"],[1000,"5+ areas","full business view"]].map(function(o){return '<label><input type="radio" name="qbdash" value="'+o[0]+'"'+(S.dash===o[0]?' checked':'')+'><b>'+(o[0]===1000?"$1,000+":fmt(o[0]))+' · '+o[1]+'</b><span class="qb-sub">'+o[2]+'</span></label>'}).join("")+'</div></div>';
+    if(m.opt==="dash")h+='<div class="qb-opts"'+(on?'':' hidden')+'><div class="qb-seg">'+[[500,"1–2 areas","e.g. bookings and cash"],[750,"3–4 areas","adds guests and team"],[1000,"5+ areas","full system with portals"]].map(function(o){return '<label><input type="radio" name="qbdash" value="'+o[0]+'"'+(S.dash===o[0]?' checked':'')+'><b>'+(o[0]===1000?"$1,000+":fmt(o[0]))+' · '+o[1]+'</b><span class="qb-sub">'+o[2]+'</span></label>'}).join("")+'</div></div>';
     h+='</div>';
   });
   $("qb-mods").innerHTML=h+"</div>";
