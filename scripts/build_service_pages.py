@@ -254,22 +254,17 @@ PAGES = [
             ("Numbers you can see", "Financial tracking and dashboards that show how the business is doing at a glance."),
             ("Guests looked after automatically", "A guest communication playbook, automations and a welcome package."),
             ("A team that knows what to do", "SOPs and operational tools, so the business doesn't depend on you for every detail.")]),
-        band=("build", "What gets built", "Ten pieces, pick what you need", "roles", [
-            ("compass", "Strategy", ["Business audit and strategy brief"]),
-            ("card", "Bookings and payments", ["Booking system setup and configuration", "Payment processing system", "Website build or optimization"]),
-            ("chart", "Your numbers", ["Financial tracking system", "Business overview dashboards"]),
-            ("people", "Guests and team", ["Guest communication playbook and automations", "Guest welcome package", "SOPs and operational tools"])],
-            "<b>All connected:</b> application integration across every system, so nothing is typed in twice."),
+        band=None,
         proof=("In practice", "Built for retreats like yours", [
             ("Systemize · Dominical, Costa Rica", "A system that replaced a full-time admin role", ["A full salary saved", "Full financial clarity", "Every past guest contact in one place"],
              "Someone who takes big challenges, and turns them into simple systems that just work.", "Jonathon Conant, Founder, Airborne Arts"),
             ("Revive · Ometepe, Nicaragua", "An inactive venue rebuilt and taking bookings again", ["Every booking in one streamlined system", "Guest communication automated", "Relaunched with a new brand and paid ads"],
              "Shila took on the nearly impossible task of building our entire digital backend from the ground up.", "Cris Ketch, Founder, Infinity Retreat")]),
-        how=("How it works", "Audit, build, hand over", [
-            ("Audit", "How the business runs today: bookings, money, guests and team."),
-            ("Plan", "A strategy brief and a build plan, agreed before anything changes."),
-            ("Build", "Systems set up, connected and tested."),
-            ("Handover", "SOPs, training and a walk-through so your team can run it.")]),
+        how=("How it works", "Audit, plan, build, hand over", [
+            ("Audit", "How the pieces you chose are handled today, so nothing is built on guesswork."),
+            ("Plan", "What needs to change, the cost and the flow, agreed before anything is built."),
+            ("Build", "A connected version of each piece, tested so it all works together."),
+            ("Handover", "A walk-through and training so your team can run it.")]),
         faq=[
             ("How long does it take?", "A single piece can take days to a couple of weeks. The full build usually takes 1 to 3 months, depending on the scope and the size of your team. The timeline leaves room to hand everything over properly, with training, so your team can run it."),
             ("Are software subscriptions included?", "No. Booking, payment and other tools are billed to you directly by each provider, so you own every account. I help you choose tools that fit your size and budget."),
