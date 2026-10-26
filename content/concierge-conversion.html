@@ -102,6 +102,11 @@ var res=document.getElementById("co-result");
 function upd(){var n=box.querySelectorAll("input:checked").length;
  res.innerHTML=n?'<div><b>'+n+' of '+C.length+' are work the team takes over</b><span>Hand it off, and keep your attention on guests and growth.</span></div><a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a>':'<div><b>Tick what sounds familiar</b><span>Each one is work your team can take off your plate.</span></div>'}
 box.addEventListener("change",upd);upd();
+var K=["retreat-in-session","slow-replies-lose-bookings","late-night-inquiries","coordinating-alone","repeat-emails","manual-forms-reminders","retreat-prep-scramble","invoices-tracking"];
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href*="calendly.com"]');if(!a||!window.umami)return;
+ var on=[];box.querySelectorAll("input").forEach(function(i,n){if(i.checked)on.push(K[n])});
+ if(!on.length)return;
+ try{umami.track("Concierge needs",{count:on.length,needs:on.join(", "),button:(a.textContent||"").replace(/\s+/g," ").trim().slice(0,40)})}catch(_){}},true);
 var bar=document.getElementById("co-bar"),hero=document.getElementById("top");
 function chk(){var past=hero.getBoundingClientRect().bottom<0;var cta=document.querySelector(".cta");var atEnd=cta&&cta.getBoundingClientRect().top<window.innerHeight*.8;bar.classList.toggle("show",past&&!atEnd)}
 window.addEventListener("scroll",chk,{passive:true});chk();
