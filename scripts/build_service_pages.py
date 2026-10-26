@@ -300,9 +300,6 @@ PAGES = [
             ("Always mine", "mine", ["Digital systems: booking, payments, website, automations and team tools, connected so nothing is typed in twice", "Financial management: P&amp;L, budget and forecast reviewed monthly, quarterly and annually", "The team and day-to-day operations, with clear roles and messages and coordination running smoothly", "The processes: SOPs kept current, season after season"])]),
         band=None,
         after_changes="<div class=\"routes-row\"><span class=\"routes-h\">Two ways to run it</span><span class=\"route\"><b>You have a team</b>I lead your in-house team and run the operations through them.</span><span class=\"route\"><b>You don't have one yet</b>The Retreat Blueprint <a href=\"/concierge-ops\">Concierge Ops</a> remote team handles the day-to-day, under my direction.</span></div>",
-        compare=("Why fractional", "The leadership of a full&#8209;time hire, sized to your retreat", [
-            ("Fractional director", ["Operations owned with you, every month", "Numbers reviewed on a set rhythm", "A leader the team can go to", "A plan for the season ahead", "A monthly retainer, no long hiring process"], True),
-            ("Full-time hire", ["Operations owned, full time", "A full salary, every month of the year", "Months to recruit and onboard", "Hard to scale back in low season"], False)]),
         proof=("In practice", "The work doesn't stop at the build", [
             ("Infinity Retreat · Ometepe, Nicaragua", "Kept on as an ongoing consultant after the build", ["Bookings, guests and payments in one system", "Relaunched with a new brand, website and paid ads", "Retained as an ongoing consultant"],
              "Shila has continued working with me as a consultant, a testament to the value she brings and the confidence I have in her abilities.", "Cris Ketch, Founder, Infinity Retreat")]),

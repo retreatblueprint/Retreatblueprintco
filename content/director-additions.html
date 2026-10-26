@@ -1,4 +1,15 @@
 <style>
+.why-table{margin-top:2rem;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--warm-white)}
+.why-row{display:grid;grid-template-columns:150px minmax(0,1.2fr) minmax(0,1fr);gap:0;border-top:1px solid var(--border)}
+.why-row:first-child{border-top:0}
+.why-row>*{padding:16px 20px;line-height:1.55;font-size:.95rem}
+.why-row .k{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--earth-mid);background:var(--cream-dark)}
+.why-row .f{color:var(--earth);background:#EAF2F2}
+.why-row .h{color:var(--earth-mid)}
+.why-head .f,.why-head .h{font-family:var(--serif);font-size:1.15rem;padding-top:18px;padding-bottom:18px}
+.why-head .f{color:var(--acc-dark)}
+.why-note{margin-top:1.25rem;color:var(--earth-mid);max-width:62ch;font-size:.95rem}
+@media(max-width:760px){.why-row{grid-template-columns:minmax(0,1fr)}.why-row .k{padding-bottom:6px;background:none}.why-row>*{padding:12px 16px}.why-head .k{display:none}}
 .compare:has(.cmp:nth-child(2):last-child){grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);max-width:820px}
 .routes-row{display:grid;grid-template-columns:1fr 1fr;gap:14px 20px;margin-top:2.5rem}.routes-row .routes-h{grid-column:1/-1;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}.routes-row .route{border:1px dashed var(--border);color:var(--earth-mid);line-height:1.6;font-size:.95rem}.routes-row .route b{color:var(--earth)}.routes-row .route a{color:var(--acc-dark)}@media(max-width:700px){.routes-row{grid-template-columns:1fr}}
 .dir-note{margin-top:1.5rem;color:var(--earth-mid);font-size:.95rem;max-width:62ch}
@@ -35,5 +46,22 @@
       <li><b>Second touchpoint</b><span>What moved, what is next, and the plan for the season ahead.</span></li>
     </ol>
     <p class="dir-note">The hours depend on the level you choose, and are agreed before we start.</p>
+  </div>
+</section>
+
+<section class="sec" id="why-fractional">
+  <div class="inner">
+    <p class="label">Why fractional</p>
+    <h2 class="title">Senior leadership, <em>without the full-time cost.</em></h2>
+    <p class="lead">A full-time operations manager is a full salary. Many retreat venues need the leadership, the numbers and the systems, not another full-time salary.</p>
+    <div class="why-table">
+      <div class="why-row why-head"><span class="k"></span><span class="f">Fractional director</span><span class="h">Full-time hire</span></div>
+      <div class="why-row"><span class="k">Cost</span><span class="f">From $1,000 a month, agreed before we start</span><span class="h">A full salary, every month of the year</span></div>
+      <div class="why-row"><span class="k">Time to start</span><span class="f">A free call, then an operations review</span><span class="h">Months to recruit and onboard</span></div>
+      <div class="why-row"><span class="k">Experience</span><span class="f">10 years of operations management across healthcare, wellness and hospitality</span><span class="h">Depends on who applies, and who you can afford</span></div>
+      <div class="why-row"><span class="k">Low season</span><span class="f">Hours sized to your retreat and agreed with you</span><span class="h">Hard to scale back when bookings dip</span></div>
+      <div class="why-row"><span class="k">Day to day</span><span class="f">Two scheduled touchpoints a month, the team led in between, and Concierge Ops for daily admin</span><span class="h">Present every day</span></div>
+    </div>
+    <p class="why-note">Need someone on site every day? A full-time hire may be the better fit. If what you are missing is leadership, clear numbers and systems that run, this is the lighter way to get it.</p>
   </div>
 </section>

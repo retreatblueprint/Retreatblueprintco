@@ -78,13 +78,14 @@
 (function(){
 var ROLES=["Host / front of house","Cleaners / housekeeping","Kitchen / chef","Grounds / maintenance","Retreat coordinator","Transport / driver","Activities coordinator"];
 var M=[
- {g:"Strategy",id:"audit",t:"Business audit and strategy brief",d:"How your business runs today, what to fix first, and a plan to follow.",p:500},
+ {g:"Strategy",id:"audit",t:"Business audit",d:"How your business runs today across bookings, money, guests and team, and what to fix first.",p:100},
+ {g:"Strategy",id:"strategy",t:"Strategy for complete business operations",d:"A plan for how the whole business should run: priorities, order of work and cost.",p:100},
  {g:"Website",id:"web",t:"Website build",d:"A new site built to take inquiries and bookings.",p:1000},
  {g:"Website",id:"opt",t:"Website optimization",d:"Anything from updates to your current site to SEO work. Priced to what you need.",custom:true},
  {g:"Bookings and payments",id:"book",t:"Booking sites setup",d:"Up to 4 booking sites, two-way synced so you never double-book.",p:100},
- {g:"Bookings and payments",id:"sales",t:"Sales process: inquiry, booking flow, payments",d:"Form, auto-replies, confirmations, and deposit and payment setup.",p:200},
+ {g:"Bookings and payments",id:"sales",t:"Sales process: inquiry, booking flow, payments",d:"Form, auto-replies, confirmations, and deposit and payment setup.",p:250},
  {g:"Guests and team",id:"comm",t:"Guest communication playbook and automations",d:"What you say at each stage, set up to send itself.",p:100},
- {g:"Guests and team",id:"app",t:"Guest welcome package",d:"A mobile app replica made for your retreat, so guests find everything in one place.",p:250},
+ {g:"Guests and team",id:"app",t:"Guest welcome package",d:"A mobile app replica made for your retreat, so guests find everything in one place.",p:125},
  {g:"Guests and team",id:"sop",t:"SOPs for your team roles",d:"Written step-by-step procedures. Includes 3 roles, then $75 for each extra.",p:300,opt:"sop"},
  {g:"Your numbers",id:"fin",t:"Financial tracking system",d:"Know what is coming in and going out.",p:150,opt:"fin"},
  {g:"Your numbers",id:"dash",t:"Custom retreat operating system",d:"Your guest communication, finances, bookings and portals connected in one system built for your venue. Price depends on how many areas it brings together.",p:500,opt:"dash"}
@@ -149,7 +150,7 @@ function calc(){
   else{r.setAttribute("aria-disabled","true");r.href="#"}
   $("qb-copy").disabled=!items.length;
 }
-var P={start:["book","sales"],launch:["book","sales","comm","app"],full:["audit","web","book","sales","comm","app","sop","fin","dash"],clear:[]};
+var P={start:["book","sales"],launch:["book","sales","comm","app"],full:["audit","strategy","web","book","sales","comm","app","sop","fin","dash"],clear:[]};
 document.querySelectorAll("[data-preset]").forEach(function(b){b.onclick=function(){S.sel={};P[b.dataset.preset].forEach(function(k){S.sel[k]=true});build()}});
 $("qb-copy").onclick=function(){
   var b=$("qb-copy"),t=summary();
