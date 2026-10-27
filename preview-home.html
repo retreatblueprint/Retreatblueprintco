@@ -125,12 +125,15 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 .ch-buy em{font-style:normal;font-size:.85rem;font-weight:500;color:var(--sage-dark);white-space:nowrap}
 .ch-unsure{margin-top:1.5rem;font-size:.92rem;color:var(--earth-mid)}
 .ch-unsure a{color:var(--terracotta)}
-.results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:2rem}
-.result{background:var(--warm-white);border:1px solid var(--border);border-radius:8px;padding:22px 24px}
-.result .r-k{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta);font-weight:500;margin-bottom:.5rem}
-.result h3{font-family:'Lora',serif;font-weight:400;font-size:1.2rem;line-height:1.3;margin-bottom:.75rem}
-.result ul{list-style:none;display:grid;gap:.4rem;font-size:.9rem;color:var(--earth-mid)}
-.result li::before{content:"\2713  ";color:var(--sage-dark);font-weight:600}
+#testimonials .testimonial-row{max-width:none}
+#testimonials .testimonial-card{display:flex;flex-direction:column}
+#testimonials .testimonial-teaser{margin-top:auto}
+.t-result{margin:1.1rem 0 1.2rem;padding:1rem 0 1.1rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.t-k{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta);font-weight:500;margin-bottom:.4rem}
+.t-h{font-family:'Lora',serif;font-size:1.12rem;line-height:1.35;color:var(--earth);margin-bottom:.6rem}
+.t-result ul{list-style:none;display:grid;gap:.35rem;font-size:.88rem;color:var(--earth-mid);line-height:1.5}
+.t-result li{position:relative;padding-left:1.3rem}
+.t-result li::before{content:"\2713";position:absolute;left:0;color:var(--sage-dark);font-weight:600}
 .start{background:var(--sage-light);padding:6rem 2.5rem}
 .start .healthcheck{margin-top:2rem}
 .fn-latest{background:var(--cream-dark);padding:6rem 2.5rem}
@@ -145,7 +148,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 @media (max-width:980px){.path{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}}
 @media (max-width:560px){.path{grid-template-columns:1fr}}
 @media (max-width:980px){.fl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:640px){.chooser,.start,.fn-latest{padding:4.5rem 1rem}.results,.fl-grid{grid-template-columns:1fr}}
+@media (max-width:640px){.chooser,.start,.fn-latest{padding:4.5rem 1rem}.fl-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -301,6 +304,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
       <div id="card-cris" class="testimonial-card" onclick="handleTestimonialTap('cris')" onmouseenter="handleTestimonialHover('cris')">
         <p style="font-family:'Lora',serif;font-size:1rem;font-weight:500;color:var(--earth);margin-bottom:0.15rem;">Cris Ketch</p>
         <p style="font-size:0.75rem;color:var(--text-muted);letter-spacing:0.03em;">Founder, Infinity Retreat, Ometepe, Nicaragua</p>
+        <div class="t-result"><p class="t-k">What changed</p><p class="t-h">An inactive venue rebuilt and taking bookings again</p><ul><li>Every booking in one streamlined system</li><li>Guest communication automated</li><li>Relaunched with a new brand and paid ads</li></ul></div>
 
         <p class="testimonial-teaser">"Shila took on the nearly impossible task of building our entire digital backend&hellip;"</p>
         <div class="testimonial-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg><span>Hover to listen</span></div>
@@ -342,6 +346,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
       <div id="card-jon" class="testimonial-card" onclick="handleTestimonialTap('jon')" onmouseenter="handleTestimonialHover('jon')">
         <p style="font-family:'Lora',serif;font-size:1rem;font-weight:500;color:var(--earth);margin-bottom:0.15rem;">Jonathon Conant</p>
         <p style="font-size:0.75rem;color:var(--text-muted);letter-spacing:0.03em;">Founder, Airborne Arts, Dominical, Costa Rica</p>
+        <div class="t-result"><p class="t-k">What changed</p><p class="t-h">A custom retreat operating system that replaced a full-time admin role</p><ul><li>A full-time administrative salary saved</li><li>Revenue, and what each retreat and participant owes, clear at a glance</li><li>Guest, student and kitchen portals in one system</li></ul></div>
 
         <p class="testimonial-teaser">"I have been an entrepreneur for 50 years with small operations to international&hellip;"</p>
         <div class="testimonial-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg><span>Hover to listen</span></div>
@@ -380,10 +385,6 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
         </div>
       </div>
 
-    </div>
-    <div class="results">
-      <div class="result"><p class="r-k">Systemize · Dominical, Costa Rica</p><h3>A custom retreat operating system that replaced a full-time admin role</h3><ul><li>A full-time administrative salary saved</li><li>Revenue, and what each retreat and participant owes, clear at a glance</li><li>Guest, student and kitchen portals in one system</li></ul></div>
-      <div class="result"><p class="r-k">Revive · Ometepe, Nicaragua</p><h3>An inactive venue rebuilt and taking bookings again</h3><ul><li>Every booking in one streamlined system</li><li>Guest communication automated</li><li>Relaunched with a new brand and paid ads</li></ul></div>
     </div>
   </div>
 </section>
@@ -475,7 +476,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
   <div class="inner">
     <p class="section-label">Field Notes</p>
     <h2 class="section-title">Practical notes for retreat venue owners</h2>
-    <!-- field-notes:latest --><div class="fl-grid"><a class="fl-card" href="/field-notes/retreat-center-high-season-preparation"><img src="https://images.unsplash.com/photo-1774280954999-9758f11f3d41?auto=format&fit=crop&w=760&h=507&q=72" alt="A wooden guest room with a window onto the jungle, towels laid out for arrival" width="760" height="507" loading="lazy"><div class="fl-txt"><p class="fl-k">High season</p><h3>8 weeks to high season: a calmer season and guests who come back</h3><em>Read →</em></div></a><a class="fl-card" href="/field-notes/buying-a-retreat-center-costa-rica"><img src="https://images.unsplash.com/photo-1544646280-e243b3ab7d1e?auto=format&fit=crop&w=760&h=507&q=72" alt="A wooden lodge raised on stilts among tall trees" width="760" height="507" loading="lazy"><div class="fl-txt"><p class="fl-k">Buying a retreat</p><h3>Buying a Retreat Center in Costa Rica: 9 Checks Before You Sign</h3><em>Read →</em></div></a></div><!-- /field-notes:latest -->
+    <!-- field-notes:latest --><div class="fl-grid"><a class="fl-card" href="/field-notes/buying-a-retreat-center-costa-rica"><img src="https://images.unsplash.com/photo-1544646280-e243b3ab7d1e?auto=format&fit=crop&w=760&h=507&q=72" alt="A wooden lodge raised on stilts among tall trees" width="760" height="507" loading="lazy"><div class="fl-txt"><p class="fl-k">Buying a retreat</p><h3>Buying a Retreat Center in Costa Rica: 9 Checks Before You Sign</h3><em>Read →</em></div></a></div><!-- /field-notes:latest -->
     <a class="fl-all" href="/field-notes/">See all Field Notes →</a>
   </div>
 </section>
