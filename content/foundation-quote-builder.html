@@ -79,7 +79,7 @@
 var ROLES=["Host / front of house","Cleaners / housekeeping","Kitchen / chef","Grounds / maintenance","Retreat coordinator","Transport / driver","Activities coordinator"];
 var M=[
  {g:"Strategy",id:"audit",t:"Business audit",d:"How your business runs today across bookings, money, guests and team, and what to fix first.",p:100},
- {g:"Strategy",id:"strategy",t:"Strategy for complete business operations",d:"A plan for how the whole business should run: priorities, order of work and cost.",p:100},
+ {g:"Strategy",id:"strategy",t:"Strategy for your business operating systems",d:"A plan to streamline the apps and software you run on: what to keep, replace or connect, and in what order. Price depends on how many applications and tools you use.",p:100,from:true},
  {g:"Website",id:"web",t:"Website build",d:"A new site built to take inquiries and bookings.",p:1000},
  {g:"Website",id:"opt",t:"Website optimization",d:"Anything from updates to your current site to SEO work. Priced to what you need.",custom:true},
  {g:"Bookings and payments",id:"book",t:"Booking sites setup",d:"Up to 4 booking sites, two-way synced so you never double-book.",p:100},
@@ -99,13 +99,13 @@ function price(m){
   if(m.id==="dash")return S.dash;
   return m.p;
 }
-function isFrom(m){return (m.id==="fin"&&S.fin==="full")||(m.id==="dash")}
+function isFrom(m){return (m.id==="fin"&&S.fin==="full")||(m.id==="dash")||!!m.from}
 function build(){
   var h="",last="";
   M.forEach(function(m){
     if(m.g!==last){if(last)h+="</div>";h+='<div class="qb-g"><h3>'+m.g+'</h3>';last=m.g}
     var on=!!S.sel[m.id];
-    var pr=m.custom?'Custom<small>quoted to fit</small>':fmt(price(m))+(m.opt?'<small>'+(m.id==="dash"?'from':m.id==="fin"?'basic · full from $300':'for 3 roles')+'</small>':'');
+    var pr=m.custom?'Custom<small>quoted to fit</small>':fmt(price(m))+(m.opt?'<small>'+(m.id==="dash"?'from':m.id==="fin"?'basic · full from $300':'for 3 roles')+'</small>':(m.from?'<small>from</small>':''));
     h+='<div class="qb-mod'+(on?' on':'')+'"><div class="qb-row"><input type="checkbox" id="qbc_'+m.id+'"'+(on?' checked':'')+'>'+
       '<label for="qbc_'+m.id+'"><span class="qb-t">'+m.t+'</span><span class="qb-d">'+m.d+'</span></label><div class="qb-p">'+pr+'</div></div>';
     if(m.opt==="sop")h+='<div class="qb-opts"'+(on?'':' hidden')+'><span>Roles:</span><span class="qb-step"><button type="button" id="qb-rm" aria-label="Fewer roles">−</button><output>'+S.roles+'</output><button type="button" id="qb-rp" aria-label="More roles">+</button></span><span class="qb-roles">For example: '+ROLES.join(", ")+'.</span></div>';
