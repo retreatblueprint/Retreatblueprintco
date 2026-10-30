@@ -80,6 +80,13 @@ SHARED_CSS = """
 .outcomes > div{background:var(--warm-white);border:1px solid var(--border);border-top:3px solid var(--acc-soft);border-radius:6px;padding:22px;display:grid;gap:8px;align-content:start}
 .outcomes b{font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.25}
 .outcomes p{font-size:.9rem;color:var(--earth-mid)}
+/* What changes: four arched panels (outline only, no coloured strip) */
+.outcomes{gap:22px;counter-reset:oc}
+.outcomes > div{position:relative;background:none;border:1px solid rgba(90,72,50,.32);border-radius:999px 999px 14px 14px;padding:88px 22px 30px;text-align:center;display:grid;gap:8px;align-content:start;justify-items:center}
+.outcomes > div::before{counter-increment:oc;content:counter(oc,decimal-leading-zero);position:absolute;top:44px;left:0;right:0;font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1;color:var(--earth-mid)}
+.outcomes b{font-weight:400;font-size:1.3rem;line-height:1.25}
+.outcomes p{font-size:.92rem;line-height:1.6}
+@media (max-width:520px){.outcomes > div{border-radius:150px 150px 14px 14px;padding:84px 24px 28px}}
 .roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:2.5rem}
 .role{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:22px;border:1px solid rgba(255,255,255,.14);border-radius:8px;background:rgba(255,255,255,.06)}
 .role svg{width:52px;height:52px;padding:12px;border-radius:50%;background:rgba(255,255,255,.10);fill:none;stroke:var(--on-band-soft);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}

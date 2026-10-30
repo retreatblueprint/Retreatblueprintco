@@ -5,6 +5,12 @@ class H(SimpleHTTPRequestHandler):
     def end_headers(self):
         self.send_header('Accept-Ranges', 'bytes')
         super().end_headers()
+    def translate_path(self, path):
+        # like GitHub Pages: /foundation-sprint serves foundation-sprint.html
+        p = super().translate_path(path)
+        if not os.path.exists(p) and os.path.isfile(p + '.html'):
+            return p + '.html'
+        return p
     def send_head(self):
         rng = self.headers.get('Range')
         path = self.translate_path(self.path)

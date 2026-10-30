@@ -26,9 +26,12 @@
 <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=2026-10-17a">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#F4EEE2">
+<link rel="preload" as="image" href="assets/img/home/hero-pavilion.jpg">
 <link rel="stylesheet" href="css/menu.css?v=2026-10-21a">
+<link rel="stylesheet" href="css/luxe.css?v=2026-10-30">
+<script>document.documentElement.classList.add("js")</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -106,63 +109,18 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 if(h.indexOf('calendly.com')>-1)n='Book a call';else if(h.indexOf('wa.me/')>-1||h.indexOf('whatsapp.com')>-1)n='WhatsApp';else if(h.indexOf('mailto:')===0)n='Email';
 if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,40)})}catch(_){}},true);
 </script>
-<style>
-/* Homepage: services chooser, results and Field Notes */
-.chooser{background:var(--warm-white);padding:6rem 2.5rem}
-.path{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:2.75rem}
-.pc{position:relative;display:flex;flex-direction:column;gap:.6rem;background:#fff;border:1px solid var(--border);border-top:3px solid var(--c);border-radius:8px;padding:30px 22px 22px;text-decoration:none;color:var(--earth);transition:transform .2s,box-shadow .2s}
-.pc:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(42,34,24,.08)}
-.pc-step{display:flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
-.pc-step i{font-style:normal;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--c);color:#fff;font-size:.7rem;letter-spacing:0}
-.pc-name{font-family:'Lora',serif;font-weight:400;font-size:1.25rem;line-height:1.3}
-.pc-desc{font-size:.9rem;color:var(--earth-mid);line-height:1.6;flex:1}
-.pc-tag{position:absolute;top:-12px;right:16px;font-size:.68rem;font-weight:500;color:var(--terracotta);background:#F5EAE2;padding:.15rem .5rem;border-radius:6px}
-.pc-price{font-size:.86rem;font-weight:500;color:var(--earth);border-top:1px solid var(--border);padding-top:.8rem;margin-top:.2rem}
-.pc-go{font-size:.84rem;font-weight:500;color:var(--c)}
-.ch-buy{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px;background:var(--cream-dark);border-radius:8px;padding:18px 22px;text-decoration:none;color:var(--earth)}
-.ch-buy b{font-family:'Lora',serif;font-weight:400;font-size:1.15rem}
-.ch-buy span{font-size:.9rem;color:var(--earth-mid)}
-.ch-buy em{font-style:normal;font-size:.85rem;font-weight:500;color:var(--sage-dark);white-space:nowrap}
-.ch-unsure{margin-top:1.5rem;font-size:.92rem;color:var(--earth-mid)}
-.ch-unsure a{color:var(--terracotta)}
-#testimonials .testimonial-row{max-width:none}
-#testimonials .testimonial-card{display:flex;flex-direction:column}
-#testimonials .testimonial-teaser{margin-top:auto}
-.t-result{margin:1.1rem 0 1.2rem;padding:1rem 0 1.1rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.t-k{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta);font-weight:500;margin-bottom:.4rem}
-.t-h{font-family:'Lora',serif;font-size:1.12rem;line-height:1.35;color:var(--earth);margin-bottom:.6rem}
-.t-result ul{list-style:none;display:grid;gap:.35rem;font-size:.88rem;color:var(--earth-mid);line-height:1.5}
-.t-result li{position:relative;padding-left:1.3rem}
-.t-result li::before{content:"\2713";position:absolute;left:0;color:var(--sage-dark);font-weight:600}
-.start{background:var(--sage-light);padding:6rem 2.5rem}
-.start .healthcheck{margin-top:2rem}
-.fn-latest{background:var(--cream-dark);padding:6rem 2.5rem}
-.fl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:2.25rem}
-.fl-card{display:flex;flex-direction:column;background:var(--warm-white);border:1px solid var(--border);border-radius:8px;overflow:hidden;text-decoration:none;color:var(--earth)}
-.fl-card img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;display:block}
-.fl-txt{padding:18px 20px 20px;display:grid;gap:.45rem}
-.fl-k{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta);font-weight:500}
-.fl-txt h3{font-family:'Lora',serif;font-weight:400;font-size:1.15rem;line-height:1.3}
-.fl-txt em{font-style:normal;font-size:.82rem;font-weight:500;color:var(--sage-dark)}
-.fl-all{display:inline-block;margin-top:1.5rem;font-size:.9rem;color:var(--terracotta)}
-@media (max-width:980px){.path{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}}
-@media (max-width:560px){.path{grid-template-columns:1fr}}
-@media (max-width:980px){.fl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:640px){.chooser,.start,.fn-latest{padding:4.5rem 1rem}.fl-grid{grid-template-columns:1fr}}
-</style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav data-menu>
   <a href="#" class="nav-logo-wrap">
-    <!-- LOGO OPTION A: Leaf with midrib (current style, refined) -->
-    <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 3 C22 7 28 14 25 22 C22 30 10 31 7 22 C4 13 10 7 16 3Z" fill="#7A9E7E" opacity="0.22"/>
-      <path d="M16 3 C22 7 28 14 25 22 C22 30 10 31 7 22 C4 13 10 7 16 3Z" stroke="#4A6E4E" stroke-width="1.2" fill="none"/>
-      <line x1="16" y1="3" x2="16" y2="30" stroke="#4A6E4E" stroke-width="1"/>
-      <line x1="16" y1="13" x2="10" y2="18" stroke="#4A6E4E" stroke-width="0.8"/>
-      <line x1="16" y1="20" x2="22" y2="24" stroke="#4A6E4E" stroke-width="0.8"/>
+    <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M16 3 C22 7 28 14 25 22 C22 30 10 31 7 22 C4 13 10 7 16 3Z" fill="#B08A5A" opacity="0.2"/>
+      <path d="M16 3 C22 7 28 14 25 22 C22 30 10 31 7 22 C4 13 10 7 16 3Z" stroke="#2C3E2D" stroke-width="1.1" fill="none"/>
+      <line x1="16" y1="3" x2="16" y2="30" stroke="#2C3E2D" stroke-width="0.9"/>
+      <line x1="16" y1="13" x2="10" y2="18" stroke="#2C3E2D" stroke-width="0.7"/>
+      <line x1="16" y1="20" x2="22" y2="24" stroke="#2C3E2D" stroke-width="0.7"/>
     </svg>
     <span class="nav-logo-text">Retreat Blueprint Co.</span>
   </a>
@@ -187,238 +145,135 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
   </div>
 </nav>
 
-
-<!-- HERO -->
-<div class="hero-wrap">
-  <div class="hero-photo"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero">
-    <p class="eyebrow">Retreat Operations Director</p>
-    <h1>Your retreat center<br>changes lives.<br>Let's build the<br><em>business</em> behind it.</h1>
-    <p class="hero-sub">I partner with retreat center owners to build the systems, strategy, and operations behind their vision so bookings grow, nothing falls through the cracks, and the work reaches the people who need it most.</p>
-    <div class="hero-actions">
-      <a href="#health-check" class="btn-primary">Start with a free Health Check</a>
-      <a href="#about" class="btn-ghost">Who's behind this ↓</a>
+<!-- HERO: light from above, the arch as a doorway -->
+<header class="hero" id="top">
+  <div class="hero-light" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow reveal">Retreat Operations Director</p>
+      <h1 class="reveal" style="--d:.08s">Your retreat center<br>changes lives.<br>Let's build the<br><em>business</em> behind it.</h1>
+      <p class="hero-sub reveal" style="--d:.16s">I partner with retreat center owners to build the systems, strategy, and operations behind their vision so bookings grow, nothing falls through the cracks, and the work reaches the people who need it most.</p>
+      <div class="hero-actions reveal" style="--d:.24s">
+        <a href="#health-check" class="btn">Start with a free Health Check</a>
+        <a href="#about" class="link-quiet">Who's behind this</a>
+      </div>
     </div>
+    <figure class="hero-arch reveal" style="--d:.2s">
+      <div class="arch-frame"><div class="arch"><img src="assets/img/home/hero-pavilion.jpg" alt="A bamboo pavilion with sweeping bamboo arches, yoga mats and bolsters laid out on a dark timber floor, jungle beyond" width="1000" height="1503" fetchpriority="high"></div></div>
+      <figcaption><span class="sent">Remote worldwide</span><span class="sent">On-site in Costa Rica, Panama, Nicaragua and Guatemala</span></figcaption>
+    </figure>
   </div>
-</div>
+</header>
 
-<!-- WAVE -->
-<svg class="wave" viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" style="background:var(--cream-dark)">
-  <path d="M0,0 C240,56 480,0 720,28 C960,56 1200,8 1440,36 L1440,0 Z" fill="#EEF4EE"/>
-</svg>
-
-<!-- PAIN -->
-<section class="pain">
-  <div class="inner">
-    <p class="section-label">Where it gets heavy</p>
-    <h2 class="section-title">The experience is your gift. The admin shouldn't be your full-time job.</h2>
-    <p class="section-body">Venue owners carry a lot: guests, retreat leaders, the team, the money. The heavy part usually isn't the work itself. It's that so much of it lives in one person's head, and that never switches off.</p>
-
-    <div class="pain-table">
-      <div class="pain-table-header">
-        <p class="pain-col-label problem">Where it gets heavy</p>
-        <div></div>
-        <p class="pain-col-label solution">What it can feel like instead</p>
-      </div>
-
-      <div class="pain-row">
-        <div class="pain-cell problem">
-          <p class="pain-title">Everything runs through you</p>
-          <p class="pain-desc">Every follow-up, reminder and payment chase waits for you, so the business can only move as fast as you can, and a break feels impossible.</p>
-        </div>
-        <div class="pain-divider">→</div>
-        <div class="pain-cell solution">
-          <p class="pain-title">Systems that keep moving when you step away</p>
-          <p class="pain-desc">The guest journey runs on its own, from confirmation to follow-up, so the business no longer depends on how much you can personally hold.</p>
-        </div>
-      </div>
-
-      <div class="pain-row">
-        <div class="pain-cell problem">
-          <p class="pain-title">Inquiries wait while you're hosting</p>
-          <p class="pain-desc">An inquiry comes in during a retreat, and by the time there is a moment to reply, the guest has booked somewhere else.</p>
-        </div>
-        <div class="pain-divider">→</div>
-        <div class="pain-cell solution">
-          <p class="pain-title">Every inquiry answered and followed up</p>
-          <p class="pain-desc">Replies go out quickly with a well-timed follow-up, so interested guests stay warm and book.</p>
-        </div>
-      </div>
-
-      <div class="pain-row">
-        <div class="pain-cell problem">
-          <p class="pain-title">Every retreat starts from scratch</p>
-          <p class="pain-desc">Without written steps and clear handoffs, each retreat depends on who is holding it that week, and you fill the gaps.</p>
-        </div>
-        <div class="pain-divider">→</div>
-        <div class="pain-cell solution">
-          <p class="pain-title">A team that knows what to do</p>
-          <p class="pain-desc">Clear steps for before, during and after each retreat, so every retreat runs well, whoever is on shift.</p>
-        </div>
-      </div>
-
-      <div class="pain-row">
-        <div class="pain-cell problem">
-          <p class="pain-title">Small details get lost between teams</p>
-          <p class="pain-desc">A missing detail before arrival, a dietary need that never reaches the kitchen. Small things behind the scenes become the moments guests remember.</p>
-        </div>
-        <div class="pain-divider">→</div>
-        <div class="pain-cell solution">
-          <p class="pain-title">Guests who feel held from first email to final review</p>
-          <p class="pain-desc">Fast, warm replies, clear pre-arrival information, needs passed to the right person, and a thoughtful follow-up after they leave. The systems stay invisible; the care is what guests notice.</p>
-        </div>
-      </div>
-
-    </div>
+<!-- THE WEIGHT: one statement, four quiet shifts -->
+<section class="statement" aria-labelledby="statement-h">
+  <div class="wrap center">
+    <h2 class="display reveal" id="statement-h"><span class="sent">The experience is your gift.</span> <span class="sent">The admin shouldn't be your <em><span class="nw">full-time</span> job.</em></span></h2>
+    <p class="lead reveal" style="--d:.1s"><span class="sent">Venue owners carry a lot: guests, retreat leaders, the team, the money.</span> <span class="sent">The heavy part usually isn't the work itself.</span> <span class="sent">It's that so much of it lives in one person's head, and that never switches off.</span></p>
+  </div>
+  <div class="wrap shift">
+    <div class="pil"><p class="eyebrow reveal">The business itself</p><ol class="pil-grid"><li class="reveal" style="--d:0.0s"><i>01</i><b>Financial clarity</b><p>P&amp;L, budget and forecast reviewed on a rhythm, with revenue, margins and what's owed clear at a glance.</p></li><li class="reveal" style="--d:0.08s"><i>02</i><b>Decisions from data</b><p>Priorities, budget and forecast set together, so pricing, hiring and new offers are never guesses.</p></li><li class="reveal" style="--d:0.16s"><i>03</i><b>Runs without you</b><p>Systems and a team that keep moving when you step away.</p></li><li class="reveal" style="--d:0.24s"><i>04</i><b>Growth beyond you</b><p>A plan and the leadership to scale the business.</p></li></ol></div>
+    <div class="pil"><p class="eyebrow reveal">The day to day</p><ol class="pil-grid"><li class="reveal" style="--d:0.0s"><i>01</i><b>Every inquiry answered</b><p>Followed up until they book or say no.</p></li><li class="reveal" style="--d:0.08s"><i>02</i><b>Guests who feel held</b><p>From first email to final review.</p></li><li class="reveal" style="--d:0.16s"><i>03</i><b>Retreats that run smoothly</b><p>Organizers in the loop, schedules ready before anyone arrives.</p></li><li class="reveal" style="--d:0.24s"><i>04</i><b>Books you can trust</b><p>Invoices sent, payments tracked, records in one place.</p></li></ol></div>
   </div>
 </section>
 
-<!-- SERVICES CHOOSER -->
+<!-- SERVICES: four doorways -->
 <span id="work"></span>
-<section class="chooser" id="services">
-  <div class="inner">
-    <p class="section-label">Services</p>
-    <h2 class="section-title">Build, run, lead, grow</h2>
-    <p class="section-body">Four ways I work with retreat venues, centers and eco-lodges. Start with the one that fits where you are now, and add the next when you are ready.</p>
-    <div class="path">
-      <a class="pc" href="/foundation-sprint" style="--c:#985033"><span class="pc-step"><i>1</i>Build</span><b class="pc-name">Foundation Sprint</b><span class="pc-desc">The systems your retreat runs on, built piece by piece.</span><span class="pc-tag">Most owners start here</span><span class="pc-price">From $100 USD</span><span class="pc-go">Explore →</span></a>
-      <a class="pc" href="/concierge-ops" style="--c:#4A6E4E"><span class="pc-step"><i>2</i>Run the day to day</span><b class="pc-name">Concierge Ops</b><span class="pc-desc">Inquiries, guests and retreat coordination, handled in your voice.</span><span class="pc-price">From $250 USD / month</span><span class="pc-go">Explore →</span></a>
-      <a class="pc" href="/fractional-operations-director" style="--c:#2F6467"><span class="pc-step"><i>3</i>Lead</span><b class="pc-name">Fractional Operations Director</b><span class="pc-desc">Your part-time COO for the numbers, the team and the systems.</span><span class="pc-price">From $1,000 USD / month</span><span class="pc-go">Explore →</span></a>
-      <a class="pc" href="/growth-marketing" style="--c:#8A5414"><span class="pc-step"><i>4</i>Grow</span><b class="pc-name">Growth Marketing</b><span class="pc-desc">Strategy, content and outreach that bring the right guests.</span><span class="pc-price">Pricing on inquiry</span><span class="pc-go">Explore →</span></a>
+<section class="doors-sec" id="services">
+  <div class="wrap">
+    <div class="narrow center">
+      <p class="eyebrow reveal">Services</p>
+      <h2 class="display reveal" style="--d:.06s">Build, run, lead, <em>grow</em></h2>
+      <p class="lead reveal" style="--d:.12s"><span class="sent">Four ways I work with retreat venues, centers and eco-lodges.</span> <span class="sent">Start with the one that fits where you are now, and add the next when you are ready.</span></p>
     </div>
-    <a class="ch-buy" href="/buying-a-retreat"><div><b>Buying a retreat property?</b><br><span>An independent pre-purchase review from $1,200 USD, then hands-on help through your first 90 days.</span></div><em>See the buyer's page →</em></a>
-    <p class="ch-unsure">Not sure which fits? <a href="#health-check">Start with the free Health Check</a> and we'll work it out together.</p>
+    <div class="doors">
+      <a class="door reveal" href="/foundation-sprint">
+        <div class="arch-frame"><div class="arch"><img src="assets/img/home/door-build.jpg" alt="" width="720" height="1080" loading="lazy"></div></div>
+        <span class="door-step">01 · Build</span>
+        <span class="door-tag">Most owners start here</span>
+        <b class="door-name">Foundation Sprint</b>
+        <span class="door-desc">The systems your retreat runs on, built piece by piece.</span>
+        <span class="door-price">From $100 USD</span>
+        <span class="door-go">Explore →</span>
+      </a>
+      <a class="door reveal" href="/concierge-ops" style="--d:.1s">
+        <div class="arch-frame"><div class="arch"><img src="assets/img/home/door-run.jpg" alt="" width="800" height="930" loading="lazy"></div></div>
+        <span class="door-step">02 · Run the day to day</span>
+        <b class="door-name">Concierge Ops</b>
+        <span class="door-desc">Inquiries, guests and retreat coordination, handled in your voice.</span>
+        <span class="door-price">From $250 USD / month</span>
+        <span class="door-go">Explore →</span>
+      </a>
+      <a class="door reveal" href="/fractional-operations-director" style="--d:.2s">
+        <div class="arch-frame"><div class="arch"><img src="assets/img/cta-1200.jpg" alt="" width="1200" height="800" loading="lazy" style="object-position:56% 50%"></div></div>
+        <span class="door-step">03 · Lead</span>
+        <b class="door-name">Fractional Operations Director</b>
+        <span class="door-desc">Your part-time COO for the numbers, the team and the systems.</span>
+        <span class="door-price">From $1,000 USD / month</span>
+        <span class="door-go">Explore →</span>
+      </a>
+      <a class="door reveal" href="/growth-marketing" style="--d:.3s">
+        <div class="arch-frame"><div class="arch"><img src="assets/img/hero-1200.jpg" alt="" width="1200" height="800" loading="lazy" style="object-position:74% 50%"></div></div>
+        <span class="door-step">04 · Grow</span>
+        <b class="door-name">Growth Marketing</b>
+        <span class="door-desc">Strategy, content and outreach that bring the right guests.</span>
+        <span class="door-price">Pricing on inquiry</span>
+        <span class="door-go">Explore →</span>
+      </a>
+    </div>
+    <div class="buyer reveal">
+      <div class="buyer-txt">
+        <span class="buyer-tag">New · For buyers</span>
+        <b>Buying a retreat property?</b>
+        <span class="buyer-desc">An independent pre-purchase review from $1,200 USD, then hands-on help through your first 90 days.</span>
+      </div>
+      <a class="btn" href="/buying-a-retreat">See the buyer's page</a>
+    </div>
+    <p class="unsure reveal"><span class="sent">Not sure which fits?</span> <span class="sent"><a href="#health-check">Start with the free Health Check</a> and we'll work it out together.</span></p>
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<section id="testimonials" style="background:var(--cream-dark);padding:6rem 2.5rem;">
-  <div class="inner">
-    <p class="section-label">Results</p>
-    <h2 class="section-title" style="margin-bottom:2.5rem;">What clients say, and what changed</h2>
-
-    <div class="testimonial-row" onmouseleave="resetTestimonials()">
-
-      <!-- Cris card -->
-      <div id="card-cris" class="testimonial-card" onclick="handleTestimonialTap('cris')" onmouseenter="handleTestimonialHover('cris')">
-        <p style="font-family:'Lora',serif;font-size:1rem;font-weight:500;color:var(--earth);margin-bottom:0.15rem;">Cris Ketch</p>
-        <p style="font-size:0.75rem;color:var(--text-muted);letter-spacing:0.03em;">Founder, Infinity Retreat, Ometepe, Nicaragua</p>
-        <div class="t-result"><p class="t-k">What changed</p><p class="t-h">An inactive venue rebuilt and taking bookings again</p><ul><li>Every booking in one streamlined system</li><li>Guest communication automated</li><li>Relaunched with a new brand and paid ads</li></ul></div>
-
-        <p class="testimonial-teaser">"Shila took on the nearly impossible task of building our entire digital backend&hellip;"</p>
-        <div class="testimonial-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg><span>Hover to listen</span></div>
-
-        <div class="testimonial-more">
-          <!-- Custom audio player -->
-        <div style="background:var(--sage-light);border-radius:6px;padding:1rem 1.25rem;">
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.6rem;">
-            <button id="playBtn" aria-label="Play or pause voice note" onclick="togglePlay()" style="width:36px;height:36px;border-radius:50%;background:var(--sage-dark);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;">
-              <svg id="playIcon" width="12" height="14" viewBox="0 0 12 14" fill="white"><polygon points="0,0 12,7 0,14"/></svg>
-              <svg id="pauseIcon" width="12" height="14" viewBox="0 0 12 14" fill="white" style="display:none;"><rect x="0" y="0" width="4" height="14"/><rect x="8" y="0" width="4" height="14"/></svg>
-            </button>
-            <div style="flex:1;">
-              <div style="height:3px;background:rgba(74,110,78,0.2);border-radius:2px;cursor:pointer;position:relative;" onclick="seekAudio(event)" id="progressBar">
-                <div id="progressFill" style="height:100%;width:0%;background:var(--sage-dark);border-radius:2px;transition:width 0.1s;"></div>
-              </div>
-            </div>
-            <span id="timeDisplay" style="font-size:0.72rem;color:var(--sage-dark);font-weight:500;min-width:2.5rem;text-align:right;">0:00</span>
-          </div>
-          <p style="font-size:0.72rem;color:var(--sage-dark);margin:0;">Voice note from WhatsApp</p>
-        </div>
-
-        <audio id="testimonialAudio" preload="metadata">
-          <source src="assets/audio/voice-note-cris.ogg" type="audio/ogg">
-        </audio>
-
-          <p style="font-family:'Lora',serif;font-style:italic;font-size:1rem;color:var(--earth);line-height:1.65;margin-top:1.1rem;">"Shila took on the nearly impossible task of building our entire digital backend from the ground up. She approached this challenge with exceptional professionalism, technical skill, and determination."</p>
-          <details style="margin-top:0.5rem;" onclick="event.stopPropagation()">
-            <summary style="cursor:pointer;font-size:0.78rem;font-weight:500;letter-spacing:0.03em;color:var(--terracotta);list-style:none;display:inline-flex;align-items:center;gap:0.35rem;">Read full review <span style="font-size:0.9em;">↓</span></summary>
-            <p style="font-family:'Lora',serif;font-style:italic;font-size:1rem;color:var(--earth);line-height:1.65;margin-top:0.85rem;">Throughout the project, Shila worked independently with minimal guidance, consistently demonstrating efficiency, initiative, and outstanding problem-solving abilities. She completed every requirement within the agreed timeline while maintaining a high standard of quality and organization.</p>
-            <p style="font-family:'Lora',serif;font-style:italic;font-size:1rem;color:var(--earth);line-height:1.65;margin-top:0.65rem;">Her work ethic, reliability, and expertise exceeded my expectations. Shila has continued working with me as a consultant, a testament to the value she brings and the confidence I have in her abilities.</p>
-            <p style="font-family:'Lora',serif;font-style:italic;font-size:1rem;color:var(--earth);line-height:1.65;margin-top:0.65rem;">I recommend Shila without reservation. She would be a tremendous asset to any organization fortunate enough to have her on their team.</p>
-            <button type="button" class="review-collapse" onclick="collapseReview(this)">Collapse review <span aria-hidden="true">&uarr;</span></button>
-          </details>
-        </div>
-      </div>
-
-      <!-- Jonathon card -->
-      <div id="card-jon" class="testimonial-card" onclick="handleTestimonialTap('jon')" onmouseenter="handleTestimonialHover('jon')">
-        <p style="font-family:'Lora',serif;font-size:1rem;font-weight:500;color:var(--earth);margin-bottom:0.15rem;">Jonathon Conant</p>
-        <p style="font-size:0.75rem;color:var(--text-muted);letter-spacing:0.03em;">Founder, Airborne Arts, Dominical, Costa Rica</p>
-        <div class="t-result"><p class="t-k">What changed</p><p class="t-h">A custom retreat operating system that replaced a full-time admin role</p><ul><li>A full-time administrative salary saved</li><li>Revenue, and what each retreat and participant owes, clear at a glance</li><li>Guest, student and kitchen portals in one system</li></ul></div>
-
-        <p class="testimonial-teaser">"I have been an entrepreneur for 50 years with small operations to international&hellip;"</p>
-        <div class="testimonial-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg><span>Hover to listen</span></div>
-
-        <div class="testimonial-more">
-          <!-- Custom audio player -->
-        <div style="background:var(--sage-light);border-radius:6px;padding:1rem 1.25rem;">
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.6rem;">
-            <button id="playBtn2" aria-label="Play or pause voice note" onclick="togglePlay2()" style="width:36px;height:36px;border-radius:50%;background:var(--sage-dark);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;">
-              <svg id="playIcon2" width="12" height="14" viewBox="0 0 12 14" fill="white"><polygon points="0,0 12,7 0,14"/></svg>
-              <svg id="pauseIcon2" width="12" height="14" viewBox="0 0 12 14" fill="white" style="display:none;"><rect x="0" y="0" width="4" height="14"/><rect x="8" y="0" width="4" height="14"/></svg>
-            </button>
-            <div style="flex:1;">
-              <div style="height:3px;background:rgba(74,110,78,0.2);border-radius:2px;cursor:pointer;position:relative;" onclick="seekAudio2(event)" id="progressBar2">
-                <div id="progressFill2" style="height:100%;width:0%;background:var(--sage-dark);border-radius:2px;transition:width 0.1s;"></div>
-              </div>
-            </div>
-            <span id="timeDisplay2" style="font-size:0.72rem;color:var(--sage-dark);font-weight:500;min-width:2.5rem;text-align:right;">0:00</span>
-          </div>
-          <p style="font-size:0.72rem;color:var(--sage-dark);margin:0;">Voice note from WhatsApp</p>
-        </div>
-
-        <audio id="testimonialAudio2" preload="metadata">
-          <source src="assets/audio/voice-note-jon.ogg" type="audio/ogg">
-        </audio>
-
-          <p style="font-family:'Lora',serif;font-style:italic;font-size:1rem;color:var(--earth);line-height:1.65;margin-top:1.1rem;">"I have been an entrepreneur for 50 years with small operations to international, global successes. If there is one thing you need on your team it's someone who takes big challenges, and turns them into simple systems that just work."</p>
-          <details style="margin-top:0.5rem;" onclick="event.stopPropagation()">
-            <summary style="cursor:pointer;font-size:0.78rem;font-weight:500;letter-spacing:0.03em;color:var(--terracotta);list-style:none;display:inline-flex;align-items:center;gap:0.35rem;">Read full review <span style="font-size:0.9em;">↓</span></summary>
-            <p style="font-family:'Lora',serif;font-style:italic;font-size:1rem;color:var(--earth);line-height:1.65;margin-top:0.85rem;">Shila not only has mastered that skill, she also brings the level of professionalism that you crave, and the personal responsibility and drive that gets it done.</p>
-            <p style="font-family:'Lora',serif;font-style:italic;font-size:1rem;color:var(--earth);line-height:1.65;margin-top:0.65rem;">Shila tamed a beast of an operation that caters to a select, and very discerning demographic. She intuitively understood the nature, and the needs of my business.</p>
-            <p style="font-family:'Lora',serif;font-style:italic;font-size:1rem;color:var(--earth);line-height:1.65;margin-top:0.65rem;">She expertly extracted what was needed from sources that often didn't have a clue, created a system that just made sense. I trust her judgement, and her ability to navigate challenges while remaining calm and fair.</p>
-            <p style="font-family:'Lora',serif;font-style:italic;font-size:1rem;color:var(--earth);line-height:1.65;margin-top:0.65rem;">I am grateful for her time with us, and the lasting positive impact her time has had.</p>
-            <button type="button" class="review-collapse" onclick="collapseReview(this)">Collapse review <span aria-hidden="true">&uarr;</span></button>
-          </details>
-        </div>
-      </div>
-
-    </div>
+<!-- VOICES: the dark thatch band -->
+<section class="voices rc" id="testimonials">
+  <div class="wrap center">
+    <p class="eyebrow reveal">Results</p>
+    <h2 class="display reveal" style="--d:.06s">What clients say, <em>and what changed</em></h2>
+    <div class="rc-arch reveal" style="--d:.12s" aria-live="polite"><div class="panel stage"><blockquote class="rc-q">Shila took on the nearly impossible task of building our entire digital backend from the ground up. She approached this challenge with exceptional professionalism, technical skill, and determination.</blockquote><p class="rc-name">Cris Ketch</p><p class="rc-role">Founder, Infinity Retreat · Ometepe, Nicaragua</p><div class="rc-out"><p class="k">What changed</p><p class="rc-head">An inactive venue rebuilt and taking bookings again</p><ul class="rc-list"><li>Every booking in one streamlined system</li><li>Guest communication automated</li><li>Relaunched with a new brand and paid ads</li></ul></div><div class="rc-actions"><div class="vn vn--bare"><button type="button" aria-label="Play voice note"><svg class="ico-play" viewBox="0 0 12 14" aria-hidden="true"><polygon points="0,0 12,7 0,14"/></svg><svg class="ico-pause" viewBox="0 0 12 14" aria-hidden="true"><rect width="4" height="14"/><rect x="8" width="4" height="14"/></svg></button><div class="vn-body"><p class="vn-title">Voice note from WhatsApp</p><div class="vn-bar"><div class="vn-fill"></div></div><div class="vn-meta"><span class="vn-time">0:00</span><span class="vn-total"></span></div></div><audio preload="metadata"><source src="assets/audio/voice-note-cris.ogg" type="audio/ogg"></audio></div><button type="button" class="rv-btn" aria-expanded="false"><span class="s-open">Read the full review</span><span class="s-close">Hide the full review</span></button></div><div class="rv-body" hidden><p>Throughout the project, Shila worked independently with minimal guidance, consistently demonstrating efficiency, initiative, and outstanding problem-solving abilities. She completed every requirement within the agreed timeline while maintaining a high standard of quality and organization.</p><p>Her work ethic, reliability, and expertise exceeded my expectations. Shila has continued working with me as a consultant, a testament to the value she brings and the confidence I have in her abilities.</p><p>I recommend Shila without reservation. She would be a tremendous asset to any organization fortunate enough to have her on their team.</p></div></div><div class="panel stage" hidden><blockquote class="rc-q">I have been an entrepreneur for 50 years with small operations to international, global successes. If there is one thing you need on your team it's someone who takes big challenges, and turns them into simple systems that just work.</blockquote><p class="rc-name">Jonathon Conant</p><p class="rc-role">Founder, Airborne Arts · Dominical, Costa Rica</p><div class="rc-out"><p class="k">What changed</p><p class="rc-head">A custom retreat operating system that replaced a <span class="nw">full-time</span> admin role</p><ul class="rc-list"><li>A full-time administrative salary saved</li><li>Revenue, and what each retreat and participant owes, clear at a glance</li><li>Guest, student and kitchen portals in one system</li></ul></div><div class="rc-actions"><div class="vn vn--bare"><button type="button" aria-label="Play voice note"><svg class="ico-play" viewBox="0 0 12 14" aria-hidden="true"><polygon points="0,0 12,7 0,14"/></svg><svg class="ico-pause" viewBox="0 0 12 14" aria-hidden="true"><rect width="4" height="14"/><rect x="8" width="4" height="14"/></svg></button><div class="vn-body"><p class="vn-title">Voice note from WhatsApp</p><div class="vn-bar"><div class="vn-fill"></div></div><div class="vn-meta"><span class="vn-time">0:00</span><span class="vn-total"></span></div></div><audio preload="metadata"><source src="assets/audio/voice-note-jon.ogg" type="audio/ogg"></audio></div><button type="button" class="rv-btn" aria-expanded="false"><span class="s-open">Read the full review</span><span class="s-close">Hide the full review</span></button></div><div class="rv-body" hidden><p>Shila not only has mastered that skill, she also brings the level of professionalism that you crave, and the personal responsibility and drive that gets it done.</p><p>Shila tamed a beast of an operation that caters to a select, and very discerning demographic. She intuitively understood the nature, and the needs of my business.</p><p>She expertly extracted what was needed from sources that often didn't have a clue, created a system that just made sense. I trust her judgement, and her ability to navigate challenges while remaining calm and fair.</p><p>I am grateful for her time with us, and the lasting positive impact her time has had.</p></div></div></div>
+    <div class="pager" aria-label="Client stories"><button type="button" class="pg-prev" aria-label="Previous story"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button><span class="pg-count"><b>01</b> / 02</span><button type="button" class="pg-next" aria-label="Next story"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button></div>
   </div>
 </section>
 
-<script src="js/main.js?v=2026-10-12d" defer></script>
-<script src="js/menu.js?v=2026-10-21a" defer></script>
-
-<!-- FREE HEALTH CHECK -->
-<section class="start" id="outcomes">
-  <div class="inner">
-    <p class="section-label">Start here</p>
-    <h2 class="section-title">See how your venue runs, from the outside in</h2>
-    <div class="healthcheck" id="health-check">
-      <div class="hc-text">
-        <span class="hc-tag">Free · no obligation</span>
-        <h3 class="hc-title">Operations Health Check</h3>
-        <p class="hc-lead">Not sure what's holding your venue back? Start with an outside view. Before we talk, I send your venue an inquiry the way a guest would, so I see what they see. Then, on a 45-minute call, we walk through how the business runs today.</p>
-        <p class="hc-get">You leave with:</p>
-        <ul class="hc-list">
-          <li>A one-page scorecard across 8 areas, from bookings and pricing to guest experience and team</li>
-          <li>What a guest sees when they inquire</li>
-          <li>Your top 3 fixes, in order, whether or not we work together</li>
-        </ul>
-        <a href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener" class="btn-primary">Book your free Health Check</a>
+<!-- FREE HEALTH CHECK: the floor medallion, the eight areas as mats around it -->
+<section class="hc" id="outcomes">
+  <div class="wrap">
+    <div class="hc-head center narrow">
+      <p class="eyebrow reveal">Start here</p>
+      <h2 class="display reveal" style="--d:.06s">See how your whole venue runs, <em>and what to fix first</em></h2>
+    </div>
+    <div class="ring" id="health-check">
+      <div class="disc">
+        <div class="disc-in reveal">
+          <span class="hc-tag">Free · no obligation</span>
+          <h3>Operations Health Check</h3>
+          <p class="hc-lead"><span class="sent">A full review of your operations, from revenue and pricing to your team, systems and guest experience.</span> <span class="sent">We go through it all together on a 45-minute call.</span></p>
+          <p class="hc-get">You leave with</p>
+          <ul class="hc-list">
+            <li>A one-page scorecard across 8 areas</li>
+            <li>A clear read on what's working and what isn't</li>
+            <li>Your top 3 fixes, in order</li>
+          </ul>
+          <a href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener" class="btn">Book your free Health Check</a>
+        </div>
       </div>
-      <ol class="hc-areas" aria-label="The 8 areas scored">
-        <li>Revenue &amp; bookings</li>
-        <li>Demand &amp; channels</li>
-        <li>Pricing &amp; margins</li>
-        <li>Guest experience</li>
-        <li>Team &amp; owner dependence</li>
-        <li>Systems &amp; tools</li>
-        <li>Operations &amp; suppliers</li>
-        <li>Compliance &amp; risk</li>
+      <ol class="mats reveal" aria-label="The 8 areas scored" style="--d:.15s">
+        <li style="--x:66.36%;--y:3.6%">Revenue &amp; bookings</li>
+        <li style="--x:89.45%;--y:30.88%">Demand &amp; channels</li>
+        <li style="--x:89.45%;--y:69.12%">Pricing &amp; margins</li>
+        <li style="--x:66.36%;--y:96.4%">Guest experience</li>
+        <li style="--x:33.64%;--y:96.4%">Team &amp; owner dependence</li>
+        <li style="--x:10.55%;--y:69.12%">Systems &amp; tools</li>
+        <li style="--x:10.55%;--y:30.88%">Operations &amp; suppliers</li>
+        <li style="--x:33.64%;--y:3.6%">Compliance &amp; risk</li>
       </ol>
     </div>
   </div>
@@ -426,81 +281,62 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 
 <!-- ABOUT -->
 <section class="about" id="about">
-  <div class="inner">
+  <div class="wrap">
     <div class="about-grid">
-
-      <div class="about-photo-wrap" style="position:relative;padding-bottom:2.5rem;">
-        <div style="border-radius:6px;overflow:hidden;aspect-ratio:3/4;">
-          <img src="assets/img/shila-kandiah.jpg" alt="Shila Kandiah" width="506" height="900" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/>
+      <figure class="about-photo reveal">
+        <div class="arch-frame"><div class="arch"><img src="assets/img/shila-kandiah.jpg" alt="Shila Kandiah" width="506" height="900" loading="lazy" decoding="async"></div></div>
+        <div class="stats">
+          <div><b>10</b><span>Years in operations: healthcare, wellness &amp; hospitality</span></div>
+          <div><b>4</b><span>Countries I work in on-site</span></div>
         </div>
-        <!-- Stats card hanging half off bottom of photo -->
-        <div style="position:absolute;bottom:0;left:1.5rem;right:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--warm-white);border:1px solid var(--border);border-radius:6px;box-shadow:0 4px 16px rgba(42,34,24,0.08);">
-          <div style="padding:1.1rem 1.25rem;border-right:1px solid var(--border);">
-            <p style="font-family:'Lora',serif;font-size:2rem;font-weight:400;color:var(--sage-dark);line-height:1;margin-bottom:0.2rem;">10</p>
-            <p style="font-size:0.72rem;color:var(--text-muted);line-height:1.4;">Years in operations: healthcare, wellness &amp; hospitality</p>
-          </div>
-          <div style="padding:1.1rem 1.25rem;">
-            <p style="font-family:'Lora',serif;font-size:2rem;font-weight:400;color:var(--sage-dark);line-height:1;margin-bottom:0.2rem;">4</p>
-            <p style="font-size:0.72rem;color:var(--text-muted);line-height:1.4;">Countries I work in on-site</p>
-          </div>
-        </div>
-      </div>
-
+      </figure>
       <div class="about-text">
-        <p class="section-label">Why retreats</p>
-        <h2 class="section-title">I work in this industry because it has my soul</h2>
-        <p class="section-body">My name is Shila Kandiah. I have spent 10 years in operations management across healthcare, wellness and hospitality, helping businesses with process improvement, operations, and strategy. That mix matters in retreat work, where guest care, dietary and health intake, privacy and safety sit right next to bookings and budgets. I wanted to take everything I had built professionally and point it at something that actually mattered to me personally.</p>
-        <p class="section-body" style="margin-top:1rem;">I have CPTSD and I am on my own healing journey of genuinely taking care of mind, body, and soul. Safe spaces that make room for wellness and healing are deeply important to me. I know what it means to find a place that holds you.</p>
-        <p class="section-body" style="margin-top:1rem;">So right now I am taking my expertise toward my personal journey and partnering with retreats to help them grow, be seen, and serve the people who really need them. This is the work that has my whole heart.</p>
-        <blockquote class="about-quote">When a retreat grows, more people heal. That is the business I want to help build.</blockquote>
-        <div class="about-creds">
-          <span class="about-cred">Business systems</span>
-          <span class="about-cred">Team operations</span>
-          <span class="about-cred">Growth marketing</span>
-        </div>
+        <p class="eyebrow reveal">Why retreats</p>
+        <h2 class="display reveal" style="--d:.06s">I work in this industry because it has <em>my soul</em></h2>
+        <p class="body reveal">My name is Shila Kandiah. I have spent 10 years in operations management across healthcare, wellness and hospitality, helping businesses with process improvement, operations, and strategy. That mix matters in retreat work, where guest care, dietary and health intake, privacy and safety sit right next to bookings and budgets. I wanted to take everything I had built professionally and point it at something that actually mattered to me personally.</p>
+        <p class="body reveal">I have CPTSD and I am on my own healing journey of genuinely taking care of mind, body, and soul. Safe spaces that make room for wellness and healing are deeply important to me. I know what it means to find a place that holds you.</p>
+        <p class="body reveal">So right now I am taking my expertise toward my personal journey and partnering with retreats to help them grow, be seen, and serve the people who really need them. This is the work that has my whole heart.</p>
+        <blockquote class="about-quote reveal"><span class="sent">When a retreat grows, more people heal.</span> <span class="sent">That is the business I want to help build.</span></blockquote>
+        <p class="creds reveal"><span>Business systems</span><span>Team operations</span><span>Growth marketing</span></p>
       </div>
-
     </div>
-
-    <!-- Availability note full width below both columns -->
-    <div style="margin-top:2.5rem;padding:1.1rem 1.5rem;background:var(--sage-light);border-radius:4px;border-left:3px solid var(--sage);max-width:100%;">
-      <p style="font-size:0.85rem;color:var(--sage-dark);line-height:1.7;"><strong style="font-weight:500;">A note on availability:</strong> I take on a small number of clients at a time by design. Each retreat gets deep, hands-on attention from start to finish.</p>
-      <p style="font-size:0.85rem;color:var(--sage-dark);line-height:1.7;margin-top:0.5rem;"><strong style="font-weight:500;">Where I work:</strong> remotely with retreat properties anywhere in the world. On-site visits are available in Costa Rica, Panama, Nicaragua and Guatemala.</p>
+    <div class="avail reveal">
+      <p><strong>A note on availability</strong>I take on a small number of clients at a time by design. Each retreat gets deep, hands-on attention from start to finish.</p>
+      <p><strong>Where I work</strong>Remotely with retreat properties anywhere in the world. On-site visits are available in Costa Rica, Panama, Nicaragua and Guatemala.</p>
     </div>
-
   </div>
 </section>
 
 <!-- LATEST FIELD NOTES -->
 <section class="fn-latest" id="field-notes">
-  <div class="inner">
-    <p class="section-label">Field Notes</p>
-    <h2 class="section-title">Practical notes for retreat venue owners</h2>
+  <div class="wrap center">
+    <p class="eyebrow reveal">Field Notes</p>
+    <h2 class="display reveal" style="--d:.06s">Practical notes for <em>retreat venue owners</em></h2>
     <!-- field-notes:latest --><div class="fl-grid"><a class="fl-card" href="/field-notes/retreat-center-high-season-preparation"><img src="https://images.unsplash.com/photo-1774280954999-9758f11f3d41?auto=format&fit=crop&w=760&h=507&q=72" alt="A wooden guest room with a window onto the jungle, towels laid out for arrival" width="760" height="507" loading="lazy"><div class="fl-txt"><p class="fl-k">High season</p><h3>8 weeks to high season: a calmer season and guests who come back</h3><em>Read →</em></div></a><a class="fl-card" href="/field-notes/buying-a-retreat-center-costa-rica"><img src="https://images.unsplash.com/photo-1544646280-e243b3ab7d1e?auto=format&fit=crop&w=760&h=507&q=72" alt="A wooden lodge raised on stilts among tall trees" width="760" height="507" loading="lazy"><div class="fl-txt"><p class="fl-k">Buying a retreat</p><h3>Buying a Retreat Center in Costa Rica: 9 Checks Before You Sign</h3><em>Read →</em></div></a></div><!-- /field-notes:latest -->
-    <a class="fl-all" href="/field-notes/">See all Field Notes →</a>
+    <a class="fl-all link-quiet" href="/field-notes/">See all Field Notes →</a>
   </div>
 </section>
 
-<!-- CTA -->
-<div class="cta-wrap">
-  <div class="cta-photo"></div>
-  <div class="cta-overlay"></div>
-  <section class="cta-section">
-    <div class="inner">
-      <p class="section-label">Start with a conversation</p>
-      <h2 class="cta-title">Your guests come for the experience.<br><em>Let's make the business behind it run.</em></h2>
-      <p class="cta-body">A free 30-minute call about where your venue is and what would help most.</p>
-      <a href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener" class="btn-cta">Book a free call</a>
-      <p class="cta-note">A real conversation, zero obligation.</p>
-      <p class="cta-note cta-alt">Prefer to write first? <a href="mailto:hello@retreatblueprintco.com?subject=Retreat%20Blueprint%20Co.%20inquiry">hello@retreatblueprintco.com</a> or <a href="https://wa.me/16479702759" target="_blank" rel="noopener">WhatsApp</a></p>
-    </div>
-  </section>
-</div>
+<!-- CLOSING INVITATION -->
+<section class="close">
+  <img class="close-img" src="assets/img/hero-1200.jpg" alt="" width="1200" height="800" loading="lazy">
+  <div class="wrap">
+    <p class="eyebrow reveal">Start with a conversation</p>
+    <h2 class="reveal" style="--d:.06s"><span class="sent">Your guests come for the experience.</span> <span class="sent"><em>Let's make the business behind it run.</em></span></h2>
+    <p class="body reveal" style="--d:.12s">A free 30-minute call about where your venue is and what would help most.</p>
+    <a href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener" class="btn btn--light reveal" style="--d:.18s">Book a free call</a>
+    <p class="note">A real conversation, zero obligation.</p>
+    <p class="note">Prefer to write first? <a href="mailto:hello@retreatblueprintco.com?subject=Retreat%20Blueprint%20Co.%20inquiry">hello@retreatblueprintco.com</a> or <a href="https://wa.me/16479702759" target="_blank" rel="noopener">WhatsApp</a></p>
+  </div>
+</section>
 
 <footer>
   <span class="f-brand"><span class="footer-logo">Retreat Blueprint Co.</span><a class="f-li" href="https://www.linkedin.com/in/shila-kandiah" target="_blank" rel="noopener me" aria-label="Shila Kandiah on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></span>
   <span class="footer-copy">© 2026 · <a href="mailto:hello@retreatblueprintco.com?subject=Retreat%20Blueprint%20Co.%20inquiry">hello@retreatblueprintco.com</a></span>
 </footer>
+
+<script src="js/menu.js?v=2026-10-21a" defer></script>
+<script src="js/luxe.js?v=2026-10-30" defer></script>
 
 </body>
 </html>
