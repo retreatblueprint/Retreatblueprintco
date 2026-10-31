@@ -186,25 +186,25 @@ def _svg(vb, body, cls="mk"):
 
 def ripple_body(n, r0=4):
     """Concierge: a centre dot with n widening ripples (flattened, so they read as water)."""
-    parts = [f'<circle cx="30" cy="20" r="{r0}" fill="#D9A55B"/>']
+    parts = [f'<circle cx="60" cy="26" r="{r0 + 1.5}" fill="#D9A55B"/>']
     for k in range(n):
-        rx, op = [12, 20, 28][k], [0.9, 0.65, 0.45][k]
-        parts.append(f'<ellipse cx="30" cy="20" rx="{rx}" ry="{rx * 0.3:.1f}" fill="none" stroke="#B08A5A" stroke-opacity="{op}" {MSTROKE}/>')
+        rx, op = [20, 36, 52][k], [0.9, 0.65, 0.45][k]
+        parts.append(f'<ellipse cx="60" cy="26" rx="{rx}" ry="{rx * 0.36:.1f}" fill="{"rgba(217,165,91,.14)" if k == 0 else "none"}" stroke="#B08A5A" stroke-opacity="{op}" {MSTROKE}/>')
     return "".join(parts)
 
 
 def ripple_steps():
-    return [_svg("0 0 60 40", ripple_body(n)) for n in range(4)]
+    return [_svg("0 0 120 52", ripple_body(n)) for n in range(4)]
 
 
 def ripple_badge(n):
     """Concierge role card: a centre dot with n rings on a shared scale, fading outward."""
     parts = []
-    for k, r in enumerate([7, 13, 19, 25][:n]):
-        fill = "rgba(217,165,91,.16)" if k == 0 else "none"
-        parts.append(f'<circle cx="28" cy="28" r="{r}" fill="{fill}" stroke="#B08A5A" stroke-opacity="{[0.9, 0.7, 0.5, 0.34][k]}" {MSTROKE}/>')
-    parts.append('<circle cx="28" cy="28" r="3.5" fill="#D9A55B"/>')
-    return '<span class="rip">' + _svg("0 0 56 56", "".join(parts), "rm-svg") + "</span>"
+    for k, r in enumerate([11, 20, 29, 37][:n]):
+        fill = "rgba(217,165,91,.2)" if k == 0 else "none"
+        parts.append(f'<circle cx="40" cy="40" r="{r}" fill="{fill}" stroke="#B08A5A" stroke-opacity="{[0.95, 0.72, 0.52, 0.36][k]}" {MSTROKE}/>')
+    parts.append('<circle cx="40" cy="40" r="4.5" fill="#D9A55B"/>')
+    return '<span class="rip">' + _svg("0 0 80 80", "".join(parts), "rm-svg") + "</span>"
 
 
 def spine_steps():
@@ -291,9 +291,9 @@ MOTIF_CSS = """
 .wl::before{content:"";position:absolute;left:0;right:0;top:var(--wl-y,20px);border-top:1px solid rgba(176,138,90,.6)}
 .wl > li{border-top:0;padding-top:0}
 @media (max-width:900px){.wl::before{display:none}}
-.rip{display:block;width:56px;height:56px;margin:0 0 14px}
+.rip{display:block;width:80px;height:80px;margin:0 0 16px}
 .held{width:120px;height:120px;margin:0 0 18px}
-@media (min-width:861px){.co-priv .held{float:right;margin:-6px -6px 12px 28px}}
+.co-priv .held{width:104px;height:104px;margin:0 0 22px}
 .rm-grid{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:56px;align-items:start}
 .rm-grid .dir-month{max-width:none}
 .rm-ring{width:180px;height:180px;margin-top:8px}
@@ -437,7 +437,7 @@ PAGES = [
             ("grid", "Operations Coordinator", "Event preparation, organizer communication, rooming lists and schedules."),
             ("receipt", "Back Office Administrator", "Invoices, payment tracking, spreadsheets and digital records.")]),
         proof=None,
-        how_wl=(ripple_steps(), 20, 60, 40),
+        how_wl=(ripple_steps(), 26, 120, 52),
         how=("How it starts", "From first call to a team that runs it", [
             ("Free call", "Your bookings, your tools, and where the admin piles up."),
             ("Set-up", "Access to your inbox and booking system; your voice, policies and templates handed over."),
