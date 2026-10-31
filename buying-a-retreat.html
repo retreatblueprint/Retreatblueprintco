@@ -333,6 +333,66 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 .rv-body img[hidden]{display:none}
 .rv-body img{width:100%;max-width:860px;height:auto;aspect-ratio:1400/1812;display:block;background:#fff;border-radius:3px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
 @media (max-width:600px){.rv-bar{padding:10px 12px;gap:10px}.rv-t{font-size:.92rem}.rv-count{display:none}.rv-body{padding:14px 8px 40px;gap:12px}}
+
+/* ==========================================================
+   Redesigned sections, grafted into this page (Oct 31):
+   1. What I review: eight-petal rosette beside the numbered list
+   2. What buyers often don't see: dark soil band, roots and four cards
+   3. How it works: moon phases on a thin line, best-time note below
+   Headings use the page's .title (Lora); body text uses the page tokens.
+   ========================================================== */
+:root{--soil:#33261B;--soil-card:#4B3C2F;--amber:#D9A55B;--bronze:#B08A5A;--moon:#FAF6EE}
+
+/* 1. eight areas */
+.areas-sec{background:var(--warm-white)}
+.areas-wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(3rem,6vw,5.5rem);align-items:center}
+.rosette{display:block;width:100%;max-width:440px;height:auto;margin:0 auto}
+.area-list{list-style:none;display:block;margin-top:2.25rem;border-bottom:1px solid var(--border)}
+.area-item{display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 18px;align-items:baseline;padding:16px 0;border-top:1px solid var(--border)}
+.area-item .n{font-family:var(--serif);font-style:italic;font-size:1.5rem;line-height:1;color:var(--bronze)}
+.area-item h4{grid-column:2;font-family:var(--serif);font-weight:400;font-size:1.4rem;line-height:1.2;color:var(--earth)}
+.area-item p{grid-column:2;font-size:.92rem;line-height:1.6;color:var(--earth-mid)}
+
+/* 2. what buyers often don't see: dark soil band */
+.soil-wrap{position:relative;background:var(--warm-white)}
+.soil-top{display:block;width:100%;height:96px}
+.soil{position:relative;background:var(--soil);color:var(--moon);padding:8px 40px 7.5rem}
+.soil .inner{max-width:960px;margin:0 auto}
+.soil-h{font-size:clamp(2rem,3.6vw,2.7rem);line-height:1.2;color:var(--moon);max-width:22ch;margin:0 auto 2.5rem;text-align:center}
+.soil-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.soil-card{padding:28px 24px;border:1px solid rgba(244,238,226,.2);border-radius:6px;background:var(--soil-card);display:grid;gap:12px;align-content:start}
+.soil-card i{font-family:var(--serif);font-style:normal;font-size:1.6rem;line-height:1;color:var(--amber)}
+.soil-card p{font-family:var(--serif);font-size:1.22rem;line-height:1.3;color:var(--moon)}
+
+/* 3. how it works: moon phases on a thin line */
+.moon-timeline{list-style:none;position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:2.75rem}
+.moon-timeline::before{content:"";position:absolute;left:10%;right:10%;top:23px;height:1px;background:rgba(176,138,90,.6)}
+.moon-timeline li{position:relative;text-align:center;padding:0 8px;display:grid;justify-items:center;gap:6px;align-content:start}
+.moon-timeline .moon{display:block;width:48px;height:48px;margin-bottom:14px}
+.moon-timeline .mt-d{font:500 .66rem/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--terracotta)}
+.moon-timeline h4{font-family:var(--serif);font-weight:400;font-size:1.45rem;line-height:1.15;margin-top:4px;color:var(--earth)}
+.moon-timeline p{font-size:.88rem;line-height:1.65;color:var(--earth-mid)}
+.how .timing{margin-top:2.75rem}
+
+/* responsive */
+@media (max-width:1100px){.soil-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:960px){
+  .areas-wrap{grid-template-columns:1fr}
+  .areas-wrap .rosette{max-width:360px}
+}
+@media (max-width:900px){
+  .moon-timeline{grid-template-columns:1fr;gap:2.2rem;padding-left:44px;margin-top:2.25rem}
+  .moon-timeline::before{left:23px;right:auto;top:24px;bottom:24px;width:1px;height:auto;background:linear-gradient(180deg,rgba(217,165,91,.2),var(--amber) 12%,var(--amber) 88%,rgba(217,165,91,.2))}
+  .moon-timeline li{text-align:left;justify-items:start;padding:0;gap:4px}
+  .moon-timeline .moon{position:absolute;left:-44px;top:0;margin:0;width:48px;height:48px}
+  .moon-timeline h4{margin-top:0}
+  .soil{padding:8px 20px 6rem}
+}
+@media (max-width:700px){
+  .soil-top{height:56px}
+  .soil-cards{grid-template-columns:1fr}
+  .area-item{grid-template-columns:36px minmax(0,1fr)}
+}
 </style>
 <!-- Umami analytics (cookie-free). Counts visits plus "Book a call", WhatsApp and email clicks. -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="cfc183e2-a82d-4efb-9e96-f9599b56f316" data-domains="retreatblueprintco.com"></script>
@@ -422,34 +482,35 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
   </div>
 </section>
 
-<div class="band wt wb" style="--wave:var(--warm-white);--wave-b:var(--cream-dark)">
-  <div class="band-bg" aria-hidden="true"></div>
-  <div class="band-ov" aria-hidden="true"></div>
-  <section class="sec">
-    <div class="inner">
+<section class="sec areas-sec" id="areas" aria-labelledby="areas-h">
+  <div class="inner areas-wrap">
+    <div><svg class="rosette" viewBox="0 0 400 400" role="img" aria-label="Eight areas around one venue" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="200" cy="200" r="150" fill="none" stroke="#B08A5A" stroke-opacity=".25"></circle><ellipse cx="200" cy="134" rx="26" ry="66" transform="rotate(0 200 200)" fill="rgba(217,165,91,.14)" stroke="#B08A5A" stroke-width="1.3"></ellipse><ellipse cx="200" cy="134" rx="26" ry="66" transform="rotate(45 200 200)" fill="rgba(217,165,91,.14)" stroke="#B08A5A" stroke-width="1.3"></ellipse><ellipse cx="200" cy="134" rx="26" ry="66" transform="rotate(90 200 200)" fill="rgba(217,165,91,.14)" stroke="#B08A5A" stroke-width="1.3"></ellipse><ellipse cx="200" cy="134" rx="26" ry="66" transform="rotate(135 200 200)" fill="rgba(217,165,91,.14)" stroke="#B08A5A" stroke-width="1.3"></ellipse><ellipse cx="200" cy="134" rx="26" ry="66" transform="rotate(180 200 200)" fill="rgba(217,165,91,.14)" stroke="#B08A5A" stroke-width="1.3"></ellipse><ellipse cx="200" cy="134" rx="26" ry="66" transform="rotate(225 200 200)" fill="rgba(217,165,91,.14)" stroke="#B08A5A" stroke-width="1.3"></ellipse><ellipse cx="200" cy="134" rx="26" ry="66" transform="rotate(270 200 200)" fill="rgba(217,165,91,.14)" stroke="#B08A5A" stroke-width="1.3"></ellipse><ellipse cx="200" cy="134" rx="26" ry="66" transform="rotate(315 200 200)" fill="rgba(217,165,91,.14)" stroke="#B08A5A" stroke-width="1.3"></ellipse><circle cx="200" cy="200" r="30" fill="#FAF6EE" stroke="#B08A5A"></circle><text x="200" y="198" text-anchor="middle" font-family="Lora,Georgia,Georgia,serif" font-size="14" fill="#2B2118">Your</text><text x="200" y="213" text-anchor="middle" font-family="Lora,Georgia,Georgia,serif" font-size="14" fill="#2B2118">venue</text><text x="200.0" y="38.0" text-anchor="middle" font-family="Lora,Georgia,Georgia,serif" font-style="italic" font-size="22" fill="#7A5A36">01</text><text x="318.8" y="87.2" text-anchor="middle" font-family="Lora,Georgia,Georgia,serif" font-style="italic" font-size="22" fill="#7A5A36">02</text><text x="368.0" y="206.0" text-anchor="middle" font-family="Lora,Georgia,Georgia,serif" font-style="italic" font-size="22" fill="#7A5A36">03</text><text x="318.8" y="324.8" text-anchor="middle" font-family="Lora,Georgia,Georgia,serif" font-style="italic" font-size="22" fill="#7A5A36">04</text><text x="200.0" y="374.0" text-anchor="middle" font-family="Lora,Georgia,Georgia,serif" font-style="italic" font-size="22" fill="#7A5A36">05</text><text x="81.2" y="324.8" text-anchor="middle" font-family="Lora,Georgia,Georgia,serif" font-style="italic" font-size="22" fill="#7A5A36">06</text><text x="32.0" y="206.0" text-anchor="middle" font-family="Lora,Georgia,Georgia,serif" font-style="italic" font-size="22" fill="#7A5A36">07</text><text x="81.2" y="87.2" text-anchor="middle" font-family="Lora,Georgia,Georgia,serif" font-style="italic" font-size="22" fill="#7A5A36">08</text></svg></div>
+    <div>
       <p class="label">What I review</p>
-      <h2 class="title">Eight areas, each scored and explained</h2>
+      <h2 class="title" id="areas-h">Eight areas, each scored and explained</h2>
       <p class="lead">An outside view that gives buyer and seller the same clear picture of how the business runs, explained in plain language.</p>
-      <div class="areas">
-        <div class="area"><span class="n">01</span><h4>Revenue &amp; bookings</h4><p>24 months by revenue line, repeat business and future bookings.</p></div>
-        <div class="area"><span class="n">02</span><h4>Demand &amp; channels</h4><p>Where guests come from, and how much rests on one source.</p></div>
-        <div class="area"><span class="n">03</span><h4>Pricing &amp; margins</h4><p>Rates against nearby venues and the true cost of a retreat week.</p></div>
-        <div class="area"><span class="n">04</span><h4>Guest experience</h4><p>Review trends, response times, leader contracts and deposits.</p></div>
-        <div class="area"><span class="n">05</span><h4>Team &amp; owner dependence</h4><p>Who does what, and what lives only in the owner's head.</p></div>
-        <div class="area"><span class="n">06</span><h4>Systems &amp; tools</h4><p>Booking, payments and accounts, and whether they transfer.</p></div>
-        <div class="area"><span class="n">07</span><h4>Operations &amp; suppliers</h4><p>Kitchen, housekeeping, transport and maintenance routines.</p></div>
-        <div class="area"><span class="n">08</span><h4>Compliance &amp; risk</h4><p>Licenses and insurance, flagged for your lawyer.</p></div>
-      </div>
-      <div class="flags">
-        <p class="h">What buyers often don't see until after closing</p>
-        <div class="flag"><span>!</span>Bookings that depend on the owner's personal relationships</div>
-        <div class="flag"><span>!</span>Know-how that lives only in the owner's head</div>
-        <div class="flag"><span>!</span>Booking and payment accounts that don't transfer easily</div>
-        <div class="flag"><span>!</span>Deposits already collected for retreats after closing</div>
+      <div class="area-list">
+        <div class="area-item"><span class="n">01</span><h4>Revenue &amp; bookings</h4><p>24 months by revenue line, repeat business and future bookings.</p></div>
+        <div class="area-item"><span class="n">02</span><h4>Demand &amp; channels</h4><p>Where guests come from, and how much rests on one source.</p></div>
+        <div class="area-item"><span class="n">03</span><h4>Pricing &amp; margins</h4><p>Rates against nearby venues and the true cost of a retreat week.</p></div>
+        <div class="area-item"><span class="n">04</span><h4>Guest experience</h4><p>Review trends, response times, leader contracts and deposits.</p></div>
+        <div class="area-item"><span class="n">05</span><h4>Team &amp; owner dependence</h4><p>Who does what, and what lives only in the owner's head.</p></div>
+        <div class="area-item"><span class="n">06</span><h4>Systems &amp; tools</h4><p>Booking, payments and accounts, and whether they transfer.</p></div>
+        <div class="area-item"><span class="n">07</span><h4>Operations &amp; suppliers</h4><p>Kitchen, housekeeping, transport and maintenance routines.</p></div>
+        <div class="area-item"><span class="n">08</span><h4>Compliance &amp; risk</h4><p>Licenses and insurance, flagged for your lawyer.</p></div>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
+<section class="soil-wrap" aria-labelledby="soil-h">
+  <svg class="soil-top" aria-hidden="true" viewBox="0 0 1200 96" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 40 Q 100 22 200 38 T 400 36 T 600 40 T 800 34 T 1000 40 T 1200 36 L1200 96 L0 96Z" fill="#33261B"></path><path d="M600 38 C 600 66, 450 66, 450 96" fill="none" stroke="#B08A5A" stroke-width="1.6"></path><path d="M600 38 C 600 66, 750 66, 750 96" fill="none" stroke="#B08A5A" stroke-width="1.6"></path><path d="M300 37 C 300 66, 150 66, 150 96" fill="none" stroke="#B08A5A" stroke-width="1.6"></path><path d="M900 37 C 900 66, 1050 66, 1050 96" fill="none" stroke="#B08A5A" stroke-width="1.6"></path></svg>
+  <div class="soil wb" style="--wave-b:var(--cream-dark)">
+    <div class="inner">
+      <h2 class="title soil-h" id="soil-h">What buyers often don't see until after closing</h2>
+      <div class="soil-cards"><div class="soil-card"><i>01</i><p>Bookings that depend on the owner's personal relationships</p></div><div class="soil-card"><i>02</i><p>Know-how that lives only in the owner's head</p></div><div class="soil-card"><i>03</i><p>Booking and payment accounts that don't transfer easily</p></div><div class="soil-card"><i>04</i><p>Deposits already collected for retreats after closing</p></div></div>
+    </div>
+  </div>
+</section>
 
 <section class="sec report" id="sample">
   <div class="inner">
@@ -470,14 +531,8 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
   <div class="inner">
     <p class="label">How it works</p>
     <h2 class="title">7 to 10 business days, inside your due diligence window</h2>
+    <ol class="moon-timeline"><li><svg class="moon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17" fill="#FAF6EE" stroke="#B08A5A" stroke-width="1.3"/></svg><span class="mt-d">Day 1</span><h4>Kickoff call</h4><p>Your goals, budget, timeline and concerns.</p></li><li><svg class="moon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17" fill="#FAF6EE" stroke="#B08A5A" stroke-width="1.3"/><path d="M24 7A17 17 0 0 1 24 41A7 17 0 0 0 24 7Z" fill="#D9A55B"/></svg><span class="mt-d">Days 1–3</span><h4>Data request</h4><p>The seller shares records through your agent.</p></li><li><svg class="moon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17" fill="#FAF6EE" stroke="#B08A5A" stroke-width="1.3"/><path d="M24 7A17 17 0 0 1 24 41Z" fill="#D9A55B"/></svg><span class="mt-d">Days 3–6</span><h4>Analysis</h4><p>Financials, bookings, reviews and a mystery-shop inquiry.</p></li><li><svg class="moon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17" fill="#FAF6EE" stroke="#B08A5A" stroke-width="1.3"/><path d="M24 7A17 17 0 0 1 24 41A10.2 17 0 0 1 24 7Z" fill="#D9A55B"/></svg><span class="mt-d">Days 6–8</span><h4>Walk-through</h4><p><b>On-Site:</b> 2–3 days on the property with the owner and team.<br><b>Desk:</b> a video walk-through and owner call.</p></li><li><svg class="moon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17" fill="#D9A55B" stroke="#B08A5A" stroke-width="1.3"/></svg><span class="mt-d">Days 9–10</span><h4>Report &amp; debrief</h4><p>Your 5-page report and a call on findings and negotiation points.</p></li></ol>
     <div class="timing"><span class="k">The best time to start</span><p>Once your offer is accepted and before you sign the final purchase agreement. Ask your lawyer to make the review a condition of your offer, so you have time to act on what it finds.</p></div>
-    <ol class="steps">
-      <li><span class="d">Day 1</span><h4>Kickoff call</h4><p>Your goals, budget, timeline and concerns.</p></li>
-      <li><span class="d">Days 1–3</span><h4>Data request</h4><p>The seller shares records through your agent.</p></li>
-      <li><span class="d">Days 3–6</span><h4>Analysis</h4><p>Financials, bookings, reviews and a mystery-shop inquiry.</p></li>
-      <li><span class="d">Days 6–8</span><h4>Walk-through</h4><p><b>On-Site:</b> 2–3 days on the property with the owner and team.<br><b>Desk:</b> a video walk-through and owner call.</p></li>
-      <li><span class="d">Days 9–10</span><h4>Report &amp; debrief</h4><p>Your 5-page report and a call on findings and negotiation points.</p></li>
-    </ol>
   </div>
 </section>
 
