@@ -545,6 +545,38 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 .steps .stack{display:block;width:92px;height:auto;margin-bottom:10px;order:-1}
 @media (max-width:520px){.co-motif .art{height:128px}.co-ripple{width:min(100%,190px)}.co-price .co-spine li{font-size:.88rem}}
 
+/* Line motifs (approved): concierge ripples, director spine and rhythm, growth bud to bloom */
+.wl-m{order:-1;display:block;width:var(--wl-w,60px);height:var(--wl-h,40px);margin-bottom:10px}
+.wl-m svg,.rip svg,.lot svg,.lv-m svg,.held svg,.rm-ring svg{display:block;width:100%;height:100%;overflow:visible}
+.wl{position:relative}
+.wl::before{content:"";position:absolute;left:0;right:0;top:var(--wl-y,20px);border-top:1px solid rgba(176,138,90,.6)}
+.wl > li{border-top:0;padding-top:0}
+@media (max-width:900px){.wl::before{display:none}}
+.rip{display:block;width:56px;height:56px;margin:0 0 14px}
+.held{width:120px;height:120px;margin:0 0 18px}
+@media (min-width:861px){.co-priv .held{float:right;margin:-6px -6px 12px 28px}}
+.rm-grid{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:56px;align-items:start}
+.rm-grid .dir-month{max-width:none}
+.rm-ring{width:180px;height:180px;margin-top:8px}
+.rm-ring text{font-family:var(--serif)}
+@media (max-width:860px){.rm-grid{grid-template-columns:minmax(0,1fr)}.rm-ring{order:-1;margin:0 0 8px}}
+.outcomes.gm > div{padding-top:130px}
+.outcomes.gm > div::before{top:88px}
+.lot{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:80px;height:56px}
+.lv-m{display:block;width:96px;height:70px;margin:0 0 6px}
+.split .sp{display:none}
+.split-col::before{content:"";display:block;width:12px;height:12px;border-radius:50%;background:#D9A55B;box-shadow:0 0 0 5px rgba(217,165,91,.22);margin:2px 0 4px}
+.split-col.flex::before{background:linear-gradient(90deg,#D9A55B 50%,#7A5A36 50%);box-shadow:0 0 0 5px rgba(122,90,54,.16)}
+.split-col.mine::before{background:#7A5A36;box-shadow:0 0 0 5px rgba(255,255,255,.14),0 0 0 6px rgba(255,255,255,.4)}
+@media (min-width:901px){
+ .split{position:relative}
+ .split-col{padding-top:62px}
+ .split-col::before{position:absolute;z-index:3;top:26px;left:50%;margin:0 0 0 -6px}
+ .split .sp{display:block;position:absolute;z-index:2;top:32px;height:0;border-top:1px solid #D9A55B}
+ .split .sp1{left:13.33%;width:33.33%}
+ .split .sp2{left:46.67%;width:36.66%;border-top:1.5px dotted #7A5A36}
+}
+
 /* Theme: Concierge Ops */
 :root{--acc:#4A6E4E;--acc-dark:#3A5A3E;--acc-soft:#7A9E7E;--on-band:#C2D6C2;--on-band-soft:#B8D0BA}
 .hero{background:linear-gradient(100deg,rgba(250,248,243,.97) 0%,rgba(250,248,243,.9) 42%,rgba(250,248,243,.35) 72%,rgba(250,248,243,.08) 100%),#3B4A33 url('https://images.unsplash.com/photo-1777913308049-a2c79af7380a?auto=format&fit=crop&q=72&w=2000') 60% 55%/cover !important}
@@ -655,16 +687,16 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
     <h2 class="title">Four roles. <em>Every task named.</em></h2>
     <p class="lead">You hand it over once. After that, this is what gets done every day, including while a retreat is in session, and what stays with you.</p>
     <div class="co-hand">
-      <div class="co-card"><h3>Inquiries and bookings</h3><p class="who">Remote Booking Assistant</p>
+      <div class="co-card"><span class="rip"><svg class="rm-svg" viewBox="0 0 56 56" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="7" fill="rgba(217,165,91,.16)" stroke="#B08A5A" stroke-opacity="0.9" vector-effect="non-scaling-stroke" stroke-width="1.3"/><circle cx="28" cy="28" r="3.5" fill="#D9A55B"/></svg></span><h3>Inquiries and bookings</h3><p class="who">Remote Booking Assistant</p>
         <ul><li>Replies to every inquiry in your voice, within 2 business hours</li><li>Well-timed, polite follow-ups, so interested guests don't go quiet, especially while you are hosting</li><li>Confirmations and reservation details sent</li><li>Calendar and booking sites kept current</li></ul>
         <p class="keep">You keep: pricing decisions and special requests.</p></div>
-      <div class="co-card"><h3>Guest communication</h3><p class="who">Guest Experience Assistant</p>
+      <div class="co-card"><span class="rip"><svg class="rm-svg" viewBox="0 0 56 56" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="7" fill="rgba(217,165,91,.16)" stroke="#B08A5A" stroke-opacity="0.9" vector-effect="non-scaling-stroke" stroke-width="1.3"/><circle cx="28" cy="28" r="13" fill="none" stroke="#B08A5A" stroke-opacity="0.7" vector-effect="non-scaling-stroke" stroke-width="1.3"/><circle cx="28" cy="28" r="3.5" fill="#D9A55B"/></svg></span><h3>Guest communication</h3><p class="who">Guest Experience Assistant</p>
         <ul><li>Pre-arrival emails and forms</li><li>Reminders sent on time, every time</li><li>Questions answered before and after the stay</li><li>Feedback and review requests</li></ul>
         <p class="keep">You keep: the welcome and the experience itself.</p></div>
-      <div class="co-card"><h3>Retreat coordination</h3><p class="who">Operations Coordinator</p>
+      <div class="co-card"><span class="rip"><svg class="rm-svg" viewBox="0 0 56 56" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="7" fill="rgba(217,165,91,.16)" stroke="#B08A5A" stroke-opacity="0.9" vector-effect="non-scaling-stroke" stroke-width="1.3"/><circle cx="28" cy="28" r="13" fill="none" stroke="#B08A5A" stroke-opacity="0.7" vector-effect="non-scaling-stroke" stroke-width="1.3"/><circle cx="28" cy="28" r="19" fill="none" stroke="#B08A5A" stroke-opacity="0.5" vector-effect="non-scaling-stroke" stroke-width="1.3"/><circle cx="28" cy="28" r="3.5" fill="#D9A55B"/></svg></span><h3>Retreat coordination</h3><p class="who">Operations Coordinator</p>
         <ul><li>Organizers, guests and your team kept coordinated in one place</li><li>Rooming lists and schedules ready before arrival</li><li>Event preparation checklists</li></ul>
         <p class="keep">You keep: meeting retreat leaders and hosting.</p></div>
-      <div class="co-card"><h3>Back office</h3><p class="who">Back Office Administrator</p>
+      <div class="co-card"><span class="rip"><svg class="rm-svg" viewBox="0 0 56 56" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="7" fill="rgba(217,165,91,.16)" stroke="#B08A5A" stroke-opacity="0.9" vector-effect="non-scaling-stroke" stroke-width="1.3"/><circle cx="28" cy="28" r="13" fill="none" stroke="#B08A5A" stroke-opacity="0.7" vector-effect="non-scaling-stroke" stroke-width="1.3"/><circle cx="28" cy="28" r="19" fill="none" stroke="#B08A5A" stroke-opacity="0.5" vector-effect="non-scaling-stroke" stroke-width="1.3"/><circle cx="28" cy="28" r="25" fill="none" stroke="#B08A5A" stroke-opacity="0.34" vector-effect="non-scaling-stroke" stroke-width="1.3"/><circle cx="28" cy="28" r="3.5" fill="#D9A55B"/></svg></span><h3>Back office</h3><p class="who">Back Office Administrator</p>
         <ul><li>Invoices sent and payments tracked</li><li>Spreadsheets and records organized in one place</li><li>A month-end summary of what came in</li></ul>
         <p class="keep">You keep: spending and strategy decisions.</p></div>
     </div>
@@ -675,6 +707,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 <section class="sec gap" id="privacy">
   <div class="inner co-priv">
     <div>
+      <div class="held"><svg class="held-svg" viewBox="0 0 130 130" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="65" cy="65" r="40" fill="rgba(217,165,91,.26)"/><circle cx="65" cy="65" r="52" fill="none" stroke="#B08A5A" stroke-opacity="0.9" stroke-width="1.6" vector-effect="non-scaling-stroke"/><circle cx="65" cy="65" r="63" fill="none" stroke="#B08A5A" stroke-opacity="0.45" stroke-width="0.9" vector-effect="non-scaling-stroke"/></svg></div>
       <p class="label">Your accounts and your guests' details</p>
       <h2 class="title">Trusted with your inbox, <em>treated with care.</em></h2>
       <p class="lead">Handing over access takes trust. We protect and manage the privacy of your accounts, your access and your guests' information, so you are never left wondering who can see what.</p>
@@ -712,7 +745,7 @@ window.addEventListener("scroll",chk,{passive:true});chk();
   <div class="inner">
     <p class="label">How it starts</p>
     <h2 class="title">From first call to a team that runs it</h2>
-    <ol class="steps"><li><h4>Free call</h4><p>Your bookings, your tools, and where the admin piles up.</p></li><li><h4>Set-up</h4><p>Access to your inbox and booking system; your voice, policies and templates handed over.</p></li><li><h4>Your team takes over</h4><p>Inquiries, guests, coordination and the back office, handled every day.</p></li><li><h4>Monthly check-in</h4><p>What came in, what got booked, and what to improve next.</p></li></ol>
+    <ol class="steps wl" style="--wl-y:20px;--wl-w:60px;--wl-h:40px"><li><span class="wl-m"><svg class="mk" viewBox="0 0 60 40" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="20" r="4" fill="#D9A55B"/></svg></span><h4>Free call</h4><p>Your bookings, your tools, and where the admin piles up.</p></li><li><span class="wl-m"><svg class="mk" viewBox="0 0 60 40" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="20" r="4" fill="#D9A55B"/><ellipse cx="30" cy="20" rx="12" ry="3.6" fill="none" stroke="#B08A5A" stroke-opacity="0.9" vector-effect="non-scaling-stroke" stroke-width="1.3"/></svg></span><h4>Set-up</h4><p>Access to your inbox and booking system; your voice, policies and templates handed over.</p></li><li><span class="wl-m"><svg class="mk" viewBox="0 0 60 40" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="20" r="4" fill="#D9A55B"/><ellipse cx="30" cy="20" rx="12" ry="3.6" fill="none" stroke="#B08A5A" stroke-opacity="0.9" vector-effect="non-scaling-stroke" stroke-width="1.3"/><ellipse cx="30" cy="20" rx="20" ry="6.0" fill="none" stroke="#B08A5A" stroke-opacity="0.65" vector-effect="non-scaling-stroke" stroke-width="1.3"/></svg></span><h4>Your team takes over</h4><p>Inquiries, guests, coordination and the back office, handled every day.</p></li><li><span class="wl-m"><svg class="mk" viewBox="0 0 60 40" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="20" r="4" fill="#D9A55B"/><ellipse cx="30" cy="20" rx="12" ry="3.6" fill="none" stroke="#B08A5A" stroke-opacity="0.9" vector-effect="non-scaling-stroke" stroke-width="1.3"/><ellipse cx="30" cy="20" rx="20" ry="6.0" fill="none" stroke="#B08A5A" stroke-opacity="0.65" vector-effect="non-scaling-stroke" stroke-width="1.3"/><ellipse cx="30" cy="20" rx="28" ry="8.4" fill="none" stroke="#B08A5A" stroke-opacity="0.45" vector-effect="non-scaling-stroke" stroke-width="1.3"/></svg></span><h4>Monthly check-in</h4><p>What came in, what got booked, and what to improve next.</p></li></ol>
   </div>
 </section>
 <section class="sec faq wt" style="--wave:var(--warm-white)">

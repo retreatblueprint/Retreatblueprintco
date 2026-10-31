@@ -173,6 +173,154 @@ SHARED_CSS = """
 """
 
 
+# ---- Line motifs (approved Oct 31): concierge ripples, director spine and rhythm, growth bud to bloom ----
+MSTROKE = 'vector-effect="non-scaling-stroke" stroke-width="1.3"'
+LOTUS_VB = "16 46 268 190"
+PETALS = {66: (70, 0.14, 0.5), 40: (78, 0.156, 0.7), 16: (84, 0.172, 0.9), 0: (88, 1.0, 1.0)}
+STAGE_ANGLES = {2: [-16, 0, 16], 3: [-40, -16, 0, 16, 40], 4: [-66, -40, -16, 0, 16, 40, 66]}
+
+
+def _svg(vb, body, cls="mk"):
+    return f'<svg class="{cls}" viewBox="{vb}" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">{body}</svg>'
+
+
+def ripple_body(n, r0=4):
+    """Concierge: a centre dot with n widening ripples (flattened, so they read as water)."""
+    parts = [f'<circle cx="30" cy="20" r="{r0}" fill="#D9A55B"/>']
+    for k in range(n):
+        rx, op = [12, 20, 28][k], [0.9, 0.65, 0.45][k]
+        parts.append(f'<ellipse cx="30" cy="20" rx="{rx}" ry="{rx * 0.3:.1f}" fill="none" stroke="#B08A5A" stroke-opacity="{op}" {MSTROKE}/>')
+    return "".join(parts)
+
+
+def ripple_steps():
+    return [_svg("0 0 60 40", ripple_body(n)) for n in range(4)]
+
+
+def ripple_badge(n):
+    """Concierge role card: a centre dot with n rings on a shared scale, fading outward."""
+    parts = []
+    for k, r in enumerate([7, 13, 19, 25][:n]):
+        fill = "rgba(217,165,91,.16)" if k == 0 else "none"
+        parts.append(f'<circle cx="28" cy="28" r="{r}" fill="{fill}" stroke="#B08A5A" stroke-opacity="{[0.9, 0.7, 0.5, 0.34][k]}" {MSTROKE}/>')
+    parts.append('<circle cx="28" cy="28" r="3.5" fill="#D9A55B"/>')
+    return '<span class="rip">' + _svg("0 0 56 56", "".join(parts), "rm-svg") + "</span>"
+
+
+def spine_steps():
+    """Director steps: a dot, a larger dot with halo, then a ring with a dot travelling on it."""
+    one = '<circle cx="30" cy="20" r="4" fill="#D9A55B"/>'
+    two = '<circle cx="30" cy="20" r="12" fill="rgba(217,165,91,.2)"/><circle cx="30" cy="20" r="6" fill="#D9A55B"/>'
+    three = (f'<circle cx="30" cy="20" r="14" fill="none" stroke="#B08A5A" stroke-opacity="0.9" {MSTROKE}/>'
+             '<circle cx="39.9" cy="10.1" r="3.5" fill="#D9A55B"/>')
+    return [_svg("0 0 60 40", b) for b in (one, two, three)]
+
+
+def lotus(stage, bud_ry=None, line=False):
+    """Growth marks from the hero LOTUS petals: stage 1 closed bud, 2 opening, 3 half open, 4 full bloom."""
+    parts = []
+    if line:
+        parts.append(f'<line x1="20" x2="280" y1="230" y2="230" stroke="#B08A5A" stroke-opacity="0.5" {MSTROKE}/>')
+    if stage == 1:
+        ry, rx = (bud_ry, 18) if bud_ry else (64, 14)
+        parts.append(f'<ellipse cx="150" cy="{230 - ry}" rx="{rx}" ry="{ry}" fill="rgba(217,165,91,.2)" stroke="#B08A5A" stroke-opacity="0.9" {MSTROKE}/>')
+    else:
+        for a in sorted(STAGE_ANGLES[stage], key=lambda a: -abs(a)):
+            ry, f, o = PETALS[abs(a)]
+            parts.append(f'<ellipse cx="150" cy="{230 - ry}" rx="24" ry="{ry}" transform="rotate({a} 150 230)" fill="rgba(217,165,91,{f})" stroke="#B08A5A" stroke-opacity="{o}" {MSTROKE}/>')
+    return _svg(LOTUS_VB, "".join(parts), "lm")
+
+
+def bloom_steps():
+    seed = _svg(LOTUS_VB, '<circle cx="150" cy="230" r="20" fill="#D9A55B"/>', "lm")
+    return [seed, lotus(1, bud_ry=40), lotus(4)]
+
+
+def bloom_cards():
+    return [lotus(1, line=True), lotus(2, line=True), lotus(3, line=True), lotus(4, line=True)]
+
+
+LV_BUD = lotus(1, line=True)
+LV_BLOOM = lotus(4, line=True)
+
+HELD = ('<div class="held"><svg class="held-svg" viewBox="0 0 130 130" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">'
+        '<circle cx="65" cy="65" r="40" fill="rgba(217,165,91,.26)"/>'
+        '<circle cx="65" cy="65" r="52" fill="none" stroke="#B08A5A" stroke-opacity="0.9" stroke-width="1.6" vector-effect="non-scaling-stroke"/>'
+        '<circle cx="65" cy="65" r="63" fill="none" stroke="#B08A5A" stroke-opacity="0.45" stroke-width="0.9" vector-effect="non-scaling-stroke"/>'
+        '</svg></div>')
+
+
+def _ring():
+    import math
+    out = [f'<circle cx="90" cy="90" r="76" fill="none" stroke="#B08A5A" stroke-opacity="0.8" {MSTROKE}/>']
+    for deg in (0, 90, 180, 270):  # four week ticks, just outside the ring
+        t = math.radians(deg)
+        x1, y1 = 90 + 76 * math.sin(t), 90 - 76 * math.cos(t)
+        x2, y2 = 90 + 87 * math.sin(t), 90 - 87 * math.cos(t)
+        out.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#B08A5A" stroke-opacity="0.8" {MSTROKE}/>')
+    for y in (14, 166):  # the two scheduled touchpoints, on the ring at week 1 and week 3
+        out.append(f'<circle cx="90" cy="{y}" r="10" fill="rgba(217,165,91,.2)"/><circle cx="90" cy="{y}" r="6" fill="#D9A55B"/>')
+    out.append('<text x="90" y="96" text-anchor="middle" fill="#7A5A36" font-size="20">Month</text>')
+    return ('<svg class="rm-svg" viewBox="0 0 180 180" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">'
+            + "".join(out) + "</svg>")
+
+
+RING = _ring()
+PARTIAL_MARKS = {f"@@RIP{i}@@": ripple_badge(i) for i in range(1, 5)}
+PARTIAL_MARKS.update({"@@HELD@@": HELD, "@@RING@@": RING})
+
+
+def fill_marks(text):
+    for k, v in PARTIAL_MARKS.items():
+        text = text.replace(k, v)
+    return text
+
+
+def how_ol(pg, hs):
+    wl = pg.get("how_wl")
+    cls = (" stones" if pg.get("stacks") else "") + (" wl" if wl else "")
+    style = f' style="--wl-y:{wl[1]}px;--wl-w:{wl[2]}px;--wl-h:{wl[3]}px"' if wl else ""
+    return f'<ol class="steps{cls}"{style}>' + steps(hs, pg.get("stacks"), wl[0] if wl else None) + "</ol>"
+
+
+MOTIF_CSS = """
+/* Line motifs (approved): concierge ripples, director spine and rhythm, growth bud to bloom */
+.wl-m{order:-1;display:block;width:var(--wl-w,60px);height:var(--wl-h,40px);margin-bottom:10px}
+.wl-m svg,.rip svg,.lot svg,.lv-m svg,.held svg,.rm-ring svg{display:block;width:100%;height:100%;overflow:visible}
+.wl{position:relative}
+.wl::before{content:"";position:absolute;left:0;right:0;top:var(--wl-y,20px);border-top:1px solid rgba(176,138,90,.6)}
+.wl > li{border-top:0;padding-top:0}
+@media (max-width:900px){.wl::before{display:none}}
+.rip{display:block;width:56px;height:56px;margin:0 0 14px}
+.held{width:120px;height:120px;margin:0 0 18px}
+@media (min-width:861px){.co-priv .held{float:right;margin:-6px -6px 12px 28px}}
+.rm-grid{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:56px;align-items:start}
+.rm-grid .dir-month{max-width:none}
+.rm-ring{width:180px;height:180px;margin-top:8px}
+.rm-ring text{font-family:var(--serif)}
+@media (max-width:860px){.rm-grid{grid-template-columns:minmax(0,1fr)}.rm-ring{order:-1;margin:0 0 8px}}
+.outcomes.gm > div{padding-top:130px}
+.outcomes.gm > div::before{top:88px}
+.lot{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:80px;height:56px}
+.lv-m{display:block;width:96px;height:70px;margin:0 0 6px}
+.split .sp{display:none}
+.split-col::before{content:"";display:block;width:12px;height:12px;border-radius:50%;background:#D9A55B;box-shadow:0 0 0 5px rgba(217,165,91,.22);margin:2px 0 4px}
+.split-col.flex::before{background:linear-gradient(90deg,#D9A55B 50%,#7A5A36 50%);box-shadow:0 0 0 5px rgba(122,90,54,.16)}
+.split-col.mine::before{background:#7A5A36;box-shadow:0 0 0 5px rgba(255,255,255,.14),0 0 0 6px rgba(255,255,255,.4)}
+@media (min-width:901px){
+ .split{position:relative}
+ .split-col{padding-top:62px}
+ .split-col::before{position:absolute;z-index:3;top:26px;left:50%;margin:0 0 0 -6px}
+ .split .sp{display:block;position:absolute;z-index:2;top:32px;height:0;border-top:1px solid #D9A55B}
+ .split .sp1{left:13.33%;width:33.33%}
+ .split .sp2{left:46.67%;width:36.66%;border-top:1.5px dotted #7A5A36}
+}
+"""
+
+
+SHARED_CSS += MOTIF_CSS
+
+
 def theme_css(t):
     hero, cta = U + t["hero"] + "?auto=format&fit=crop&q=72", U + t["cta"] + "?auto=format&fit=crop&q=72"
     return f"""
@@ -200,15 +348,15 @@ def split_html(pg):
         h, kind, items = col[0], col[1], col[2]
         note = f'<p class="split-note">{col[3]}</p>' if len(col) > 3 else ""
         cells.append(f'<div class="split-col {kind}"><span class="split-k">{h}</span><ul>' + "".join(f"<li>{x}</li>" for x in items) + f"</ul>{note}</div>")
-    return f'<p class="split-intro">{intro}</p><div class="split">{"".join(cells)}</div>' + ('<p class="split-then">What changes for you</p>' if has_out else '')
+    return f'<p class="split-intro">{intro}</p><div class="split"><span class="sp sp1" aria-hidden="true"></span><span class="sp sp2" aria-hidden="true"></span>{"".join(cells)}</div>' + ('<p class="split-then">What changes for you</p>' if has_out else '')
 
 
-def outcomes(items):
-    return "".join(f"<div><b>{b}</b><p>{p}</p></div>" for b, p in items)
+def outcomes(items, marks=None):
+    return "".join(f"<div>" + (f'<span class="lot">{marks[i]}</span>' if marks else "") + f"<b>{b}</b><p>{p}</p></div>" for i, (b, p) in enumerate(items))
 
 
-def steps(items, stacks=False):
-    return "".join((stone_stack(i + 1) if stacks else "") + f"<li><h4>{h}</h4><p>{p}</p></li>" for i, (h, p) in enumerate(items))
+def steps(items, stacks=False, marks=None):
+    return "".join((stone_stack(i + 1) if stacks else "") + "<li>" + (f'<span class="wl-m">{marks[i]}</span>' if marks else "") + f"<h4>{h}</h4><p>{p}</p></li>" for i, (h, p) in enumerate(items))
 
 
 CAIRN = ('<div class="co-motif" aria-hidden="true"><svg class="art" viewBox="0 0 300 340" focusable="false" xmlns="http://www.w3.org/2000/svg">'
@@ -289,6 +437,7 @@ PAGES = [
             ("grid", "Operations Coordinator", "Event preparation, organizer communication, rooming lists and schedules."),
             ("receipt", "Back Office Administrator", "Invoices, payment tracking, spreadsheets and digital records.")]),
         proof=None,
+        how_wl=(ripple_steps(), 20, 60, 40),
         how=("How it starts", "From first call to a team that runs it", [
             ("Free call", "Your bookings, your tools, and where the admin piles up."),
             ("Set-up", "Access to your inbox and booking system; your voice, policies and templates handed over."),
@@ -374,6 +523,7 @@ PAGES = [
         proof=("In practice", "The work doesn't stop at the build", [
             ("Infinity Retreat · Ometepe, Nicaragua", "Kept on as an ongoing consultant after the build", ["Bookings, guests and payments in one system", "Relaunched with a new brand, website and paid ads", "Retained as an ongoing consultant"],
              "Shila has continued working with me as a consultant, a testament to the value she brings and the confidence I have in her abilities.", "Cris Ketch, Founder, Infinity Retreat")]),
+        how_wl=(spine_steps(), 20, 60, 40),
         how=("How it starts", "From first call to a steady rhythm", [
             ("Free call", "Where the business is now, and where you want it to go."),
             ("Operations review", "Your baseline numbers, team and systems, and the first set of priorities."),
@@ -409,10 +559,12 @@ PAGES = [
             ("Content that shows the experience", "Content direction and creation, handled end to end."),
             ("A consistent presence", "Social media systems and scheduling, so posting doesn't wait for a free afternoon."),
             ("A steady pipeline", "Outreach campaigns, a sales funnel and a custom lead generator.")]),
+        changes_marks=bloom_cards(),
         band=("levels", "Choose your level", "From strategy only to fully managed", "levels", None),
         proof=("In practice", "A venue relaunched and back in front of guests", [
             ("Revive · Infinity Retreat, Ometepe", "Relaunched with a new brand, website and paid ads", ["Marketing rebrand and website", "Content strategy", "Paid ads across Costa Rica and Nicaragua", "Custom lead generation app"],
              None, None)]),
+        how_wl=(bloom_steps(), 43, 64, 44),
         how=("How it starts", "From first call to campaigns going out", [
             ("Free call", "Your guests, your goals, and what's worked so far."),
             ("Strategy", "Positioning, channels and a content plan."),
@@ -436,9 +588,9 @@ OTHERS = {
 }
 
 LEVELS_HTML = """<div class="levels">
-        <div class="level lite"><span class="k">Strategy only</span><h3>The plan, ready for your team</h3><p>For venues with someone to run marketing day to day, who need the direction.</p>
+        <div class="level lite"><span class="lv-m">@@BUD@@</span><span class="k">Strategy only</span><h3>The plan, ready for your team</h3><p>For venues with someone to run marketing day to day, who need the direction.</p>
           <ul><li>Marketing strategy and positioning</li><li>Content direction</li></ul></div>
-        <div class="level full"><span class="k">Fully managed</span><h3>Strategy plus a dedicated team</h3><p>Everything in strategy only, then executed for you, end to end.</p>
+        <div class="level full"><span class="lv-m">@@BLOOM@@</span><span class="k">Fully managed</span><h3>Strategy plus a dedicated team</h3><p>Everything in strategy only, then executed for you, end to end.</p>
           <ul><li>Dedicated marketing lead, fully managed</li><li>Content creation handled end to end</li><li>Social media systems and scheduling</li><li>Outreach campaigns and sales funnel</li><li>Custom lead generator</li></ul>
           <span class="plus">Scope discussed on inquiry</span></div>
       </div>"""
@@ -502,7 +654,7 @@ def build(pg):
     <p class="label">{pg['changes'][0]}</p>
     <h2 class="title">{pg['changes'][1]}</h2>
     {split_html(pg)}
-    {('<div class="outcomes' + (' three' if len(pg['changes'][2]) == 3 else '') + '">' + outcomes(pg['changes'][2]) + '</div>') if pg['changes'][2] else ''}
+    {('<div class="outcomes' + (' three' if len(pg['changes'][2]) == 3 else '') + (' gm' if pg.get('changes_marks') else '') + '">' + outcomes(pg['changes'][2], pg.get('changes_marks')) + '</div>') if pg['changes'][2] else ''}
     {pg.get("after_changes","")}
   </div>
 </section>
@@ -519,7 +671,7 @@ def build(pg):
             inner = '<ol class="cycle">' + "".join(f"<li><span>{i + 1:02d}</span><b>{h}</b><p>{t}</p></li>" for i, (h, t) in enumerate(items)) + "</ol>" \
                     '<p class="cycle-loop"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6 M20 4v4h-4"/></svg>Then again next month, with the numbers to show what moved.</p>'
         else:
-            inner = LEVELS_HTML
+            inner = LEVELS_HTML.replace("@@BUD@@", LV_BUD).replace("@@BLOOM@@", LV_BLOOM)
         out.append(f'''<div class="band wt wb" id="{bid}" style="--wave:var(--cream-dark);--wave-b:var(--warm-white)">
       <div class="band-bg" aria-hidden="true"></div>
       <div class="band-ov" aria-hidden="true"></div>
@@ -533,7 +685,7 @@ def build(pg):
     </div>
     ''')
     if pg.get("builder"):
-        out.append(open(pg["builder"]).read())
+        out.append(fill_marks(open(pg["builder"]).read()))
     if pg.get("compare"):
         cl, ct, cols3 = pg["compare"]
         cells = "".join(('<div class="cmp on"><span class="pick">Best fit for most retreats</span>' if on else '<div class="cmp">') + f"<h3>{h}</h3><ul>" + "".join(f"<li>{x}</li>" for x in lis) + "</ul></div>" for h, lis, on in cols3)
@@ -546,7 +698,7 @@ def build(pg):
 </section>
 ''')
     if pg.get("main"):
-        out = [out[0].split('<section class="sec gap">')[0], open(pg["main"]).read()]
+        out = [out[0].split('<section class="sec gap">')[0], fill_marks(open(pg["main"]).read())]
     after_band = "var(--warm-white)"
     if pg["proof"]:
         plabel, ptitle, cards = pg["proof"]
@@ -572,7 +724,7 @@ def build(pg):
   <div class="inner">
     <p class="label">{hl}</p>
     <h2 class="title">{ht}</h2>
-    <ol class="steps{' stones' if pg.get('stacks') else ''}">{steps(hs, pg.get('stacks'))}</ol>
+    {how_ol(pg, hs)}
   </div>
 </section>
 ''')
