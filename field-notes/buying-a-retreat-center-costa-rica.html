@@ -398,6 +398,11 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
   .soil-cards{grid-template-columns:1fr}
   .area-item{grid-template-columns:36px minmax(0,1fr)}
 }
+
+/* FAQ sprout toggles (Oct 31): one petal closed, three open */
+.faq summary::after{content:""!important;flex:none;width:24px;height:24px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cpath d='M13 25V14' stroke='%23B08A5A' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M13 14C8 12 6.5 7 13 1C19.5 7 18 12 13 14Z' fill='rgba(217,165,91,.22)' stroke='%23B08A5A' stroke-width='1.2'/%3E%3C/svg%3E") center/contain no-repeat!important;transform:none!important;transition:transform .35s ease}
+.faq details[open] summary::after{content:""!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cpath d='M13 25V14' stroke='%23B08A5A' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M13 14C8 12 3 9 3 4C8 4 11 8 13 14Z' fill='rgba(217,165,91,.22)' stroke='%23B08A5A' stroke-width='1.2'/%3E%3Cpath d='M13 14C18 12 23 9 23 4C18 4 15 8 13 14Z' fill='rgba(217,165,91,.22)' stroke='%23B08A5A' stroke-width='1.2'/%3E%3Cpath d='M13 14C8 12 6.5 7 13 1C19.5 7 18 12 13 14Z' fill='rgba(217,165,91,.3)' stroke='%23B08A5A' stroke-width='1.2'/%3E%3C/svg%3E")!important;transform:none!important}
+.faq summary:hover::after{transform:translateY(-1px)!important}
 </style>
 <!-- Umami analytics (cookie-free). Counts visits plus "Book a call", WhatsApp and email clicks. -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="cfc183e2-a82d-4efb-9e96-f9599b56f316" data-domains="retreatblueprintco.com"></script>
