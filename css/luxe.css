@@ -349,9 +349,9 @@ nav.is-scrolled { background: rgba(244, 238, 226, .93); backdrop-filter: blur(14
 .fn-head .eyebrow { margin-bottom: 1.25rem; }
 .fn-head .display { font-size: clamp(2.1rem, 4.2vw, 3.5rem); }
 .fn-head .link-quiet { white-space: nowrap; }
-.fl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; max-width: 900px; }
+.fl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
 .fl-card { display: flex; flex-direction: column; text-decoration: none; color: var(--ink); }
-.fl-media { position: relative; aspect-ratio: 16 / 10; border-radius: 16px; overflow: hidden; background: var(--sand); }
+.fl-media { position: relative; aspect-ratio: 2 / 1; border-radius: 16px; overflow: hidden; background: var(--sand); }
 .fl-media img { width: 100%; height: 100%; object-fit: cover; filter: sepia(.18) saturate(.92) brightness(1.02); transition: transform 1.2s var(--ease); }
 .fl-card:hover .fl-media img { transform: scale(1.03); }
 .fl-k { position: absolute; left: 18px; top: 18px; padding: 7px 14px; border-radius: 999px; background: rgba(250, 246, 238, .92); font: 500 .66rem/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--thatch); }
