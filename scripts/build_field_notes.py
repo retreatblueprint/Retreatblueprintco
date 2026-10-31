@@ -208,7 +208,7 @@ CSS = """
 .fn-sources{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:.86rem;line-height:1.6;color:var(--earth-mid)}
 .fn-sources h2{font-size:1.15rem;margin:0 0 .75rem}
 .fn-sources li{margin-bottom:.3rem}
-.fn-sources li:target{background:#FFF6D6}
+.fn-sources li:target{background:rgba(217,165,91,.22)}
 .fn-disclaimer{margin-top:1rem;font-style:italic;color:var(--muted)}
 .fn-author{max-width:720px;margin:0 auto 72px;padding:0 24px}
 .fn-author > div{display:grid;grid-template-columns:72px 1fr;gap:18px;align-items:center;border-top:1px solid var(--border);padding-top:28px}
@@ -243,6 +243,13 @@ CSS = """
 .fn-photo figcaption{font-style:italic}
 .fn-hero img{border-radius:0}
 @media (max-width:640px){.fn-field{font-size:1.06rem}.fn-next{padding:22px}}
+/* luxe finish: a leaf above the pull quote, stone bullets on the checklist, the sun glyph between hairlines */
+.fn-field{position:relative;padding-top:0}
+.fn-field::before{content:"";display:block;width:40px;height:26px;margin-bottom:12px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 26'%3E%3Cpath d='M20 24C20 14 12 8 4 6C6 16 12 22 20 24Z' fill='rgba(217,165,91,.2)' stroke='%23B08A5A' stroke-width='1.2'/%3E%3Cpath d='M20 24C20 14 28 8 36 6C34 16 28 22 20 24Z' fill='rgba(217,165,91,.2)' stroke='%23B08A5A' stroke-width='1.2'/%3E%3C/svg%3E") left center/contain no-repeat}
+.fn-check li::before{width:20px;height:12px;border-radius:50%;border:1px solid var(--honey);background:rgba(217,165,91,.18);top:1.05rem;left:0}
+.sun-wrap{max-width:720px;margin:0 auto;padding:0 24px}
+.sun-wrap .sun-rule{margin:3.5rem 0 0}
+@media (max-width:640px){.sun-wrap{padding:0 16px}}
 mark.todo{background:#FFF0A8;color:var(--earth);padding:2px 5px;border-radius:3px;font-family:var(--sans);font-size:.92em}
 .fn-draft{background:#FFF0A8;text-align:center;font-size:.85rem;padding:8px 16px}
 /* index */
@@ -288,8 +295,15 @@ def head(title, desc, url, og_image, jsonld, og_type="article"):
     return h.replace("</head>", extra + "</head>", 1)
 
 
+SUN_RULE = ('<div class="sun-rule" aria-hidden="true"><span></span>'
+            '<svg width="44" height="22" viewBox="0 0 44 22"><path d="M2 18 H42" stroke="#B08A5A" stroke-opacity=".5"/>'
+            '<path d="M10 18 A12 12 0 0 1 34 18" fill="none" stroke="#B08A5A" stroke-width="1.3"/>'
+            '<circle cx="22" cy="10" r="3.2" fill="#D9A55B"/></svg><span></span></div>')
+
+
 def tail():
-    return f'''<section class="sec cta wt" style="--wave:var(--warm-white)">
+    return f'''<div class="sun-wrap">{SUN_RULE}</div>
+<section class="sec cta">
   <div class="cta-ov" aria-hidden="true"></div>
   <div class="inner">
     <p class="label">Start with a conversation</p>
@@ -315,6 +329,7 @@ def build_article(a):
     body = body.replace('<p class="fn-k">From the field</p>', '<p class="fn-k">A note from the field</p>')
     body = body.replace('<p class="fn-k">The next step</p>', '<p class="fn-k">Want a second pair of eyes?</p>')
     body = body.replace(' onclick="window.print()"', '')
+    body = body.replace('<div class="fn-check">', SUN_RULE + '<div class="fn-check">')
     body = body.replace("{{mid_cta}}", f'<p class="fn-mid"><span>{a["mid_cta"]}</span><a href="{svc_href}">{svc_text} →</a></p>')
     body = re.sub(r"\{\{chart:([\w-]+)\}\}", lambda m: chart_html(m.group(1)), body)
     body = re.sub(r"\{\{photo:([^|}]+)\|([^|}]+)(?:\|([^}]*))?\}\}", lambda m: photo_html(m.group(1).strip(), m.group(2).strip(), (m.group(3) or "").strip()), body)
