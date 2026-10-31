@@ -523,7 +523,7 @@ PAGES = [
         proof=("In practice", "The work doesn't stop at the build", [
             ("Infinity Retreat · Ometepe, Nicaragua", "Kept on as an ongoing consultant after the build", ["Bookings, guests and payments in one system", "Relaunched with a new brand, website and paid ads", "Retained as an ongoing consultant"],
              "Shila has continued working with me as a consultant, a testament to the value she brings and the confidence I have in her abilities.", "Cris Ketch, Founder, Infinity Retreat")]),
-        how_wl=(spine_steps(), 20, 60, 40),
+        how_wl=(spine_steps(), 32, 96, 64),
         how=("How it starts", "From first call to a steady rhythm", [
             ("Free call", "Where the business is now, and where you want it to go."),
             ("Operations review", "Your baseline numbers, team and systems, and the first set of priorities."),
@@ -564,7 +564,7 @@ PAGES = [
         proof=("In practice", "A venue relaunched and back in front of guests", [
             ("Revive · Infinity Retreat, Ometepe", "Relaunched with a new brand, website and paid ads", ["Marketing rebrand and website", "Content strategy", "Paid ads across Costa Rica and Nicaragua", "Custom lead generation app"],
              None, None)]),
-        how_wl=(bloom_steps(), 43, 64, 44),
+        how_wl=(bloom_steps(), 69, 102, 70),
         how=("How it starts", "From first call to campaigns going out", [
             ("Free call", "Your guests, your goals, and what's worked so far."),
             ("Strategy", "Positioning, channels and a content plan."),
