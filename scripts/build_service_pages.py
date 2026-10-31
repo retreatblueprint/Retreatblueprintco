@@ -161,7 +161,7 @@ SHARED_CSS = """
 .co-motif .art{display:block;height:150px;width:auto;max-width:100%}
 .co-ripple{position:relative;width:min(100%,220px);margin:2px auto 8px}
 .co-ripple svg{display:block;width:100%;height:auto}
-.co-ripple-t{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44%;text-align:center;font-family:var(--serif);font-size:.92rem;line-height:1.25;color:var(--earth)}
+.co-ripple-t{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56%;text-align:center;font-family:var(--serif);font-size:.84rem;line-height:1.25;color:var(--earth)}
 .co-price ol.co-spine{list-style:none;position:relative;display:grid;width:max-content;max-width:100%;margin:4px auto 6px;padding:0}
 .co-price .co-spine::before{content:"";position:absolute;left:5px;top:15px;bottom:15px;width:1px;background:rgba(176,138,90,.6)}
 .co-price .co-spine li{position:relative;display:block;height:30px;line-height:30px;padding:0 0 0 28px;margin:0;font-family:var(--serif);font-size:1.02rem;color:var(--earth);white-space:nowrap}
