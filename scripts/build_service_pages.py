@@ -159,17 +159,17 @@ SHARED_CSS = """
 /* Line-drawn motifs (Oct 31): inside the hero price card, and a stone stack above each Foundation step */
 .co-motif{display:flex;justify-content:center;align-items:center;margin:2px 0 4px}
 .co-motif .art{display:block;height:150px;width:auto;max-width:100%}
-.co-ripple{position:relative;width:min(100%,264px);margin:2px auto 4px}
+.co-ripple{position:relative;width:min(100%,220px);margin:2px auto 8px}
 .co-ripple svg{display:block;width:100%;height:auto}
-.co-ripple-t{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66%;text-align:center;font-family:var(--serif);font-size:.92rem;line-height:1.25;color:var(--earth)}
+.co-ripple-t{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44%;text-align:center;font-family:var(--serif);font-size:.92rem;line-height:1.25;color:var(--earth)}
 .co-price ol.co-spine{list-style:none;position:relative;display:grid;width:max-content;max-width:100%;margin:4px auto 6px;padding:0}
-.co-price .co-spine::before{content:"";position:absolute;left:5px;top:11px;bottom:11px;width:1px;background:rgba(176,138,90,.6)}
-.co-price .co-spine li{position:relative;display:block;height:22px;line-height:22px;padding:0 0 0 24px;margin:0;font-family:var(--serif);font-size:.95rem;color:var(--earth);white-space:nowrap}
-.co-price .co-spine li::before{content:"";position:absolute;left:0;top:6px;width:10px;height:10px;border-radius:50%;background:#D9A55B;box-shadow:0 0 0 4px rgba(217,165,91,.2)}
+.co-price .co-spine::before{content:"";position:absolute;left:5px;top:15px;bottom:15px;width:1px;background:rgba(176,138,90,.6)}
+.co-price .co-spine li{position:relative;display:block;height:30px;line-height:30px;padding:0 0 0 28px;margin:0;font-family:var(--serif);font-size:1.02rem;color:var(--earth);white-space:nowrap}
+.co-price .co-spine li::before{content:"";position:absolute;left:0;top:10px;width:10px;height:10px;border-radius:50%;background:#D9A55B;box-shadow:0 0 0 4px rgba(217,165,91,.2)}
 .co-price .co-spine li.deep::before{background:#7A5A36;box-shadow:0 0 0 4px rgba(122,90,54,.16)}
-.co-price .co-spine li.ground::after{content:"";position:absolute;left:0;right:0;bottom:-1px;border-top:1.5px dotted #7A5A36}
+.co-price .co-spine li.ground{margin-bottom:14px}.co-price .co-spine li.ground::after{content:"";position:absolute;left:-14px;right:-14px;bottom:-8px;border-top:1.5px dotted #7A5A36}
 .steps .stack{display:block;width:56px;height:auto;margin-bottom:4px;order:-1}
-@media (max-width:520px){.co-motif .art{height:128px}.co-ripple{width:min(100%,220px)}.co-price .co-spine li{font-size:.88rem}}
+@media (max-width:520px){.co-motif .art{height:128px}.co-ripple{width:min(100%,190px)}.co-price .co-spine li{font-size:.88rem}}
 """
 
 
@@ -221,12 +221,12 @@ CAIRN = ('<div class="co-motif" aria-hidden="true"><svg class="art" viewBox="0 0
          '<ellipse cx="150" cy="151.2" rx="30" ry="14" fill="#F3EBDA" stroke="#B08A5A" stroke-width="1.4"/>'
          '</svg></div>')
 
-RIPPLE = ('<div class="co-ripple" aria-hidden="true"><svg viewBox="0 0 380 230" focusable="false" xmlns="http://www.w3.org/2000/svg">'
-          '<ellipse cx="190" cy="115" rx="92" ry="50" fill="rgba(217,165,91,.22)" stroke="#B08A5A" stroke-opacity=".9" stroke-width="1.2"/>'
-          '<ellipse cx="190" cy="115" rx="118" ry="64" fill="none" stroke="#B08A5A" stroke-opacity=".7" stroke-width="1.2"/>'
-          '<ellipse cx="190" cy="115" rx="144" ry="79" fill="none" stroke="#B08A5A" stroke-opacity=".5" stroke-width="1.2"/>'
-          '<ellipse cx="190" cy="115" rx="168" ry="92" fill="none" stroke="#B08A5A" stroke-opacity=".35" stroke-width="1.2"/>'
-          '<ellipse cx="190" cy="115" rx="186" ry="102" fill="none" stroke="#B08A5A" stroke-opacity=".2" stroke-width="1.2"/>'
+RIPPLE = ('<div class="co-ripple" aria-hidden="true"><svg viewBox="0 0 340 340" focusable="false" xmlns="http://www.w3.org/2000/svg">'
+          '<circle cx="170" cy="170" r="70" fill="rgba(217,165,91,.22)" stroke="#B08A5A" stroke-opacity=".9" stroke-width="1.3"/>'
+          '<circle cx="170" cy="170" r="96" fill="none" stroke="#B08A5A" stroke-opacity=".7" stroke-width="1.3"/>'
+          '<circle cx="170" cy="170" r="122" fill="none" stroke="#B08A5A" stroke-opacity=".5" stroke-width="1.3"/>'
+          '<circle cx="170" cy="170" r="146" fill="none" stroke="#B08A5A" stroke-opacity=".35" stroke-width="1.3"/>'
+          '<circle cx="170" cy="170" r="167" fill="none" stroke="#B08A5A" stroke-opacity=".2" stroke-width="1.3"/>'
           '</svg><span class="co-ripple-t">Replies within<br>2 business hours</span></div>')
 
 SPINE = ('<ol class="co-spine">'
