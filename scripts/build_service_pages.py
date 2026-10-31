@@ -364,10 +364,10 @@ PAGES = [
 ]
 
 OTHERS = {
-    "foundation-sprint": ("Foundation Sprint", "The systems your retreat runs on, built in one go.", "From $100 · build your own quote →"),
-    "fractional-operations-director": ("Fractional Retreat Operations Director", "Your part-time COO, month to month.", "From $1,000 USD / month →"),
-    "concierge-ops": ("Concierge Ops", "Your day-to-day admin, handled.", "From $250 USD / month →"),
-    "growth-marketing": ("Growth Marketing", "Get your retreat seen by the right people.", "Pricing on inquiry →"),
+    "foundation-sprint": ("Foundation Sprint", "The systems behind a smooth stay, built piece by piece: bookings, payments, guest communication and your numbers.", "From $100 · build your own quote →"),
+    "fractional-operations-director": ("Fractional Retreat Operations Director", "Your part-time operations director for the guest experience, the numbers, the team and the systems.", "From $1,000 USD / month →"),
+    "concierge-ops": ("Concierge Ops", "Every inquiry and guest message answered in your voice, so guests feel looked after from the first email.", "From $250 USD / month →"),
+    "growth-marketing": ("Growth Marketing", "Strategy, content and outreach so the right guests and retreat leaders find you and know what to expect.", "Pricing on inquiry →"),
     "buying-a-retreat": ("Buying a retreat?", "Pre-purchase review and your first 90 days.", "From $1,200 USD →"),
 }
 

@@ -452,10 +452,13 @@ def update_latest(arts):
         print("latest: no markers in", path)
         return
     live = [a for a in arts if a["status"] == "published"][:3]
+    # two large cards: 3:2 photo with the topic as a pill, the serif title, the article's meta description, a quiet link
     cards = "".join(
         f'<a class="fl-card" href="/field-notes/{a["slug"]}">'
+        f'<div class="fl-media">'
         + (f'<img src="{photo_url(a["hero"]["photo"], 760, 507)}" alt="{html.escape(a["hero"]["alt"])}" width="760" height="507" loading="lazy">' if a.get("hero") else "")
-        + f'<div class="fl-txt"><p class="fl-k">{a["topic"]}</p><h3>{a["title"]}</h3><em>Read →</em></div></a>'
+        + f'<span class="fl-k">{html.escape(a["topic"])}</span></div>'
+        f'<div class="fl-txt"><h3>{html.escape(a["title"])}</h3><p class="fl-desc">{html.escape(a["description"])}</p><em>Read the note →</em></div></a>'
         for a in live)
     block = f'<!-- field-notes:latest --><div class="fl-grid">{cards}</div><!-- /field-notes:latest -->'
     new = LATEST_RE.sub(lambda m: block, src, count=1)
