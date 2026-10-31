@@ -458,7 +458,7 @@ def update_latest(arts):
         f'<div class="fl-media">'
         + (f'<img src="{photo_url(a["hero"]["photo"], 760, 507)}" alt="{html.escape(a["hero"]["alt"])}" width="760" height="507" loading="lazy">' if a.get("hero") else "")
         + f'<span class="fl-k">{html.escape(a["topic"])}</span></div>'
-        f'<div class="fl-txt"><h3>{html.escape(a["title"])}</h3><p class="fl-desc">{html.escape(a["description"])}</p><em>Read the note →</em></div></a>'
+        f'<div class="fl-txt"><h3>{html.escape(a["title"])}</h3><p class="fl-desc">{html.escape(a.get("dek") or a["description"])}</p><em>Read the note →</em></div></a>'
         for a in live)
     block = f'<!-- field-notes:latest --><div class="fl-grid">{cards}</div><!-- /field-notes:latest -->'
     new = LATEST_RE.sub(lambda m: block, src, count=1)
