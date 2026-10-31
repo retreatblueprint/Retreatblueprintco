@@ -245,6 +245,9 @@ CSS = """
 @media (max-width:640px){.fn-field{font-size:1.06rem}.fn-next{padding:22px}}
 mark.todo{background:#FFF0A8;color:var(--earth);padding:2px 5px;border-radius:3px;font-family:var(--sans);font-size:.92em}
 .fn-draft{background:#FFF0A8;text-align:center;font-size:.85rem;padding:8px 16px}
+/* Line-drawn finishes (Oct 31): a leaf above the pull quote, stone-shaped bullets on the checklist */
+.fn-field::before{content:"";display:block;width:40px;height:26px;margin-bottom:12px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 26'%3E%3Cpath d='M20 24C20 14 12 8 4 6C6 16 12 22 20 24Z' fill='rgba(217,165,91,.2)' stroke='%23B08A5A' stroke-width='1.2'/%3E%3Cpath d='M20 24C20 14 28 8 36 6C34 16 28 22 20 24Z' fill='rgba(217,165,91,.2)' stroke='%23B08A5A' stroke-width='1.2'/%3E%3C/svg%3E") left center/contain no-repeat}
+.fn-check li::before{width:20px;height:12px;border-radius:50%;border:1.2px solid #B08A5A;background:rgba(217,165,91,.18);top:1.05rem;left:0}
 /* index */
 .fn-list{max-width:820px;margin:0 auto;padding:48px 24px 88px;display:grid;gap:18px}
 .fn-card{display:grid;gap:8px;padding:28px;border:1px solid var(--border);border-radius:8px;background:var(--warm-white);text-decoration:none;color:var(--earth);transition:border-color .2s,transform .2s,box-shadow .2s}

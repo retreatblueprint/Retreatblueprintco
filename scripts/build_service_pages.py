@@ -156,6 +156,20 @@ SHARED_CSS = """
 .btn.primary:hover{background:var(--acc-dark);border-color:var(--acc-dark)}
 @media (max-width:900px){.outcomes,.others{grid-template-columns:repeat(2,minmax(0,1fr))}.roles,.levels{grid-template-columns:1fr}.cycle{grid-template-columns:1fr 1fr}.cycle li::after{display:none}.how .steps{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.outcomes,.others,.cycle{grid-template-columns:1fr}.how .steps{grid-template-columns:1fr}}
+/* Line-drawn motifs (Oct 31): inside the hero price card, and a stone stack above each Foundation step */
+.co-motif{display:flex;justify-content:center;align-items:center;margin:2px 0 4px}
+.co-motif .art{display:block;height:150px;width:auto;max-width:100%}
+.co-ripple{position:relative;width:min(100%,264px);margin:2px auto 4px}
+.co-ripple svg{display:block;width:100%;height:auto}
+.co-ripple-t{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66%;text-align:center;font-family:var(--serif);font-size:.92rem;line-height:1.25;color:var(--earth)}
+.co-price ol.co-spine{list-style:none;position:relative;display:grid;width:max-content;max-width:100%;margin:4px auto 6px;padding:0}
+.co-price .co-spine::before{content:"";position:absolute;left:5px;top:11px;bottom:11px;width:1px;background:rgba(176,138,90,.6)}
+.co-price .co-spine li{position:relative;display:block;height:22px;line-height:22px;padding:0 0 0 24px;margin:0;font-family:var(--serif);font-size:.95rem;color:var(--earth);white-space:nowrap}
+.co-price .co-spine li::before{content:"";position:absolute;left:0;top:6px;width:10px;height:10px;border-radius:50%;background:#D9A55B;box-shadow:0 0 0 4px rgba(217,165,91,.2)}
+.co-price .co-spine li.deep::before{background:#7A5A36;box-shadow:0 0 0 4px rgba(122,90,54,.16)}
+.co-price .co-spine li.ground::after{content:"";position:absolute;left:0;right:0;bottom:-1px;border-top:1.5px dotted #7A5A36}
+.steps .stack{display:block;width:56px;height:auto;margin-bottom:4px;order:-1}
+@media (max-width:520px){.co-motif .art{height:128px}.co-ripple{width:min(100%,220px)}.co-price .co-spine li{font-size:.88rem}}
 """
 
 
@@ -193,8 +207,58 @@ def outcomes(items):
     return "".join(f"<div><b>{b}</b><p>{p}</p></div>" for b, p in items)
 
 
-def steps(items):
-    return "".join(f"<li><h4>{h}</h4><p>{p}</p></li>" for h, p in items)
+def steps(items, stacks=False):
+    return "".join((stone_stack(i + 1) if stacks else "") + f"<li><h4>{h}</h4><p>{p}</p></li>" for i, (h, p) in enumerate(items))
+
+
+CAIRN = ('<div class="co-motif" aria-hidden="true"><svg class="art" viewBox="0 0 300 340" focusable="false" xmlns="http://www.w3.org/2000/svg">'
+         '<circle cx="150" cy="120" r="100" fill="rgba(217,165,91,.12)"/>'
+         '<line x1="30" y1="334" x2="270" y2="334" stroke="#B08A5A" stroke-opacity=".5"/>'
+         '<ellipse cx="150" cy="300" rx="96" ry="30" fill="#F3EBDA" stroke="#B08A5A" stroke-width="1.4"/>'
+         '<ellipse cx="156" cy="253.5" rx="78" ry="26" fill="#F3EBDA" stroke="#B08A5A" stroke-width="1.4"/>'
+         '<ellipse cx="146" cy="213.2" rx="60" ry="22" fill="#F3EBDA" stroke="#B08A5A" stroke-width="1.4"/>'
+         '<ellipse cx="153" cy="179.1" rx="44" ry="18" fill="#F3EBDA" stroke="#B08A5A" stroke-width="1.4"/>'
+         '<ellipse cx="150" cy="151.2" rx="30" ry="14" fill="#F3EBDA" stroke="#B08A5A" stroke-width="1.4"/>'
+         '</svg></div>')
+
+RIPPLE = ('<div class="co-ripple" aria-hidden="true"><svg viewBox="0 0 380 230" focusable="false" xmlns="http://www.w3.org/2000/svg">'
+          '<ellipse cx="190" cy="115" rx="92" ry="50" fill="rgba(217,165,91,.22)" stroke="#B08A5A" stroke-opacity=".9" stroke-width="1.2"/>'
+          '<ellipse cx="190" cy="115" rx="118" ry="64" fill="none" stroke="#B08A5A" stroke-opacity=".7" stroke-width="1.2"/>'
+          '<ellipse cx="190" cy="115" rx="144" ry="79" fill="none" stroke="#B08A5A" stroke-opacity=".5" stroke-width="1.2"/>'
+          '<ellipse cx="190" cy="115" rx="168" ry="92" fill="none" stroke="#B08A5A" stroke-opacity=".35" stroke-width="1.2"/>'
+          '<ellipse cx="190" cy="115" rx="186" ry="102" fill="none" stroke="#B08A5A" stroke-opacity=".2" stroke-width="1.2"/>'
+          '</svg><span class="co-ripple-t">Replies within<br>2 business hours</span></div>')
+
+SPINE = ('<ol class="co-spine">'
+         '<li>Guest experience</li><li>Community</li><li class="ground">Visibility</li>'
+         '<li class="deep">Finances</li><li class="deep">Systems</li><li class="deep">Team</li><li class="deep">Safety and trust</li>'
+         '</ol>')
+
+LOTUS = ('<div class="co-motif" aria-hidden="true"><svg class="art" viewBox="0 0 300 290" focusable="false" xmlns="http://www.w3.org/2000/svg">'
+         '<ellipse cx="150" cy="160" rx="24" ry="70" transform="rotate(-66 150 230)" fill="rgba(217,165,91,0.14)" stroke="#B08A5A" stroke-opacity="0.5" stroke-width="1.3"/>'
+         '<ellipse cx="150" cy="160" rx="24" ry="70" transform="rotate(66 150 230)" fill="rgba(217,165,91,0.14)" stroke="#B08A5A" stroke-opacity="0.5" stroke-width="1.3"/>'
+         '<ellipse cx="150" cy="152" rx="24" ry="78" transform="rotate(-40 150 230)" fill="rgba(217,165,91,0.156)" stroke="#B08A5A" stroke-opacity="0.7" stroke-width="1.3"/>'
+         '<ellipse cx="150" cy="152" rx="24" ry="78" transform="rotate(40 150 230)" fill="rgba(217,165,91,0.156)" stroke="#B08A5A" stroke-opacity="0.7" stroke-width="1.3"/>'
+         '<ellipse cx="150" cy="146" rx="24" ry="84" transform="rotate(-16 150 230)" fill="rgba(217,165,91,0.172)" stroke="#B08A5A" stroke-opacity="0.9" stroke-width="1.3"/>'
+         '<ellipse cx="150" cy="146" rx="24" ry="84" transform="rotate(16 150 230)" fill="rgba(217,165,91,0.172)" stroke="#B08A5A" stroke-opacity="0.9" stroke-width="1.3"/>'
+         '<ellipse cx="150" cy="142" rx="24" ry="88" transform="rotate(0 150 230)" fill="rgba(217,165,91,0.18)" stroke="#B08A5A" stroke-opacity="1" stroke-width="1.3"/>'
+         '<path d="M30 248 Q 150 240 270 248" fill="none" stroke="#B08A5A" stroke-opacity="0.5"/>'
+         '<path d="M38 257 Q 150 249 262 257" fill="none" stroke="#B08A5A" stroke-opacity="0.36"/>'
+         '<path d="M46 266 Q 150 258 254 266" fill="none" stroke="#B08A5A" stroke-opacity="0.22"/>'
+         '</svg></div>')
+
+# Hero motif per service page (inside .co-price, above the price)
+MOTIFS = {"foundation-sprint": CAIRN, "concierge-ops": RIPPLE, "fractional-operations-director": SPINE, "growth-marketing": LOTUS}
+
+
+def stone_stack(n):
+    """A small stack of n stones (1 to 4), sitting on one baseline."""
+    rx = [24, 19, 14, 10]
+    cx = [29, 26, 32, 28]
+    parts = ['<line x1="6" y1="67" x2="54" y2="67" stroke="#B08A5A" stroke-opacity=".5"/>']
+    for i in range(n):
+        parts.append(f'<ellipse cx="{cx[i]}" cy="{58 - 12 * i}" rx="{rx[i]}" ry="7" fill="#F3EBDA" stroke="#B08A5A" stroke-width="1.3"/>')
+    return '<svg class="stack" viewBox="0 0 60 70" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">' + "".join(parts) + "</svg>"
 
 
 PAGES = [
@@ -243,7 +307,7 @@ PAGES = [
         cta_title="Give every guest your full attention. We'll handle the admin.",
     ),
     dict(
-        slug="foundation-sprint", kw="Retreat center systems setup", menu="/foundation-sprint", name="Foundation Sprint",
+        slug="foundation-sprint", stacks=True, kw="Retreat center systems setup", menu="/foundation-sprint", name="Foundation Sprint",
         title="Retreat Center Systems Setup: Booking, Payments & SOPs · Foundation Sprint",
         desc="Set up your retreat center's booking system, payments, numbers, guest communication and SOPs in one focused build. From $100: build your own quote, no minimum.",
         og="Foundation Sprint: the systems your retreat runs on, built in one go.",
@@ -425,6 +489,7 @@ def build(pg):
     </div>
     <div class="co-price">
       <span class="k">{p['k']}</span>
+      {MOTIFS.get(pg['slug'], '')}
       <p class="amt">{p['amt']}</p>
       <p>{p['note']}</p>
       <ul>{''.join(f'<li>{i}</li>' for i in p['items'])}</ul>
@@ -507,7 +572,7 @@ def build(pg):
   <div class="inner">
     <p class="label">{hl}</p>
     <h2 class="title">{ht}</h2>
-    <ol class="steps">{steps(hs)}</ol>
+    <ol class="steps{' stones' if pg.get('stacks') else ''}">{steps(hs, pg.get('stacks'))}</ol>
   </div>
 </section>
 ''')

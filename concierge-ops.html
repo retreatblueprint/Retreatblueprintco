@@ -70,7 +70,12 @@ a{color:inherit}
 .hero h1 em{color:var(--sage-dark)}
 .hero .lead{margin-bottom:1rem}
 .hint{font-size:.85rem;color:var(--earth-mid);margin-bottom:2rem;max-width:600px}
-.who{display:grid;gap:12px}
+.who{display:grid;gap:0}
+.who-card{position:relative;padding-right:76px!important}
+.who-moon{position:absolute;top:18px;right:18px;width:42px;height:42px}
+.who-link{position:relative;height:44px;display:flex;align-items:center;justify-content:center}
+.who-link::before{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:1.5px dotted #D9A55B}
+.who-link span{position:relative;background:rgba(253,252,249,.94);border:1px solid rgba(176,138,90,.45);border-radius:999px;padding:3px 12px;font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#7A5A36}
 .who-card{background:rgba(253,252,249,.94);border:1px solid var(--border);border-radius:6px;padding:20px 22px;display:grid;gap:4px}
 .who-card .k{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
 .who-card .h{font-family:var(--serif);font-size:1.2rem;line-height:1.3}
@@ -334,6 +339,66 @@ footer .f-logo{font-family:var(--serif);color:var(--earth)}
 .rv-body img[hidden]{display:none}
 .rv-body img{width:100%;max-width:860px;height:auto;aspect-ratio:1400/1812;display:block;background:#fff;border-radius:3px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
 @media (max-width:600px){.rv-bar{padding:10px 12px;gap:10px}.rv-t{font-size:.92rem}.rv-count{display:none}.rv-body{padding:14px 8px 40px;gap:12px}}
+
+/* ==========================================================
+   Redesigned sections, grafted into this page (Oct 31):
+   1. What I review: eight-petal rosette beside the numbered list
+   2. What buyers often don't see: dark soil band, roots and four cards
+   3. How it works: moon phases on a thin line, best-time note below
+   Headings use the page's .title (Lora); body text uses the page tokens.
+   ========================================================== */
+:root{--soil:#33261B;--soil-card:#4B3C2F;--amber:#D9A55B;--bronze:#B08A5A;--moon:#FAF6EE}
+
+/* 1. eight areas */
+.areas-sec{background:var(--warm-white)}
+.areas-wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(3rem,6vw,5.5rem);align-items:center}
+.rosette{display:block;width:100%;max-width:440px;height:auto;margin:0 auto}
+.area-list{list-style:none;display:block;margin-top:2.25rem;border-bottom:1px solid var(--border)}
+.area-item{display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 18px;align-items:baseline;padding:16px 0;border-top:1px solid var(--border)}
+.area-item .n{font-family:var(--serif);font-style:italic;font-size:1.5rem;line-height:1;color:var(--bronze)}
+.area-item h4{grid-column:2;font-family:var(--serif);font-weight:400;font-size:1.4rem;line-height:1.2;color:var(--earth)}
+.area-item p{grid-column:2;font-size:.92rem;line-height:1.6;color:var(--earth-mid)}
+
+/* 2. what buyers often don't see: dark soil band */
+.soil-wrap{position:relative;background:var(--warm-white)}
+.soil-top{display:block;width:100%;height:96px}
+.soil{position:relative;background:var(--soil);color:var(--moon);padding:8px 40px 7.5rem}
+.soil .inner{max-width:960px;margin:0 auto}
+.soil-h{font-size:clamp(2rem,3.6vw,2.7rem);line-height:1.2;color:var(--moon);max-width:22ch;margin:0 auto 2.5rem;text-align:center}
+.soil-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.soil-card{padding:28px 24px;border:1px solid rgba(244,238,226,.2);border-radius:6px;background:var(--soil-card);display:grid;gap:12px;align-content:start}
+.soil-card i{font-family:var(--serif);font-style:normal;font-size:1.6rem;line-height:1;color:var(--amber)}
+.soil-card p{font-family:var(--serif);font-size:1.22rem;line-height:1.3;color:var(--moon)}
+
+/* 3. how it works: moon phases on a thin line */
+.moon-timeline{list-style:none;position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:2.75rem}
+.moon-timeline::before{content:"";position:absolute;left:10%;right:10%;top:23px;height:1px;background:rgba(176,138,90,.6)}
+.moon-timeline li{position:relative;text-align:center;padding:0 8px;display:grid;justify-items:center;gap:6px;align-content:start}
+.moon-timeline .moon{display:block;width:48px;height:48px;margin-bottom:14px}
+.moon-timeline .mt-d{font:500 .66rem/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--terracotta)}
+.moon-timeline h4{font-family:var(--serif);font-weight:400;font-size:1.45rem;line-height:1.15;margin-top:4px;color:var(--earth)}
+.moon-timeline p{font-size:.88rem;line-height:1.65;color:var(--earth-mid)}
+.how .timing{margin-top:2.75rem}
+
+/* responsive */
+@media (max-width:1100px){.soil-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:960px){
+  .areas-wrap{grid-template-columns:1fr}
+  .areas-wrap .rosette{max-width:360px}
+}
+@media (max-width:900px){
+  .moon-timeline{grid-template-columns:1fr;gap:2.2rem;padding-left:44px;margin-top:2.25rem}
+  .moon-timeline::before{left:23px;right:auto;top:24px;bottom:24px;width:1px;height:auto;background:linear-gradient(180deg,rgba(217,165,91,.2),var(--amber) 12%,var(--amber) 88%,rgba(217,165,91,.2))}
+  .moon-timeline li{text-align:left;justify-items:start;padding:0;gap:4px}
+  .moon-timeline .moon{position:absolute;left:-44px;top:0;margin:0;width:48px;height:48px}
+  .moon-timeline h4{margin-top:0}
+  .soil{padding:8px 20px 6rem}
+}
+@media (max-width:700px){
+  .soil-top{height:56px}
+  .soil-cards{grid-template-columns:1fr}
+  .area-item{grid-template-columns:36px minmax(0,1fr)}
+}
 </style>
 <!-- Umami analytics (cookie-free). Counts visits plus "Book a call", WhatsApp and email clicks. -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="cfc183e2-a82d-4efb-9e96-f9599b56f316" data-domains="retreatblueprintco.com"></script>
@@ -460,6 +525,20 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 .btn.primary:hover{background:var(--acc-dark);border-color:var(--acc-dark)}
 @media (max-width:900px){.outcomes,.others{grid-template-columns:repeat(2,minmax(0,1fr))}.roles,.levels{grid-template-columns:1fr}.cycle{grid-template-columns:1fr 1fr}.cycle li::after{display:none}.how .steps{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.outcomes,.others,.cycle{grid-template-columns:1fr}.how .steps{grid-template-columns:1fr}}
+/* Line-drawn motifs (Oct 31): inside the hero price card, and a stone stack above each Foundation step */
+.co-motif{display:flex;justify-content:center;align-items:center;margin:2px 0 4px}
+.co-motif .art{display:block;height:150px;width:auto;max-width:100%}
+.co-ripple{position:relative;width:min(100%,264px);margin:2px auto 4px}
+.co-ripple svg{display:block;width:100%;height:auto}
+.co-ripple-t{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66%;text-align:center;font-family:var(--serif);font-size:.92rem;line-height:1.25;color:var(--earth)}
+.co-price ol.co-spine{list-style:none;position:relative;display:grid;width:max-content;max-width:100%;margin:4px auto 6px;padding:0}
+.co-price .co-spine::before{content:"";position:absolute;left:5px;top:11px;bottom:11px;width:1px;background:rgba(176,138,90,.6)}
+.co-price .co-spine li{position:relative;display:block;height:22px;line-height:22px;padding:0 0 0 24px;margin:0;font-family:var(--serif);font-size:.95rem;color:var(--earth);white-space:nowrap}
+.co-price .co-spine li::before{content:"";position:absolute;left:0;top:6px;width:10px;height:10px;border-radius:50%;background:#D9A55B;box-shadow:0 0 0 4px rgba(217,165,91,.2)}
+.co-price .co-spine li.deep::before{background:#7A5A36;box-shadow:0 0 0 4px rgba(122,90,54,.16)}
+.co-price .co-spine li.ground::after{content:"";position:absolute;left:0;right:0;bottom:-1px;border-top:1.5px dotted #7A5A36}
+.steps .stack{display:block;width:56px;height:auto;margin-bottom:4px;order:-1}
+@media (max-width:520px){.co-motif .art{height:128px}.co-ripple{width:min(100%,220px)}.co-price .co-spine li{font-size:.88rem}}
 
 /* Theme: Concierge Ops */
 :root{--acc:#4A6E4E;--acc-dark:#3A5A3E;--acc-soft:#7A9E7E;--on-band:#C2D6C2;--on-band-soft:#B8D0BA}
@@ -512,6 +591,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
     </div>
     <div class="co-price">
       <span class="k">Monthly</span>
+      <div class="co-ripple" aria-hidden="true"><svg viewBox="0 0 380 230" focusable="false" xmlns="http://www.w3.org/2000/svg"><ellipse cx="190" cy="115" rx="92" ry="50" fill="rgba(217,165,91,.22)" stroke="#B08A5A" stroke-opacity=".9" stroke-width="1.2"/><ellipse cx="190" cy="115" rx="118" ry="64" fill="none" stroke="#B08A5A" stroke-opacity=".7" stroke-width="1.2"/><ellipse cx="190" cy="115" rx="144" ry="79" fill="none" stroke="#B08A5A" stroke-opacity=".5" stroke-width="1.2"/><ellipse cx="190" cy="115" rx="168" ry="92" fill="none" stroke="#B08A5A" stroke-opacity=".35" stroke-width="1.2"/><ellipse cx="190" cy="115" rx="186" ry="102" fill="none" stroke="#B08A5A" stroke-opacity=".2" stroke-width="1.2"/></svg><span class="co-ripple-t">Replies within<br>2 business hours</span></div>
       <p class="amt">From $250 <small>USD / month</small></p>
       <p>Priced on your average monthly bookings, team size and retreat capacity. 3-month minimum.</p>
       <ul><li>Replies within 2 business hours</li><li>Works inside your current inbox</li><li>Your accounts and guest details kept private</li><li>Led by your Retreat Operations Director</li></ul>
