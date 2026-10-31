@@ -545,6 +545,38 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 .steps .stack{display:block;width:92px;height:auto;margin-bottom:10px;order:-1}
 @media (max-width:520px){.co-motif .art{height:128px}.co-ripple{width:min(100%,190px)}.co-price .co-spine li{font-size:.88rem}}
 
+/* Line motifs (approved): concierge ripples, director spine and rhythm, growth bud to bloom */
+.wl-m{order:-1;display:block;width:var(--wl-w,60px);height:var(--wl-h,40px);margin-bottom:10px}
+.wl-m svg,.rip svg,.lot svg,.lv-m svg,.held svg,.rm-ring svg{display:block;width:100%;height:100%;overflow:visible}
+.wl{position:relative}
+.wl::before{content:"";position:absolute;left:0;right:0;top:var(--wl-y,20px);border-top:1px solid rgba(176,138,90,.6)}
+.wl > li{border-top:0;padding-top:0}
+@media (max-width:900px){.wl::before{display:none}}
+.rip{display:block;width:56px;height:56px;margin:0 0 14px}
+.held{width:120px;height:120px;margin:0 0 18px}
+@media (min-width:861px){.co-priv .held{float:right;margin:-6px -6px 12px 28px}}
+.rm-grid{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:56px;align-items:start}
+.rm-grid .dir-month{max-width:none}
+.rm-ring{width:180px;height:180px;margin-top:8px}
+.rm-ring text{font-family:var(--serif)}
+@media (max-width:860px){.rm-grid{grid-template-columns:minmax(0,1fr)}.rm-ring{order:-1;margin:0 0 8px}}
+.outcomes.gm > div{padding-top:130px}
+.outcomes.gm > div::before{top:88px}
+.lot{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:80px;height:56px}
+.lv-m{display:block;width:96px;height:70px;margin:0 0 6px}
+.split .sp{display:none}
+.split-col::before{content:"";display:block;width:12px;height:12px;border-radius:50%;background:#D9A55B;box-shadow:0 0 0 5px rgba(217,165,91,.22);margin:2px 0 4px}
+.split-col.flex::before{background:linear-gradient(90deg,#D9A55B 50%,#7A5A36 50%);box-shadow:0 0 0 5px rgba(122,90,54,.16)}
+.split-col.mine::before{background:#7A5A36;box-shadow:0 0 0 5px rgba(255,255,255,.14),0 0 0 6px rgba(255,255,255,.4)}
+@media (min-width:901px){
+ .split{position:relative}
+ .split-col{padding-top:62px}
+ .split-col::before{position:absolute;z-index:3;top:26px;left:50%;margin:0 0 0 -6px}
+ .split .sp{display:block;position:absolute;z-index:2;top:32px;height:0;border-top:1px solid #D9A55B}
+ .split .sp1{left:13.33%;width:33.33%}
+ .split .sp2{left:46.67%;width:36.66%;border-top:1.5px dotted #7A5A36}
+}
+
 /* Theme: Foundation Sprint */
 :root{--acc:#985033;--acc-dark:#7E4029;--acc-soft:#C98A63;--on-band:#E6D3C3;--on-band-soft:#DDB797}
 .hero{background:linear-gradient(100deg,rgba(250,248,243,.97) 0%,rgba(250,248,243,.9) 42%,rgba(250,248,243,.35) 72%,rgba(250,248,243,.08) 100%),#5A4832 url('https://images.unsplash.com/photo-1771526087720-e6fc37b442fe?auto=format&fit=crop&q=72&w=2000') 70% 55%/cover !important}
