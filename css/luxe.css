@@ -442,3 +442,15 @@ footer { background: var(--jungle-deep); color: rgba(244, 238, 226, .72); paddin
   .door .arch img, .fl-media img, .btn, .nav-cta, .door-go { transition: none; }
   .hero-arch .arch img { transform: scale(1.04); }
 }
+
+/* The numbers behind a well-run retreat (Nov 1) */
+.metrics { background: var(--limewash-hi); padding: var(--sec) 0; }
+.metrics .lead { margin-top: 1.25rem; }
+.metrics-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: clamp(2.5rem, 5vw, 3.5rem); background: var(--hair); border: 1px solid var(--hair); border-radius: 18px; overflow: hidden; }
+.metric { background: var(--limewash-hi); padding: clamp(1.5rem, 3vw, 2.25rem); display: grid; gap: .35rem; align-content: start; }
+.metric b { font: 300 clamp(2.2rem, 3.6vw, 3rem)/1 var(--serif); color: var(--thatch); letter-spacing: .01em; }
+.metric .m-k { font: 500 .7rem/1.4 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--ink); margin-top: .35rem; }
+.metric p { font-size: .95rem; line-height: 1.7; color: var(--ink-soft); }
+.metrics-close { margin-top: 2rem; max-width: 62ch; font: italic 400 clamp(1.15rem, 1.8vw, 1.35rem)/1.5 var(--serif); color: var(--thatch); }
+@media (max-width: 900px) { .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .metrics-grid { grid-template-columns: 1fr; } }
