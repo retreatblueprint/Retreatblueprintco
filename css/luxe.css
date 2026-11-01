@@ -524,3 +524,14 @@ footer { background: var(--jungle-deep); color: rgba(244, 238, 226, .72); paddin
   .nb-leaf { width: 80px; height: 80px; margin: 0; }
   .nb-band p { grid-column: 1; grid-row: 2; }
 }
+.nb-h { margin-top: 1.5rem; font-size: clamp(2.4rem, 4.6vw, 4.1rem); line-height: 1.08; max-width: 19ch; }
+.nb-h em { color: #4F6248; }
+.nb-grid { grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); margin-top: 2.25rem; }
+.nb-lead { margin-top: 0; }
+.nm { grid-template-columns: 72px minmax(0, 1fr); gap: 1.25rem; padding: 1.6rem 1.5rem 1.6rem 1.5rem; }
+.nm:nth-child(odd) { padding-left: 0; }
+.nm-ic { width: 72px; height: 72px; } .nm-ic svg { width: 34px; height: 34px; }
+.nm b { font-size: clamp(2rem, 2.8vw, 2.5rem); }
+.nm p { font-size: .95rem; }
+@media (max-width: 1000px) { .nb-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .nm, .nm:nth-child(odd) { padding: 1.4rem 0; grid-template-columns: 60px minmax(0, 1fr); } .nm-ic { width: 60px; height: 60px; } }
