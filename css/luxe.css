@@ -475,3 +475,9 @@ footer { background: var(--jungle-deep); color: rgba(244, 238, 226, .72); paddin
 .stop-measure span { display: block; font: 500 .62rem/1.4 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--honey); margin-bottom: 2px; }
 /* Services: pillars each door strengthens */
 .door-pillars { display: block; margin-top: .6rem; font: 500 .66rem/1.5 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--thatch); }
+.hero { padding: 6.25rem 0 2.5rem; }
+.hero h1 { font-size: clamp(2.6rem, 4.4vw, 4rem); margin-bottom: 1.2rem; }
+.hero .eyebrow { margin-bottom: 1rem; }
+.hero-actions { gap: 1.5rem 2.25rem; }
+.venue-below .venue-card--dark h3 { font-size: 24px; }
+.venue-below .venue-card--dark { padding: 22px 20px 24px; }
