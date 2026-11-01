@@ -667,7 +667,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 .dir-month b{font-family:var(--serif);font-weight:400;font-size:1.1rem;color:var(--acc-dark)}
 .dir-month span{color:var(--earth-mid);line-height:1.7}
 @media(max-width:640px){.dir-month li{grid-template-columns:minmax(0,1fr);gap:4px}}
-.dir-who{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:2rem;padding:0}
+.dir-who{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:2rem;padding:0}@media(max-width:1000px){.dir-who{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.dir-who{grid-template-columns:1fr}}
 .dir-who li{background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:18px 20px;display:grid;gap:6px}
 .dir-who b{font-family:var(--serif);font-weight:400;font-size:1.12rem;color:var(--acc-dark);line-height:1.3}
 .dir-who span{color:var(--earth-mid);font-size:.92rem;line-height:1.55}
