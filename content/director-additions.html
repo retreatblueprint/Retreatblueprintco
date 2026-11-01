@@ -20,18 +20,28 @@
 .dir-month b{font-family:var(--serif);font-weight:400;font-size:1.1rem;color:var(--acc-dark)}
 .dir-month span{color:var(--earth-mid);line-height:1.7}
 @media(max-width:640px){.dir-month li{grid-template-columns:minmax(0,1fr);gap:4px}}
+.dir-who{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:2rem;padding:0}
+.dir-who li{background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:18px 20px;display:grid;gap:6px}
+.dir-who b{font-family:var(--serif);font-weight:400;font-size:1.12rem;color:var(--acc-dark);line-height:1.3}
+.dir-who span{color:var(--earth-mid);font-size:.92rem;line-height:1.55}
+.why-toggle{margin-top:1.75rem}
+.why-toggle>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border:1px solid var(--acc-soft);border-radius:999px;font-weight:500;font-size:.92rem;color:var(--acc-dark);background:var(--warm-white)}
+.why-toggle>summary::-webkit-details-marker{display:none}
+.why-toggle>summary::after{content:"+";font-size:1.1rem;line-height:1}
+.why-toggle[open]>summary::after{content:"\2013"}
+.why-toggle[open]>summary{margin-bottom:.25rem}
 </style>
 <section class="sec" id="who">
   <div class="inner">
     <p class="label">Who it's for</p>
     <h2 class="title">Retreat venue owners who want <em>a partner in operations.</em></h2>
-    <ol class="dir-month">
-      <li><b>More than one property</b><span>One operations lead across all your venues, with data-driven direction and a full summary of the numbers.</span></li>
-      <li><b>Living offsite</b><span>Someone to manage your venue operations day to day, and everything in it, while you are away.</span></li>
-      <li><b>Focused on the experience</b><span>You keep the fun, guest-facing side. I take the serious business: the numbers, the systems and the team.</span></li>
-      <li><b>Every decision runs through you</b><span>When the business waits on you, it can only grow as fast as you can. I help unblock it, so it can grow.</span></li>
-      <li><b>Ready for a plan</b><span>Priorities, budget and forecast set with you, so the next offer or hire is a considered decision.</span></li>
-    </ol>
+    <ul class="dir-who">
+      <li><b>More than one property</b><span>One operations lead across every venue.</span></li>
+      <li><b>Living offsite</b><span>Your venue run day to day while you're away.</span></li>
+      <li><b>Focused on the experience</b><span>You host. I handle the numbers, systems and team.</span></li>
+      <li><b>Every decision runs through you</b><span>Unblock the business so it can grow.</span></li>
+      <li><b>Ready for a plan</b><span>Budget and forecast before the next offer or hire.</span></li>
+    </ul>
   </div>
 </section>
 
@@ -41,12 +51,12 @@
     <p class="label">What a month looks like</p>
     <h2 class="title">A steady rhythm, <em>agreed up front.</em></h2>
     <ol class="dir-month">
-      <li><b>Early in the month</b><span>Numbers review: revenue, ROI, EBITDA and guest retention, against your budget and forecast.</span></li>
-      <li><b>First touchpoint</b><span>Priorities for the month, and the decisions that have been waiting on you.</span></li>
-      <li><b>In between</b><span>I lead the team, refine the SOPs, and keep messages, coordination and automations running efficiently.</span></li>
-      <li><b>Second touchpoint</b><span>What moved, what is next, and the plan for the season ahead.</span></li>
+      <li><b>Early in the month</b><span>Numbers review against your budget and forecast.</span></li>
+      <li><b>First touchpoint</b><span>Priorities, and the decisions waiting on you.</span></li>
+      <li><b>In between</b><span>Team led, SOPs refined, systems running.</span></li>
+      <li><b>Second touchpoint</b><span>What moved, and what is next.</span></li>
     </ol>
-    <p class="dir-note">The hours depend on the level you choose, and are agreed before we start.</p>
+    <p class="dir-note">Hours are agreed before we start.</p>
     </div>
     <div class="rm-ring">@@RING@@</div>
   </div>
@@ -56,15 +66,18 @@
   <div class="inner">
     <p class="label">Why fractional</p>
     <h2 class="title">Senior leadership, <em>without the full-time cost.</em></h2>
-    <p class="lead">A full-time operations manager is a full salary. Many retreat venues need the leadership, the numbers and the systems, not another full-time salary.</p>
-    <div class="why-table">
-      <div class="why-row why-head"><span class="k"></span><span class="f">Fractional director</span><span class="h">Full-time hire</span></div>
-      <div class="why-row"><span class="k">Cost</span><span class="f">From $1,000 a month, agreed before we start</span><span class="h">A full salary, every month of the year</span></div>
-      <div class="why-row"><span class="k">Time to start</span><span class="f">A free call, then an operations review</span><span class="h">Months to recruit and onboard</span></div>
-      <div class="why-row"><span class="k">Experience</span><span class="f">10 years of operations management across healthcare, wellness and hospitality</span><span class="h">Depends on who applies, and who you can afford</span></div>
-      <div class="why-row"><span class="k">Low season</span><span class="f">Hours sized to your retreat and agreed with you</span><span class="h">Hard to scale back when bookings dip</span></div>
-      <div class="why-row"><span class="k">Day to day</span><span class="f">Two scheduled touchpoints a month, the team led in between, and Concierge Ops for daily admin</span><span class="h">Present every day</span></div>
-    </div>
-    <p class="why-note">Need someone on site every day? A full-time hire may be the better fit. If what you are missing is leadership, clear numbers and systems that run, this is the lighter way to get it.</p>
+    <p class="lead">Leadership, numbers and systems, without another full-time salary.</p>
+    <details class="why-toggle">
+      <summary>Compare with a full-time hire</summary>
+      <div class="why-table">
+        <div class="why-row why-head"><span class="k"></span><span class="f">Fractional director</span><span class="h">Full-time hire</span></div>
+        <div class="why-row"><span class="k">Cost</span><span class="f">From $1,000 a month</span><span class="h">A full salary, all year</span></div>
+        <div class="why-row"><span class="k">Time to start</span><span class="f">A free call, then a review</span><span class="h">Months to recruit</span></div>
+        <div class="why-row"><span class="k">Experience</span><span class="f">10 years in operations: healthcare, wellness, hospitality</span><span class="h">Depends on who applies</span></div>
+        <div class="why-row"><span class="k">Low season</span><span class="f">Hours sized to your retreat</span><span class="h">Hard to scale back</span></div>
+        <div class="why-row"><span class="k">Day to day</span><span class="f">Two touchpoints a month, team led in between</span><span class="h">Present every day</span></div>
+      </div>
+      <p class="why-note">Need someone on site every day? A full-time hire may suit you better.</p>
+    </details>
   </div>
 </section>
