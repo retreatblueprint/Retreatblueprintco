@@ -510,7 +510,7 @@ PAGES = [
                    band_pattern=topo("#9CC4C6"), band_grad="linear-gradient(160deg,#1E4547 0%,#163638 55%,#0F2829 100%)", band_glow="rgba(156,196,198,.18)"),
         label="For retreat venues · Monthly · Your part-time COO", tag="Senior operations leadership,<br><em>without a full-time hire.</em>",
         lead="I run the operations side of your venue with you: the systems, the numbers and the team that does the work.",
-        jump=("#role", "What the role covers ↓"),
+        jump=("#month", "See a typical month ↓"),
         price=dict(k="Monthly retainer", amt="From $1,000 <small>USD / month</small>", note="Operations leadership at a fraction of a full-time salary. 6-month minimum.",
                    items=["Two scheduled touchpoints a month", "Owns operations priorities with you", "P&amp;L, budget and forecast owned", "Team leadership, SOPs and growth planning"]),
         changes=("How we work together", "You keep the vision. <em>I take the operations.</em>", []),
