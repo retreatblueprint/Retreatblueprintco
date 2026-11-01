@@ -454,3 +454,24 @@ footer { background: var(--jungle-deep); color: rgba(244, 238, 226, .72); paddin
 .metrics-close { margin-top: 2rem; max-width: 62ch; font: italic 400 clamp(1.15rem, 1.8vw, 1.35rem)/1.5 var(--serif); color: var(--thatch); }
 @media (max-width: 900px) { .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .metrics-grid { grid-template-columns: 1fr; } }
+
+/* Hero fits one screen (Nov 1) */
+.hero { padding: 7.5rem 0 3.5rem; }
+.hero h1 { margin-bottom: 1.4rem; }
+.hero-sub { font-size: 1rem; line-height: 1.7; margin-bottom: .85rem; max-width: 52ch; }
+.hero-sub + .hero-actions, .hero-copy .hero-sub:last-of-type { margin-bottom: 2rem; }
+/* Hard truths */
+.truths { background: var(--limewash); padding: var(--sec) 0; }
+.truths-list { list-style: none; padding: 0; margin-top: clamp(2.25rem, 4vw, 3rem); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; border-top: 1px solid var(--hair); }
+.truths-list li { position: relative; padding: 1.15rem 0 1.15rem 2rem; border-bottom: 1px solid var(--hair); font: 400 clamp(1.15rem, 1.7vw, 1.35rem)/1.4 var(--serif); color: var(--ink); }
+.truths-list li::before { content: ""; position: absolute; left: 0; top: 1.55rem; width: 12px; height: 12px; border-radius: 50%; border: 1.3px solid var(--honey); background: rgba(217,165,91,.2); }
+.truths-close { margin-top: 2rem; font: italic 400 clamp(1.2rem, 1.9vw, 1.45rem)/1.5 var(--serif); color: var(--thatch); }
+@media (max-width: 760px) { .truths-list { grid-template-columns: 1fr; } }
+/* Framework: five pillars beneath */
+.venue-below .venue-cards .venue-card--dark { flex-basis: 170px; }
+.venue-close a { color: inherit; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--honey); }
+/* Journey measures */
+.stop-measure { margin-top: .7rem; padding-top: .6rem; border-top: 1px dotted rgba(176,138,90,.6); font-size: .78rem; line-height: 1.5; color: var(--thatch); }
+.stop-measure span { display: block; font: 500 .62rem/1.4 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--honey); margin-bottom: 2px; }
+/* Services: pillars each door strengthens */
+.door-pillars { display: block; margin-top: .6rem; font: 500 .66rem/1.5 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--thatch); }
