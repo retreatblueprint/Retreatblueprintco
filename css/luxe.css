@@ -538,3 +538,8 @@ footer { background: var(--jungle-deep); color: rgba(244, 238, 226, .72); paddin
 .nb-h { max-width: none; }
 .nb-photo img { height: auto; }
 @media (max-width: 760px) { .nb-h br { display: none; } }
+.nb-grid { align-items: stretch; }
+.nb-left { display: flex; flex-direction: column; }
+.nb-photo { margin-top: auto; padding-top: 2.5rem; }
+.nb-band p { font-size: clamp(1.25rem, 2vw, 1.65rem); }
+@media (max-width: 1000px) { .nb-photo { margin-top: 2rem; padding-top: 0; } }
