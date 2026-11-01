@@ -481,3 +481,4 @@ footer { background: var(--jungle-deep); color: rgba(244, 238, 226, .72); paddin
 .hero-actions { gap: 1.5rem 2.25rem; }
 .venue-below .venue-card--dark h3 { font-size: 24px; }
 .venue-below .venue-card--dark { padding: 22px 20px 24px; }
+.hero { padding: 7.75rem 0 2rem; }
