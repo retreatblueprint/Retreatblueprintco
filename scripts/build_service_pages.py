@@ -509,36 +509,32 @@ PAGES = [
                    cta_tint="linear-gradient(180deg,rgba(12,34,36,.78) 0%,rgba(12,34,36,.66) 50%,rgba(12,34,36,.82) 100%)", cta_btn="#985033",
                    band_pattern=topo("#9CC4C6"), band_grad="linear-gradient(160deg,#1E4547 0%,#163638 55%,#0F2829 100%)", band_glow="rgba(156,196,198,.18)"),
         label="For retreat venues · Monthly · Your part-time COO", tag="Senior operations leadership,<br><em>without a full-time hire.</em>",
-        lead="I run the operations side of your venue with you: the systems, the numbers and the team that does the work.",
+        lead="Your retreat needs more than systems that work. It needs someone looking at how the business is performing, where operations are falling short, and what needs to happen next.</p><p class=\"lead\">I partner with retreat owners and hospitality leaders to provide ongoing operational direction, strengthen performance, and move business priorities forward.",
+        hero_cta="Explore a partnership",
         jump=("#month", "See a typical month ↓"),
-        price=dict(k="Monthly retainer", amt="From $1,000 <small>USD / month</small>", note="Operations leadership at a fraction of a full-time salary. 6-month minimum.",
-                   items=["Two scheduled touchpoints a month", "Owns operations priorities with you", "P&amp;L, budget and forecast owned", "Team leadership, SOPs and growth planning"]),
-        changes=("How we work together", "You keep the vision. <em>I take the operations.</em>", []),
-        split=("You decide where the line sits, and which decisions I can make without you. We agree it before we start.", [
-            ("Always yours", "keep", ["The vision for your retreat", "The big decisions"]),
-            ("Your call", "flex", ["Priorities for the month and the season", "Growth planning", "Guest experience", "Retreat leader relationships", "Hiring", "Marketing"], "Keep them, share them, or hand them over."),
-            ("Always mine", "mine", ["Digital systems, connected", "P&amp;L, budget and forecast", "The team and day-to-day operations", "SOPs, kept current"])]),
+        price=dict(k="Monthly retainer", amt="From $1,000 <small>USD / month</small>", note="Your monthly fee is set after a free call, based on your property: its size, team, booking volume, and how much needs organizing at the start. 6-month minimum.",
+                   items=["Monthly performance review", "Priorities agreed with you", "Improvements led and followed through", "Scope agreed at the start"]),
+        changes=("How we work together", "", []),
+        split=("The level of involvement is shaped around your property's needs, management structure, and operational complexity.", [
+            ("You retain", "keep", ["The vision", "Investment decisions", "Final authority"]),
+            ("We align on", "flex", ["Priorities", "Budgets", "Major operational changes"]),
+            ("I lead within scope", "mine", ["Performance reviews", "Systems improvements", "Implementation coordination"])]),
+        main="content/director-main.html",
+        prev_bg="var(--cream-dark)",
         band=None,
         after_changes="",
-        proof=("In practice", "The work, and what it changed", [
-            ("Airborne Arts · Dominical, Costa Rica", "Replacing full-time administration with one connected operating system", ["Management, finances, retreat leaders, guests and kitchen in one system", "Dedicated portals for each team", "A full-time administrative salary avoided"],
-             "Someone who takes big challenges, and turns them into simple systems that just work.", "Jonathon Conant, Founder, Airborne Arts"),
-            ("Infinity Retreat · Ometepe, Nicaragua", "Kept on as an ongoing consultant after the build", ["Bookings, guests and payments in one system", "Relaunched with a new brand, website and paid ads", "Retained as an ongoing consultant"],
-             "Shila has continued working with me as a consultant, a testament to the value she brings and the confidence I have in her abilities.", "Cris Ketch, Founder, Infinity Retreat")]),
-        how_wl=(spine_steps(), 32, 96, 64),
-        how=("How it starts", "From first call to a steady rhythm", [
-            ("Free call", "Where you are, and where you want to go."),
-            ("Operations review", "Baseline numbers, team, systems and first priorities."),
-            ("Monthly rhythm", "Numbers, priorities, team, systems. Repeat.")], 3),
+        proof=None,
+        how=None,
         faq=[
-            ("How much of your time do I get?", "Two scheduled touchpoints a month, plus the operations work in between. Hours are agreed before we start."),
+            ("How is the monthly fee set?", "It starts from $1,000 USD a month. The final fee depends on your property: its size, your team, booking volume and occupancy, and how much needs organizing at the start. We agree it after a free call, before anything begins."),
+            ("How much of your time do I get?", "The rhythm, deliverables and level of involvement are agreed at the start of the partnership, based on what your property needs."),
             ("Is there a minimum commitment?", "Six months minimum. I recommend 12, so we work through a full season together, high and low."),
             ("Is it remote or on-site?", "Remote for retreat properties anywhere in the world. On-site time is available in Costa Rica, Panama, Nicaragua and Guatemala."),
             ("What if I don't have a team?", "The Retreat Blueprint <a href=\"/concierge-ops\">Concierge Ops</a> team can handle the day-to-day under my direction."),
             ("What if my systems are a mess?", "Most venues start with the <a href=\"/foundation-sprint\">Foundation Sprint</a> to build the systems, then move to the fractional role to run and improve them."),
         ],
-        cta_title="Bring in your part-time COO.",
-        builder="content/director-additions.html",
+        cta_title="Let's discuss your operation.",
+        cta_lead="Every property has different needs. We'll start by understanding your business, the challenges you're navigating, and where additional operational leadership could make a meaningful difference.",
     ),
     dict(
         slug="growth-marketing", kw="Retreat center marketing", menu="/growth-marketing", name="Growth Marketing",
@@ -636,7 +632,7 @@ def build(pg):
       <p class="lead">{pg['lead']}</p>
       <p class="venue-hint">For retreat centers, eco-lodges and wellness properties that host retreats.</p>
       <div class="row">
-        <a class="btn primary" href="{CAL}" target="_blank" rel="noopener">Book a free call</a>
+        <a class="btn primary" href="{CAL}" target="_blank" rel="noopener">{pg.get('hero_cta', 'Book a free call')}</a>
         <a class="btn text" href="{pg['jump'][0]}">{pg['jump'][1]}</a>
       </div>
     </div>
@@ -699,7 +695,7 @@ def build(pg):
 </section>
 ''')
     if pg.get("main"):
-        out = [out[0].split('<section class="sec gap">')[0], fill_marks(open(pg["main"]).read())]
+        out = [out[0].split('<section class="sec gap">')[0], fill_marks(open(pg["main"]).read()).replace("@@SPLIT@@", split_html(pg))]
     after_band = "var(--warm-white)"
     if pg["proof"]:
         plabel, ptitle, cards = pg["proof"]
@@ -718,10 +714,11 @@ def build(pg):
         how_wave = ' wt" style="--wave:var(--warm-white);--cols:{cols}"'
     else:
         how_wave = '" style="--cols:{cols}"'
-    hl, ht, hs, *cols = pg["how"]
-    cols = cols[0] if cols else 4
-    how_bg = "background:var(--cream-dark)" if pg["proof"] else ""
-    out.append(f'''<section class="sec how{' wt' if pg['proof'] else ''}" style="--cols:{cols};{('--wave:var(--warm-white);' + how_bg) if pg['proof'] else ''}">
+    if pg.get("how"):
+      hl, ht, hs, *cols = pg["how"]
+      cols = cols[0] if cols else 4
+      how_bg = "background:var(--cream-dark)" if pg["proof"] else ""
+      out.append(f'''<section class="sec how{' wt' if pg['proof'] else ''}" style="--cols:{cols};{('--wave:var(--warm-white);' + how_bg) if pg['proof'] else ''}">
   <div class="inner">
     <p class="label">{hl}</p>
     <h2 class="title">{ht}</h2>
@@ -729,7 +726,7 @@ def build(pg):
   </div>
 </section>
 ''')
-    prev = "var(--cream-dark)" if pg["proof"] else "var(--warm-white)"
+    prev = pg.get("prev_bg") or ("var(--cream-dark)" if pg["proof"] else "var(--warm-white)")
     if pg.get("faq"):
         qs = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in pg["faq"])
         out.append(f'''<section class="sec faq wt" style="--wave:{prev}">
@@ -756,7 +753,7 @@ def build(pg):
   <div class="inner">
     <p class="label">Start with a conversation</p>
     <h2 class="title">{pg['cta_title']}</h2>
-    <p class="lead">A free 30-minute call. No obligation, just a clear next step.</p>
+    <p class="lead">{pg.get('cta_lead', 'A free 30-minute call. No obligation, just a clear next step.')}</p>
     <a class="btn primary" href="{CAL}" target="_blank" rel="noopener">Book a free call</a>
     <p class="email"><a href="mailto:hello@retreatblueprintco.com?subject={urllib.parse.quote(pg['name'])}%20inquiry">hello@retreatblueprintco.com</a> · <a href="https://wa.me/16479702759" target="_blank" rel="noopener">WhatsApp</a></p>
   </div>

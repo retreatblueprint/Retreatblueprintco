@@ -1,0 +1,146 @@
+<style>
+.dm-p{color:var(--earth-mid);max-width:64ch;line-height:1.75;margin-top:1rem}
+.dm-p:first-of-type{margin-top:1.25rem}
+.dm-fit-k{margin-top:2.25rem;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.dm-fit{list-style:none;padding:0;margin:1rem 0 0;display:grid;grid-template-columns:1fr 1fr;gap:0 3rem;max-width:980px}
+.dm-fit li{position:relative;padding:16px 0 16px 30px;border-top:1px solid var(--border);color:var(--earth);line-height:1.6}
+.dm-fit li::before{content:"";position:absolute;left:2px;top:23px;width:12px;height:7px;border-left:1.5px solid var(--acc);border-bottom:1.5px solid var(--acc);transform:rotate(-45deg)}
+.dm-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:2.25rem;max-width:980px}
+.dm-cards div{background:var(--warm-white);border:1px solid var(--border);border-radius:12px;padding:26px 28px}
+.dm-cards b{display:block;font-family:var(--serif);font-weight:400;font-size:1.3rem;color:var(--acc-dark);margin-bottom:8px}
+.dm-cards span{color:var(--earth-mid);line-height:1.65;font-size:.96rem}
+.dm-num{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:2.5rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.dm-num>div{padding:24px 24px 26px 0}
+.dm-num>div+div{padding-left:24px;border-left:1px solid var(--border)}
+.dm-num b{display:block;font-family:var(--serif);font-weight:400;font-size:1.3rem;color:var(--acc-dark);margin-bottom:8px}
+.dm-num span{color:var(--earth-mid);font-size:.93rem;line-height:1.7}
+.dm-note{margin-top:1.25rem;color:var(--earth-mid);font-size:.92rem;max-width:64ch}
+.dm-steps{list-style:none;padding:0;margin:2.5rem 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;position:relative}
+.dm-steps::before{content:"";position:absolute;left:21px;right:21px;top:21px;height:1px;background:var(--acc-soft)}
+.dm-steps li{position:relative}
+.dm-steps i{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--warm-white);border:1px solid var(--acc);font:500 .78rem/1 var(--sans);font-style:normal;color:var(--acc-dark);position:relative;margin-bottom:18px}
+.dm-steps b{display:block;font-family:var(--serif);font-weight:400;font-size:1.3rem;color:var(--acc-dark);margin-bottom:6px}
+.dm-steps span{color:var(--earth-mid);font-size:.94rem;line-height:1.65}
+.dm-cmp{margin-top:2.25rem;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--warm-white);max-width:820px}
+.dm-cmp div{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border)}
+.dm-cmp div:first-child{border-top:0}
+.dm-cmp span{padding:15px 22px;line-height:1.55;font-size:.95rem;color:var(--earth-mid)}
+.dm-cmp span:first-child{background:#EAF2F2;color:var(--earth)}
+.dm-cmp .hd span{font-family:var(--serif);font-size:1.15rem;padding-top:18px;padding-bottom:18px}
+.dm-cmp .hd span:first-child{color:var(--acc-dark)}
+.dm-case{margin-top:2.25rem;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:3rem;align-items:start;background:var(--warm-white);border:1px solid var(--border);border-radius:14px;padding:36px 40px;max-width:1040px}
+.dm-case .loc{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.dm-case h3{font-family:var(--serif);font-weight:400;font-size:1.6rem;line-height:1.2;color:var(--earth);margin:.6rem 0 1rem}
+.dm-case p{color:var(--earth-mid);line-height:1.75;margin-top:.75rem}
+.dm-case blockquote{margin:0;padding-left:22px;border-left:2px solid var(--acc-soft);font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1.45;color:var(--earth)}
+.dm-case cite{display:block;margin-top:.9rem;font-family:var(--sans);font-style:normal;font-size:.85rem;color:var(--earth-mid)}
+.dm-case .more{display:inline-block;margin-top:1.1rem;font-size:.88rem;color:var(--acc-dark)}
+@media(max-width:860px){.dm-fit,.dm-cards,.dm-num,.dm-case{grid-template-columns:1fr}.dm-num>div+div{padding-left:0;border-left:0;border-top:1px solid var(--border)}.dm-steps{grid-template-columns:1fr 1fr}.dm-steps::before{display:none}.dm-case{padding:28px 24px;gap:1.75rem}}
+@media(max-width:520px){.dm-steps{grid-template-columns:1fr}.dm-cmp div{grid-template-columns:1fr}}
+</style>
+
+<section class="sec gap" id="who">
+  <div class="inner">
+    <p class="label">Who it's for</p>
+    <h2 class="title">When the business needs <em>another level of leadership.</em></h2>
+    <p class="dm-p">Not every retreat needs a full-time operations director. But as a property develops, the decisions become more complex, and the need for experienced oversight becomes more important.</p>
+    <p class="dm-fit-k">This partnership may be right for you if</p>
+    <ul class="dm-fit">
+      <li>Your property is operating, but performance isn't where it should be.</li>
+      <li>You have a capable team that needs clearer direction, accountability, or coordination.</li>
+      <li>Revenue is coming in, but profitability and cash flow need closer attention.</li>
+      <li>You're expanding, restructuring, or preparing for the next stage of growth.</li>
+      <li>You need someone to connect business priorities with day-to-day execution.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="oversee">
+  <div class="inner">
+    <p class="label">What I oversee</p>
+    <h2 class="title">Connecting the decisions <em>that shape your business.</em></h2>
+    <p class="dm-p">Operational challenges rarely exist in isolation. Pricing decisions affect occupancy and revenue. Staffing decisions influence service delivery and costs. Weak systems create work that shouldn't need to happen.</p>
+    <p class="dm-p">My role is to look across these connections, establish priorities, and help turn decisions into operational improvements.</p>
+    <div class="dm-cards">
+      <div><b>Business performance</b><span>Review revenue, operating costs, booking performance, and financial trends to identify risks and opportunities.</span></div>
+      <div><b>Operational systems</b><span>Evaluate and improve the processes, technology, and workflows that support the business.</span></div>
+      <div><b>Team and service delivery</b><span>Strengthen responsibilities, communication, operating standards, and accountability across teams.</span></div>
+      <div><b>Planning and implementation</b><span>Translate business priorities into actionable plans, coordinate progress, and evaluate results.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gap" id="numbers">
+  <div class="inner">
+    <p class="label">The numbers</p>
+    <h2 class="title">Performance is more than <em>occupancy.</em></h2>
+    <p class="dm-p">A full calendar doesn't always translate into a healthy bottom line. Revenue, operating costs, booking mix, and cash flow reveal different parts of the business, and often point to different decisions.</p>
+    <p class="dm-p">I connect financial performance with the operational realities behind it, helping owners understand what is driving results and where changes can make the greatest difference.</p>
+    <div class="dm-num">
+      <div><b>Revenue performance</b><span>Occupancy · ADR · RevPAR · Booking mix</span></div>
+      <div><b>Operating profitability</b><span>Cost per occupied room · Break-even occupancy · Operating margin</span></div>
+      <div><b>Financial planning</b><span>Cash flow · Budget versus actuals · Seasonal forecasting</span></div>
+    </div>
+    <p class="dm-note">For exclusive-use or package-based retreats, the measures are shaped around your business model.</p>
+  </div>
+</section>
+
+<section class="sec" id="partnership">
+  <div class="inner">
+    <p class="label">How we work together</p>
+    <h2 class="title">You keep the vision. <em>We strengthen the operation behind it.</em></h2>
+    <p class="dm-p">A fractional partnership brings experienced operational leadership into your business without requiring a permanent executive hire.</p>
+    <p class="dm-p">You retain ownership of the vision and final business decisions. I work alongside you and your existing team to evaluate performance, establish priorities, guide improvements, and maintain accountability for agreed initiatives.</p>
+    @@SPLIT@@
+  </div>
+</section>
+
+<section class="sec gap" id="month">
+  <div class="inner">
+    <p class="label">What a month looks like</p>
+    <h2 class="title">From priorities to <em>measurable progress.</em></h2>
+    <p class="dm-p">Operational leadership is an ongoing process of evaluating performance, making decisions, and following through.</p>
+    <ol class="dm-steps">
+      <li><i>01</i><b>Review</b><span>Assess operating performance, financial indicators, team updates, and emerging challenges.</span></li>
+      <li><i>02</i><b>Prioritize</b><span>Identify the improvements that will have the greatest impact and agree on next steps.</span></li>
+      <li><i>03</i><b>Implement</b><span>Guide agreed initiatives, coordinate with relevant team members, and address obstacles.</span></li>
+      <li><i>04</i><b>Evaluate</b><span>Review progress, measure outcomes where possible, and adjust priorities for the next cycle.</span></li>
+    </ol>
+    <p class="dm-note">The rhythm, deliverables, and level of involvement are agreed upon at the start of the partnership.</p>
+  </div>
+</section>
+
+<section class="sec" id="why-fractional">
+  <div class="inner">
+    <p class="label">Why fractional</p>
+    <h2 class="title">The right level of leadership <em>for your stage of business.</em></h2>
+    <p class="dm-p">A full-time operations director can be the right investment for properties requiring continuous, on-site leadership. But not every retreat needs that level of permanent staffing.</p>
+    <p class="dm-p">A fractional arrangement gives you access to experienced operational direction with a scope and cost structure aligned to your property's needs. It's particularly valuable when the business needs stronger oversight, defined improvements, or additional leadership capacity without creating another full-time position.</p>
+    <div class="dm-cmp">
+      <div class="hd"><span>Fractional director</span><span>Full-time director</span></div>
+      <div><span>Agreed scope and availability</span><span>Dedicated ongoing availability</span></div>
+      <div><span>Flexible engagement</span><span>Permanent employment commitment</span></div>
+      <div><span>External perspective and specialist support</span><span>Continuous on-site leadership, where required</span></div>
+      <div><span>Cost based on agreed engagement</span><span>Full-time salary and employment costs</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gap" id="evidence">
+  <div class="inner">
+    <p class="label">In practice</p>
+    <h2 class="title">Operational improvements <em>with real business impact.</em></h2>
+    <div class="dm-case">
+      <div>
+        <p class="loc">Airborne Arts · Dominical, Costa Rica</p>
+        <h3>Replacing manual administration with a connected operating system</h3>
+        <p>I designed and implemented a customized operating system connecting bookings, payment tracking, guest information, and dedicated portals for management, kitchen staff, retreat leaders, and guests.</p>
+        <p>The system eliminated the need to replace a full-time administrative assistant, removing that salary expense while giving the owner clearer oversight of retreat operations.</p>
+      </div>
+      <div>
+        <blockquote>&ldquo;Someone who takes big challenges, and turns them into simple systems that just work.&rdquo;<cite>Jonathon Conant, Founder, Airborne Arts</cite></blockquote>
+        <a class="more" href="/#testimonials">Hear his voice note →</a>
+      </div>
+    </div>
+  </div>
+</section>
