@@ -554,3 +554,4 @@ footer { background: var(--jungle-deep); color: rgba(244, 238, 226, .72); paddin
 .svc-intro { max-width: 62ch; margin-top: 1rem; display: grid; gap: .8rem; font-size: 1.0625rem; line-height: 1.8; color: var(--ink-soft); }
 .rc-intro { max-width: 58ch; margin: 1rem auto 2rem; display: grid; gap: .6rem; text-align: center; font-size: 1.0625rem; line-height: 1.8; color: var(--ink-soft); }
 .assess-lead + .assess-lead { margin-top: .8rem; }
+.svc-sub { text-wrap: balance; max-width: 40ch; margin-left: auto; margin-right: auto; } .svc-intro { margin-left: auto; margin-right: auto; }
