@@ -87,4 +87,27 @@
       });
     });
   }
+  // Results: tabbed case studies, each with its own full testimonial
+  var cs = document.querySelector('.cs');
+  if (cs) {
+    var tabs = cs.querySelectorAll('.cs-tab');
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        tabs.forEach(function (x) { x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
+        cs.querySelectorAll('.cs-case').forEach(function (c) {
+          var on = c.id === t.getAttribute('aria-controls');
+          c.hidden = !on; c.classList.toggle('in', on);
+        });
+        players.forEach(function (p) { p(); });
+      });
+    });
+    cs.querySelectorAll('.cs-more').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var body = btn.closest('.cs-case').querySelector('.cs-full');
+        var open = body.hidden;
+        body.hidden = !open;
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+  }
 })();
