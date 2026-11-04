@@ -555,3 +555,12 @@ footer { background: var(--jungle-deep); color: rgba(244, 238, 226, .72); paddin
 .rc-intro { max-width: 58ch; margin: 1rem auto 2rem; display: grid; gap: .6rem; text-align: center; font-size: 1.0625rem; line-height: 1.8; color: var(--ink-soft); }
 .assess-lead + .assess-lead { margin-top: .8rem; }
 .svc-sub { text-wrap: balance; max-width: 40ch; margin-left: auto; margin-right: auto; } .svc-intro { margin-left: auto; margin-right: auto; }
+
+/* Nov 4: calmer framework heading and intro; wider journey heading */
+.venue-h { max-width: 34ch; font-weight: 400; font-size: clamp(28px, 3vw, 40px); line-height: 1.2; }
+.venue-h em { display: block; font-style: italic; color: var(--thatch); }
+.venue-intro { max-width: none; display: block; columns: 2 320px; column-gap: 3.5rem; margin-top: 1.5rem; }
+.venue-intro .venue-lead { font-size: .98rem; line-height: 1.75; margin: 0 0 .85rem; break-inside: avoid; }
+.venue-intro .venue-lead--key { column-span: all; margin-top: .5rem; font: italic 400 clamp(1.15rem, 1.6vw, 1.35rem)/1.4 var(--serif); color: var(--ink); }
+.journey-head .display { max-width: 30ch; }
+.journey-intro { max-width: 66ch; }
