@@ -514,13 +514,15 @@ PAGES = [
         price=dict(k="Monthly retainer", amt="From $1,000 <small>USD / month</small>", note="Operations leadership at a fraction of a full-time salary. 6-month minimum.",
                    items=["Two scheduled touchpoints a month", "Owns operations priorities with you", "P&amp;L, budget and forecast owned", "Team leadership, SOPs and growth planning"]),
         changes=("How we work together", "You keep the vision. <em>I take the operations.</em>", []),
-        split=("You decide where the line sits.", [
+        split=("You decide where the line sits, and which decisions I can make without you. We agree it before we start.", [
             ("Always yours", "keep", ["The vision for your retreat", "The big decisions"]),
             ("Your call", "flex", ["Priorities for the month and the season", "Growth planning", "Guest experience", "Retreat leader relationships", "Hiring", "Marketing"], "Keep them, share them, or hand them over."),
             ("Always mine", "mine", ["Digital systems, connected", "P&amp;L, budget and forecast", "The team and day-to-day operations", "SOPs, kept current"])]),
         band=None,
         after_changes="",
-        proof=("In practice", "The work doesn't stop at the build", [
+        proof=("In practice", "The work, and what it changed", [
+            ("Airborne Arts · Dominical, Costa Rica", "Replacing full-time administration with one connected operating system", ["Management, finances, retreat leaders, guests and kitchen in one system", "Dedicated portals for each team", "A full-time administrative salary avoided"],
+             "Someone who takes big challenges, and turns them into simple systems that just work.", "Jonathon Conant, Founder, Airborne Arts"),
             ("Infinity Retreat · Ometepe, Nicaragua", "Kept on as an ongoing consultant after the build", ["Bookings, guests and payments in one system", "Relaunched with a new brand, website and paid ads", "Retained as an ongoing consultant"],
              "Shila has continued working with me as a consultant, a testament to the value she brings and the confidence I have in her abilities.", "Cris Ketch, Founder, Infinity Retreat")]),
         how_wl=(spine_steps(), 32, 96, 64),

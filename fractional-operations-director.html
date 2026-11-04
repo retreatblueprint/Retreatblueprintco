@@ -640,7 +640,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
   <div class="inner">
     <p class="label">How we work together</p>
     <h2 class="title">You keep the vision. <em>I take the operations.</em></h2>
-    <p class="split-intro">You decide where the line sits.</p><div class="split"><span class="sp sp1" aria-hidden="true"></span><span class="sp sp2" aria-hidden="true"></span><div class="split-col keep"><span class="split-k">Always yours</span><ul><li>The vision for your retreat</li><li>The big decisions</li></ul></div><div class="split-col flex"><span class="split-k">Your call</span><ul><li>Priorities for the month and the season</li><li>Growth planning</li><li>Guest experience</li><li>Retreat leader relationships</li><li>Hiring</li><li>Marketing</li></ul><p class="split-note">Keep them, share them, or hand them over.</p></div><div class="split-col mine"><span class="split-k">Always mine</span><ul><li>Digital systems, connected</li><li>P&amp;L, budget and forecast</li><li>The team and day-to-day operations</li><li>SOPs, kept current</li></ul></div></div>
+    <p class="split-intro">You decide where the line sits, and which decisions I can make without you. We agree it before we start.</p><div class="split"><span class="sp sp1" aria-hidden="true"></span><span class="sp sp2" aria-hidden="true"></span><div class="split-col keep"><span class="split-k">Always yours</span><ul><li>The vision for your retreat</li><li>The big decisions</li></ul></div><div class="split-col flex"><span class="split-k">Your call</span><ul><li>Priorities for the month and the season</li><li>Growth planning</li><li>Guest experience</li><li>Retreat leader relationships</li><li>Hiring</li><li>Marketing</li></ul><p class="split-note">Keep them, share them, or hand them over.</p></div><div class="split-col mine"><span class="split-k">Always mine</span><ul><li>Digital systems, connected</li><li>P&amp;L, budget and forecast</li><li>The team and day-to-day operations</li><li>SOPs, kept current</li></ul></div></div>
     
     
   </div>
@@ -677,6 +677,13 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 .why-toggle>summary::after{content:"+";font-size:1.1rem;line-height:1}
 .why-toggle[open]>summary::after{content:"\2013"}
 .why-toggle[open]>summary{margin-bottom:.25rem}
+.dir-num{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:2.25rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+#numbers .lead+.lead{margin-top:1rem}
+.dir-num>div{padding:22px 24px 24px 0}
+.dir-num>div+div{padding-left:24px;border-left:1px solid var(--border)}
+.dir-num b{display:block;font-family:var(--serif);font-weight:400;font-size:1.25rem;color:var(--acc-dark);margin-bottom:6px}
+.dir-num span{color:var(--earth-mid);font-size:.93rem;line-height:1.6}
+@media(max-width:760px){.dir-num{grid-template-columns:1fr}.dir-num>div+div{padding-left:0;border-left:0;border-top:1px solid var(--border)}}
 </style>
 <section class="sec" id="who">
   <div class="inner">
@@ -692,6 +699,35 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
   </div>
 </section>
 
+<section class="sec gap" id="oversee">
+  <div class="inner">
+    <p class="label">What I oversee</p>
+    <h2 class="title">Someone directing operations, <em>not just improving workflows.</em></h2>
+    <ul class="dir-who">
+      <li><b>Performance reviewed</b><span>Bookings, revenue and costs checked against your budget every month.</span></li>
+      <li><b>Priorities set</b><span>What deserves attention first, agreed with you.</span></li>
+      <li><b>Risks flagged</b><span>Operational weak spots raised before they reach guests or the numbers.</span></li>
+      <li><b>Team coordinated</b><span>People, systems and decisions moving in the same direction.</span></li>
+      <li><b>Changes that stick</b><span>Improvements followed through until they hold.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="numbers">
+  <div class="inner">
+    <p class="label">The numbers</p>
+    <h2 class="title">Performance is more than <em>occupancy.</em></h2>
+    <p class="lead">A full calendar doesn't always translate into a healthy bottom line. Revenue per available room, operating costs, booking mix and cash flow reveal different parts of the picture, and often point to different decisions.</p>
+    <p class="lead">My approach connects financial performance with the operational realities behind it, so pricing, staffing, systems and growth decisions are grounded in what the business can actually sustain.</p>
+    <div class="dir-num">
+      <div><b>Revenue performance</b><span>Occupancy, ADR, RevPAR</span></div>
+      <div><b>Operating profitability</b><span>CPOR, break-even occupancy, operating margin</span></div>
+      <div><b>Financial planning</b><span>Cash flow, budget versus actuals</span></div>
+    </div>
+    <p class="dir-note">Exclusive-use or package-based retreat? Revenue per retreat, contribution margin and booking economics often tell you more.</p>
+  </div>
+</section>
+
 <section class="sec gap" id="month">
   <div class="inner rm-grid">
     <div class="rm-main">
@@ -700,7 +736,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
     <ol class="dir-month">
       <li><b>Early in the month</b><span>Numbers review against your budget and forecast.</span></li>
       <li><b>First touchpoint</b><span>Priorities, and the decisions waiting on you.</span></li>
-      <li><b>In between</b><span>Team led, SOPs refined, systems running.</span></li>
+      <li><b>In between</b><span>Agreed actions followed through: team led, SOPs refined, systems running.</span></li>
       <li><b>Second touchpoint</b><span>What moved, and what is next.</span></li>
     </ol>
     <p class="dir-note">Hours are agreed before we start.</p>
@@ -731,8 +767,9 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 <section class="sec proof-sec">
   <div class="inner">
     <p class="label">In practice</p>
-    <h2 class="title">The work doesn't stop at the build</h2>
-    <div class="proof-grid" style="grid-template-columns:minmax(0,640px)"><div class="proof"><span class="loc">Infinity Retreat · Ometepe, Nicaragua</span><h3>Kept on as an ongoing consultant after the build</h3><ul><li>Bookings, guests and payments in one system</li><li>Relaunched with a new brand, website and paid ads</li><li>Retained as an ongoing consultant</li></ul>
+    <h2 class="title">The work, and what it changed</h2>
+    <div class="proof-grid"><div class="proof"><span class="loc">Airborne Arts · Dominical, Costa Rica</span><h3>Replacing full-time administration with one connected operating system</h3><ul><li>Management, finances, retreat leaders, guests and kitchen in one system</li><li>Dedicated portals for each team</li><li>A full-time administrative salary avoided</li></ul>
+        <blockquote>"Someone who takes big challenges, and turns them into simple systems that just work."<cite>Jonathon Conant, Founder, Airborne Arts</cite></blockquote></div><div class="proof"><span class="loc">Infinity Retreat · Ometepe, Nicaragua</span><h3>Kept on as an ongoing consultant after the build</h3><ul><li>Bookings, guests and payments in one system</li><li>Relaunched with a new brand, website and paid ads</li><li>Retained as an ongoing consultant</li></ul>
         <blockquote>"Shila has continued working with me as a consultant, a testament to the value she brings and the confidence I have in her abilities."<cite>Cris Ketch, Founder, Infinity Retreat</cite></blockquote></div></div>
     <p class="proof-more"><a href="/#testimonials">Hear the voice notes from these clients</a></p>
   </div>

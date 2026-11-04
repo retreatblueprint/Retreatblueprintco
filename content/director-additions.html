@@ -30,6 +30,13 @@
 .why-toggle>summary::after{content:"+";font-size:1.1rem;line-height:1}
 .why-toggle[open]>summary::after{content:"\2013"}
 .why-toggle[open]>summary{margin-bottom:.25rem}
+.dir-num{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:2.25rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+#numbers .lead+.lead{margin-top:1rem}
+.dir-num>div{padding:22px 24px 24px 0}
+.dir-num>div+div{padding-left:24px;border-left:1px solid var(--border)}
+.dir-num b{display:block;font-family:var(--serif);font-weight:400;font-size:1.25rem;color:var(--acc-dark);margin-bottom:6px}
+.dir-num span{color:var(--earth-mid);font-size:.93rem;line-height:1.6}
+@media(max-width:760px){.dir-num{grid-template-columns:1fr}.dir-num>div+div{padding-left:0;border-left:0;border-top:1px solid var(--border)}}
 </style>
 <section class="sec" id="who">
   <div class="inner">
@@ -45,6 +52,35 @@
   </div>
 </section>
 
+<section class="sec gap" id="oversee">
+  <div class="inner">
+    <p class="label">What I oversee</p>
+    <h2 class="title">Someone directing operations, <em>not just improving workflows.</em></h2>
+    <ul class="dir-who">
+      <li><b>Performance reviewed</b><span>Bookings, revenue and costs checked against your budget every month.</span></li>
+      <li><b>Priorities set</b><span>What deserves attention first, agreed with you.</span></li>
+      <li><b>Risks flagged</b><span>Operational weak spots raised before they reach guests or the numbers.</span></li>
+      <li><b>Team coordinated</b><span>People, systems and decisions moving in the same direction.</span></li>
+      <li><b>Changes that stick</b><span>Improvements followed through until they hold.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="numbers">
+  <div class="inner">
+    <p class="label">The numbers</p>
+    <h2 class="title">Performance is more than <em>occupancy.</em></h2>
+    <p class="lead">A full calendar doesn't always translate into a healthy bottom line. Revenue per available room, operating costs, booking mix and cash flow reveal different parts of the picture, and often point to different decisions.</p>
+    <p class="lead">My approach connects financial performance with the operational realities behind it, so pricing, staffing, systems and growth decisions are grounded in what the business can actually sustain.</p>
+    <div class="dir-num">
+      <div><b>Revenue performance</b><span>Occupancy, ADR, RevPAR</span></div>
+      <div><b>Operating profitability</b><span>CPOR, break-even occupancy, operating margin</span></div>
+      <div><b>Financial planning</b><span>Cash flow, budget versus actuals</span></div>
+    </div>
+    <p class="dir-note">Exclusive-use or package-based retreat? Revenue per retreat, contribution margin and booking economics often tell you more.</p>
+  </div>
+</section>
+
 <section class="sec gap" id="month">
   <div class="inner rm-grid">
     <div class="rm-main">
@@ -53,7 +89,7 @@
     <ol class="dir-month">
       <li><b>Early in the month</b><span>Numbers review against your budget and forecast.</span></li>
       <li><b>First touchpoint</b><span>Priorities, and the decisions waiting on you.</span></li>
-      <li><b>In between</b><span>Team led, SOPs refined, systems running.</span></li>
+      <li><b>In between</b><span>Agreed actions followed through: team led, SOPs refined, systems running.</span></li>
       <li><b>Second touchpoint</b><span>What moved, and what is next.</span></li>
     </ol>
     <p class="dir-note">Hours are agreed before we start.</p>
