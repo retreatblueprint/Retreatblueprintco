@@ -564,3 +564,4 @@ footer { background: var(--jungle-deep); color: rgba(244, 238, 226, .72); paddin
 .venue-intro .venue-lead--key { column-span: all; margin-top: .5rem; font: italic 400 clamp(1.15rem, 1.6vw, 1.35rem)/1.4 var(--serif); color: var(--ink); }
 .journey-head .display { max-width: 30ch; }
 .journey-intro { max-width: 66ch; }
+.venue .venue-h { max-width: 1000px; width: 100%; text-wrap: wrap; }
