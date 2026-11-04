@@ -543,3 +543,14 @@ footer { background: var(--jungle-deep); color: rgba(244, 238, 226, .72); paddin
 .nb-photo { margin-top: auto; padding-top: 2.5rem; }
 .nb-band p { font-size: clamp(1.25rem, 2vw, 1.65rem); }
 @media (max-width: 1000px) { .nb-photo { margin-top: 2rem; padding-top: 0; } }
+
+/* Nov 4 copy update */
+.venue-intro { max-width: 62ch; display: grid; gap: .9rem; margin-top: 1.25rem; }
+.venue-intro .venue-lead { margin: 0; }
+.venue-lead--key { font-weight: 500; color: var(--ink); }
+.journey-intro { max-width: 58ch; margin: 1.5rem auto 0; display: grid; gap: .85rem; font-size: 1.0625rem; line-height: 1.85; color: var(--ink-soft); }
+.svc-sub { margin-top: 1rem; font: 400 clamp(1.3rem, 2.2vw, 1.75rem)/1.35 var(--serif); color: var(--ink); }
+.svc-sub em { color: var(--thatch); }
+.svc-intro { max-width: 62ch; margin-top: 1rem; display: grid; gap: .8rem; font-size: 1.0625rem; line-height: 1.8; color: var(--ink-soft); }
+.rc-intro { max-width: 58ch; margin: 1rem auto 2rem; display: grid; gap: .6rem; text-align: center; font-size: 1.0625rem; line-height: 1.8; color: var(--ink-soft); }
+.assess-lead + .assess-lead { margin-top: .8rem; }
