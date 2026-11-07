@@ -630,3 +630,44 @@ p.svc-intro { max-width: 66ch; }
   .cs-res { padding: 2rem 1.75rem; }
   .cs-act { min-width: 0; }
 }
+
+/* Hero reveal: leaves part onto a window view that settles into the arch (preview) */
+.hx-stage { position: relative; }
+.hx { position: absolute; inset: 0; z-index: 60; pointer-events: none; }
+.hx-in { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.hx-ph { position: absolute; inset: 0; background-size: cover; background-position: center 40%; will-change: clip-path, transform; }
+.hx-leaf { position: absolute; top: -4%; bottom: -4%; width: 58%; background-size: cover; background-position: left center; will-change: transform; }
+.hx-leaf::after { content: ""; position: absolute; inset: 0; background: rgba(8, 10, 7, .3); }
+.hx-leaf.l { left: 0; }
+.hx-leaf.r { right: 0; }
+.hx-leaf span { position: absolute; top: 50%; right: 20%; transform: translateY(-50%); z-index: 2; font: 300 clamp(3rem, 10vw, 10.5rem)/.9 var(--serif); color: #F3ECE0; white-space: nowrap; }
+.hx-cue { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); z-index: 3; font: 400 .66rem/1 var(--sans); letter-spacing: .3em; text-transform: uppercase; color: rgba(243, 236, 224, .85); }
+.js .hx-stage .hero-copy { opacity: 0; }
+.js .hx-stage .hero-arch { opacity: 0; }
+@media (min-width: 901px) {
+  .hx-stage { height: 230vh; }
+  .hx-stage > .hero { position: sticky; top: 0; height: 100vh; height: 100svh; }
+}
+@media (max-width: 900px) {
+  .hx { bottom: auto; height: 170svh; }
+  .hx-leaf { width: 68%; }
+  .hx-leaf span { right: 14%; }
+  .hx-stage { padding-top: 70svh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hx { display: none; }
+  .hx-stage { height: auto !important; padding-top: 0 !important; }
+  .hx-stage > .hero { position: relative !important; height: auto !important; }
+  .js .hx-stage .hero-copy, .js .hx-stage .hero-arch { opacity: 1; }
+}
+
+/* Roots grow and the journey arc draws itself */
+.venue-soil path[stroke] { stroke-dasharray: 120; stroke-dashoffset: 120; transition: stroke-dashoffset 1.6s var(--ease, ease) .3s; }
+.venue-soil.drawn path[stroke] { stroke-dashoffset: 0; }
+.js .venue-card--dark.reveal { transform: translateY(-18px); }
+.js .venue-card--dark.reveal.in { transform: none; }
+.sun path { stroke-dasharray: 1100; stroke-dashoffset: 1100; transition: stroke-dashoffset 2.4s cubic-bezier(.22, .61, .36, 1); }
+.sun circle { opacity: 0; transition: opacity .6s ease; }
+.sun.drawn path { stroke-dashoffset: 0; }
+.sun.drawn circle { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .venue-soil path[stroke], .sun path { stroke-dashoffset: 0; transition: none; } .sun circle { opacity: 1; } }

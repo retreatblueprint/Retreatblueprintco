@@ -110,4 +110,49 @@
       });
     });
   }
+  // Hero reveal: leaves part, then the view settles into the arch window
+  var st = document.getElementById('hxStage');
+  if (st) {
+    var hx = st.querySelector('.hx'), ph = st.querySelector('.hx-ph'), L = st.querySelector('.hx-leaf.l'), Rr = st.querySelector('.hx-leaf.r');
+    var cue = st.querySelector('.hx-cue'), copy = st.querySelector('.hero-copy'), arch = st.querySelector('.hero-arch'), archBox = st.querySelector('.hero-arch .arch');
+    var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var cl = function (v) { return Math.max(0, Math.min(1, v)); }, ez = function (t) { return t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; };
+    var wave = function () { var pts = [], n = 24; for (var i = 0; i <= n; i++) pts.push((86 + Math.sin(i * 1.3) * 6 + Math.sin(i * .45) * 5) + '% ' + (i / n * 100) + '%'); return 'polygon(0% 0%, ' + pts.join(', ') + ', 0% 100%)'; };
+    L.style.clipPath = Rr.style.clipPath = wave();
+    Rr.querySelector('span').style.transform = 'translateY(-50%) scaleX(-1)';
+    var hxFrame = function () {
+      if (rm) return;
+      var V = window.innerHeight, wide = window.innerWidth > 900;
+      var span = wide ? st.offsetHeight - V : hx.offsetHeight - V;
+      var p = cl(window.scrollY / span);
+      var a = ez(cl(p / .42));
+      L.style.transform = 'translateX(' + (-a * 105) + '%) scale(' + (1 + a * .2) + ')';
+      Rr.style.transform = 'translateX(' + (a * 105) + '%) scale(' + (1 + a * .2) + ') scaleX(-1)';
+      cue.style.opacity = 1 - cl(p * 5);
+      var b = ez(cl((p - .48) / .4));
+      if (wide) {
+        var hr = hx.querySelector('.hx-in').getBoundingClientRect(), ar = archBox.getBoundingClientRect();
+        var t = (ar.top - hr.top) * b, l = (ar.left - hr.left) * b, r = (hr.right - ar.right) * b, btm = (hr.bottom - ar.bottom) * b, rad = (ar.width / 2) * b;
+        ph.style.clipPath = 'inset(' + t + 'px ' + r + 'px ' + btm + 'px ' + l + 'px round ' + rad + 'px ' + rad + 'px 0 0)';
+        ph.style.transform = 'scale(' + (1.12 - .12 * a) + ')';
+        var done = p > .9;
+        hx.style.opacity = done ? 0 : 1;
+        arch.style.opacity = done ? 1 : 0;
+      } else {
+        ph.style.transform = 'scale(' + (1.12 - .12 * a) + ')';
+        hx.style.opacity = 1 - b;
+        arch.style.opacity = 1;
+      }
+      copy.style.opacity = cl((p - .55) / .3);
+      copy.style.transform = 'translateY(' + (16 - 16 * cl((p - .55) / .3)) + 'px)';
+    };
+    window.addEventListener('scroll', function () { requestAnimationFrame(hxFrame); }, { passive: true });
+    window.addEventListener('resize', hxFrame);
+    hxFrame();
+  }
+  // Roots and journey arc draw in when they come into view
+  if ('IntersectionObserver' in window) {
+    var dio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('drawn'); dio.unobserve(e.target); } }); }, { threshold: .35 });
+    document.querySelectorAll('.venue-soil, .sun').forEach(function (el) { dio.observe(el); });
+  } else { document.querySelectorAll('.venue-soil, .sun').forEach(function (el) { el.classList.add('drawn'); }); }
 })();
