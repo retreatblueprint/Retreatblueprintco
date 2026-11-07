@@ -132,14 +132,17 @@
       var b = ez(cl((p - .48) / .4));
       if (wide) {
         var hr = hx.querySelector('.hx-in').getBoundingClientRect(), ar = archBox.getBoundingClientRect();
-        var t = (ar.top - hr.top) * b, l = (ar.left - hr.left) * b, r = (hr.right - ar.right) * b, btm = (hr.bottom - ar.bottom) * b, rad = (ar.width / 2) * b;
-        ph.style.clipPath = 'inset(' + t + 'px ' + r + 'px ' + btm + 'px ' + l + 'px round ' + rad + 'px ' + rad + 'px 0 0)';
-        ph.style.transform = 'scale(' + (1.12 - .12 * a) + ')';
-        var done = p > .9;
-        hx.style.opacity = done ? 0 : 1;
+        // the photo itself travels and narrows into the arch, so the crop changes continuously and lands exactly on the arch image
+        ph.style.left = (ar.left - hr.left) * b + 'px';
+        ph.style.top = (ar.top - hr.top) * b + 'px';
+        ph.style.width = (hr.width + (ar.width - hr.width) * b) + 'px';
+        ph.style.height = (hr.height + (ar.height - hr.height) * b) + 'px';
+        var rad = (ar.width / 2) * b;
+        ph.style.borderRadius = rad + 'px ' + rad + 'px 0 0';
+        var done = p > .93;
+        hx.style.visibility = done ? 'hidden' : 'visible';
         arch.style.opacity = done ? 1 : 0;
       } else {
-        ph.style.transform = 'scale(' + (1.12 - .12 * a) + ')';
         hx.style.opacity = 1 - b;
         arch.style.opacity = 1;
       }

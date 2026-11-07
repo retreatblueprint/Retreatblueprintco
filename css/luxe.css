@@ -635,7 +635,9 @@ p.svc-intro { max-width: 66ch; }
 .hx-stage { position: relative; }
 .hx { position: absolute; inset: 0; z-index: 150; pointer-events: none; }
 .hx-in { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
-.hx-ph { position: absolute; inset: 0; background-size: cover; background-position: center 40%; will-change: clip-path, transform; }
+.hx-ph { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 70%; will-change: left, top, width, height; }
+.hx-stage .hero-arch .arch img { transform: none !important; object-position: 50% 70%; }
+@media (min-width: 901px) { .hx-stage .hero-arch { max-width: min(440px, calc((100svh - 300px) * .75)); } }
 .hx-leaf { position: absolute; top: -4%; bottom: -4%; width: 58%; background-size: cover; background-position: left center; will-change: transform; }
 .hx-leaf::after { content: ""; position: absolute; inset: 0; background: rgba(8, 10, 7, .3); }
 .hx-leaf.l { left: 0; }
