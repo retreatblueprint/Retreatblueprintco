@@ -8,12 +8,12 @@
 body{background:var(--bg);color:var(--ink);font:300 16.5px/1.75 'Jost',sans-serif;transition:background .5s,color .5s}
 img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 70%}
 h1,h2,h3,.brand{font-family:var(--hf);font-weight:var(--hw);letter-spacing:var(--hls)}
-nav{display:flex;justify-content:space-between;align-items:center;padding:30px clamp(20px,5vw,72px)}
+nav{background:var(--sky0,transparent);display:flex;justify-content:space-between;align-items:center;padding:30px clamp(20px,5vw,72px)}
 .brand{font-size:22px}
 .links{display:flex;gap:32px;font-size:14px;color:var(--mute)}
 .links a{color:inherit;text-decoration:none}
 .links .bk{color:var(--ink);border-bottom:1px solid var(--acc);padding-bottom:3px}
-.hero{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;padding:30px clamp(20px,5vw,72px) 110px;align-items:end}
+.hero{background:var(--sky,transparent);display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;padding:30px clamp(20px,5vw,72px) 110px;align-items:end}
 h1{grid-column:1/span 8;grid-row:1;font-size:clamp(52px,7vw,108px);line-height:1;position:relative;z-index:2}
 h1 span{color:var(--acc)}
 .win{grid-column:8/span 5;grid-row:1/span 2;aspect-ratio:3/4;border-radius:999px 999px 0 0;overflow:hidden;margin:0}
@@ -47,8 +47,8 @@ h2{font-size:clamp(36px,4.2vw,62px);line-height:1.08;max-width:20ch}
 @media(max-width:860px){.links{display:none}.hero{display:block}.win{max-width:420px;margin:28px 0 0 auto}.row,.row.b{grid-template-columns:1fr 1fr}}
 </style></head>
 <body>
-<nav><span class="brand">Retreat Blueprint Co.</span><span class="links"><a>Services</a><a>Client work</a><a>About</a><a>Field Notes</a><a class="bk">Book a call</a></span></nav>
-<header class="hero">
+<div style="background:var(--sky,transparent)"><nav><span class="brand">Retreat Blueprint Co.</span><span class="links"><a>Services</a><a>Client work</a><a>About</a><a>Field Notes</a><a class="bk">Book a call</a></span></nav>
+<header class="hero" style="background:transparent">
   <h1>Wellness hospitality, <span>run with care.</span></h1>
   <figure class="win"><img src="https://images.unsplash.com/photo-1617824426257-b568862cd1dc?w=1200&q=75&auto=format" alt=""></figure>
   <div class="txt">
@@ -56,7 +56,7 @@ h2{font-size:clamp(36px,4.2vw,62px);line-height:1.08;max-width:20ch}
     <p>The aim is a venue that feels effortless to stay in and sustainable to run.</p>
     <a class="go" href="#">Begin with a complimentary assessment</a>
   </div>
-</header>
+</header></div>
 <section class="sec"><div class="in">
   <h2>The guest experience is what people remember. The operation behind it is what makes it possible.</h2>
   <p class="lead">A retreat can be fully booked and still struggle to turn revenue into profit. The Retreat Blueprint looks at eight interconnected areas, above and below the soil line.</p>
@@ -72,13 +72,13 @@ h2{font-size:clamp(36px,4.2vw,62px);line-height:1.08;max-width:20ch}
   <b>Colour palette</b><div class="chips" id="pals"></div>
 </div>
 <script>
-var fonts=[['A · Marcellus',"'Marcellus',serif",400,'0'],['B · Italiana',"'Italiana',serif",400,'.01em'],['C · Tenor Sans',"'Tenor Sans',sans-serif",400,'-.01em'],['D · Gloock',"'Gloock',serif",400,'-.01em'],['E · Fraunces soft',"'Fraunces',serif",350,'-.02em'],['F · Young Serif',"'Young Serif',serif",400,'-.02em']];
+var fonts=[['A · Marcellus',"'Marcellus',serif",400,'0'],['E · Fraunces soft',"'Fraunces',serif",350,'-.02em'],['B · Italiana',"'Italiana',serif",400,'.01em']];
 var pals=[
- ['1 · Terracotta clay',{bg:'#F4EEE4',bg2:'#EADCC9',ink:'#2B1D16',mute:'#6E5A49',acc:'#A44A2A',deep:'#2B1D16','deep-ink':'#F4EEE4'}],
- ['2 · Jungle dusk',{bg:'#F2EEE3',bg2:'#E3E2D2',ink:'#17241C',mute:'#56614F',acc:'#B9873E',deep:'#1E3328','deep-ink':'#EFE9DA'}],
- ['3 · Golden hour',{bg:'#F7EADB',bg2:'#F0D9C2',ink:'#3A2430',mute:'#7A5A5E',acc:'#D16F4A',deep:'#3A2430','deep-ink':'#F7EADB'}],
- ['4 · Sea glass',{bg:'#EEF0EA',bg2:'#DCE4DE',ink:'#16302F',mute:'#4F6461',acc:'#C9724F',deep:'#1F4B4D','deep-ink':'#EEF0EA'}],
- ['5 · Volcanic',{bg:'#EDE7DD',bg2:'#E1D8CA',ink:'#1C1B19',mute:'#5F5A52',acc:'#C8642E',deep:'#1C1B19','deep-ink':'#EDE7DD'}]];
+ ['6 · Lagoon',{bg:'#EAF4F3',bg2:'#CFE7E4',ink:'#0E3B3D',mute:'#3F6B69',acc:'#1E8C8A',deep:'#1F5A3A','deep-ink':'#EAF4F1',sky:'linear-gradient(180deg,#BFE0EC 0%,#EAF4F3 70%)'}],
+ ['7 · Lake and mountain',{bg:'#EEF5F7',bg2:'#D6E9E6',ink:'#12312B',mute:'#47615B',acc:'#2A7AA0',deep:'#1C4A30','deep-ink':'#EDF6F2',sky:'linear-gradient(180deg,#A9D3EA 0%,#EEF5F7 72%)'}],
+ ['8 · Turquoise and palm',{bg:'#F3F7F2',bg2:'#D4ECE6',ink:'#0F2E2A',mute:'#4A6560',acc:'#0FA3A0',deep:'#24563A','deep-ink':'#F3F7F2',sky:'linear-gradient(180deg,#9FD8EC 0%,#F3F7F2 75%)'}],
+ ['9 · Deep water at dusk',{bg:'#EFF3F5',bg2:'#DCE6EA',ink:'#13263A',mute:'#4C5D6C',acc:'#E3974A',deep:'#163E4F','deep-ink':'#EFF3F5',sky:'linear-gradient(180deg,#F4D2B3 0%,#C9DCE7 45%,#EFF3F5 80%)'}],
+ ['10 · Rainforest',{bg:'#F1F5EE',bg2:'#DDE9D6',ink:'#14301F',mute:'#4D6553',acc:'#2E8B57',deep:'#123A28','deep-ink':'#EEF5EC',sky:'linear-gradient(180deg,#CFE7EF 0%,#F1F5EE 70%)'}]];
 var r=document.documentElement.style;
 function mk(id,list,apply){var box=document.getElementById(id);list.forEach(function(it,i){var b=document.createElement('button');b.innerHTML=it[0];
  if(id==='pals'){var sw='<i>'+['bg','acc','deep'].map(function(k){return '<s style="background:'+it[1][k]+'"></s>'}).join('')+'</i>';b.innerHTML=sw+it[0]}
