@@ -21,7 +21,7 @@ nav.solid{background:rgba(244,238,226,.92);backdrop-filter:blur(12px);color:var(
 .cover{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
 .s1-water{filter:url(#ripple);z-index:1}
 .s1-front{z-index:3}
-.s1-shade{position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(180deg,rgba(18,26,28,0) 55%,rgba(14,22,24,.62) 100%)}
+.s1-shade{position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(180deg,rgba(18,26,28,0) 42%,rgba(14,22,24,.7) 100%)}
 .s1-sky{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(18,26,28,.4),rgba(18,26,28,0) 42%)}
 .s1-title{position:absolute;left:0;right:0;z-index:2;text-align:center;color:var(--cream);text-shadow:0 2px 26px rgba(0,0,0,.18)}
 .s1-title .eyebrow{color:var(--cream);opacity:.95}
@@ -200,8 +200,15 @@ function layout(){
   $('front').style.clipPath='polygon('+ridge.map(function(p){return (sx(p[0])/M.vw*100).toFixed(2)+'% '+(sy(p[1])/M.vh*100).toFixed(2)+'%'}).join(', ')+', 100% 100%, 0% 100%)';
   $('water').style.clipPath='inset('+(sy(waterTop)/M.vh*100)+'% 0 0 0)';
   // the title: only the foot of the second line rests behind the hills, so every word stays readable
-  var t=$('title'), h=$('h1'); t.style.top='0px';
+  var t=$('title'), h=$('h1'); t.style.top='0px'; h.style.fontSize='';
   var r=h.getBoundingClientRect(), fs=parseFloat(getComputedStyle(h).fontSize);
+  // shrink the title if it cannot fit between the menu and the hills
+  for(var guard=0;guard<12;guard++){
+    var lw=Math.min(r.width, fs*6.6), mr=1e9;for(var xx=innerWidth/2-lw/2;xx<=innerWidth/2+lw/2;xx+=8)mr=Math.min(mr,ridgeY(xx));
+    var need=(r.bottom-t.getBoundingClientRect().top)-fs*.12, room=mr-72;
+    if(need<=room||fs<34)break;
+    fs=Math.max(34,fs*room/need*.98);h.style.fontSize=fs+'px';r=h.getBoundingClientRect();
+  }
   var lineW=Math.min(r.width, fs*6.6), cx=innerWidth/2, minR=1e9;
   for(var x=cx-lineW/2;x<=cx+lineW/2;x+=8)minR=Math.min(minR,ridgeY(x));
   var want=minR+fs*.12-(r.bottom-t.getBoundingClientRect().top);
