@@ -153,7 +153,7 @@ function frame(){
   ll.style.transform='translateX('+(-e*105)+'%) scale('+(1+e*.25)+')';
   lr.style.transform='translateX('+(e*105)+'%) scale('+(1+e*.25)+') scaleX(-1)';
   heroPh.style.transform='scale('+(1.22-.22*e)+')';
-  var c=clamp((p-.55)/.3);hc.style.opacity=c;hc.style.transform='translateY('+(24-24*c)+'px)';
+  var c=clamp((p-.5)/.25);hc.style.opacity=c*(1-clamp((p-.9)/.1));hc.style.transform='translateY('+(24-24*c)+'px)';
   cue.style.opacity=1-clamp(p*4);
   rail.classList.toggle('show',p>.95);
   // chapters: circle reveal, spaced title, then content
@@ -167,7 +167,7 @@ function frame(){
     var sp=ch.querySelector('.spaced'), b=ch.querySelector('.body');
     sp.style.opacity=clamp(r*1.4-.3)*(1-clamp((t-.08)/.2));
     sp.style.letterSpacing=(0.85-.3*r)+'em';
-    var bo=clamp((t-.22)/.22);b.style.opacity=bo;b.style.transform='translateY('+(26-26*bo)+'px)';
+    var bo=clamp((t-.22)/.22);b.style.opacity=bo*(i<chs.length-1?1-clamp((t-.82)/.14):1);b.style.transform='translateY('+(26-26*bo)+'px)';
     if(y+V*.5>=top)active=i;
     if(i===3&&bo>.5&&!counted){counted=true;var s=performance.now();(function f(n){var q=Math.min(1,(n-s)/1800);cnt.textContent=Math.round(40+15*(1-Math.pow(1-q,3)));if(q<1)requestAnimationFrame(f)})(s)}
   });
