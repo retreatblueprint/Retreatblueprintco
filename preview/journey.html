@@ -149,6 +149,7 @@ nav.solid{background:rgba(244,238,226,.92);backdrop-filter:blur(12px);color:var(
 .arc path{transition:stroke-dashoffset 2.4s var(--ease) .4s!important}
 .stops>div{transition:opacity .8s var(--ease),transform .8s var(--ease)!important}
 @media(max-width:820px){.s1-copy{top:96px;left:20px;right:20px;max-width:none!important}.s1-copy h1{font-size:40px}.s3 .cover{height:40%!important}.s3::after,.journey{top:40%!important}}
+nav::before{content:"";position:absolute;inset:0 0 -30px 0;background:linear-gradient(180deg,rgba(14,22,24,.45),rgba(14,22,24,0));z-index:-1;transition:opacity .5s}nav.solid::before{opacity:0}
 </style></head>
 <body>
 <svg width="0" height="0" style="position:absolute"><filter id="ripple" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.006 0.09" numOctaves="2" seed="3" result="n"><animate attributeName="baseFrequency" dur="14s" values="0.006 0.09;0.0075 0.11;0.006 0.09" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
@@ -252,10 +253,11 @@ function layout(){
 function drawRoots(){
   var svg=$('roots2'), ab=[].slice.call(document.querySelectorAll('.above .card')), be=[].slice.call(document.querySelectorAll('.band .card'));
   if(!ab.length||!be.length)return;
-  var S=$('s2').getBoundingClientRect();svg.setAttribute('viewBox','0 0 '+S.width+' '+S.height);
+  var S2=$('s2'), S={width:S2.offsetWidth,height:S2.offsetHeight};svg.setAttribute('viewBox','0 0 '+S.width+' '+S.height);
+  var box=function(el){var x=0,y=0,e=el;while(e&&e!==S2){x+=e.offsetLeft;y+=e.offsetTop;e=e.offsetParent}return {left:x,top:y,width:el.offsetWidth,bottom:y+el.offsetHeight}};
   var map=[[0,[2,3]],[1,[0,2]],[2,[1,4]]], d='';
-  map.forEach(function(m){var a=ab[m[0]].getBoundingClientRect(), x0=a.left+a.width/2-S.left, y0=a.bottom-S.top;
-    m[1].forEach(function(j){var b=be[j].getBoundingClientRect(), x1=b.left+b.width/2-S.left, y1=b.top-S.top-2, my=(y0+y1)/2;
+  map.forEach(function(m){var a=box(ab[m[0]]), x0=a.left+a.width/2, y0=a.bottom;
+    m[1].forEach(function(j){var b=box(be[j]), x1=b.left+b.width/2, y1=b.top-2, my=(y0+y1)/2;
       d+='<path d="M'+Math.round(x0)+' '+Math.round(y0)+' C '+Math.round(x0)+' '+Math.round(my+20)+' '+Math.round(x1)+' '+Math.round(my-20)+' '+Math.round(x1)+' '+Math.round(y1)+'"/><circle cx="'+Math.round(x1)+'" cy="'+Math.round(y1)+'" r="2.6"/>'})});
   if(svg.dataset.d===d)return;
   svg.innerHTML=d;svg.dataset.d=d;svg.classList.remove('in');
