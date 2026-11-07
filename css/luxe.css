@@ -717,8 +717,8 @@ h1 em, h2 em, .display em, .venue-h em { color: var(--thatch); }
 .sec-in > .plan-line { transform: translateX(-50%) scaleX(1); }
 
 /* 3. Headings rise from behind a line, like type set on a page */
-.js h2.reveal, .js h1.reveal { clip-path: inset(0 0 100% 0); transform: translateY(28px); opacity: 1; transition: clip-path 1.1s cubic-bezier(.22, .61, .36, 1) var(--d, 0s), transform 1.1s cubic-bezier(.22, .61, .36, 1) var(--d, 0s); }
-.js h2.reveal.in, .js h1.reveal.in { clip-path: inset(0 0 -10% 0); transform: none; }
+.js section h2.reveal { clip-path: inset(0 0 100% 0); transform: translateY(28px); opacity: 1; transition: clip-path 1.1s cubic-bezier(.22, .61, .36, 1) .2s, transform 1.1s cubic-bezier(.22, .61, .36, 1) .2s; }
+.js section.sec-in h2.reveal { clip-path: inset(-10% 0 -15% 0); transform: none; }
 
 /* 4. Arch photos open upward like a door, then settle */
 .js .reveal .arch img, .js .arch.reveal img { clip-path: inset(100% 0 0 0); transition: clip-path 1.5s cubic-bezier(.22, .61, .36, 1) calc(var(--d, 0s) + .15s), transform 2.2s cubic-bezier(.22, .61, .36, 1); }
@@ -730,5 +730,5 @@ h1 em, h2 em, .display em, .venue-h em { color: var(--thatch); }
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
   .plan-line { transform: translateX(-50%) scaleX(1); transition: none; }
-  .js h2.reveal, .js h1.reveal, .js .reveal .arch img { clip-path: none !important; transform: none !important; transition: none !important; }
+  .js section h2.reveal, .js .reveal .arch img { clip-path: none !important; transform: none !important; transition: none !important; }
 }
