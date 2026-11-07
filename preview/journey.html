@@ -174,6 +174,8 @@ nav::before{content:"";position:absolute;inset:0 0 -30px 0;background:linear-gra
 .band .row{text-align:left;margin-top:5.2vh!important}
 .roots2 path{stroke-width:1.2!important;opacity:.7!important}
 .roots2 path.surf{stroke-width:1.6!important;opacity:.95!important}
+.roots2 path.fine{stroke-width:.9!important;opacity:.45!important}
+.roots2 path.surf{stroke-dasharray:none}
 </style></head>
 <body>
 <svg width="0" height="0" style="position:absolute"><filter id="ripple" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.006 0.09" numOctaves="2" seed="3" result="n"><animate attributeName="baseFrequency" dur="14s" values="0.006 0.09;0.0075 0.11;0.006 0.09" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
@@ -287,7 +289,10 @@ function drawRoots(){
   ab.forEach(function(c){var a=box(c), x=a.left+a.width/2;d+='<path d="M'+Math.round(x)+' '+Math.round(a.bottom)+' V '+Math.round(surf)+'"/>'});
   var lbl=box(document.querySelector('.band .label')), y2=lbl.top+lbl.height+10;
   be.forEach(function(c,i){var b=box(c), x1=b.left+b.width/2, y1=b.top-3, x0=L0+(R0-L0)*(i+.5)/be.length;
-    d+='<path d="M'+Math.round(x0)+' '+Math.round(surf)+' C '+Math.round(x0)+' '+Math.round(surf+(y1-surf)*.55)+' '+Math.round(x1)+' '+Math.round(surf+(y1-surf)*.45)+' '+Math.round(x1)+' '+Math.round(y1)+'"/><circle cx="'+Math.round(x1)+'" cy="'+Math.round(y1)+'" r="2.4"/>'});
+    var h=y1-surf, w=(i%2?1:-1);
+    d+='<path d="M'+Math.round(x0)+' '+Math.round(surf)+' C '+Math.round(x0+w*14)+' '+Math.round(surf+h*.35)+' '+Math.round(x1-w*18)+' '+Math.round(surf+h*.6)+' '+Math.round(x1)+' '+Math.round(y1)+'"/><circle cx="'+Math.round(x1)+'" cy="'+Math.round(y1)+'" r="2.4"/>';
+    var mx=x0+w*10, my=surf+h*.32;d+='<path class="fine" d="M'+Math.round(mx)+' '+Math.round(my)+' q '+(w*-22)+' '+Math.round(h*.12)+' '+(w*-34)+' '+Math.round(h*.3)+'"/>';
+    var nx=x1-w*12, ny=surf+h*.62;d+='<path class="fine" d="M'+Math.round(nx)+' '+Math.round(ny)+' q '+(w*20)+' '+Math.round(h*.1)+' '+(w*30)+' '+Math.round(h*.26)+'"/>'});
   if(svg.dataset.d===d)return;
   svg.innerHTML=d;svg.dataset.d=d;svg.classList.remove('in');
   [].forEach.call(svg.querySelectorAll('path'),function(pth,i){var L=pth.getTotalLength();pth.style.strokeDasharray=L;pth.style.strokeDashoffset=L;pth.style.transitionDelay=(.9+i*.07)+'s'});
