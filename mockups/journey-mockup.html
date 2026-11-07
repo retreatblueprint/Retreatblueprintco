@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guest Journey Mock-up</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F3ECE0;--cream-soft:rgba(243,236,224,.78);--ink:#231B14;--ink-soft:#5B4E40;--ember:#D9A06A;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:#15110D}
+body{font:300 16px/1.75 var(--sans);color:var(--cream);-webkit-font-smoothing:antialiased}
+p{margin:0}
+/* fixed photo stack */
+.stage{position:fixed;inset:0;z-index:0;overflow:hidden}
+.ph{position:absolute;inset:-4%;background-size:cover;background-position:center;opacity:0;will-change:opacity,transform;transition:opacity .2s linear}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,17,13,.35) 0%,rgba(21,17,13,.12) 35%,rgba(21,17,13,.55) 100%)}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.08;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:26px clamp(20px,4vw,56px)}
+.logo{font:400 21px/1 var(--serif);letter-spacing:.02em;color:var(--cream);text-decoration:none}
+.call{font:500 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--cream);text-decoration:none;padding:13px 20px;border:1px solid rgba(243,236,224,.5);border-radius:999px;backdrop-filter:blur(6px)}
+/* journey rail */
+.rail{position:fixed;right:clamp(16px,3vw,44px);top:50%;transform:translateY(-50%);z-index:20;list-style:none;margin:0;padding:0}
+.rail li{display:flex;align-items:center;justify-content:flex-end;gap:14px;height:38px;font:400 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgba(243,236,224,.45);transition:color .6s}
+.rail li span{opacity:0;transform:translateX(6px);transition:opacity .6s,transform .6s}
+.rail li i{width:7px;height:7px;border-radius:50%;border:1px solid currentColor;transition:all .6s}
+.rail li.on{color:var(--cream)}.rail li.on span{opacity:1;transform:none}.rail li.on i{background:var(--ember);border-color:var(--ember);box-shadow:0 0 0 5px rgba(217,160,106,.22)}
+.rail::before{content:"";position:absolute;right:3px;top:19px;bottom:19px;width:1px;background:rgba(243,236,224,.25)}
+/* chapters */
+main{position:relative;z-index:5}
+.ch{min-height:170vh;position:relative;padding:0 clamp(20px,6vw,96px)}
+.ch-in{position:sticky;top:0;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 clamp(56px,9vh,96px)}
+.chap{font:400 12px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--ember);margin-bottom:22px;display:flex;align-items:center;gap:14px}
+.chap::before{content:"";width:34px;height:1px;background:var(--ember)}
+h1,h2{font-family:var(--serif);font-weight:300;margin:0;text-wrap:balance;letter-spacing:-.005em}
+h1{font-size:clamp(48px,6.4vw,96px);line-height:.98;max-width:13ch}
+h2{font-size:clamp(36px,5vw,68px);line-height:1.04;max-width:16ch}
+.lede{max-width:46ch;margin-top:28px;font-size:17px;color:var(--cream-soft)}
+.btn{display:inline-flex;align-items:center;gap:12px;margin-top:38px;padding:17px 28px;border-radius:999px;background:var(--cream);color:var(--ink);font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;width:max-content}
+.fade{opacity:0;transform:translateY(22px);transition:opacity 1.2s ease,transform 1.2s ease}
+.ch.vis .fade{opacity:1;transform:none}
+.ch.vis .fade:nth-child(2){transition-delay:.12s}.ch.vis .fade:nth-child(3){transition-delay:.24s}.ch.vis .fade:nth-child(4){transition-delay:.36s}.ch.vis .fade:nth-child(5){transition-delay:.48s}
+/* paper card for denser content */
+.card{background:rgba(243,236,224,.94);color:var(--ink);border-radius:4px;padding:clamp(30px,4vw,54px);max-width:640px;backdrop-filter:blur(4px)}
+.card .chap{color:#9A6B3F}.card .chap::before{background:#9A6B3F}
+.card h2{font-size:clamp(32px,3.6vw,48px);max-width:none}
+.card .lede{color:var(--ink-soft);font-size:15.5px}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:28px;font-size:14.5px}
+.pillars p{padding:10px 0;border-top:1px solid rgba(35,27,20,.14)}
+.pillars .soil{grid-column:1/-1;border-top:1px solid #9A6B3F;margin-top:6px;padding-top:6px;font:500 10px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#9A6B3F}
+.stops{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 30px;margin-top:34px;max-width:760px}
+.stops p{font:400 24px/1.15 var(--serif);border-top:1px solid rgba(243,236,224,.35);padding-top:14px}
+.stops small{display:block;font:400 11px/1 var(--sans);letter-spacing:.2em;color:var(--ember);margin-bottom:8px}
+.svc{margin-top:26px}
+.svc a{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:16px 0;border-top:1px solid rgba(35,27,20,.14);color:var(--ink);text-decoration:none}
+.svc a:last-child{border-bottom:1px solid rgba(35,27,20,.14)}
+.svc b{font:400 25px/1.1 var(--serif)}
+.svc span{font:400 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#9A6B3F;white-space:nowrap}
+.big{font:300 clamp(80px,13vw,190px)/.9 var(--serif);font-variant-numeric:lining-nums tabular-nums;margin-top:10px}
+.big em{font-style:normal;color:var(--ember);font-size:.45em;vertical-align:.4em;margin:0 .12em}
+.quote{margin-top:26px;max-width:40ch;font:400 23px/1.4 var(--serif);color:var(--cream-soft)}
+.quote cite{display:block;margin-top:10px;font:400 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;font-style:normal;color:rgba(243,236,224,.6)}
+.end{text-align:center;align-items:center}
+.end h2{max-width:18ch;margin:0 auto}.end .lede{margin-left:auto;margin-right:auto}
+.end .chap::after{content:"";width:34px;height:1px;background:var(--ember)}
+.mock{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:30;background:rgba(21,17,13,.8);color:#E9DFCC;font-size:12px;padding:9px 16px;border-radius:999px;white-space:nowrap;transition:opacity 1s}
+@media(max-width:800px){.rail{display:none}.pillars,.stops{grid-template-columns:1fr 1fr}.ch{min-height:150vh}.card{padding:28px 22px}}
+</style></head>
+<body>
+<div class="stage" id="stage"></div>
+<div class="grain"></div>
+<header><a class="logo" href="#">Retreat Blueprint Co.</a><a class="call" href="#">Book a call</a></header>
+<ul class="rail" id="rail"></ul>
+<main>
+  <section class="ch" data-img="https://images.unsplash.com/photo-1711635295031-dd659eeb1a06" data-name="The path in"><div class="ch-in">
+    <p class="chap fade">Retreat Operations Director</p>
+    <h1 class="fade">Wellness hospitality, run with care.</h1>
+    <p class="lede fade">I partner with retreat centers, eco-lodges, and wellness venues to strengthen the business behind the guest experience.</p>
+    <a class="btn fade" href="#">Begin with a complimentary assessment →</a>
+  </div></section>
+
+  <section class="ch" data-img="https://images.unsplash.com/photo-1657215223750-c4988d4a2635" data-name="Arrival"><div class="ch-in">
+    <div class="card fade">
+      <p class="chap">The Retreat Blueprint</p>
+      <h2>The guest experience is what people remember. The operation behind it is what makes it possible.</h2>
+      <div class="pillars">
+        <p>Guest experience</p><p>Visibility and demand</p><p>Community and partners</p><p></p>
+        <p class="soil">Soil line</p>
+        <p>Revenue and pricing</p><p>Finances and cash flow</p><p>Systems</p><p>Team and operational leadership</p><p>Safety and trust</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="ch" data-img="https://images.unsplash.com/photo-1698933787134-af2d451985c7" data-name="Settling in"><div class="ch-in">
+    <p class="chap fade">The guest journey</p>
+    <h2 class="fade">From the first hello to long after they leave.</h2>
+    <p class="lede fade">Every interaction shapes how guests experience a retreat, from the confidence of a first response to the lasting impression they take home.</p>
+    <div class="stops fade"><p><small>01</small>Inquiry</p><p><small>02</small>Before arrival</p><p><small>03</small>Arrival</p><p><small>04</small>The stay</p><p><small>05</small>Departure</p><p><small>06</small>After the stay</p></div>
+  </div></section>
+
+  <section class="ch" data-img="https://images.unsplash.com/photo-1727706572437-4fcda0cbd66f" data-name="Morning"><div class="ch-in">
+    <div class="card fade">
+      <p class="chap">Services</p>
+      <h2>Build, run, lead, grow</h2>
+      <p class="lede">From building operational foundations to managing daily workflows, providing leadership, and supporting growth.</p>
+      <div class="svc">
+        <a href="#"><b>Foundation Sprint</b><span>Build →</span></a>
+        <a href="#"><b>Concierge Ops</b><span>Run →</span></a>
+        <a href="#"><b>Fractional Operations Director</b><span>Lead →</span></a>
+        <a href="#"><b>Growth Marketing</b><span>Grow →</span></a>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="ch" data-img="https://images.unsplash.com/photo-1728404259075-209cfb5bb89c" data-name="Restore"><div class="ch-in">
+    <p class="chap fade">Client work · Infinity Retreat</p>
+    <h2 class="fade">From double bookings to a connected retreat operation.</h2>
+    <p class="big fade"><span>40%</span><em>→</em><span id="cnt">40</span>%</p>
+    <p class="quote fade">“Shila took on the nearly impossible task of building our entire digital backend from the ground up.”<cite>Cris Ketch, Founder</cite></p>
+  </div></section>
+
+  <section class="ch" data-img="https://images.unsplash.com/photo-1652082200637-d04649c2a366" data-name="The view"><div class="ch-in end">
+    <p class="chap fade">Start with a conversation</p>
+    <h2 class="fade">Your guests come to feel restored.</h2>
+    <p class="lede fade">A free 30-minute call. No obligation, just a clear next step.</p>
+    <a class="btn fade" href="#">Book a free call →</a>
+  </div></section>
+</main>
+<div class="mock" id="mock">Mock-up · stock photos stand in for real venue photography · scroll slowly</div>
+<script>
+(function(){
+var chs=[].slice.call(document.querySelectorAll('.ch')), stage=document.getElementById('stage'), rail=document.getElementById('rail'), phs=[];
+chs.forEach(function(c,i){
+  var d=document.createElement('div');d.className='ph';d.style.backgroundImage='url('+c.dataset.img+'?w=2000&q=75&auto=format)';stage.appendChild(d);phs.push(d);
+  var li=document.createElement('li');li.innerHTML='<span>'+String(i+1).padStart(2,'0')+' · '+c.dataset.name+'</span><i></i>';li.onclick=function(){scrollTo({top:c.offsetTop,behavior:'smooth'})};li.style.cursor='pointer';rail.appendChild(li);
+});
+var lis=rail.children, counted=false, cnt=document.getElementById('cnt');
+function frame(){
+  var y=scrollY+innerHeight*.5, active=0;
+  chs.forEach(function(c,i){
+    var top=c.offsetTop, h=c.offsetHeight, t=(y-top)/h; // 0..1 while in chapter
+    if(y>=top)active=i;
+    // crossfade: fade in during the first 30% of a chapter, hold, previous fades out underneath
+    var next=chs[i+1], o;
+    if(i===0)o=1;else o=Math.min(1,Math.max(0,(scrollY+innerHeight-top)/(innerHeight*.9)));
+    phs[i].style.opacity=o;
+    // slow drift: each photo eases from 1.08 to 1.0 across its chapter
+    var k=Math.min(1,Math.max(0,(scrollY-top+innerHeight)/(h+innerHeight)));
+    phs[i].style.transform='scale('+(1.08-.08*k)+') translateY('+(-k*2)+'%)';
+    if(scrollY+innerHeight*.75>top)c.classList.add('vis');
+  });
+  for(var j=0;j<lis.length;j++)lis[j].classList.toggle('on',j===active);
+  if(!counted&&chs[4].classList.contains('vis')){counted=true;var s=performance.now();(function f(n){var q=Math.min(1,(n-s)/1800);cnt.textContent=Math.round(40+15*(1-Math.pow(1-q,3)));if(q<1)requestAnimationFrame(f)})(s)}
+}
+addEventListener('scroll',function(){requestAnimationFrame(frame)},{passive:true});addEventListener('resize',frame);
+frame();setTimeout(function(){document.getElementById('mock').style.opacity=0},7000);
+})();
+</script>
+</body></html>

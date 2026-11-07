@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Retreat Reveal Mock-up</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F3ECE0;--soft:rgba(243,236,224,.8);--ink:#1F1A14;--ink-soft:#57493A;--gold:#D6B07A;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;background:#0E0D0A}
+body{font:300 16px/1.75 var(--sans);color:var(--cream);-webkit-font-smoothing:antialiased}
+p{margin:0}
+header{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:24px clamp(20px,4vw,56px);mix-blend-mode:normal}
+.logo{font:400 20px/1 var(--serif);letter-spacing:.04em;color:var(--cream);text-decoration:none}
+.call{font:500 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--cream);text-decoration:none;padding:13px 20px;border:1px solid rgba(243,236,224,.5);border-radius:999px;backdrop-filter:blur(6px)}
+/* photo stage */
+.stage{position:fixed;inset:0;z-index:0;overflow:hidden}
+.ph{position:absolute;inset:0;background-size:cover;background-position:center;will-change:clip-path,transform}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,13,10,.3),rgba(14,13,10,.05) 40%,rgba(14,13,10,.6))}
+/* hero curtain */
+.hero{height:260vh;position:relative;z-index:10}
+.hero-in{position:sticky;top:0;height:100vh;overflow:hidden}
+.leaf{position:absolute;top:-4%;bottom:-4%;width:58%;background-size:cover;will-change:transform}
+.leaf::after{content:"";position:absolute;inset:0;background:rgba(8,10,7,.35)}
+.leaf.l{left:0;background-position:left center}
+.leaf.r{right:0;background-position:right center;transform-origin:right}
+.word{position:absolute;top:50%;transform:translateY(-50%);font:300 clamp(56px,10vw,170px)/.9 var(--serif);letter-spacing:.02em;color:var(--cream);z-index:2;white-space:nowrap}
+.leaf.l .word{right:9%}.leaf.r .word{left:9%}
+.hero-copy{position:absolute;left:clamp(20px,6vw,96px);bottom:clamp(48px,10vh,96px);z-index:3;max-width:640px;opacity:0;transform:translateY(24px)}
+.k{font:400 11.5px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+h1,h2{font-family:var(--serif);font-weight:300;margin:0;text-wrap:balance}
+h1{font-size:clamp(44px,5.8vw,84px);line-height:1}
+h2{font-size:clamp(34px,4.4vw,60px);line-height:1.05}
+.lede{max-width:46ch;margin-top:24px;font-size:17px;color:var(--soft)}
+.btn{display:inline-block;margin-top:34px;padding:17px 28px;border-radius:999px;background:var(--cream);color:var(--ink);font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;text-decoration:none}
+.cue{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:3;font:400 10.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--soft)}
+.cue::after{content:"";display:block;width:1px;height:38px;background:var(--soft);margin:12px auto 0;animation:cue 2.2s ease-in-out infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(0);transform-origin:bottom}}
+/* chapters */
+main{position:relative;z-index:5}
+.ch{height:240vh;position:relative}
+.ch-in{position:sticky;top:0;height:100vh;padding:0 clamp(20px,6vw,96px);display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(48px,9vh,90px)}
+.spaced{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font:300 clamp(30px,5vw,72px)/1 var(--serif);letter-spacing:.55em;text-indent:.55em;text-transform:uppercase;color:var(--cream);pointer-events:none}
+.spaced small{display:block;margin-top:22px;font:400 11px/1 var(--sans);letter-spacing:.4em;color:var(--gold)}
+.body{opacity:0;transform:translateY(26px)}
+.card{background:rgba(243,236,224,.95);color:var(--ink);border-radius:3px;padding:clamp(28px,4vw,52px);max-width:640px}
+.card .k{color:#94693D}
+.card h2{font-size:clamp(30px,3.4vw,46px)}
+.card .lede{color:var(--ink-soft);font-size:15.5px}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin-top:26px;font-size:14.5px}
+.pillars p{padding:9px 0;border-top:1px solid rgba(31,26,20,.14)}
+.pillars .soil{grid-column:1/-1;border-top:1px solid #94693D;margin-top:6px;font:500 10px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#94693D;padding-top:7px}
+.stops{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 30px;margin-top:30px;max-width:760px}
+.stops p{font:400 24px/1.15 var(--serif);border-top:1px solid rgba(243,236,224,.35);padding-top:13px}
+.stops small{display:block;font:400 11px/1 var(--sans);letter-spacing:.2em;color:var(--gold);margin-bottom:7px}
+.svc a{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:15px 0;border-top:1px solid rgba(31,26,20,.14);color:var(--ink);text-decoration:none}
+.svc{margin-top:24px}.svc a:last-child{border-bottom:1px solid rgba(31,26,20,.14)}
+.svc b{font:400 25px/1.1 var(--serif)}.svc span{font:400 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#94693D}
+.big{font:300 clamp(80px,12vw,180px)/.9 var(--serif);font-variant-numeric:lining-nums tabular-nums;margin-top:8px}
+.big em{font-style:normal;color:var(--gold);font-size:.45em;vertical-align:.4em;margin:0 .12em}
+.quote{margin-top:22px;max-width:40ch;font:400 23px/1.4 var(--serif);color:var(--soft)}
+.quote cite{display:block;margin-top:10px;font:400 11.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;font-style:normal;color:rgba(243,236,224,.6)}
+.end{align-items:center;text-align:center}.end .lede{margin-left:auto;margin-right:auto}
+.rail{position:fixed;right:clamp(16px,3vw,44px);top:50%;transform:translateY(-50%);z-index:30;list-style:none;margin:0;padding:0;opacity:0;transition:opacity .8s}
+.rail.show{opacity:1}
+.rail li{display:flex;align-items:center;justify-content:flex-end;gap:14px;height:36px;font:400 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(243,236,224,.45);cursor:pointer}
+.rail li span{opacity:0;transition:opacity .6s}.rail li i{width:7px;height:7px;border-radius:50%;border:1px solid currentColor;transition:all .6s}
+.rail li.on{color:var(--cream)}.rail li.on span{opacity:1}.rail li.on i{background:var(--gold);border-color:var(--gold)}
+.mock{position:fixed;left:50%;top:84px;transform:translateX(-50%);z-index:50;background:rgba(14,13,10,.75);color:#E9DFCC;font-size:12px;padding:8px 15px;border-radius:999px;white-space:nowrap;transition:opacity 1s}
+@media(max-width:800px){.rail{display:none}.pillars,.stops{grid-template-columns:1fr 1fr}.leaf{width:64%}.spaced{letter-spacing:.3em;text-indent:.3em}}
+</style></head>
+<body>
+<div class="stage" id="stage"></div>
+<header><a class="logo" href="#">Retreat Blueprint Co.</a><a class="call" href="#">Book a call</a></header>
+<ul class="rail" id="rail"></ul>
+
+<section class="hero" id="hero"><div class="hero-in">
+  <div class="leaf l" id="ll"><span class="word">Retreat</span></div>
+  <div class="leaf r" id="lr"><span class="word">Blueprint</span></div>
+  <div class="hero-copy" id="hc">
+    <p class="k">Retreat Operations Director</p>
+    <h1>Wellness hospitality, run with care.</h1>
+    <p class="lede">I partner with retreat centers, eco-lodges, and wellness venues to strengthen the business behind the guest experience.</p>
+    <a class="btn" href="#">Begin with a complimentary assessment</a>
+  </div>
+  <p class="cue" id="cue">Scroll to enter</p>
+</div></section>
+
+<main>
+  <section class="ch" data-img="1767324672978-f26a05319e63" data-name="Arrival"><div class="ch-in">
+    <p class="spaced">Arrival<small>The Retreat Blueprint</small></p>
+    <div class="body"><div class="card">
+      <p class="k">My framework</p>
+      <h2>The guest experience is what people remember. The operation behind it is what makes it possible.</h2>
+      <div class="pillars"><p>Guest experience</p><p>Visibility and demand</p><p>Community and partners</p><p></p><p class="soil">Soil line</p><p>Revenue and pricing</p><p>Finances and cash flow</p><p>Systems</p><p>Team and operational leadership</p><p>Safety and trust</p></div>
+    </div></div>
+  </div></section>
+
+  <section class="ch" data-img="1761950116791-8bfc445e5186" data-name="The path"><div class="ch-in">
+    <p class="spaced">The path<small>The guest journey</small></p>
+    <div class="body">
+      <p class="k">The guest journey</p>
+      <h2>From the first hello to long after they leave.</h2>
+      <div class="stops"><p><small>01</small>Inquiry</p><p><small>02</small>Before arrival</p><p><small>03</small>Arrival</p><p><small>04</small>The stay</p><p><small>05</small>Departure</p><p><small>06</small>After the stay</p></div>
+    </div>
+  </div></section>
+
+  <section class="ch" data-img="1774280954999-9758f11f3d41" data-name="Settle in"><div class="ch-in">
+    <p class="spaced">Settle in<small>Services</small></p>
+    <div class="body"><div class="card">
+      <p class="k">Services</p><h2>Build, run, lead, grow</h2>
+      <div class="svc"><a href="#"><b>Foundation Sprint</b><span>Build →</span></a><a href="#"><b>Concierge Ops</b><span>Run →</span></a><a href="#"><b>Fractional Operations Director</b><span>Lead →</span></a><a href="#"><b>Growth Marketing</b><span>Grow →</span></a></div>
+    </div></div>
+  </div></section>
+
+  <section class="ch" data-img="1638376530281-79982e68dc9c" data-name="Restore"><div class="ch-in">
+    <p class="spaced">Restore<small>Client work</small></p>
+    <div class="body">
+      <p class="k">Infinity Retreat · Ometepe</p>
+      <h2>From double bookings to a connected retreat operation.</h2>
+      <p class="big">40%<em>→</em><span id="cnt">40</span>%</p>
+      <p class="quote">“Shila took on the nearly impossible task of building our entire digital backend from the ground up.”<cite>Cris Ketch, Founder</cite></p>
+    </div>
+  </div></section>
+
+  <section class="ch" data-img="1650201776749-fde3862e5354" data-name="Stay"><div class="ch-in end">
+    <p class="spaced">Stay<small>Start with a conversation</small></p>
+    <div class="body">
+      <h2>Your guests come to feel restored.</h2>
+      <p class="lede">A free 30-minute call. No obligation, just a clear next step.</p>
+      <a class="btn" href="#">Book a free call</a>
+    </div>
+  </div></section>
+</main>
+<div class="mock" id="mock">Mock-up · stock photos stand in for real venue photography · scroll slowly</div>
+<script>
+(function(){
+var U=function(id,w){return 'url(https://images.unsplash.com/photo-'+id+'?w='+(w||2000)+'&q=75&auto=format)'};
+var LEAF='1530049478161-0780526964f4', HERO='1414510451013-d0a41fea512e';
+var stage=document.getElementById('stage'), rail=document.getElementById('rail');
+var ll=document.getElementById('ll'), lr=document.getElementById('lr'), hc=document.getElementById('hc'), cue=document.getElementById('cue'), hero=document.getElementById('hero');
+ll.style.backgroundImage=U(LEAF,1600);lr.style.backgroundImage=U(LEAF,1600);lr.style.transform='scaleX(-1)';lr.querySelector('.word').style.transform='translateY(-50%) scaleX(-1)';
+// organic leaf edge on each curtain
+function wave(side){var pts=[],n=26;for(var i=0;i<=n;i++){var y=i/n*100,x=86+Math.sin(i*1.3)*6+Math.sin(i*.45)*5;pts.push(x+'% '+y+'%')}return 'polygon(0% 0%, '+pts.join(', ')+', 0% 100%)'}
+ll.style.clipPath=wave();lr.style.clipPath=wave();
+var heroPh=document.createElement('div');heroPh.className='ph';heroPh.style.backgroundImage=U(HERO);stage.appendChild(heroPh);
+var chs=[].slice.call(document.querySelectorAll('.ch')), phs=[];
+chs.forEach(function(c,i){var d=document.createElement('div');d.className='ph';d.style.backgroundImage=U(c.dataset.img);d.style.clipPath='circle(0% at 50% 50%)';stage.appendChild(d);phs.push(d);
+  var li=document.createElement('li');li.innerHTML='<span>'+String(i+1).padStart(2,'0')+' · '+c.dataset.name+'</span><i></i>';li.onclick=function(){scrollTo({top:c.offsetTop+innerHeight*.9,behavior:'smooth'})};rail.appendChild(li)});
+var clamp=function(v){return Math.max(0,Math.min(1,v))}, ease=function(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2};
+var counted=false, cnt=document.getElementById('cnt');
+function frame(){
+  var V=innerHeight, y=scrollY;
+  // hero: curtains part, photo settles, copy arrives
+  var p=clamp(y/(hero.offsetHeight-V)), e=ease(clamp(p/0.75));
+  ll.style.transform='translateX('+(-e*105)+'%) scale('+(1+e*.25)+')';
+  lr.style.transform='translateX('+(e*105)+'%) scale('+(1+e*.25)+') scaleX(-1)';
+  heroPh.style.transform='scale('+(1.22-.22*e)+')';
+  var c=clamp((p-.55)/.3);hc.style.opacity=c;hc.style.transform='translateY('+(24-24*c)+'px)';
+  cue.style.opacity=1-clamp(p*4);
+  rail.classList.toggle('show',p>.95);
+  // chapters: circle reveal, spaced title, then content
+  var active=-1;
+  chs.forEach(function(ch,i){
+    var top=ch.offsetTop, h=ch.offsetHeight;
+    var r=ease(clamp((y+V-top)/(V*1.1)));
+    phs[i].style.clipPath='circle('+(r*78)+'% at 50% 52%)';
+    phs[i].style.transform='scale('+(1.15-.15*r)+')';
+    var t=clamp((y-top)/(h-V));
+    var sp=ch.querySelector('.spaced'), b=ch.querySelector('.body');
+    sp.style.opacity=clamp(r*1.4-.3)*(1-clamp((t-.08)/.2));
+    sp.style.letterSpacing=(0.85-.3*r)+'em';
+    var bo=clamp((t-.22)/.22);b.style.opacity=bo;b.style.transform='translateY('+(26-26*bo)+'px)';
+    if(y+V*.5>=top)active=i;
+    if(i===3&&bo>.5&&!counted){counted=true;var s=performance.now();(function f(n){var q=Math.min(1,(n-s)/1800);cnt.textContent=Math.round(40+15*(1-Math.pow(1-q,3)));if(q<1)requestAnimationFrame(f)})(s)}
+  });
+  for(var j=0;j<rail.children.length;j++)rail.children[j].classList.toggle('on',j===active);
+}
+addEventListener('scroll',function(){requestAnimationFrame(frame)},{passive:true});addEventListener('resize',frame);frame();
+setTimeout(function(){document.getElementById('mock').style.opacity=0},6000);
+})();
+</script>
+</body></html>
