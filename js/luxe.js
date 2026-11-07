@@ -169,4 +169,36 @@
     var sio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('sec-in'); sio.unobserve(e.target); } }); }, { threshold: .08 });
     secs.forEach(function (sec) { sio.observe(sec); });
   }
+  // The closing leaves close in when the invitation arrives
+  var closeSec = document.querySelector('.close');
+  if (closeSec && 'IntersectionObserver' in window) {
+    var cio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { closeSec.classList.add('lf-in'); cio.disconnect(); } }); }, { threshold: .3 });
+    cio.observe(closeSec);
+  }
+  // A small guest travels along the journey arc once it has drawn
+  var sun = document.querySelector('.sun'), arcP = sun && sun.querySelector('path');
+  if (sun && arcP && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var g = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); g.setAttribute('r', '5'); g.setAttribute('class', 'guest-dot'); sun.appendChild(g);
+    var AL = arcP.getTotalLength(), started = false;
+    var go = function () { if (started) return; started = true; var t0 = performance.now(); (function f(n) { var k = Math.min(1, (n - t0) / 3200), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2, pt = arcP.getPointAtLength(AL * e); g.setAttribute('cx', pt.x); g.setAttribute('cy', pt.y); if (k < 1) requestAnimationFrame(f); })(t0); };
+    var pt0 = arcP.getPointAtLength(0); g.setAttribute('cx', pt0.x); g.setAttribute('cy', pt0.y);
+    new MutationObserver(function () { if (sun.classList.contains('drawn')) setTimeout(go, 400); }).observe(sun, { attributes: true, attributeFilter: ['class'] });
+  }
+  // Seamless colour: the page tone flows from one section into the next
+  var tonal = [].slice.call(document.querySelectorAll('body > section, main > section')).filter(function (el) {
+    var cs = getComputedStyle(el); return cs.backgroundImage === 'none' && !el.classList.contains('close') && cs.backgroundColor !== 'rgba(0, 0, 0, 0)';
+  });
+  if (tonal.length > 1) {
+    var cols = tonal.map(function (el) { var m = getComputedStyle(el).backgroundColor.match(/[\d.]+/g).map(Number); el.style.backgroundColor = 'transparent'; return m; });
+    document.body.style.backgroundColor = 'rgb(' + cols[0].slice(0, 3).join(',') + ')';
+    var toneFrame = function () {
+      var mid = window.scrollY + window.innerHeight * .55, i = 0;
+      for (var k = 0; k < tonal.length; k++) { if (tonal[k].offsetTop <= mid) i = k; }
+      var a = cols[i], b = cols[i + 1] || a, el = tonal[i];
+      var zone = window.innerHeight * .5, t = Math.max(0, Math.min(1, (mid - (el.offsetTop + el.offsetHeight - zone)) / zone));
+      document.body.style.backgroundColor = 'rgb(' + [0, 1, 2].map(function (j) { return Math.round(a[j] + (b[j] - a[j]) * t); }).join(',') + ')';
+    };
+    window.addEventListener('scroll', function () { requestAnimationFrame(toneFrame); }, { passive: true });
+    toneFrame();
+  }
 })();

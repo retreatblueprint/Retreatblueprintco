@@ -732,3 +732,32 @@ h1 em, h2 em, .display em, .venue-h em { color: var(--thatch); }
   .plan-line { transform: translateX(-50%) scaleX(1); transition: none; }
   .js section h2.reveal, .js .reveal .arch img { clip-path: none !important; transform: none !important; transition: none !important; }
 }
+
+/* ===== Preview v3: calmer, more space, headings off-centre, seamless colour ===== */
+:root { --sec: clamp(7rem, 14vw, 12.5rem); }
+.venue-eyebrow { display: none !important; }
+body { transition: background-color .2s linear; }
+/* asymmetric section heads: heading left, intro right */
+@media (min-width: 901px) {
+  .journey-head, .doors-sec .narrow.center { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); column-gap: clamp(3rem, 7vw, 7rem); align-items: end; text-align: left; max-width: none; }
+  .journey-head > *, .doors-sec .narrow.center > * { margin-left: 0 !important; margin-right: 0 !important; }
+  .journey-head .display, .doors-sec .narrow.center .display { grid-column: 1; max-width: 14ch; margin-bottom: 0; }
+  .journey-head p, .doors-sec .narrow.center p { grid-column: 2; margin-bottom: .4rem; }
+  .venue-h { text-align: left; }
+  .venue-intro { columns: auto; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); column-gap: clamp(3rem, 7vw, 7rem); max-width: none; }
+  .venue-intro .venue-lead:first-child { grid-column: 1; }
+  .venue-intro .venue-lead + .venue-lead { grid-column: 2; margin-top: 0; }
+  .cs .display { text-align: left; }
+  .cs .cs-tabs { justify-content: flex-start; }
+}
+/* leaves gently frame the closing invitation */
+.close .lf { position: absolute; top: -6%; bottom: -6%; width: 30%; z-index: 1; background-size: cover; background-position: left center; pointer-events: none; transition: transform 2.2s cubic-bezier(.22, .61, .36, 1); }
+.close .lf.l { left: 0; transform: translateX(-100%); }
+.close .lf.r { right: 0; transform: translateX(100%) scaleX(-1); }
+.close.sec-in .lf.l, .close.lf-in .lf.l { transform: translateX(-38%); }
+.close.sec-in .lf.r, .close.lf-in .lf.r { transform: translateX(38%) scaleX(-1); }
+@media (max-width: 900px) { .close .lf { width: 34%; } }
+/* the guest travelling along the journey arc */
+.sun .guest-dot { fill: #E2A33B; opacity: 0; filter: drop-shadow(0 0 6px rgba(226, 163, 59, .8)); }
+.sun.drawn .guest-dot { opacity: 1; transition: opacity .4s; }
+@media (prefers-reduced-motion: reduce) { .close .lf { display: none; } .sun .guest-dot { display: none; } }
