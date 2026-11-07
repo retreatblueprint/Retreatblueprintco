@@ -761,3 +761,4 @@ body { transition: background-color .2s linear; }
 .sun .guest-dot { fill: #E2A33B; opacity: 0; filter: drop-shadow(0 0 6px rgba(226, 163, 59, .8)); }
 .sun.drawn .guest-dot { opacity: 1; transition: opacity .4s; }
 @media (prefers-reduced-motion: reduce) { .close .lf { display: none; } .sun .guest-dot { display: none; } }
+.venue-intro .venue-lead:first-child { font-style: normal !important; }
