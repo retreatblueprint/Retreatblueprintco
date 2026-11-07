@@ -630,3 +630,22 @@ p.svc-intro { max-width: 66ch; }
   .cs-res { padding: 2rem 1.75rem; }
   .cs-act { min-width: 0; }
 }
+
+/* Fraunces headings, set upright */
+:root { --serif: 'Fraunces', 'Iowan Old Style', Georgia, serif; }
+h1, h2, h3, .display, .venue-h, .stop-feel, .door-name, .cs-h, .cs-big, .rc-head { font-variation-settings: "SOFT" 100, "opsz" 72; letter-spacing: -.015em; }
+h1 em, h2 em, h3 em, .display em, .venue-h em, .stop-feel, .cs-q, .rc-q, .about-quote, .door-tag, .hero-arch figcaption, .journey-close, .venue-close, .rv-body p, blockquote { font-style: normal !important; }
+
+/* Leaf intro: the leaves part to reveal the homepage */
+.hx-stage { position: relative; height: 165vh; height: 165svh; }
+.hx-stage > .hero { position: sticky; top: 0; }
+.hx { position: absolute; inset: 0; z-index: 150; pointer-events: none; }
+.hx-in { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.hx-leaf { position: absolute; top: -4%; bottom: -4%; width: 58%; background-size: cover; background-position: left center; will-change: transform; }
+.hx-leaf::after { content: ""; position: absolute; inset: 0; background: rgba(8, 10, 7, .3); }
+.hx-leaf.l { left: 0; }
+.hx-leaf.r { right: 0; }
+.hx-leaf span { position: absolute; top: 50%; right: 20%; transform: translateY(-50%); z-index: 2; font: 300 clamp(3rem, 10vw, 10.5rem)/.9 var(--serif); font-variation-settings: "SOFT" 100, "opsz" 144; color: #F3ECE0; white-space: nowrap; }
+.hx-cue { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); z-index: 3; font: 400 .66rem/1 var(--sans); letter-spacing: .3em; text-transform: uppercase; color: rgba(243, 236, 224, .85); }
+@media (max-width: 900px) { .hx-leaf { width: 68%; } .hx-leaf span { right: 14%; } }
+@media (prefers-reduced-motion: reduce) { .hx { display: none; } .hx-stage { height: auto; } .hx-stage > .hero { position: relative; } }
