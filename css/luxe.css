@@ -673,3 +673,26 @@ p.svc-intro { max-width: 66ch; }
 .sun.drawn path { stroke-dashoffset: 0; }
 .sun.drawn circle { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .venue-soil path[stroke], .sun path { stroke-dashoffset: 0; transition: none; } .sun circle { opacity: 1; } }
+
+/* ===== Preview: Rainforest palette + Fraunces (no italics, no small labels) ===== */
+:root {
+  --limewash: #F1F5EE; --limewash-hi: #F8FBF6; --sand: #DDE9D6; --sand-deep: #C9DCC0;
+  --thatch: #2B7049; --honey: #6FA67F; --ink: #14301F; --ink-soft: #4D6553;
+  --jungle: #1F4D33; --jungle-deep: #123A28; --amber: #E2A33B;
+  --hair: rgba(20, 48, 31, .18); --hair-light: rgba(241, 245, 238, .22);
+  --serif: 'Fraunces', Georgia, serif;
+  --grain: none;
+}
+h1, h2, h3, .display, .venue-h, .stop-feel, .cs-h, .cs-big, .cs-q, .door-name, .about h2 { font-family: var(--serif); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 350; letter-spacing: -.02em; font-style: normal; }
+h1 em, h2 em, h3 em, .display em, .venue-h em, .stop-feel, .cs-q, blockquote, .hero-arch figcaption, .door-tag { font-style: normal !important; }
+h1 em, h2 em, .display em, .venue-h em { color: var(--thatch); }
+.eyebrow { display: none !important; }
+.hero { background: linear-gradient(180deg, #CFE7EF 0%, var(--limewash) 78%); }
+.hero-light { display: none; }
+.venue-card { background: #FFFFFF; }
+.venue-card--dark { background: var(--jungle-deep); color: #EEF5EC; }
+.venue-card--dark p { color: rgba(238, 245, 236, .78); }
+.venue-card p { color: var(--ink-soft); }
+.venue-soil { background: var(--sand); }
+.venue-soil path:not([stroke]) { fill: var(--jungle-deep); }
+.venue-soil path[stroke] { stroke: #8FBF9C; }
