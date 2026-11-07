@@ -20,9 +20,9 @@ header{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-conte
 .leaf{position:absolute;top:-4%;bottom:-4%;width:58%;background-size:cover;will-change:transform}
 .leaf::after{content:"";position:absolute;inset:0;background:rgba(8,10,7,.35)}
 .leaf.l{left:0;background-position:left center}
-.leaf.r{right:0;background-position:right center;transform-origin:right}
+.leaf.r{right:0;background-position:left center}
 .word{position:absolute;top:50%;transform:translateY(-50%);font:300 clamp(56px,10vw,170px)/.9 var(--serif);letter-spacing:.02em;color:var(--cream);z-index:2;white-space:nowrap}
-.leaf.l .word{right:9%}.leaf.r .word{left:9%}
+.leaf .word{right:20%}
 .hero-copy{position:absolute;left:clamp(20px,6vw,96px);bottom:clamp(48px,10vh,96px);z-index:3;max-width:640px;opacity:0;transform:translateY(24px)}
 .k{font:400 11.5px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
 h1,h2{font-family:var(--serif);font-weight:300;margin:0;text-wrap:balance}
