@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Retreat Blueprint Revamp Draft</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..500,100&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EAF3F4;--fg:#14301F;--mute:#4D6553;--acc:#2B7049;--soil:#4A3426;--soil-2:#5B4232;--tan:#E6C79E;--sun:#E2A33B;--serif:'Fraunces',Georgia,serif;--sans:'Jost',system-ui,sans-serif;--ease:cubic-bezier(.22,.61,.36,1)}
+*{box-sizing:border-box}html,body{margin:0}p,h1,h2,h3{margin:0}
+body{background:var(--bg);color:var(--fg);font:300 17px/1.75 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:340;font-variation-settings:"SOFT" 100,"opsz" 96;letter-spacing:-.02em}
+a{color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{width:min(1200px,calc(100% - 40px));margin:0 auto}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,48px);transition:opacity .6s,background .6s;opacity:0;pointer-events:none}
+nav.show{opacity:1;pointer-events:auto}
+nav.solid{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px)}
+.logo{font:400 20px/1 var(--serif);text-decoration:none}
+.navr{display:flex;gap:28px;align-items:center;font-size:14.5px}
+.navr a{text-decoration:none;opacity:.8}
+.navr .book{opacity:1;border-bottom:1px solid currentColor;padding-bottom:2px}
+@media(max-width:760px){.navr a:not(.book){display:none}}
+
+/* ============ 1 · ARRIVAL ============ */
+.arrival{height:240vh;position:relative}
+.arr-in{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.arr-copy{position:absolute;left:clamp(20px,6vw,90px);top:50%;transform:translateY(-50%);max-width:min(560px,46vw);opacity:0}
+.arr-copy h1{font-size:clamp(44px,5.6vw,84px);line-height:1.02}
+.arr-copy h1 span{color:var(--acc)}
+.arr-copy p{margin-top:22px;color:var(--mute);max-width:42ch}
+.cta{display:inline-flex;align-items:center;gap:14px;margin-top:30px;font:400 16px/1 var(--sans);text-decoration:none;color:var(--fg)}
+.cta::after{content:"";width:56px;height:1px;background:var(--acc);transition:width .5s var(--ease)}
+.cta:hover::after{width:96px}
+.arch-target{position:absolute;right:clamp(20px,7vw,110px);top:50%;transform:translateY(-50%);width:min(400px,32vw);aspect-ratio:3/4;border-radius:999px 999px 0 0}
+.view{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:50% 65%;z-index:2}
+.leaf{position:absolute;top:-4%;bottom:-4%;width:58%;background-size:cover;background-position:left center;z-index:3}
+.leaf::after{content:"";position:absolute;inset:0;background:rgba(8,10,7,.3)}
+.leaf.l{left:0}.leaf.r{right:0}
+.leaf span{position:absolute;top:50%;right:20%;transform:translateY(-50%);font:300 clamp(46px,10vw,168px)/.9 var(--serif);color:#F3ECE0;z-index:2;white-space:nowrap;font-variation-settings:"SOFT" 100,"opsz" 144}
+.cue{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:4;font:400 11px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:#F3ECE0}
+@media(max-width:760px){
+ .arr-copy{left:20px;right:20px;top:auto;bottom:6vh;transform:none;max-width:none}
+ .arch-target{right:50%;transform:translateX(50%);top:13vh;width:min(250px,62vw)}
+ .leaf{width:68%}.leaf span{right:14%}
+}
+
+/* ============ 2 · THE GROUND ============ */
+.ground{height:330vh;position:relative}
+.gr-in{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.gr-head{position:absolute;left:0;right:0;top:12vh;text-align:center;padding:0 20px;transition:opacity .5s}
+.gr-head h2{font-size:clamp(30px,3.6vw,52px);line-height:1.08;max-width:22ch;margin:0 auto}
+.gr-head p{margin:18px auto 0;max-width:56ch;color:var(--mute);font-size:16px}
+.stage{position:absolute;left:0;right:0;top:0;height:200vh;will-change:transform}
+.surface{position:absolute;left:0;right:0;top:64vh;height:40px}
+.surface svg,.roots svg{width:100%;height:100%;display:block;overflow:visible}
+.pill{position:absolute;transform:translate(-50%,0);text-align:center;cursor:pointer;background:none;border:0;padding:0;color:inherit;font:inherit}
+.pill b{display:block;font:350 clamp(18px,1.8vw,26px)/1.15 var(--serif);font-variation-settings:"SOFT" 100;white-space:nowrap}
+.pill small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.6;margin-bottom:6px}
+.pill .dot{width:10px;height:10px;border-radius:50%;background:var(--acc);margin:10px auto 0;box-shadow:0 0 0 6px color-mix(in srgb,var(--acc) 18%,transparent);transition:transform .3s}
+.pill:hover .dot,.pill.on .dot{transform:scale(1.4)}
+.pill.up{top:calc(64vh - 120px)}
+.pill.up .stem{width:1px;height:0;background:var(--acc);margin:8px auto 0;opacity:.6}
+.pill.down{top:calc(64vh + 300px)}
+.pill.down .dot{background:var(--tan);box-shadow:0 0 0 6px rgba(230,199,158,.2);margin:0 auto 10px}
+.roots{position:absolute;left:0;right:0;top:calc(64vh + 18px);height:290px}
+.roots path{fill:none;stroke:var(--tan);stroke-width:1.6;stroke-linecap:round}
+.soil-fill{position:absolute;left:0;right:0;top:calc(64vh + 18px);bottom:0;background:var(--soil);opacity:0}
+.below-head{position:absolute;left:0;right:0;top:calc(64vh + 90px);text-align:center;color:var(--tan);font:400 13px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;opacity:0}
+.detail{position:absolute;left:50%;bottom:7vh;transform:translateX(-50%);width:min(560px,calc(100% - 40px));text-align:center;font-size:16px;min-height:3.4em;transition:opacity .4s}
+.detail b{display:block;font:350 22px/1.2 var(--serif);margin-bottom:4px}
+@media(max-width:760px){.pill b{font-size:15px;white-space:normal;width:84px}.pill.down b{font-size:12.5px;width:64px;line-height:1.2}.pill small{display:none}.pill.down{top:calc(64vh + 250px)}.roots{height:240px}.gr-head{top:10vh}.gr-head p{display:none}}
+
+/* ============ 3 · THE STAY ============ */
+.stay{height:520vh;position:relative}
+.st-in{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.st-head{position:absolute;left:clamp(20px,6vw,90px);top:12vh;z-index:3;max-width:min(520px,80vw)}
+.st-head h2{font-size:clamp(32px,3.8vw,56px);line-height:1.06}
+.st-head p{margin-top:14px;color:var(--mute);font-size:16px;max-width:44ch}
+.track{position:absolute;left:0;top:0;height:100%;display:flex;align-items:flex-end;padding:0 0 5vh;will-change:transform}
+.moment{flex:none;width:min(560px,82vw);padding:0 clamp(20px,4vw,60px);position:relative}
+.moment:first-child{margin-left:clamp(20px,46vw,640px)}
+.moment:last-child{margin-right:30vw}
+.moment .n{font:400 12px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--acc)}
+.moment h3{font-size:clamp(30px,3.2vw,46px);line-height:1.08;margin-top:14px}
+.moment p{margin-top:14px;color:var(--mute);font-size:16px;max-width:36ch}
+.moment .ph{width:150px;aspect-ratio:3/4;border-radius:999px 999px 0 0;overflow:hidden;margin-bottom:26px;clip-path:inset(100% 0 0 0);transition:clip-path 1.2s var(--ease)}
+.moment.seen .ph{clip-path:inset(0)}
+.path{position:absolute;left:0;top:0;height:100%;pointer-events:none}
+.path path{fill:none;stroke:var(--sun);stroke-width:1.5;stroke-linecap:round}
+.guest{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 8px rgba(226,163,59,.22),0 0 24px rgba(226,163,59,.6);transform:translate(-50%,-50%);z-index:4}
+@media(max-width:760px){.moment:first-child{margin-left:8vw}.st-head{top:10vh}.moment .ph{width:110px}}
+
+/* ============ 4 · THE WORK ============ */
+.work{padding:20vh 0 14vh;position:relative}
+.work h2{font-size:clamp(34px,4vw,58px);line-height:1.06;max-width:16ch}
+.work .lead{margin-top:20px;color:var(--mute);max-width:52ch}
+.list{margin-top:9vh;border-top:1px solid color-mix(in srgb,var(--fg) 20%,transparent)}
+.row{display:grid;grid-template-columns:80px 1.3fr 1fr 40px;gap:24px;align-items:baseline;padding:34px 0;border-bottom:1px solid color-mix(in srgb,var(--fg) 20%,transparent);text-decoration:none;position:relative}
+.row .k{font:400 13px/1 var(--sans);letter-spacing:.18em;color:var(--acc)}
+.row h3{font-size:clamp(28px,3.4vw,50px);line-height:1.05;transition:transform .5s var(--ease),color .4s}
+.row p{color:var(--mute);font-size:15.5px}
+.row .ar{font-size:22px;transition:transform .4s var(--ease)}
+.row:hover h3{transform:translateX(14px);color:var(--acc)}.row:hover .ar{transform:translateX(6px)}
+.row .mph{display:none}
+.float{position:fixed;left:0;top:0;width:240px;aspect-ratio:3/4;border-radius:999px 999px 0 0;overflow:hidden;pointer-events:none;z-index:60;opacity:0;transform:translate(-50%,-50%) scale(.9);transition:opacity .35s,transform .45s var(--ease)}
+.float.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.buyer{margin-top:40px;font-size:15.5px;color:var(--mute)}
+.buyer a{color:var(--fg)}
+@media(max-width:760px){.row{grid-template-columns:1fr;gap:8px}.row .ar{display:none}.row .mph{display:block;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;margin-bottom:12px;order:-1}.float{display:none}}
+
+/* ============ 5 · THE PROOF ============ */
+.proof{padding:16vh 0}
+.case{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center;padding:8vh 0}
+.case+.case{border-top:1px solid color-mix(in srgb,var(--fg) 18%,transparent)}
+.case .who{font:400 13px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--acc)}
+.case h3{font-size:clamp(28px,3vw,44px);line-height:1.1;margin-top:16px}
+.case .res{font:300 clamp(54px,7vw,104px)/.95 var(--serif);margin-top:26px;font-variant-numeric:lining-nums tabular-nums}
+.case .res.w{font-size:clamp(30px,3vw,42px);line-height:1.1}
+.case .cap{margin-top:12px;color:var(--mute);max-width:40ch}
+.voice{display:flex;align-items:center;gap:18px;margin-top:30px}
+.voice button{width:58px;height:58px;border-radius:50%;border:1px solid var(--fg);background:none;cursor:pointer;display:grid;place-items:center;color:var(--fg);flex:none}
+.voice button:hover{background:var(--fg);color:var(--bg)}
+.voice .bar{flex:1;height:2px;background:color-mix(in srgb,var(--fg) 18%,transparent);position:relative;max-width:260px}
+.voice .bar i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--acc)}
+.voice span{font-size:13px;color:var(--mute)}
+.case blockquote{margin:0;font:340 clamp(22px,2.2vw,30px)/1.4 var(--serif);font-variation-settings:"SOFT" 100}
+.case cite{display:block;margin-top:16px;font:400 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;font-style:normal;color:var(--mute)}
+@media(max-width:760px){.case{grid-template-columns:1fr}}
+
+/* ============ 6 · THE PERSON ============ */
+.person{padding:16vh 0}
+.letter{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,100px);align-items:start}
+.portrait{aspect-ratio:3/4;border-radius:999px 999px 0 0;overflow:hidden;position:sticky;top:14vh}
+.letter h2{font-size:clamp(30px,3.4vw,50px);line-height:1.1}
+.letter p{margin-top:22px;color:var(--mute);max-width:58ch}
+.letter .sig{margin-top:34px;font:350 28px/1 var(--serif);color:var(--fg)}
+@media(max-width:760px){.letter{grid-template-columns:1fr}.portrait{position:relative;top:0;max-width:300px}}
+
+/* ============ 7 · THE INVITATION ============ */
+.invite{position:relative;min-height:110vh;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;color:#F3ECE0;background:#0E1A14}
+.invite .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.72}
+.invite .leaf{width:40%}
+.invite .leaf.l{transform:translateX(-100%)}.invite .leaf.r{transform:translateX(100%) scaleX(-1)}
+.invite .in{position:relative;z-index:5;padding:0 24px;max-width:660px}
+.invite h2{font-size:clamp(34px,4.4vw,64px);line-height:1.06}
+.invite p{margin-top:18px;color:rgba(243,236,224,.85)}
+.invite .cta{color:#F3ECE0}.invite .cta::after{background:#F3ECE0}
+.invite .alt{margin-top:22px;font-size:14px;opacity:.75}
+footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:26px clamp(20px,4vw,48px);font-size:13.5px;background:#0E1A14;color:rgba(243,236,224,.65)}
+
+/* reveal for normal sections */
+.rv{opacity:0;transform:translateY(22px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.mock{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;background:rgba(14,26,20,.85);color:#E9F1EA;font-size:12px;padding:8px 15px;border-radius:999px;white-space:nowrap;transition:opacity 1s}
+@media(prefers-reduced-motion:reduce){.arrival,.ground,.stay{height:auto}.arr-in,.gr-in,.st-in{position:relative;height:auto;min-height:100vh}.leaf{display:none}.rv{opacity:1;transform:none}}
+</style></head>
+<body>
+<nav id="nav"><a class="logo" href="#">Retreat Blueprint Co.</a><div class="navr"><a href="#ground">The Blueprint</a><a href="#work">Services</a><a href="#proof">Client work</a><a href="#person">About</a><a href="#">Field Notes</a><a class="book" href="#invite">Book a call</a></div></nav>
+
+<!-- 1 · ARRIVAL -->
+<section class="arrival" id="arrival" data-bg="#EAF3F4" data-fg="#14301F"><div class="arr-in" id="arrIn">
+  <div class="arr-copy" id="arrCopy">
+    <h1>Wellness hospitality, <span>run with care.</span></h1>
+    <p>I partner with retreat centers, eco-lodges, and wellness venues to strengthen the business behind the guest experience.</p>
+    <a class="cta" href="#invite">Begin with a complimentary assessment</a>
+  </div>
+  <div class="arch-target" id="archT"></div>
+  <img class="view" id="view" alt="A woman at the edge of an infinity pool, looking out over jungle to the ocean">
+  <div class="leaf l" id="lL"><span>Retreat</span></div><div class="leaf r" id="lR"><span>Blueprint</span></div>
+  <p class="cue" id="cue">Scroll to enter</p>
+</div></section>
+
+<!-- 2 · THE GROUND -->
+<section class="ground" id="ground" data-bg="#F1F5EE" data-fg="#14301F"><div class="gr-in">
+  <div class="gr-head" id="grHead">
+    <h2>The guest experience is what people remember. The operation behind it is what makes it possible.</h2>
+    <p>A retreat can be fully booked and still struggle to turn revenue into profit. The Retreat Blueprint looks at eight interconnected areas, above and below the soil line.</p>
+  </div>
+  <div class="stage" id="stage">
+    <div class="soil-fill" id="soilFill"></div>
+    <div class="surface"><svg viewBox="0 0 1000 40" preserveAspectRatio="none"><path id="surf" d="M0 20 C 120 6 240 30 360 18 S 600 6 720 20 S 900 30 1000 16" stroke="#2B7049" stroke-width="1.6" fill="none"/></svg></div>
+    <div class="roots"><svg viewBox="0 0 1000 290" preserveAspectRatio="none" id="rootSvg"></svg></div>
+    <p class="below-head" id="belowHead">Beneath it · what holds it up</p>
+  </div>
+  <p class="detail" id="detail"><b>Tap any pillar</b>to see what it covers.</p>
+</div></section>
+
+<!-- 3 · THE STAY -->
+<section class="stay" id="stay" data-bg="#EEF4EE" data-fg="#14301F"><div class="st-in" id="stIn">
+  <div class="st-head rvh"><h2>From the first hello to long after they leave.</h2><p>Every interaction shapes how guests experience a retreat, from the confidence of a first response to the lasting impression they take home.</p></div>
+  <svg class="path" id="pathSvg"><path id="pathP"/></svg>
+  <span class="guest" id="guest"></span>
+  <div class="track" id="track"></div>
+</div></section>
+
+<!-- 4 · THE WORK -->
+<section class="work" id="work" data-bg="#F1F5EE" data-fg="#14301F"><div class="wrap">
+  <h2 class="rv">Build, run, lead, grow</h2>
+  <p class="lead rv">From building operational foundations to managing daily workflows, providing leadership, and supporting growth, my services are designed around the needs and stage of your retreat business.</p>
+  <div class="list" id="list"></div>
+  <p class="buyer rv">Buying a retreat property? <a href="#">See the pre-purchase review</a>.</p>
+</div></section>
+
+<!-- 5 · THE PROOF -->
+<section class="proof" id="proof" data-bg="#E4EEE6" data-fg="#14301F"><div class="wrap" id="cases"></div></section>
+
+<!-- 6 · THE PERSON -->
+<section class="person" id="person" data-bg="#F1F5EE" data-fg="#14301F"><div class="wrap letter">
+  <figure class="portrait rv" style="margin:0"><img id="shila" alt="Shila Kandiah"></figure>
+  <div>
+    <h2 class="rv">I work in this industry because it has my soul</h2>
+    <p class="rv">My background spans more than 10 years across healthcare, wellness, and hospitality, working behind the scenes to bring structure to complex operations, strengthen systems, and help businesses run more effectively.</p>
+    <p class="rv">But my connection to this industry is much more personal than my professional experience. Living with CPTSD has shaped a part of my own healing journey. I know what it means to search for spaces where you can feel safe enough to slow down, reconnect with yourself, and begin finding your way back to who you are.</p>
+    <p class="rv">I also understand what it takes to bring those experiences to life. Behind the moments of connection and transformation are real businesses, with teams to support, decisions to make, systems to manage, and financial realities that can't be overlooked.</p>
+    <p class="rv">This is where my professional experience and personal journey come together. My work is about helping these spaces thrive as businesses, so they can continue offering something meaningful to the world.</p>
+    <p class="sig rv">Shila</p>
+  </div>
+</div></section>
+
+<!-- 7 · THE INVITATION -->
+<section class="invite" id="invite" data-bg="#0E1A14" data-fg="#F3ECE0">
+  <div class="bg" id="invBg"></div>
+  <div class="leaf l" id="iL"></div><div class="leaf r" id="iR"></div>
+  <div class="in">
+    <h2 class="rv">Your guests come to feel restored. Let's make the whole venue support that.</h2>
+    <p class="rv">Start with the complimentary Retreat Blueprint Assessment: a free 30-minute call about where your venue is and what would help most.</p>
+    <a class="cta rv" href="#">Book a free call</a>
+    <p class="alt rv">Prefer to write first? hello@retreatblueprintco.com</p>
+  </div>
+</section>
+<footer><span>Retreat Blueprint Co. © 2026</span><span>Remote worldwide · On-site in Costa Rica, Panama, Nicaragua and Guatemala</span></footer>
+<div class="mock" id="mock">Revamp draft · stock photos stand in for real ones</div>
+
+<script>
+(function(){
+var RAW='https://raw.githubusercontent.com/retreatblueprint/Retreatblueprintco/main/';
+var small=innerWidth<760;
+var U=function(id,w){return 'https://images.unsplash.com/photo-'+id+'?w='+(w||(small?1100:1900))+'&q=72&auto=format'};
+var LEAF=U('1530049478161-0780526964f4',small?900:1500);
+var $=function(id){return document.getElementById(id)};
+var cl=function(v){return Math.max(0,Math.min(1,v))}, ez=function(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2};
+var lerp=function(a,b,t){return a+(b-a)*t};
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+// assets
+$('view').src=U('1580247331145-82d32dbbdcac');
+['lL','lR','iL','iR'].forEach(function(id){$(id).style.backgroundImage='url('+LEAF+')'});
+$('invBg').style.backgroundImage='url('+U('1575241566159-0ef1a90ee10a')+')';
+$('shila').src=RAW+'assets/img/shila-kandiah.jpg';
+function wave(){var p=[],n=24;for(var i=0;i<=n;i++)p.push((86+Math.sin(i*1.3)*6+Math.sin(i*.45)*5)+'% '+(i/n*100)+'%');return 'polygon(0% 0%, '+p.join(', ')+', 0% 100%)'}
+['lL','lR','iL','iR'].forEach(function(id){$(id).style.clipPath=wave()});
+$('lR').querySelector('span').style.transform='translateY(-50%) scaleX(-1)';
+
+/* ---------- seamless colour: the page tone flows from section to section ---------- */
+var secs=[].slice.call(document.querySelectorAll('section[data-bg]'));
+function hex(h){return [1,3,5].map(function(i){return parseInt(h.slice(i,i+2),16)})}
+function mix(a,b,t){return 'rgb('+a.map(function(v,i){return Math.round(v+(b[i]-v)*t)}).join(',')+')'}
+function tone(extraSoil){
+  var mid=scrollY+innerHeight*.5, cur=0;
+  for(var i=0;i<secs.length;i++){if(secs[i].offsetTop<=mid)cur=i}
+  var s=secs[cur], n=secs[cur+1]||s;
+  var t=cl((mid-(s.offsetTop+s.offsetHeight-innerHeight*.5))/(innerHeight*.6));
+  var bg=mix(hex(s.dataset.bg),hex(n.dataset.bg),t), fg=mix(hex(s.dataset.fg),hex(n.dataset.fg),t);
+  if(extraSoil>0){bg=mix(bg.match(/\d+/g).map(Number),hex('#4A3426'),extraSoil);fg=mix(fg.match(/\d+/g).map(Number),hex('#F3EAD9'),extraSoil)}
+  document.documentElement.style.setProperty('--bg',bg);document.documentElement.style.setProperty('--fg',fg);
+}
+
+/* ---------- 1 · arrival ---------- */
+var arr=$('arrival'), view=$('view'), archT=$('archT'), arrIn=$('arrIn'), arrCopy=$('arrCopy'), nav=$('nav');
+function arrival(){
+  var V=innerHeight, p=cl(scrollY/(arr.offsetHeight-V));
+  var a=ez(cl(p/.4)), b=ez(cl((p-.45)/.4));
+  $('lL').style.transform='translateX('+(-a*105)+'%) scale('+(1+a*.2)+')';
+  $('lR').style.transform='translateX('+(a*105)+'%) scale('+(1+a*.2)+') scaleX(-1)';
+  $('cue').style.opacity=1-cl(p*5);
+  var R=arrIn.getBoundingClientRect(), T=archT.getBoundingClientRect();
+  view.style.left=lerp(0,T.left-R.left,b)+'px';view.style.top=lerp(0,T.top-R.top,b)+'px';
+  view.style.width=lerp(R.width,T.width,b)+'px';view.style.height=lerp(R.height,T.height,b)+'px';
+  var rad=T.width/2*b;view.style.borderRadius=rad+'px '+rad+'px 0 0';
+  var c=cl((p-.6)/.3);arrCopy.style.opacity=c;arrCopy.style.transform=(small?'':'translateY(-50%) ')+'translateY('+(18-18*c)+'px)';
+  nav.classList.toggle('show',p>.5);nav.classList.toggle('solid',scrollY>arr.offsetHeight-V);
+}
+
+/* ---------- 2 · the ground comes alive ---------- */
+var above=[['Guest experience','How people are welcomed, looked after and remembered.'],['Visibility and demand','How the right guests and retreat leaders find you, and how inquiries turn into bookings.'],['Community and partners','The retreat leaders, partners and past guests who keep a venue alive.']];
+var below=[['Revenue and pricing','Pricing, seasonality, and booking mix that support revenue performance.'],['Finances and cash flow','Budget, real costs and cash flow, including the quiet months.'],['Systems','Bookings, payments, communication and the tools that connect them.'],['Team and operational leadership','Clear responsibilities, accountable teams, and the operating standards that keep a property running effectively.'],['Safety and trust','Privacy, risk, guest care and the responsible practices retreat guests expect.']];
+var stage=$('stage'), ground=$('ground'), detail=$('detail'), pills=[];
+function mkPill(item,cls,x,i){var b=document.createElement('button');b.className='pill '+cls;b.style.left=x+'%';
+  b.innerHTML=cls==='up'?'<small>0'+(i+1)+'</small><b>'+item[0]+'</b><div class="stem"></div><div class="dot"></div>':'<div class="dot"></div><b>'+item[0]+'</b>';
+  b.onclick=function(){pills.forEach(function(p){p.el.classList.toggle('on',p.el===b)});detail.innerHTML='<b>'+item[0]+'</b>'+item[1]};
+  stage.appendChild(b);return b}
+above.forEach(function(it,i){pills.push({el:mkPill(it,'up',[22,50,78][i],i),kind:'up',i:i})});
+var bx=[12,31,50,69,88];
+below.forEach(function(it,i){pills.push({el:mkPill(it,'down',bx[i],i),kind:'down',i:i})});
+// branching roots from the surface to each lower pillar
+var rs=$('rootSvg'), rp=[];
+[[30,12],[40,31],[50,50],[60,69],[70,88]].forEach(function(r,i){var x0=r[0]*10,x1=r[1]*10;
+  var d='M'+x0+' 0 C '+x0+' 110 '+x1+' 150 '+x1+' 280';
+  var p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);rs.appendChild(p);rp.push(p);
+  var tw=document.createElementNS('http://www.w3.org/2000/svg','path');var mx=(x0+x1)/2, my=140;tw.setAttribute('d','M'+mx+' '+my+' q '+(i%2?-40:40)+' 30 '+(i%2?-60:60)+' 80');tw.setAttribute('stroke-width','1');tw.style.opacity=.5;rs.appendChild(tw);rp.push(tw)});
+rp.forEach(function(p){var L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;p.dataset.L=L});
+var surf=$('surf'), SL=surf.getTotalLength();surf.style.strokeDasharray=SL;surf.style.strokeDashoffset=SL;
+var soilAmt=0;
+function groundFx(){
+  var V=innerHeight, top=ground.offsetTop, p=cl((scrollY-top)/(ground.offsetHeight-V));
+  // surface draws, above pillars sprout
+  surf.style.strokeDashoffset=SL*(1-ez(cl((p+.02)/.16)));
+  pills.forEach(function(o){var el=o.el;
+    if(o.kind==='up'){var t=ez(cl((p-.08-o.i*.05)/.14));el.style.opacity=t;el.style.transform='translate(-50%,'+(30-30*t)+'px)';el.querySelector('.stem').style.height=(30*t)+'px'}
+    else{var u=ez(cl((p-.58-o.i*.04)/.12));el.style.opacity=u;el.style.transform='translate(-50%,'+(-16+16*u)+'px)'}
+  });
+  // descend beneath the surface
+  var d=ez(cl((p-.32)/.26));
+  stage.style.transform='translateY('+(-d*(small?36:42))+'vh)';
+  $('grHead').style.opacity=1-cl((p-.28)/.12);
+  $('soilFill').style.opacity=d;soilAmt=d*(1-cl((p-.94)/.06));
+  $('belowHead').style.opacity=cl((p-.5)/.1);
+  rp.forEach(function(path,i){var k=Math.floor(i/2), t=ez(cl((p-.44-k*.035)/.16));path.style.strokeDashoffset=path.dataset.L*(1-t)});
+  detail.style.opacity=cl((p-.2)/.1);
+  detail.style.color=d>.5?'#F3EAD9':'';
+}
+
+/* ---------- 3 · the stay: travel along the journey ---------- */
+var moments=[['01 · Inquiry','Heard quickly, and clearly.','A reply process, answers to common questions, and follow-up until they book or decide.','1761950116791-8bfc445e5186'],
+ ['02 · Before arrival','Prepared and looked after.','Forms, dietary and health intake, travel and pickup details, and a clear welcome email.','1767324672978-f26a05319e63'],
+ ['03 · Arrival','Welcomed, not processed.','A simple check-in, and a team that knows who is coming and what they need.','1414510451013-d0a41fea512e'],
+ ['04 · The stay','Comfortable and cared for.','Schedules, meals, housekeeping and support that run smoothly with a team equipped to deliver consistently.','1774280954999-9758f11f3d41'],
+ ['05 · Departure','Complete.','A gentle checkout, payments settled, and no loose ends.','1638376530281-79982e68dc9c'],
+ ['06 · After the stay','Remembered.','A thank-you, a review request, an invitation to return, and a way to stay connected.','1650201776749-fde3862e5354']];
+var track=$('track'), stay=$('stay'), stIn=$('stIn'), pathSvg=$('pathSvg'), pathP=$('pathP'), guest=$('guest'), PL=0, mEls=[];
+moments.forEach(function(m){var d=document.createElement('article');d.className='moment';d.innerHTML='<div class="ph"><img src="'+U(m[3],600)+'" alt="" loading="lazy"></div><p class="n">'+m[0]+'</p><h3>'+m[1]+'</h3><p>'+m[2]+'</p>';track.appendChild(d);mEls.push(d)});
+function buildPath(){
+  var W=track.scrollWidth, H=stIn.offsetHeight;pathSvg.setAttribute('width',W);pathSvg.setAttribute('height',H);pathSvg.style.width=W+'px';
+  var pts=mEls.map(function(m){var ph=m.querySelector('.ph');return [m.offsetLeft+ph.offsetLeft+ph.offsetWidth/2, m.offsetTop+ph.offsetTop-26]});
+  var d='M'+(pts[0][0]-700)+' '+(pts[0][1]+30);
+  pts.forEach(function(p,i){var q=i?pts[i-1]:[pts[0][0]-700,pts[0][1]+30];var mx=(q[0]+p[0])/2;d+=' C '+mx+' '+(q[1]-34)+' '+mx+' '+(p[1]-34)+' '+p[0]+' '+p[1]});
+  var z=pts[pts.length-1];d+=' C '+(z[0]+150)+' '+(z[1]-70)+' '+(z[0]+300)+' '+(z[1]+40)+' '+(z[0]+420)+' '+(z[1]+60);
+  pathP.setAttribute('d',d);PL=pathP.getTotalLength();pathP.style.strokeDasharray=PL;
+}
+function stayFx(){
+  var V=innerHeight, top=stay.offsetTop, p=cl((scrollY-top)/(stay.offsetHeight-V));
+  var maxX=track.scrollWidth-innerWidth, x=-maxX*ez(p)*.98-maxX*.02*p;
+  track.style.transform='translateX('+x+'px)';pathSvg.style.transform='translateX('+x+'px)';
+  var drawn=PL*cl(p*1.02);pathP.style.strokeDashoffset=PL-drawn;
+  if(PL){var pt=pathP.getPointAtLength(Math.max(1,drawn));guest.style.left=(pt.x+x)+'px';guest.style.top=pt.y+'px'}
+  mEls.forEach(function(m){var r=m.getBoundingClientRect();if(r.left<innerWidth*.8)m.classList.add('seen')});
+  // morning to dusk as the stay goes on
+  var sky=p<.5?mix(hex('#EAF3F4'),hex('#F4EEDC'),p*2):mix(hex('#F4EEDC'),hex('#F3DCC6'),(p-.5)*2);
+  stay.dataset.bg=sky.replace(/rgb\(|\)/g,'').split(',').map(function(v){return ('0'+(+v).toString(16)).slice(-2)}).reduce(function(a,b){return a+b},'#');
+}
+
+/* ---------- 4 · the work ---------- */
+var svc=[['01 · Build','Foundation Sprint','The systems behind a smooth stay, built piece by piece: bookings, payments, guest communication and your numbers.','1774280954999-9758f11f3d41'],
+ ['02 · Run','Concierge Ops','Every inquiry and guest message answered in your voice, so guests feel looked after from the first email.','1414510451013-d0a41fea512e'],
+ ['03 · Lead','Fractional Operations Director','Your part-time operations director for the guest experience, the numbers, the team and the systems.','1767324672978-f26a05319e63'],
+ ['04 · Grow','Growth Marketing','Strategy, content and outreach so the right guests and retreat leaders find you and know what to expect.','1638376530281-79982e68dc9c']];
+var list=$('list'), fl=document.createElement('div');fl.className='float';fl.innerHTML='<img alt="">';document.body.appendChild(fl);var flImg=fl.querySelector('img');
+svc.forEach(function(s){var a=document.createElement('a');a.className='row rv';a.href='#';a.innerHTML='<div class="mph"><img src="'+U(s[3],900)+'" alt="" loading="lazy"></div><span class="k">'+s[0]+'</span><h3>'+s[1]+'</h3><p>'+s[2]+'</p><span class="ar">→</span>';
+  a.onmouseenter=function(){flImg.src=U(s[3],700);fl.classList.add('on')};a.onmouseleave=function(){fl.classList.remove('on')};list.appendChild(a)});
+addEventListener('mousemove',function(e){fl.style.left=(e.clientX+150)+'px';fl.style.top=e.clientY+'px'});
+
+/* ---------- 5 · the proof ---------- */
+var cases=[['Airborne Arts · Dominical, Costa Rica','Replacing full-time administration with one connected operating system.','<p class="res w">Full-time administrative salary avoided.</p>','A custom operating system replaced the need for a full-time administrative assistant, giving the owner clearer financial oversight.','“Someone who takes big challenges, and turns them into simple systems that just work.”','Jonathon Conant, Founder','voice-note-jon.ogg','Jonathon'],
+ ['Infinity Retreat · Ometepe, Nicaragua','From double bookings to a connected retreat operation.','<p class="res"><span class="cnt" data-to="55">40</span>%</p>','Booking occupancy, up from 40%, with no further double bookings reported.','“Shila took on the nearly impossible task of building our entire digital backend from the ground up.”','Cris Ketch, Founder','voice-note-cris.ogg','Cris']];
+cases.forEach(function(c){var d=document.createElement('article');d.className='case';
+  d.innerHTML='<div class="rv"><p class="who">'+c[0]+'</p><h3>'+c[1]+'</h3>'+c[2]+'<p class="cap">'+c[3]+'</p></div><div class="rv"><blockquote>'+c[4]+'<cite>'+c[5]+'</cite></blockquote><div class="voice"><button aria-label="Play voice note from '+c[7]+'"><svg width="14" height="16" viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg></button><div class="bar"><i></i></div><span>Hear from '+c[7]+'</span></div><audio preload="none" src="'+RAW+'assets/audio/'+c[6]+'"></audio></div>';
+  $('cases').appendChild(d);
+  var au=d.querySelector('audio'), bt=d.querySelector('button'), bar=d.querySelector('.bar i');
+  bt.onclick=function(){document.querySelectorAll('audio').forEach(function(x){if(x!==au)x.pause()});if(au.paused){au.play()}else au.pause()};
+  au.ontimeupdate=function(){bar.style.width=(au.currentTime/(au.duration||1)*100)+'%'};
+  au.onplay=function(){bt.innerHTML='<svg width="14" height="16" viewBox="0 0 12 14"><rect width="4" height="14" fill="currentColor"/><rect x="8" width="4" height="14" fill="currentColor"/></svg>'};
+  au.onpause=function(){bt.innerHTML='<svg width="14" height="16" viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14" fill="currentColor"/></svg>'};
+});
+
+/* ---------- 7 · leaves close back in around the invitation ---------- */
+var invite=$('invite');
+function inviteFx(){var r=invite.getBoundingClientRect(), t=ez(cl((innerHeight-r.top)/(innerHeight*.9)));
+  $('iL').style.transform='translateX('+(-100+62*t)+'%)';$('iR').style.transform='translateX('+(100-62*t)+'%) scaleX(-1)'}
+
+/* ---------- reveals ---------- */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);
+  var c=e.target.querySelector&&e.target.querySelector('.cnt');if(c){var s0=performance.now();(function f(n){var q=Math.min(1,(n-s0)/1800);c.textContent=Math.round(40+15*(1-Math.pow(1-q,3)));if(q<1)requestAnimationFrame(f)})(s0)}}})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+function frame(){if(!reduce){arrival();groundFx();stayFx();inviteFx()}tone(soilAmt)}
+var tick=false;addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(function(){frame();tick=false})}},{passive:true});
+addEventListener('resize',function(){buildPath();frame()});
+addEventListener('load',function(){buildPath();frame()});
+buildPath();frame();
+if(reduce){nav.classList.add('show');arrCopy.style.opacity=1;document.querySelectorAll('.pill').forEach(function(p){p.style.opacity=1})}
+setTimeout(function(){$('mock').style.opacity=0},6000);
+})();
+</script>
+</body></html>

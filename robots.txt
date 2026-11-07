@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://retreatblueprintco.com/sitemap.xml
+
+Disallow: /preview/
