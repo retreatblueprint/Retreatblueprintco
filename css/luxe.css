@@ -689,9 +689,9 @@ h1 em, h2 em, .display em, .venue-h em { color: var(--thatch); }
 .eyebrow { display: none !important; }
 .hero { background: linear-gradient(180deg, #CFE7EF 0%, var(--limewash) 78%); }
 .hero-light { display: none; }
-.venue-card { background: #FFFFFF; }
+.venue-card:not(.venue-card--dark) { background: #FFFFFF; }
 .venue-card--dark p { color: rgba(238, 245, 236, .78); }
-.venue-card p { color: var(--ink-soft); }
+.venue-card:not(.venue-card--dark) p { color: var(--ink-soft); }
 .venue-soil { background: var(--sand); }
 .venue-soil path:not([stroke]) { fill: var(--jungle-deep); }
 .venue-soil path[stroke] { stroke: #8FBF9C; }
