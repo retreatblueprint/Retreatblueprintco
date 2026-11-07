@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Font and Colour Picker</title>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Italiana&family=Tenor+Sans&family=Gloock&family=Fraunces:opsz,wght,SOFT@9..144,300..500,100&family=Young+Serif&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4EEE4;--bg2:#E9DFD0;--ink:#231C16;--mute:#6A5D50;--acc:#A44A2A;--deep:#2B1D16;--deep-ink:#F4EEE4;--hf:'Marcellus',serif;--hw:400;--hls:0}
+*{box-sizing:border-box}html,body{margin:0}p,h1,h2,h3{margin:0}
+body{background:var(--bg);color:var(--ink);font:300 16.5px/1.75 'Jost',sans-serif;transition:background .5s,color .5s}
+img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+h1,h2,h3,.brand{font-family:var(--hf);font-weight:var(--hw);letter-spacing:var(--hls)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:30px clamp(20px,5vw,72px)}
+.brand{font-size:22px}
+.links{display:flex;gap:32px;font-size:14px;color:var(--mute)}
+.links a{color:inherit;text-decoration:none}
+.links .bk{color:var(--ink);border-bottom:1px solid var(--acc);padding-bottom:3px}
+.hero{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;padding:30px clamp(20px,5vw,72px) 110px;align-items:end}
+h1{grid-column:1/span 8;grid-row:1;font-size:clamp(52px,7vw,108px);line-height:1;position:relative;z-index:2}
+h1 span{color:var(--acc)}
+.win{grid-column:8/span 5;grid-row:1/span 2;aspect-ratio:3/4;border-radius:999px 999px 0 0;overflow:hidden;margin:0}
+.txt{grid-column:1/span 5;grid-row:2;margin-top:40px;color:var(--mute);font-size:17.5px;max-width:44ch}
+.txt p+p{margin-top:14px}
+.go{display:inline-flex;align-items:center;gap:16px;margin-top:34px;color:var(--ink);font-size:15.5px;text-decoration:none}
+.go::after{content:"";width:64px;height:1px;background:var(--acc);transition:width .5s}.go:hover::after{width:100px}
+.sec{padding:120px clamp(20px,5vw,72px) 0;background:var(--bg2)}
+.sec .in{max-width:1180px;margin:0 auto}
+h2{font-size:clamp(36px,4.2vw,62px);line-height:1.08;max-width:20ch}
+.lead{margin-top:28px;color:var(--mute);font-size:17.5px;max-width:58ch}
+.row{display:grid;grid-template-columns:repeat(3,1fr);margin-top:70px;border-top:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
+.row div{padding:24px 24px 30px 0}
+.row h3{font-size:24px;line-height:1.15}
+.row p{margin-top:8px;font-size:14.5px;color:var(--mute);line-height:1.6}
+.soil{height:70px;margin-top:10px}.soil svg{width:100%;height:100%;display:block}
+.ground{background:var(--deep);color:var(--deep-ink);padding:0 clamp(20px,5vw,72px) 110px}
+.ground .in{max-width:1180px;margin:0 auto}
+.ground svg{display:block;width:100%;height:90px}
+.row.b{grid-template-columns:repeat(5,1fr);margin-top:0;border-top:1px solid color-mix(in srgb,var(--deep-ink) 22%,transparent)}
+.row.b p{color:color-mix(in srgb,var(--deep-ink) 70%,transparent)}
+/* control panel */
+.panel{position:fixed;left:16px;bottom:16px;z-index:99;background:rgba(18,16,14,.94);color:#eee;border-radius:14px;padding:14px 16px;font:400 12.5px/1.3 system-ui,sans-serif;max-width:min(560px,calc(100vw - 32px));box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.panel b{display:block;font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#bbb;margin:4px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.chips button{border:1px solid #444;background:#222;color:#eee;border-radius:8px;padding:8px 11px;cursor:pointer;font:inherit;display:flex;align-items:center;gap:7px}
+.chips button.on{background:#fff;color:#111;border-color:#fff}
+.chips i{display:inline-flex;gap:0}.chips i s{display:block;width:12px;height:14px;text-decoration:none}
+.chips i s:first-child{border-radius:3px 0 0 3px}.chips i s:last-child{border-radius:0 3px 3px 0}
+.panel .hide{position:absolute;right:10px;top:8px;background:none;border:0;color:#aaa;cursor:pointer;font-size:16px}
+@media(max-width:860px){.links{display:none}.hero{display:block}.win{max-width:420px;margin:28px 0 0 auto}.row,.row.b{grid-template-columns:1fr 1fr}}
+</style></head>
+<body>
+<nav><span class="brand">Retreat Blueprint Co.</span><span class="links"><a>Services</a><a>Client work</a><a>About</a><a>Field Notes</a><a class="bk">Book a call</a></span></nav>
+<header class="hero">
+  <h1>Wellness hospitality, <span>run with care.</span></h1>
+  <figure class="win"><img src="https://images.unsplash.com/photo-1617824426257-b568862cd1dc?w=1200&q=75&auto=format" alt=""></figure>
+  <div class="txt">
+    <p>I partner with retreat centers, eco-lodges, and wellness venues to strengthen the business behind the guest experience.</p>
+    <p>The aim is a venue that feels effortless to stay in and sustainable to run.</p>
+    <a class="go" href="#">Begin with a complimentary assessment</a>
+  </div>
+</header>
+<section class="sec"><div class="in">
+  <h2>The guest experience is what people remember. The operation behind it is what makes it possible.</h2>
+  <p class="lead">A retreat can be fully booked and still struggle to turn revenue into profit. The Retreat Blueprint looks at eight interconnected areas, above and below the soil line.</p>
+  <div class="row"><div><h3>Guest experience</h3><p>How people are welcomed, looked after and remembered.</p></div><div><h3>Visibility and demand</h3><p>How the right guests and retreat leaders find you, and how inquiries turn into bookings.</p></div><div><h3>Community and partners</h3><p>The retreat leaders, partners and past guests who keep a venue alive.</p></div></div>
+</div></section>
+<div class="ground"><div class="in">
+  <svg viewBox="0 0 1000 90" preserveAspectRatio="none"><path d="M0 0 H1000 V22 Q 750 34 500 22 T 0 24Z" fill="var(--bg2)"/><path d="M180 24 C 180 60 100 64 90 90 M500 22 C 500 58 410 62 390 90 M500 22 C 500 58 600 62 620 90 M820 24 C 820 60 900 64 910 90" fill="none" stroke="var(--acc)" stroke-width="1.6" opacity=".9"/></svg>
+  <div class="row b"><div><h3>Revenue and pricing</h3><p>Pricing, seasonality, and booking mix that support revenue performance.</p></div><div><h3>Finances and cash flow</h3><p>Budget, real costs and cash flow, including the quiet months.</p></div><div><h3>Systems</h3><p>Bookings, payments, communication and the tools that connect them.</p></div><div><h3>Team and operational leadership</h3><p>Clear responsibilities, accountable teams, and operating standards.</p></div><div><h3>Safety and trust</h3><p>Privacy, risk, guest care and responsible practices.</p></div></div>
+</div></div>
+
+<div class="panel" id="panel"><button class="hide" onclick="this.parentNode.style.display='none'">×</button>
+  <b>Heading font</b><div class="chips" id="fonts"></div>
+  <b>Colour palette</b><div class="chips" id="pals"></div>
+</div>
+<script>
+var fonts=[['A · Marcellus',"'Marcellus',serif",400,'0'],['B · Italiana',"'Italiana',serif",400,'.01em'],['C · Tenor Sans',"'Tenor Sans',sans-serif",400,'-.01em'],['D · Gloock',"'Gloock',serif",400,'-.01em'],['E · Fraunces soft',"'Fraunces',serif",350,'-.02em'],['F · Young Serif',"'Young Serif',serif",400,'-.02em']];
+var pals=[
+ ['1 · Terracotta clay',{bg:'#F4EEE4',bg2:'#EADCC9',ink:'#2B1D16',mute:'#6E5A49',acc:'#A44A2A',deep:'#2B1D16','deep-ink':'#F4EEE4'}],
+ ['2 · Jungle dusk',{bg:'#F2EEE3',bg2:'#E3E2D2',ink:'#17241C',mute:'#56614F',acc:'#B9873E',deep:'#1E3328','deep-ink':'#EFE9DA'}],
+ ['3 · Golden hour',{bg:'#F7EADB',bg2:'#F0D9C2',ink:'#3A2430',mute:'#7A5A5E',acc:'#D16F4A',deep:'#3A2430','deep-ink':'#F7EADB'}],
+ ['4 · Sea glass',{bg:'#EEF0EA',bg2:'#DCE4DE',ink:'#16302F',mute:'#4F6461',acc:'#C9724F',deep:'#1F4B4D','deep-ink':'#EEF0EA'}],
+ ['5 · Volcanic',{bg:'#EDE7DD',bg2:'#E1D8CA',ink:'#1C1B19',mute:'#5F5A52',acc:'#C8642E',deep:'#1C1B19','deep-ink':'#EDE7DD'}]];
+var r=document.documentElement.style;
+function mk(id,list,apply){var box=document.getElementById(id);list.forEach(function(it,i){var b=document.createElement('button');b.innerHTML=it[0];
+ if(id==='pals'){var sw='<i>'+['bg','acc','deep'].map(function(k){return '<s style="background:'+it[1][k]+'"></s>'}).join('')+'</i>';b.innerHTML=sw+it[0]}
+ if(id==='fonts')b.style.fontFamily=it[1];
+ b.onclick=function(){[].forEach.call(box.children,function(x){x.classList.toggle('on',x===b)});apply(it)};box.appendChild(b);if(i===0)b.click()})}
+mk('fonts',fonts,function(f){r.setProperty('--hf',f[1]);r.setProperty('--hw',f[2]);r.setProperty('--hls',f[3])});
+mk('pals',pals,function(p){Object.keys(p[1]).forEach(function(k){r.setProperty('--'+k,p[1][k])})});
+</script>
+</body></html>
