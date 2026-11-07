@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Style Directions</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Jost:wght@300;400;500&family=Familjen+Grotesk:wght@500;600;700&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html,body{margin:0}p,h1,h2,h3{margin:0}
+.switch{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:99;display:flex;gap:4px;padding:5px;background:rgba(20,20,18,.9);border-radius:10px}
+.switch button{border:0;background:none;color:#ddd;font:500 13px/1 system-ui,sans-serif;padding:10px 16px;border-radius:7px;cursor:pointer}
+.switch button.on{background:#fff;color:#111}
+.v{display:none}.v.on{display:block}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.PH{object-position:50% 70%}
+
+/* ============ 1. RESORT EDITORIAL ============ */
+.ed{--bone:#F4F1EA;--ink:#161513;--mute:#6B675F;--green:#1F3A2E;--rule:rgba(22,21,19,.16);background:var(--bone);color:var(--ink);font:300 16px/1.75 'Jost',sans-serif}
+.ed nav{display:flex;justify-content:space-between;align-items:center;padding:30px clamp(20px,5vw,72px)}
+.ed .brand{font:400 21px/1 'Bodoni Moda',serif;letter-spacing:.01em}
+.ed .links{display:flex;gap:34px;font-size:13px;letter-spacing:.08em;color:var(--mute)}
+.ed .links b{font-weight:400;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px}
+.ed .hero{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;padding:40px clamp(20px,5vw,72px) 110px;align-items:end}
+.ed h1{grid-column:1/span 8;grid-row:1;font:400 clamp(54px,7.6vw,118px)/.98 'Bodoni Moda',serif;letter-spacing:-.025em;position:relative;z-index:2}
+.ed .hero .win{grid-column:8/span 5;grid-row:1/span 2;aspect-ratio:3/4;border-radius:999px 999px 0 0;overflow:hidden}
+.ed .hero .txt{grid-column:1/span 5;grid-row:2;margin-top:40px;color:var(--mute);font-size:17px;max-width:44ch}
+.ed .hero .txt p+p{margin-top:14px}
+.ed .go{display:inline-flex;align-items:center;gap:18px;margin-top:34px;color:var(--ink);font-size:15px;letter-spacing:.02em;text-decoration:none}
+.ed .go::after{content:"";width:72px;height:1px;background:var(--ink);transition:width .5s}
+.ed .go:hover::after{width:110px}
+.ed .sec{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;padding:120px clamp(20px,5vw,72px);border-top:1px solid var(--rule)}
+.ed .num{grid-column:1/span 2;font:400 15px/1 'Bodoni Moda',serif;color:var(--mute)}
+.ed h2{grid-column:3/span 8;font:400 clamp(36px,4.4vw,64px)/1.06 'Bodoni Moda',serif;letter-spacing:-.02em}
+.ed .lead{grid-column:3/span 6;margin-top:30px;color:var(--mute);font-size:17px}
+.ed .plan{grid-column:3/span 10;margin-top:72px}
+.ed .row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule)}
+.ed .row.b{grid-template-columns:repeat(5,1fr)}
+.ed .row div{padding:22px 22px 26px 0}
+.ed .row h3{font:400 23px/1.15 'Bodoni Moda',serif}
+.ed .row p{margin-top:8px;font-size:14px;color:var(--mute);line-height:1.6}
+.ed .soil{position:relative;height:84px;margin:6px 0 0}
+.ed .soil svg{width:100%;height:100%;display:block}
+.ed .soil span{position:absolute;right:0;top:-6px;font-size:12px;letter-spacing:.12em;color:var(--green)}
+.ed .row.b{background:var(--green);color:var(--bone);border:0;padding-left:22px}
+.ed .row.b p{color:rgba(244,241,234,.7)}
+
+/* ============ 2. MODERN LODGE ============ */
+.lo{--clay:#EFE4D6;--sand:#E3D2BC;--brown:#2A1E16;--terra:#B4532A;--moss:#3F4A2C;--mute:#6D5847;background:var(--clay);color:var(--brown);font:400 16.5px/1.7 'Karla',sans-serif}
+.lo nav{display:flex;justify-content:space-between;align-items:center;padding:22px clamp(20px,4vw,56px)}
+.lo .brand{font:700 20px/1 'Familjen Grotesk',sans-serif;letter-spacing:-.01em}
+.lo .brand i{font-style:normal;color:var(--terra)}
+.lo .links{display:flex;gap:28px;font-weight:500;font-size:15px}
+.lo .cta{background:var(--brown);color:var(--clay);padding:12px 20px;border-radius:6px;font-weight:500;font-size:14.5px;text-decoration:none}
+.lo .hero{margin:10px clamp(12px,2vw,24px) 0;background:var(--moss);color:var(--clay);border-radius:28px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;padding:clamp(36px,5vw,72px);align-items:center;overflow:hidden}
+.lo h1{font:700 clamp(50px,6.4vw,100px)/.96 'Familjen Grotesk',sans-serif;letter-spacing:-.035em}
+.lo h1 span{color:#E7A57E}
+.lo .hero p{margin-top:28px;max-width:44ch;color:rgba(239,228,214,.82);font-size:18px}
+.lo .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.lo .b1{background:var(--terra);color:#fff;padding:16px 24px;border-radius:8px;font-weight:500;text-decoration:none}
+.lo .b2{color:var(--clay);padding:16px 6px;font-weight:500;text-decoration:underline;text-underline-offset:5px}
+.lo .win{position:relative;aspect-ratio:3/4;max-width:430px;justify-self:end;width:100%;border-radius:999px 999px 18px 18px;overflow:hidden;border:10px solid var(--sand);box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.lo .tag{position:absolute;left:16px;bottom:16px;background:var(--clay);color:var(--brown);border-radius:6px;padding:8px 12px;font-size:13px;font-weight:500}
+.lo .sec{padding:110px clamp(20px,4vw,56px) 0;max-width:1240px;margin:0 auto}
+.lo h2{font:700 clamp(36px,4.2vw,60px)/1.02 'Familjen Grotesk',sans-serif;letter-spacing:-.03em;max-width:22ch}
+.lo .lead{margin-top:24px;max-width:56ch;color:var(--mute);font-size:18px}
+.lo .above{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:56px}
+.lo .t{background:#FBF5EC;border-radius:18px;padding:26px 24px 28px}
+.lo .t h3{font:600 22px/1.15 'Familjen Grotesk',sans-serif}
+.lo .t p{margin-top:8px;font-size:15px;color:var(--mute);line-height:1.6}
+.lo .ground{margin:28px clamp(12px,2vw,24px) 0;background:var(--brown);color:var(--clay);border-radius:28px;padding:0 clamp(20px,4vw,56px) 64px;position:relative;overflow:hidden}
+.lo .ground svg{display:block;width:100%;height:90px}
+.lo .ground .lbl{position:absolute;top:18px;right:clamp(20px,4vw,56px);font-weight:500;font-size:13px;color:#E7A57E}
+.lo .below{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:1240px;margin:0 auto}
+.lo .below .t{background:rgba(239,228,214,.07);border:1px solid rgba(239,228,214,.14)}
+.lo .below .t h3{color:var(--clay)}.lo .below .t p{color:rgba(239,228,214,.7)}
+.lo .pad{height:90px}
+
+@media(max-width:860px){
+ .ed .links,.lo .links{display:none}
+ .ed .hero{display:block}.ed .hero .win{max-width:420px;margin:28px 0 0 auto}
+ .ed .sec{display:block}.ed .num{margin-bottom:18px}.ed .row,.ed .row.b{grid-template-columns:1fr 1fr}
+ .lo .hero{grid-template-columns:1fr}.lo .win{justify-self:start}
+ .lo .above{grid-template-columns:1fr}.lo .below{grid-template-columns:1fr 1fr}
+}
+</style></head>
+<body>
+<div class="switch"><button class="on" data-v="ed">1 · Resort editorial</button><button data-v="lo">3 · Modern lodge</button></div>
+
+<!-- ================= RESORT EDITORIAL ================= -->
+<div class="v ed on" id="ed">
+  <nav><span class="brand">Retreat Blueprint Co.</span><span class="links"><b>Home</b><span>Services</span><span>Client work</span><span>About</span><span>Field Notes</span><span>Book a call</span></span></nav>
+  <header class="hero">
+    <h1>Wellness hospitality, run with care.</h1>
+    <figure class="win" style="margin:0"><img class="PH" src="https://images.unsplash.com/photo-1617824426257-b568862cd1dc?w=1200&q=75&auto=format" alt=""></figure>
+    <div class="txt">
+      <p>I partner with retreat centers, eco-lodges, and wellness venues to strengthen the business behind the guest experience.</p>
+      <p>The aim is a venue that feels effortless to stay in and sustainable to run.</p>
+      <a class="go" href="#">Begin with a complimentary assessment</a>
+    </div>
+  </header>
+  <section class="sec">
+    <p class="num">01</p>
+    <h2>The guest experience is what people remember. The operation behind it is what makes it possible.</h2>
+    <p class="lead">A retreat can be fully booked and still struggle to turn revenue into profit. The Retreat Blueprint looks at eight interconnected areas, above and below the soil line.</p>
+    <div class="plan">
+      <div class="row"><div><h3>Guest experience</h3><p>How people are welcomed, looked after and remembered.</p></div><div><h3>Visibility and demand</h3><p>How the right guests and retreat leaders find you, and how inquiries turn into bookings.</p></div><div><h3>Community and partners</h3><p>The retreat leaders, partners and past guests who keep a venue alive.</p></div></div>
+      <div class="soil"><span>The soil line</span><svg viewBox="0 0 1000 84" preserveAspectRatio="none"><path d="M0 20 Q 250 8 500 20 T 1000 18" fill="none" stroke="#1F3A2E" stroke-width="1.2"/><path d="M200 18 C 200 50 120 54 110 84 M500 20 C 500 52 420 56 400 84 M500 20 C 500 52 590 56 610 84 M800 18 C 800 50 880 54 890 84" fill="none" stroke="#1F3A2E" stroke-width="1" opacity=".55"/></svg></div>
+      <div class="row b"><div><h3>Revenue and pricing</h3><p>Pricing, seasonality, and booking mix that support revenue performance.</p></div><div><h3>Finances and cash flow</h3><p>Budget, real costs and cash flow, including the quiet months.</p></div><div><h3>Systems</h3><p>Bookings, payments, communication and the tools that connect them.</p></div><div><h3>Team and operational leadership</h3><p>Clear responsibilities, accountable teams, and the operating standards that keep a property running effectively.</p></div><div><h3>Safety and trust</h3><p>Privacy, risk, guest care and the responsible practices retreat guests expect.</p></div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= MODERN LODGE ================= -->
+<div class="v lo" id="lo">
+  <nav><span class="brand">Retreat Blueprint <i>Co.</i></span><span class="links"><span>Services</span><span>Client work</span><span>About</span><span>Field Notes</span></span><a class="cta" href="#">Book a call</a></nav>
+  <header class="hero">
+    <div>
+      <h1>Wellness hospitality, <span>run with care.</span></h1>
+      <p>I partner with retreat centers, eco-lodges, and wellness venues to strengthen the business behind the guest experience. The aim is a venue that feels effortless to stay in and sustainable to run.</p>
+      <div class="btns"><a class="b1" href="#">Begin with a complimentary assessment</a><a class="b2" href="#">See the Retreat Blueprint</a></div>
+    </div>
+    <figure class="win" style="margin:0"><img class="PH" src="https://images.unsplash.com/photo-1617824426257-b568862cd1dc?w=1200&q=75&auto=format" alt=""><span class="tag">On-site in Central America · remote worldwide</span></figure>
+  </header>
+  <section class="sec">
+    <h2>The guest experience is what people remember. The operation behind it is what makes it possible.</h2>
+    <p class="lead">A retreat can be fully booked and still struggle to turn revenue into profit. The Retreat Blueprint looks at eight interconnected areas, above and below the soil line.</p>
+    <div class="above"><div class="t"><h3>Guest experience</h3><p>How people are welcomed, looked after and remembered.</p></div><div class="t"><h3>Visibility and demand</h3><p>How the right guests and retreat leaders find you, and how inquiries turn into bookings.</p></div><div class="t"><h3>Community and partners</h3><p>The retreat leaders, partners and past guests who keep a venue alive.</p></div></div>
+  </section>
+  <div class="ground"><span class="lbl">Below the soil line</span>
+    <svg viewBox="0 0 1000 90" preserveAspectRatio="none"><path d="M0 0 H1000 V22 Q 750 34 500 22 T 0 24Z" fill="#EFE4D6"/><path d="M180 24 C 180 60 100 64 90 90 M500 22 C 500 58 410 62 390 90 M500 22 C 500 58 600 62 620 90 M820 24 C 820 60 900 64 910 90" fill="none" stroke="#B4532A" stroke-width="2" opacity=".8"/></svg>
+    <div class="below"><div class="t"><h3>Revenue and pricing</h3><p>Pricing, seasonality, and booking mix that support revenue performance.</p></div><div class="t"><h3>Finances and cash flow</h3><p>Budget, real costs and cash flow, including the quiet months.</p></div><div class="t"><h3>Systems</h3><p>Bookings, payments, communication and the tools that connect them.</p></div><div class="t"><h3>Team and operational leadership</h3><p>Clear responsibilities, accountable teams, and the operating standards that keep a property running effectively.</p></div><div class="t"><h3>Safety and trust</h3><p>Privacy, risk, guest care and the responsible practices retreat guests expect.</p></div></div>
+  </div>
+  <div class="pad"></div>
+</div>
+<script>
+document.querySelectorAll('.switch button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.switch button').forEach(function(x){x.classList.toggle('on',x===b)});document.querySelectorAll('.v').forEach(function(v){v.classList.toggle('on',v.id===b.dataset.v)});scrollTo(0,0)}});
+</script>
+</body></html>
