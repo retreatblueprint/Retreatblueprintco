@@ -110,4 +110,23 @@
       });
     });
   }
+  // Leaf intro: the leaves part as you begin to scroll, then the page carries on as normal
+  var st = document.getElementById('hxStage');
+  if (st && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var hx = st.querySelector('.hx'), L = st.querySelector('.hx-leaf.l'), Rr = st.querySelector('.hx-leaf.r'), cue = st.querySelector('.hx-cue');
+    var wave = function () { var pts = [], n = 24; for (var i = 0; i <= n; i++) pts.push((86 + Math.sin(i * 1.3) * 6 + Math.sin(i * .45) * 5) + '% ' + (i / n * 100) + '%'); return 'polygon(0% 0%, ' + pts.join(', ') + ', 0% 100%)'; };
+    L.style.clipPath = Rr.style.clipPath = wave();
+    Rr.querySelector('span').style.transform = 'translateY(-50%) scaleX(-1)';
+    var hxFrame = function () {
+      var p = Math.max(0, Math.min(1, window.scrollY / (st.offsetHeight - window.innerHeight)));
+      var t = Math.min(1, p / .85), a = t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      L.style.transform = 'translateX(' + (-a * 105) + '%) scale(' + (1 + a * .2) + ')';
+      Rr.style.transform = 'translateX(' + (a * 105) + '%) scale(' + (1 + a * .2) + ') scaleX(-1)';
+      cue.style.opacity = 1 - Math.min(1, p * 5);
+      hx.style.visibility = a >= 1 ? 'hidden' : 'visible';
+    };
+    window.addEventListener('scroll', function () { requestAnimationFrame(hxFrame); }, { passive: true });
+    window.addEventListener('resize', hxFrame);
+    hxFrame();
+  }
 })();
