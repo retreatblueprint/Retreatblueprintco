@@ -58,7 +58,8 @@ section[id], header[id] { scroll-margin-top: 4rem; }
   color: var(--ink);
 }
 .display em, h1 em { font-style: italic; color: var(--thatch); }
-.display, h1, .q { text-wrap: balance; }
+.display, h1, h2, h3, .q { text-wrap: balance; }
+.cs-big, .numbers b, .price b { font-variant-numeric: tabular-nums lining-nums; }
 .lead, .door-desc { text-wrap: pretty; }
 .lead { font-size: 1.0625rem; line-height: 1.9; color: var(--ink-soft); max-width: 54ch; }
 .center .lead { margin-left: auto; margin-right: auto; }

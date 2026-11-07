@@ -50,7 +50,8 @@ SHARED_CSS = """
 .band-note a{color:#fff;text-decoration:underline;text-underline-offset:3px}
 .co-price{background:var(--warm-white);border:1px solid var(--border);border-radius:8px;padding:28px;display:grid;gap:10px;box-shadow:0 18px 40px rgba(42,34,24,.10)}
 .co-price .k{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
-.co-price .amt{font-family:var(--serif);font-size:2.5rem;line-height:1.05}
+.co-price h1,h2,h3{text-wrap:balance}
+.amt{font-variant-numeric:tabular-nums lining-nums;font-family:var(--serif);font-size:2.5rem;line-height:1.05}
 .co-price .amt small{font-family:var(--sans);font-size:.9rem;color:var(--muted);white-space:nowrap}
 .co-price p{font-size:.88rem;color:var(--earth-mid)}
 .co-price ul{list-style:none;display:grid;gap:8px;border-top:1px solid var(--border);padding-top:14px;margin-top:4px}
