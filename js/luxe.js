@@ -158,4 +158,15 @@
     var dio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('drawn'); dio.unobserve(e.target); } }); }, { threshold: .35 });
     document.querySelectorAll('.venue-soil, .sun').forEach(function (el) { dio.observe(el); });
   } else { document.querySelectorAll('.venue-soil, .sun').forEach(function (el) { el.classList.add('drawn'); }); }
+  // Each section draws its plan line as it arrives
+  var secs = document.querySelectorAll('main section, body > section');
+  secs.forEach(function (sec) {
+    if (sec.closest('.hx-stage') || sec.classList.contains('close')) return;
+    if (getComputedStyle(sec).position === 'static') sec.style.position = 'relative';
+    var l = document.createElement('span'); l.className = 'plan-line'; l.setAttribute('aria-hidden', 'true'); sec.insertBefore(l, sec.firstChild);
+  });
+  if ('IntersectionObserver' in window) {
+    var sio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('sec-in'); sio.unobserve(e.target); } }); }, { threshold: .08 });
+    secs.forEach(function (sec) { sio.observe(sec); });
+  }
 })();

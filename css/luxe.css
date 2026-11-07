@@ -695,3 +695,40 @@ h1 em, h2 em, .display em, .venue-h em { color: var(--thatch); }
 .venue-soil { background: var(--sand); }
 .venue-soil path:not([stroke]) { fill: var(--jungle-deep); }
 .venue-soil path[stroke] { stroke: #8FBF9C; }
+
+/* ===== Preview: soil beneath the surface ===== */
+.venue-below { background: #4A3426; }
+.venue-soil path:not([stroke]) { fill: #4A3426; }
+.venue-soil path[stroke] { stroke: #C7A27A; }
+.venue-card--dark { background: #5B4232; color: #F4EBDD; }
+.venue-card--dark p { color: rgba(244, 235, 221, .8); }
+.venue-below .venue-label { color: #E6C79E; }
+
+/* ===== Preview: organized, unhurried motion ===== */
+/* 1. Page to page: a soft fade-and-settle when moving between pages (Chrome, Edge, Safari 18+) */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: rbOut .32s ease both; }
+::view-transition-new(root) { animation: rbIn .6s cubic-bezier(.22, .61, .36, 1) both; }
+@keyframes rbOut { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes rbIn { from { opacity: 0; transform: translateY(10px); } }
+
+/* 2. Each section is "laid out": a plan line draws across its top edge first */
+.plan-line { position: absolute; left: 50%; top: 0; width: min(1180px, calc(100% - 2 * var(--gutter))); height: 1px; background: var(--ink); opacity: .16; transform: translateX(-50%) scaleX(0); transform-origin: left center; transition: transform 1.4s cubic-bezier(.22, .61, .36, 1); pointer-events: none; z-index: 2; }
+.sec-in > .plan-line { transform: translateX(-50%) scaleX(1); }
+
+/* 3. Headings rise from behind a line, like type set on a page */
+.js h2.reveal, .js h1.reveal { clip-path: inset(0 0 100% 0); transform: translateY(28px); opacity: 1; transition: clip-path 1.1s cubic-bezier(.22, .61, .36, 1) var(--d, 0s), transform 1.1s cubic-bezier(.22, .61, .36, 1) var(--d, 0s); }
+.js h2.reveal.in, .js h1.reveal.in { clip-path: inset(0 0 -10% 0); transform: none; }
+
+/* 4. Arch photos open upward like a door, then settle */
+.js .reveal .arch img, .js .arch.reveal img { clip-path: inset(100% 0 0 0); transition: clip-path 1.5s cubic-bezier(.22, .61, .36, 1) calc(var(--d, 0s) + .15s), transform 2.2s cubic-bezier(.22, .61, .36, 1); }
+.js .reveal.in .arch img, .js .arch.reveal.in img { clip-path: inset(0 0 0 0); }
+
+/* 5. Cards and steps arrive in reading order, evenly spaced */
+.js .venue-card.reveal, .js .door.reveal, .js .stop.reveal { transition-duration: .9s; }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+  .plan-line { transform: translateX(-50%) scaleX(1); transition: none; }
+  .js h2.reveal, .js h1.reveal, .js .reveal .arch img { clip-path: none !important; transform: none !important; transition: none !important; }
+}
