@@ -633,7 +633,7 @@ p.svc-intro { max-width: 66ch; }
 
 /* Hero reveal: leaves part onto a window view that settles into the arch (preview) */
 .hx-stage { position: relative; }
-.hx { position: absolute; inset: 0; z-index: 60; pointer-events: none; }
+.hx { position: absolute; inset: 0; z-index: 150; pointer-events: none; }
 .hx-in { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
 .hx-ph { position: absolute; inset: 0; background-size: cover; background-position: center 40%; will-change: clip-path, transform; }
 .hx-leaf { position: absolute; top: -4%; bottom: -4%; width: 58%; background-size: cover; background-position: left center; will-change: transform; }
