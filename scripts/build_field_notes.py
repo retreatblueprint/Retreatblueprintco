@@ -29,7 +29,7 @@ import re
 import sys
 
 SITE = "https://retreatblueprintco.com"
-CAL = "https://cal.com/shila-kandiah/retreat-blueprint-assessment"
+CAL = "https://cal.com/shila-kandiah/intro-call"
 PREVIEW = "--preview" in sys.argv
 
 AUTHOR = {
