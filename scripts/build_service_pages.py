@@ -11,7 +11,10 @@ import urllib.parse
 
 BASE = open("buying-a-retreat.html").read()
 HEAD = BASE[: BASE.index('<header class="hero')]
-CAL = "https://calendly.com/hello-retreatblueprint/30min"
+CAL_BASE = "https://cal.com/shila-kandiah/"
+CAL_BY_SLUG = {"foundation-sprint": "foundation-sprint-call", "concierge-ops": "concierge-ops-call",
+               "fractional-operations-director": "fractional-director-call", "growth-marketing": "growth-marketing-call"}
+CAL = CAL_BASE + "retreat-blueprint-assessment"
 U = "https://images.unsplash.com/"
 
 ICONS = {
@@ -598,6 +601,7 @@ FAQ_JS = "<script>\n// FAQ: questions slide open and closed, and only one stays 
 
 
 def build(pg):
+    CAL = CAL_BASE + CAL_BY_SLUG.get(pg['slug'], 'retreat-blueprint-assessment')
     head = HEAD
     head = re.sub(r"<title>[^<]*</title>", f"<title>{pg['title']}</title>", head, count=1)
     head = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{pg["desc"]}">', head, count=1)
@@ -609,7 +613,7 @@ def build(pg):
     head = head.replace('<a href="/buying-a-retreat" class="dd-feature" aria-current="page">', '<a href="/buying-a-retreat" class="dd-feature">')
     head = head.replace(f'<a href="{pg["menu"]}">', f'<a href="{pg["menu"]}" aria-current="page">')
     if 'href="https://images.unsplash.com"' not in head:
-        head = head.replace('<link rel="preconnect" href="https://calendly.com">', '<link rel="preconnect" href="https://images.unsplash.com">\n<link rel="preconnect" href="https://calendly.com">', 1)
+        head = head.replace('<link rel="preconnect" href="https://cal.com">', '<link rel="preconnect" href="https://images.unsplash.com">\n<link rel="preconnect" href="https://cal.com">', 1)
     # structured data: this page's service (Google reads it; nothing visible changes)
     ld = {"@context": "https://schema.org", "@type": "Service", "name": pg["name"],
           "serviceType": "Retreat center operations consulting", "description": pg["desc"],

@@ -16,8 +16,7 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="stylesheet" href="css/menu.css?v=2026-10-21a">
 <link rel="preconnect" href="https://images.unsplash.com">
-<link rel="preconnect" href="https://calendly.com">
-<link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+<link rel="preconnect" href="https://cal.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap">
@@ -610,7 +609,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
       <a href="/#services" class="dd-all">Compare all services →</a>
     </div></div><a href="/field-notes/">Field Notes</a></div>
   <div class="nav-right">
-    <a class="btn-nav" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a call</a>
+    <a class="btn-nav" href="https://cal.com/shila-kandiah/retreat-blueprint-assessment" target="_blank" rel="noopener">Book a call</a>
     <button type="button" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" data-menu-toggle><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -623,7 +622,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
       <p class="lead">Every inquiry answered fast, every guest looked after, every invoice tracked. We are the experts in hospitality communications. A dedicated team, led by your Retreat Operations Director, runs your day-to-day admin in your voice, so you are not coordinating everything yourself while you host and build the parts only you can.</p>
       <p class="venue-hint">For retreat centers, eco-lodges and wellness properties that host retreats.</p>
       <div class="row">
-        <a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a>
+        <a class="btn primary" href="https://cal.com/shila-kandiah/concierge-ops-call" target="_blank" rel="noopener">Book a free call</a>
         <a class="btn text" href="#handoff">See what you hand over ↓</a>
       </div>
     </div>
@@ -722,7 +721,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
   </div>
 </section>
 
-<div class="co-bar" id="co-bar" aria-label="Book a call"><span>Concierge Ops · from $250 USD / month</span><a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a></div>
+<div class="co-bar" id="co-bar" aria-label="Book a call"><span>Concierge Ops · from $250 USD / month</span><a class="btn primary" href="https://cal.com/shila-kandiah/concierge-ops-call" target="_blank" rel="noopener">Book a free call</a></div>
 <script>
 (function(){
 var C=["When a retreat is in session, the admin stops and inquiries wait","Guests wait for replies and I lose bookings","I answer inquiries late at night or between tasks","I coordinate organizers, guests and my team all by myself","I write the same emails again and again","Pre-arrival forms and reminders go out by hand","Retreat prep, like rooming lists and schedules, is a last-minute scramble","Invoices and payments are tracked in my head or a messy sheet"];
@@ -730,10 +729,13 @@ var box=document.getElementById("co-checks");
 box.innerHTML=C.map(function(c,i){return '<label><input type="checkbox" id="cok'+i+'"><span>'+c+'</span></label>'}).join("");
 var res=document.getElementById("co-result");
 function upd(){var n=box.querySelectorAll("input:checked").length;
- res.innerHTML=n?'<div><b>'+n+' of '+C.length+' are work the team takes over</b><span>Hand it off, and keep your attention on guests and growth.</span></div><a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a>':'<div><b>Tick what sounds familiar</b><span>Each one is work your team can take off your plate.</span></div>'}
-box.addEventListener("change",upd);upd();
+ res.innerHTML=n?'<div><b>'+n+' of '+C.length+' are work the team takes over</b><span>Hand it off, and keep your attention on guests and growth.</span></div><a class="btn primary" id="co-book" href="https://cal.com/shila-kandiah/concierge-ops-call" target="_blank" rel="noopener">Book a free call</a>':'<div><b>Tick what sounds familiar</b><span>Each one is work your team can take off your plate.</span></div>'}
+function fillBook(){var on=[];box.querySelectorAll("input:checked").forEach(function(i){on.push(i.nextSibling.textContent)});
+ var l=document.querySelectorAll('a[href*="cal.com/shila-kandiah/concierge-ops-call"]');
+ l.forEach(function(a){a.href="https://cal.com/shila-kandiah/concierge-ops-call"+(on.length?"?admin-time="+encodeURIComponent("From the website, these sound familiar: "+on.join("; ")).slice(0,900):"")})}
+box.addEventListener("change",function(){upd();fillBook()});upd();fillBook();
 var K=["retreat-in-session","slow-replies-lose-bookings","late-night-inquiries","coordinating-alone","repeat-emails","manual-forms-reminders","retreat-prep-scramble","invoices-tracking"];
-document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href*="calendly.com"]');if(!a||!window.umami)return;
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href*="cal.com/"]');if(!a||!window.umami)return;
  var on=[];box.querySelectorAll("input").forEach(function(i,n){if(i.checked)on.push(K[n])});
  if(!on.length)return;
  try{umami.track("Concierge needs",{count:on.length,needs:on.join(", "),button:(a.textContent||"").replace(/\s+/g," ").trim().slice(0,40)})}catch(_){}},true);
@@ -771,7 +773,7 @@ window.addEventListener("scroll",chk,{passive:true});chk();
     <p class="label">Start with a conversation</p>
     <h2 class="title">Give every guest your full attention. We'll handle the admin.</h2>
     <p class="lead">A free 30-minute call. No obligation, just a clear next step.</p>
-    <a class="btn primary" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a>
+    <a class="btn primary" href="https://cal.com/shila-kandiah/concierge-ops-call" target="_blank" rel="noopener">Book a free call</a>
     <p class="email"><a href="mailto:hello@retreatblueprintco.com?subject=Concierge%20Ops%20inquiry">hello@retreatblueprintco.com</a> · <a href="https://wa.me/16479702759" target="_blank" rel="noopener">WhatsApp</a></p>
   </div>
 </section>

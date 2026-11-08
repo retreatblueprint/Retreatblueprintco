@@ -68,7 +68,7 @@
         <div class="qb-total" id="qb-total">$0 <small>USD</small></div>
         <p class="qb-nudge" id="qb-nudge"></p>
         <a class="qb-go" id="qb-req" href="#" aria-disabled="true">Send me this quote</a>
-        <div class="qb-alt"><a href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Book a free call</a><button type="button" id="qb-copy">Copy selection</button></div>
+        <div class="qb-alt"><a id="qb-book" href="https://cal.com/shila-kandiah/foundation-sprint-call" target="_blank" rel="noopener">Book a free call</a><button type="button" id="qb-copy">Copy selection</button></div>
         <p class="qb-fine">One-time build price. Software subscriptions are billed by each provider, so you own every account. The final price is confirmed on a free call, before any work starts.</p>
       </aside>
     </div>
@@ -148,6 +148,7 @@ function calc(){
   var r=$("qb-req");
   if(items.length){r.removeAttribute("aria-disabled");r.href="mailto:hello@retreatblueprintco.com?subject="+encodeURIComponent("Foundation Sprint quote")+"&body="+encodeURIComponent(summary()+"\n\nVenue name and location:\n")}
   else{r.setAttribute("aria-disabled","true");r.href="#"}
+  var bk=$("qb-book");if(bk)bk.href="https://cal.com/shila-kandiah/foundation-sprint-call"+(items.length?"?quote="+encodeURIComponent(summary().slice(0,950)):"");
   $("qb-copy").disabled=!items.length;
 }
 var P={start:["book","sales"],launch:["book","sales","comm","app"],full:["audit","strategy","web","book","sales","comm","app","sop","fin","dash"],clear:[]};
