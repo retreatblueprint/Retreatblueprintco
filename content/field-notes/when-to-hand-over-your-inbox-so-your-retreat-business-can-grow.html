@@ -49,6 +49,8 @@
 .ih-tick input:checked::after{opacity:1}
 .ih-tick input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--border)}
 .ih-tick input:focus-visible{outline:2px solid var(--sage-dark);outline-offset:2px}
+.ih-tick .ih-means{margin:1rem 0 0;padding:.7rem 1rem;background:var(--sage-light);border-radius:4px;font-size:.95rem}
+.ih-tick .ih-means p{margin:.2rem 0}
 .ih-tick .ih-note{margin:1rem 0 0;font-size:.92rem;color:var(--muted)}
 </style>
 <aside class="fn-answer">
@@ -139,31 +141,25 @@
 
 <div class="ih-close">
   <section class="ih-tick" id="tick-list">
-    <h2>Your handover checklist</h2>
-    <p>Tick as you go. Your ticks stay on this device.</p>
-    <h3>Handover essentials</h3>
+    <h2>Is it time to hand over your inbox?</h2>
+    <p>Tick what is true for you right now. Your ticks stay on this device.</p>
     <ul>
-      <li><label><input type="checkbox"><span>Reply templates (internal and external)</span></label></li>
-      <li><label><input type="checkbox"><span>FAQ sheet</span></label></li>
-      <li><label><input type="checkbox"><span>Brief SOP for each routine inquiry type</span></label></li>
-      <li><label><input type="checkbox"><span>Escalation rules: what reaches me</span></label></li>
-      <li><label><input type="checkbox"><span>Response standard agreed with the team</span></label></li>
-      <li><label><input type="checkbox"><span>Shared inbox or delegated access set up</span></label></li>
-      <li><label><input type="checkbox"><span>WhatsApp coverage plan</span></label></li>
+      <li><label><input type="checkbox"><span>Most days I answer messages before I get to programs, pricing or planning.</span></label></li>
+      <li><label><input type="checkbox"><span>On retreat weeks, I am still checking the inbox while my guests are with me.</span></label></li>
+      <li><label><input type="checkbox"><span>Replies go out within hours on calm days, but take a day or more on retreat days.</span></label></li>
+      <li><label><input type="checkbox"><span>Next season's programs or forecasting have been on my list for a month or more.</span></label></li>
     </ul>
-    <h3>Your 30-day review</h3>
-    <ul>
-      <li><label><input type="checkbox"><span>Week 1: read a sample of replies and refine templates</span></label></li>
-      <li><label><input type="checkbox"><span>Week 2: review escalations. Are the right messages reaching me?</span></label></li>
-      <li><label><input type="checkbox"><span>Week 3: update the FAQ sheet with new questions</span></label></li>
-      <li><label><input type="checkbox"><span>Week 4: confirm what moves over next</span></label></li>
-    </ul>
-    <p class="ih-note">Want it on paper, with the readiness check and the one-week audit? Download the printable version below.</p>
+    <div class="ih-means">
+      <p><b>0 to 1 ticks:</b> Keep the inbox for now. Start documenting what you answer.</p>
+      <p><b>2 ticks:</b> Run the one-week audit and draft your templates. Plan the handover for your next quiet period.</p>
+      <p><b>3 to 4 ticks:</b> Begin the handover now. Start with routine inquiries and logistics.</p>
+    </div>
+    <p class="ih-note">Want it on paper? The printable version has this check plus the one-week audit, handover essentials and a 30-day review.</p>
   </section>
   <section class="ih-cta" id="checklist">
     <h2>Take it with you</h2>
     <p><a class="btn primary" href="/resources/inbox-handover-checklist.html">Download the Inbox Handover Checklist</a></p>
-    <p>Includes the readiness check, the one-week audit, the hand over or keep list, and a 30-day review plan.</p>
+    <p>Includes the readiness check, the one-week audit, the hand over or keep list, the handover essentials and a 30-day review plan.</p>
   </section>
 
   <section class="ih-cta">
