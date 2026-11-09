@@ -166,6 +166,9 @@ CSS = """
 .fn-meta{display:flex;align-items:center;gap:12px;font-size:.88rem;color:var(--muted)}
 .fn-meta img{width:40px;height:40px;border-radius:50%;object-fit:cover}
 .fn-meta b{color:var(--earth);font-weight:500}
+.fn-meta a,.fn-author a{color:inherit;text-decoration:none}
+.fn-meta a:hover,.fn-author a:hover{text-decoration:underline;text-underline-offset:3px}
+.fn-meta a:focus-visible,.fn-author a:focus-visible{outline:2px solid var(--sage-dark);outline-offset:2px}
 .fn-body{max-width:720px;margin:0 auto;padding:56px 24px 32px;font-size:1.07rem;line-height:1.75}
 .fn-body > p,.fn-body > ul,.fn-body > ol{margin:0 0 1.15rem}
 .fn-body h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,3vw,1.85rem);line-height:1.25;margin:2.75rem 0 .85rem;text-wrap:balance}
@@ -343,7 +346,7 @@ def build_article(a):
     <p class="fn-crumb"><a href="/field-notes/">Field Notes</a><span aria-hidden="true">·</span><span>{a["topic"]}</span></p>
     <h1>{a["title"]}</h1>
     <p class="fn-dek">{a["dek"]}</p>
-    <p class="fn-meta"><img src="{AUTHOR["avatar"]}" alt="" width="40" height="40"><span>By <b>{AUTHOR["name"]}</b> · {nice_date(a["date"])}{upd} · {minutes} min read</span></p>
+    <p class="fn-meta"><img src="{AUTHOR["avatar"]}" alt="" width="40" height="40"><span>By <a href="/#about"><b>{AUTHOR["name"]}</b></a> · {nice_date(a["date"])}{upd} · {minutes} min read</span></p>
   </div>
 </header>
 {hero_html}
@@ -352,7 +355,7 @@ def build_article(a):
 </article>
 
 <aside class="fn-author" aria-label="About the author">
-  <div><img src="{AUTHOR["avatar"]}" alt="{AUTHOR["name"]}" width="72" height="72"><div><b>{AUTHOR["name"]}</b><span>{AUTHOR["role"]}</span><p>{AUTHOR["bio"]}</p></div></div>
+  <div><img src="{AUTHOR["avatar"]}" alt="{AUTHOR["name"]}" width="72" height="72"><div><a href="/#about"><b>{AUTHOR["name"]}</b></a><span>{AUTHOR["role"]}</span><p>{AUTHOR["bio"]}</p></div></div>
 </aside>
 
 '''

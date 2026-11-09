@@ -427,6 +427,9 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 .fn-meta{display:flex;align-items:center;gap:12px;font-size:.88rem;color:var(--muted)}
 .fn-meta img{width:40px;height:40px;border-radius:50%;object-fit:cover}
 .fn-meta b{color:var(--earth);font-weight:500}
+.fn-meta a,.fn-author a{color:inherit;text-decoration:none}
+.fn-meta a:hover,.fn-author a:hover{text-decoration:underline;text-underline-offset:3px}
+.fn-meta a:focus-visible,.fn-author a:focus-visible{outline:2px solid var(--sage-dark);outline-offset:2px}
 .fn-body{max-width:720px;margin:0 auto;padding:56px 24px 32px;font-size:1.07rem;line-height:1.75}
 .fn-body > p,.fn-body > ul,.fn-body > ol{margin:0 0 1.15rem}
 .fn-body h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,3vw,1.85rem);line-height:1.25;margin:2.75rem 0 .85rem;text-wrap:balance}
