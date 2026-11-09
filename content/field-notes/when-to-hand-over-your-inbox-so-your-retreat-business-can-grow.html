@@ -36,6 +36,20 @@
 .ih-cta .btn{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;color:#fff}
 .ih-cta .btn svg{width:20px;height:20px;flex:none;fill:currentColor}
 .ih-cta p:last-child{margin-bottom:0}
+.ih-tick{padding:1.7rem 0 1.5rem;border-bottom:1px solid var(--border)}
+.fn-body .ih-tick h2{margin:0 0 .4rem;font-size:clamp(1.35rem,2.6vw,1.6rem)}
+.fn-body .ih-tick h3{font-family:var(--serif);font-size:1.05rem;font-weight:500;margin:1.2rem 0 .3rem}
+.ih-tick ul{list-style:none;padding:0;margin:0}
+.ih-tick li{padding:0;margin:0;border-bottom:1px solid var(--border)}
+.ih-tick li::before{content:none}
+.ih-tick label{display:flex;align-items:flex-start;gap:.75rem;padding:.55rem 0;cursor:pointer;line-height:1.45}
+.ih-tick input{appearance:none;-webkit-appearance:none;flex:none;width:20px;height:20px;margin:.1rem 0 0;border:1.5px solid var(--sage-dark);border-radius:3px;background:#fff;cursor:pointer;display:grid;place-content:center}
+.ih-tick input::after{content:"";width:10px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.ih-tick input:checked{background:var(--sage-dark)}
+.ih-tick input:checked::after{opacity:1}
+.ih-tick input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--border)}
+.ih-tick input:focus-visible{outline:2px solid var(--sage-dark);outline-offset:2px}
+.ih-tick .ih-note{margin:1rem 0 0;font-size:.92rem;color:var(--muted)}
 </style>
 <aside class="fn-answer">
   <p class="fn-k">The short answer</p>
@@ -124,6 +138,28 @@
 <p>The goal is not an empty inbox. It is an owner free to lead the business and fully present for the experience.</p>
 
 <div class="ih-close">
+  <section class="ih-tick" id="tick-list">
+    <h2>Your handover checklist</h2>
+    <p>Tick as you go. Your ticks stay on this device.</p>
+    <h3>Handover essentials</h3>
+    <ul>
+      <li><label><input type="checkbox"><span>Reply templates (internal and external)</span></label></li>
+      <li><label><input type="checkbox"><span>FAQ sheet</span></label></li>
+      <li><label><input type="checkbox"><span>Brief SOP for each routine inquiry type</span></label></li>
+      <li><label><input type="checkbox"><span>Escalation rules: what reaches me</span></label></li>
+      <li><label><input type="checkbox"><span>Response standard agreed with the team</span></label></li>
+      <li><label><input type="checkbox"><span>Shared inbox or delegated access set up</span></label></li>
+      <li><label><input type="checkbox"><span>WhatsApp coverage plan</span></label></li>
+    </ul>
+    <h3>Your 30-day review</h3>
+    <ul>
+      <li><label><input type="checkbox"><span>Week 1: read a sample of replies and refine templates</span></label></li>
+      <li><label><input type="checkbox"><span>Week 2: review escalations. Are the right messages reaching me?</span></label></li>
+      <li><label><input type="checkbox"><span>Week 3: update the FAQ sheet with new questions</span></label></li>
+      <li><label><input type="checkbox"><span>Week 4: confirm what moves over next</span></label></li>
+    </ul>
+    <p class="ih-note">Want it on paper, with the readiness check and the one-week audit? Download the printable version below.</p>
+  </section>
   <section class="ih-cta" id="checklist">
     <h2>Take it with you</h2>
     <p><a class="btn primary" href="/resources/inbox-handover-checklist.html">Download the Inbox Handover Checklist</a></p>
@@ -150,3 +186,5 @@
     <li id="s2">Altek, <i>Inside the Hotel Inbox 2026</i>: <a href="https://www.hospitalitynet.org/news/4135144.html">hospitalitynet.org</a></li>
   </ol>
 </section>
+
+<script>(function(){var k='ih-tick:'+location.pathname,boxes=document.querySelectorAll('.ih-tick input'),v=[];try{v=JSON.parse(localStorage.getItem(k)||'[]')}catch(e){}boxes.forEach(function(b,i){b.checked=v.indexOf(i)>-1;b.addEventListener('change',function(){var o=[];boxes.forEach(function(c,j){if(c.checked)o.push(j)});try{localStorage.setItem(k,JSON.stringify(o))}catch(e){}})})})()</script>
