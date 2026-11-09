@@ -382,8 +382,8 @@ RIPPLE = ('<div class="co-ripple" aria-hidden="true"><svg viewBox="0 0 340 340" 
           '</svg><span class="co-ripple-t">Replies within<br>2 business hours</span></div>')
 
 SPINE = ('<ol class="co-spine">'
-         '<li>Guest experience</li><li>Community</li><li class="ground">Visibility</li>'
-         '<li class="deep">Finances</li><li class="deep">Systems</li><li class="deep">Team</li><li class="deep">Safety and trust</li>'
+         '<li>Guest experience</li><li>Visibility and demand</li><li class="ground">Community and partners</li>'
+         '<li class="deep">Revenue and pricing</li><li class="deep">Finances and cash flow</li><li class="deep">Systems</li><li class="deep">Team and leadership</li><li class="deep">Safety and trust</li>'
          '</ol>')
 
 LOTUS = ('<div class="co-motif" aria-hidden="true"><svg class="art" viewBox="0 0 300 290" focusable="false" xmlns="http://www.w3.org/2000/svg">'
