@@ -671,3 +671,7 @@ h1 em, h2 em, h3 em, .display em, .venue-h em, .stop-feel, .cs-q, .rc-q, .about-
   .nav-logo-wrap { gap: .5rem; }
   .nav-cta { padding: .62rem .8rem; letter-spacing: .1em; font-size: .66rem; white-space: nowrap; }
 }
+
+.fn-more { text-align: center; margin-top: clamp(2.5rem, 4vw, 3.5rem); }
+.btn--line { background: transparent; color: var(--jungle); }
+.btn--line:hover { background: var(--jungle); border-color: var(--jungle); color: var(--limewash-hi); }

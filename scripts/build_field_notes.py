@@ -447,7 +447,7 @@ def update_related(arts):
 
 
 # ---------------------------------------------------------------- latest Field Notes on the homepage
-# index.html has a "Field Notes" section; the 3 newest published articles go between the field-notes:latest markers
+# index.html has a "Field Notes" section; the 2 newest published articles go between the field-notes:latest markers
 LATEST_RE = re.compile(r"<!-- field-notes:latest -->.*?<!-- /field-notes:latest -->", re.S)
 
 
@@ -457,7 +457,7 @@ def update_latest(arts):
     if not LATEST_RE.search(src):
         print("latest: no markers in", path)
         return
-    live = [a for a in arts if a["status"] == "published"][:3]
+    live = [a for a in arts if a["status"] == "published"][:2]
     # two large cards: 3:2 photo with the topic as a pill, the serif title, the article's meta description, a quiet link
     cards = "".join(
         f'<a class="fl-card" href="/field-notes/{a["slug"]}">'
