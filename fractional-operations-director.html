@@ -688,6 +688,15 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 .tier-btn{margin-top:22px;display:block;text-align:center;padding:14px 18px;border-radius:999px;border:1px solid var(--earth);color:var(--earth);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.06em;transition:background .25s,color .25s}
 .tier-btn:hover{background:var(--earth);color:var(--warm-white)}
 .tier-note{margin-top:1.6rem;max-width:80ch;color:var(--earth-mid);font-size:.92rem;line-height:1.7}
+.tiers{width:min(1240px,calc(100vw - 96px));margin-left:calc(50% - min(620px,calc(50vw - 48px)));gap:24px}
+.tier{padding:36px 34px 32px}
+.tier h3{font-size:1.9rem}
+.tier-tag{min-height:0!important;white-space:nowrap}
+.tier-sum{font-size:1rem;min-height:3.4em}
+.tier li{border-bottom:0;padding:9px 0 9px 22px;font-size:.98rem;line-height:1.6}
+.tier li::before{top:18px}
+.tier-note{max-width:none}
+@media(max-width:960px){.tiers{width:100%;margin-left:0;max-width:640px}.tier-tag{white-space:normal}}
 @media(max-width:960px){.tiers{grid-template-columns:1fr;max-width:620px}.tier-sum{min-height:0}}
 @media(max-width:860px){.dm-fit,.dm-cards,.dm-num,.dm-case{grid-template-columns:1fr}.dm-num>div+div{padding-left:0;border-left:0;border-top:1px solid var(--border)}.dm-steps{grid-template-columns:1fr 1fr}.dm-steps::before{display:none}.dm-case{padding:28px 24px;gap:1.75rem}}
 @media(max-width:520px){.dm-steps{grid-template-columns:1fr}.dm-cmp div{grid-template-columns:1fr}}
