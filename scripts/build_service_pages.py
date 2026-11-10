@@ -515,9 +515,9 @@ PAGES = [
         label="For retreat venues · Monthly · Your part-time COO", tag="Senior operations leadership,<br><em>without a full-time hire.</em>",
         lead="Your retreat needs more than systems that work. It needs someone looking at how the business is performing, where operations are falling short, and what needs to happen next.</p><p class=\"lead\">I partner with retreat owners and hospitality leaders to provide ongoing operational direction, strengthen performance, and move business priorities forward.",
         hero_cta="Explore a partnership",
-        jump=("#month", "See a typical month ↓"),
+        jump=("#tiers", "Compare the three levels ↓"),
         price=dict(k="Monthly retainer", amt="From $1,800 <small>USD / month</small>", note="Your monthly fee is set after a free call, based on your property: its size, team, booking volume, and how much needs organizing at the start. 6-month minimum.",
-                   items=["Monthly performance review", "Priorities agreed with you", "Improvements led and followed through", "Scope agreed at the start"]),
+                   items=["Essential · from $1,800", "Core · from $2,800", "Embedded · from $4,500"]),
         changes=("How we work together", "", []),
         split=("The level of involvement is shaped around your property's needs, management structure, and operational complexity.", [
             ("You retain", "keep", ["The vision", "Investment decisions", "Final authority"]),
@@ -530,10 +530,8 @@ PAGES = [
         proof=None,
         how=None,
         faq=[
-            ("How is the monthly fee set?", "It starts from $1,800 USD a month. The final fee depends on your property: its size, your team, booking volume and occupancy, and how much needs organizing at the start. We agree it after a free call, before anything begins."),
-            ("How much of your time do I get?", "The rhythm, deliverables and level of involvement are agreed at the start of the partnership, based on what your property needs."),
             ("Is there a minimum commitment?", "Six months minimum. I recommend 12, so we work through a full season together, high and low."),
-            ("Is it remote or on-site?", "Remote for retreat properties anywhere in the world. On-site time is available in Costa Rica, Panama, Nicaragua and Guatemala."),
+            ("Is it remote or on-site?", "Remote for retreat properties anywhere in the world. Embedded includes on-site visits in Costa Rica, Panama, Nicaragua and Guatemala as part of a tailored scope. With Essential or Core, on-site visits can be arranged depending on what your venue needs."),
             ("What if I don't have a team?", "The Retreat Blueprint <a href=\"/concierge-ops\">Concierge Ops</a> team can handle the day-to-day under my direction."),
             ("What if my systems are a mess?", "Most venues start with the <a href=\"/foundation-sprint\">Foundation Sprint</a> to build the systems, then move to the fractional role to run and improve them."),
         ],
