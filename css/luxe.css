@@ -649,3 +649,25 @@ h1 em, h2 em, h3 em, .display em, .venue-h em, .stop-feel, .cs-q, .rc-q, .about-
 .hx-cue { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); z-index: 3; font: 400 .66rem/1 var(--sans); letter-spacing: .3em; text-transform: uppercase; color: rgba(243, 236, 224, .85); }
 @media (max-width: 900px) { .hx-leaf { width: 68%; } .hx-leaf span { right: 14%; } }
 @media (prefers-reduced-motion: reduce) { .hx { display: none; } .hx-stage { height: auto; } .hx-stage > .hero { position: relative; } }
+
+/* Mobile polish (Nov 9) */
+@media (max-width: 960px) {
+  /* hero: the arch photo leads, sized to the screen, and fills its frame */
+  .hero-grid { display: flex; flex-direction: column; gap: 2.2rem; }
+  .hero-arch { order: -1; max-width: min(300px, 74vw); }
+  .hero-arch .arch img { transform: none !important; }
+  .hero-arch figcaption { display: none; }
+  /* about: eyebrow and heading first, then the photo, then the story */
+  .about-grid { display: flex; flex-direction: column; gap: 2rem; }
+  .about-text { display: contents; }
+  .about-text > .eyebrow { order: 1; margin-bottom: 0; }
+  .about-text > h2 { order: 2; margin-top: -1.2rem; }
+  .about-photo { order: 3; width: 100%; max-width: 360px; margin: 0 auto; }
+  .about-text > :not(.eyebrow):not(h2) { order: 4; }
+}
+@media (max-width: 420px) {
+  .nav-logo-text { font-size: 1.05rem; }
+  .nav-logo-icon { width: 24px; height: 24px; }
+  .nav-logo-wrap { gap: .5rem; }
+  .nav-cta { padding: .62rem .8rem; letter-spacing: .1em; font-size: .66rem; white-space: nowrap; }
+}
