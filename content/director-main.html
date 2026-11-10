@@ -35,6 +35,22 @@
 .dm-case blockquote{margin:0;padding-left:22px;border-left:2px solid var(--acc-soft);font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1.45;color:var(--earth)}
 .dm-case cite{display:block;margin-top:.9rem;font-family:var(--sans);font-style:normal;font-size:.85rem;color:var(--earth-mid)}
 .dm-case .more{display:inline-block;margin-top:1.1rem;font-size:.88rem;color:var(--acc-dark)}
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:2.6rem;align-items:stretch}
+.tier{display:flex;flex-direction:column;background:var(--warm-white);border:1px solid var(--border);border-radius:14px;padding:30px 28px 28px}
+.tier h3{font-family:var(--serif);font-weight:400;font-size:1.75rem;line-height:1.1;color:var(--earth)}
+.tier-tag{min-height:2.7em;margin-top:8px;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.tier-price{margin-top:18px;font-family:var(--serif);font-size:1.6rem;line-height:1.1;color:var(--earth);font-variant-numeric:lining-nums tabular-nums}
+.tier-price small{font-family:var(--sans,inherit);font-size:.8rem;color:var(--earth-mid)}
+.tier-sum{margin-top:12px;color:var(--earth-mid);line-height:1.65;font-size:.97rem;min-height:4.95em}
+.tier hr{border:0;border-top:1px solid var(--border);margin:20px 0 6px;width:100%}
+.tier ul{list-style:none;margin:0;padding:0;flex:1}
+.tier li{position:relative;padding:11px 0 11px 22px;border-bottom:1px solid var(--border);color:var(--earth);font-size:.93rem;line-height:1.55}
+.tier li:last-child{border-bottom:0}
+.tier li::before{content:"";position:absolute;left:2px;top:19px;width:7px;height:7px;border-radius:50%;background:var(--acc)}
+.tier-btn{margin-top:22px;display:block;text-align:center;padding:14px 18px;border-radius:999px;border:1px solid var(--earth);color:var(--earth);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.06em;transition:background .25s,color .25s}
+.tier-btn:hover{background:var(--earth);color:var(--warm-white)}
+.tier-note{margin-top:1.6rem;max-width:80ch;color:var(--earth-mid);font-size:.92rem;line-height:1.7}
+@media(max-width:960px){.tiers{grid-template-columns:1fr;max-width:620px}.tier-sum{min-height:0}}
 @media(max-width:860px){.dm-fit,.dm-cards,.dm-num,.dm-case{grid-template-columns:1fr}.dm-num>div+div{padding-left:0;border-left:0;border-top:1px solid var(--border)}.dm-steps{grid-template-columns:1fr 1fr}.dm-steps::before{display:none}.dm-case{padding:28px 24px;gap:1.75rem}}
 @media(max-width:520px){.dm-steps{grid-template-columns:1fr}.dm-cmp div{grid-template-columns:1fr}}
 </style>
@@ -55,7 +71,45 @@
   </div>
 </section>
 
-<section class="sec" id="oversee">
+<section class="sec" id="tiers">
+  <div class="inner">
+    <p class="label">How we work together</p>
+    <h2 class="title">Choose the level of leadership <em>your venue needs</em></h2>
+    <p class="dm-p">I lead your department teams, coordinate retreat delivery, and follow through on the improvements we agree on. Choose how much responsibility you want me to take on.</p>
+    <div class="tiers">
+      <article class="tier">
+        <h3>Essential</h3>
+        <p class="tier-tag">Operations leadership</p>
+        <p class="tier-price">From $1,800 <small>USD / month</small></p>
+        <p class="tier-sum">I manage your department leads directly so your team knows what needs to happen before, during, and after each agreed retreat.</p>
+        <hr>
+        <ul><li>Direct management of agreed departments, such as kitchen, housekeeping, maintenance, and guest care.</li><li>Department check-ins typically every two weeks, with closer coordination around agreed retreats.</li><li>Retreat readiness, including rooming, meals, logistics, and team briefings and debriefs.</li><li>Guest experience oversight during agreed retreats. I set service expectations with department leads, follow up on guest and organiser concerns, and coordinate fixes with the team and vendors.</li><li>One operational improvement at a time and a monthly owner update on progress and priorities.</li></ul>
+        <a class="tier-btn" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Discuss Essential</a>
+      </article>
+      <article class="tier">
+        <h3>Core</h3>
+        <p class="tier-tag">Operations + financial visibility</p>
+        <p class="tier-price">From $2,800 <small>USD / month</small></p>
+        <p class="tier-sum">I lead your operation, improve the guest journey, and help you see what bookings, costs, and collections mean for the business.</p>
+        <hr>
+        <ul><li>Everything in Essential, with a regular owner check-in to review decisions and follow-through.</li><li>Monthly performance summary covering bookings, collections, and retreat contribution, using your existing records.</li><li>Monthly budget-to-actual review where a working budget is in place.</li><li>Quarterly pricing and booking-mix review, plus a look at where retreat inquiries stall.</li><li>Guest journey improvement from pre-arrival through departure. I review guest and organiser feedback, identify recurring friction, and lead agreed changes to team handoffs and service standards.</li><li>Up to two agreed improvements at a time, with clear ownership and progress tracking.</li></ul>
+        <a class="tier-btn" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Discuss Core</a>
+      </article>
+      <article class="tier">
+        <h3>Embedded</h3>
+        <p class="tier-tag">Delegated operations</p>
+        <p class="tier-price">From $4,500 <small>USD / month</small></p>
+        <p class="tier-sum">I take responsibility for agreed operating and guest experience decisions so your team can move forward within clear limits.</p>
+        <hr>
+        <ul><li>Everything in Core, plus authority over agreed decisions such as scheduling and vendor approvals.</li><li>Guest experience ownership across departments, including setting service standards, directing how escalated guest concerns are resolved, and approving remedies within agreed limits.</li><li>A quarterly operating plan and a rolling 12-month cash-flow forecast reviewed monthly.</li><li>Hiring and onboarding support for agreed roles.</li><li>Operational planning for expansion or a new offer, with up to three agreed improvements at a time.</li><li>On-site support in Central America available as part of a tailored scope.</li></ul>
+        <a class="tier-btn" href="https://calendly.com/hello-retreatblueprint/30min" target="_blank" rel="noopener">Discuss Embedded</a>
+      </article>
+    </div>
+    <p class="tier-note">Six-month minimum. We agree on departments, retreat coverage, working hours, and escalation windows before we start. Your department leads carry out the work on site. Concierge Ops can be added to any tier for day-to-day admin, including inboxes, booking updates, guest messages, and payment tracking.</p>
+  </div>
+</section>
+
+<section class="sec gap" id="oversee">
   <div class="inner">
     <p class="label">What I oversee</p>
     <h2 class="title">Connecting the decisions <em>that shape your business.</em></h2>
@@ -70,9 +124,9 @@
   </div>
 </section>
 
-<section class="sec gap" id="numbers">
+<section class="sec" id="numbers">
   <div class="inner">
-    <p class="label">The numbers</p>
+    <p class="label">The numbers · part of Core and Embedded</p>
     <h2 class="title">Performance is more than <em>occupancy.</em></h2>
     <p class="dm-p">A full calendar doesn't always translate into a healthy bottom line. Revenue, operating costs, booking mix, and cash flow reveal different parts of the business, and often point to different decisions.</p>
     <p class="dm-p">I connect financial performance with the operational realities behind it, helping owners understand what is driving results and where changes can make the greatest difference.</p>
@@ -85,15 +139,6 @@
   </div>
 </section>
 
-<section class="sec" id="partnership">
-  <div class="inner">
-    <p class="label">How we work together</p>
-    <h2 class="title">You keep the vision. <em>We strengthen the operation behind it.</em></h2>
-    <p class="dm-p">A fractional partnership brings experienced operational leadership into your business without requiring a permanent executive hire.</p>
-    <p class="dm-p">You retain ownership of the vision and final business decisions. I work alongside you and your existing team to evaluate performance, establish priorities, guide improvements, and maintain accountability for agreed initiatives.</p>
-    @@SPLIT@@
-  </div>
-</section>
 
 <section class="sec gap" id="month">
   <div class="inner">

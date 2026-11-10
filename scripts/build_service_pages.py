@@ -504,7 +504,7 @@ PAGES = [
     dict(
         slug="fractional-operations-director", kw="Fractional COO for retreat centers", menu="/fractional-operations-director", name="Fractional Retreat Operations Director", name_html="<span>Fractional Retreat</span><span>Operations Director</span>",
         title="Fractional COO for Retreat Centers · Part-Time Operations Director",
-        desc="A part-time COO for your retreat center: operations leadership, numbers, team and systems without a full-time hire. From $1,000 a month.",
+        desc="A part-time COO for your retreat center: operations leadership, numbers, team and systems without a full-time hire. From $1,800 a month.",
         og="Fractional Retreat Operations Director: your part-time COO.",
         name_css=".hero .svc-name{font-size:clamp(2.1rem,3.8vw,3.35rem);line-height:1.06;max-width:none}.svc-name span{display:block}@media (max-width:860px){.hero .svc-name{font-size:clamp(1.9rem,8.6vw,2.8rem)}}",
         theme=dict(name="Fractional Retreat Operations Director", acc="#2F6467", acc_dark="#234D50", acc_soft="#6E9EA0", on_band="#C4DADB", on_band_soft="#9CC4C6",
@@ -516,7 +516,7 @@ PAGES = [
         lead="Your retreat needs more than systems that work. It needs someone looking at how the business is performing, where operations are falling short, and what needs to happen next.</p><p class=\"lead\">I partner with retreat owners and hospitality leaders to provide ongoing operational direction, strengthen performance, and move business priorities forward.",
         hero_cta="Explore a partnership",
         jump=("#month", "See a typical month ↓"),
-        price=dict(k="Monthly retainer", amt="From $1,000 <small>USD / month</small>", note="Your monthly fee is set after a free call, based on your property: its size, team, booking volume, and how much needs organizing at the start. 6-month minimum.",
+        price=dict(k="Monthly retainer", amt="From $1,800 <small>USD / month</small>", note="Your monthly fee is set after a free call, based on your property: its size, team, booking volume, and how much needs organizing at the start. 6-month minimum.",
                    items=["Monthly performance review", "Priorities agreed with you", "Improvements led and followed through", "Scope agreed at the start"]),
         changes=("How we work together", "", []),
         split=("The level of involvement is shaped around your property's needs, management structure, and operational complexity.", [
@@ -530,7 +530,7 @@ PAGES = [
         proof=None,
         how=None,
         faq=[
-            ("How is the monthly fee set?", "It starts from $1,000 USD a month. The final fee depends on your property: its size, your team, booking volume and occupancy, and how much needs organizing at the start. We agree it after a free call, before anything begins."),
+            ("How is the monthly fee set?", "It starts from $1,800 USD a month. The final fee depends on your property: its size, your team, booking volume and occupancy, and how much needs organizing at the start. We agree it after a free call, before anything begins."),
             ("How much of your time do I get?", "The rhythm, deliverables and level of involvement are agreed at the start of the partnership, based on what your property needs."),
             ("Is there a minimum commitment?", "Six months minimum. I recommend 12, so we work through a full season together, high and low."),
             ("Is it remote or on-site?", "Remote for retreat properties anywhere in the world. On-site time is available in Costa Rica, Panama, Nicaragua and Guatemala."),
@@ -582,7 +582,7 @@ PAGES = [
 
 OTHERS = {
     "foundation-sprint": ("Foundation Sprint", "The systems behind a smooth stay, built piece by piece: bookings, payments, guest communication and your numbers.", "From $100 · build your own quote →"),
-    "fractional-operations-director": ("Fractional Retreat Operations Director", "Your part-time operations director for the guest experience, the numbers, the team and the systems.", "From $1,000 USD / month →"),
+    "fractional-operations-director": ("Fractional Retreat Operations Director", "Your part-time operations director for the guest experience, the numbers, the team and the systems.", "From $1,800 USD / month →"),
     "concierge-ops": ("Concierge Ops", "Every inquiry and guest message answered in your voice, so guests feel looked after from the first email.", "From $250 USD / month →"),
     "growth-marketing": ("Growth Marketing", "Strategy, content and outreach so the right guests and retreat leaders find you and know what to expect.", "Pricing on inquiry →"),
     "buying-a-retreat": ("Buying a retreat?", "Pre-purchase review and your first 90 days.", "From $1,200 USD →"),
