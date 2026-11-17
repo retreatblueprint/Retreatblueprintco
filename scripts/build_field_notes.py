@@ -13,8 +13,9 @@ Status:
   "draft"      not built, not listed, not in the sitemap (use --preview to see drafts locally)
   "published"  built, listed on /field-notes/ and added to sitemap.xml
 
-A published article must not contain any <mark class="todo"> or "[SHILA" placeholders:
-the build stops with an error if it does.
+A published article must not contain any <mark class="todo"> or "[SHILA" placeholders,
+and must have a header photo ("hero" in the JSON block) and at least 2 {{photo:...}} in the body:
+the build stops with an error if it does not.
 
 Run from the repo root:
   python3 scripts/build_field_notes.py            # what goes live
@@ -125,6 +126,11 @@ def load_articles():
         meta["path"] = path
         if meta["status"] == "published" and ('class="todo"' in meta["body"] or "[SHILA" in meta["body"]):
             sys.exit(f"{path}: still has [SHILA] placeholders; fill them in before publishing")
+        if meta["status"] == "published":
+            n_photos = len(re.findall(r"\{\{photo:", meta["body"]))
+            if not meta.get("hero") or n_photos < 2:
+                sys.exit(f"{path}: every published article needs a header photo (\"hero\") and at least 2 in-article photos "
+                         f"({{{{photo:id|alt|caption}}}}); this one has {'a' if meta.get('hero') else 'no'} header photo and {n_photos} in-article")
         if meta["status"] == "published" or PREVIEW:
             arts.append(meta)
     arts.sort(key=lambda a: a["date"], reverse=True)
