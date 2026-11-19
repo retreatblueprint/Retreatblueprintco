@@ -675,3 +675,13 @@ h1 em, h2 em, h3 em, .display em, .venue-h em, .stop-feel, .cs-q, .rc-q, .about-
 .fn-more { text-align: center; margin-top: clamp(2.5rem, 4vw, 3.5rem); }
 .btn--line { background: transparent; color: var(--jungle); }
 .btn--line:hover { background: var(--jungle); border-color: var(--jungle); color: var(--limewash-hi); }
+
+/* Mobile header: logo shrinks to fit, never runs under Book a call (Nov 19) */
+@media (max-width: 960px) {
+  nav[data-menu] { gap: .6rem; }
+  nav[data-menu] .nav-right { flex: none; }
+  nav[data-menu] .nav-logo-wrap { flex: 1 1 auto; min-width: 0; gap: .5rem; }
+  nav[data-menu] .nav-logo-icon { width: 26px; height: 26px; }
+  nav[data-menu] .nav-logo-text { font-size: clamp(.78rem, 3.5vw, 1.2rem); letter-spacing: .02em; overflow: hidden; }
+  nav[data-menu] .nav-cta { padding: .62rem .8rem; letter-spacing: .1em; font-size: .66rem; white-space: nowrap; }
+}
