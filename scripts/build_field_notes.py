@@ -196,6 +196,19 @@ CSS = """
 .fn-table th{text-align:left;font-weight:600;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--border);padding:10px 12px 8px 0}
 .fn-table td{border-bottom:1px solid var(--border);padding:12px 12px 12px 0;vertical-align:top}
 .fn-table td:nth-child(2){white-space:nowrap;font-weight:500}
+/* A table with sentences in its cells (not short figures): the columns wrap, and on a phone each row stacks as a small card. */
+.fn-table.fn-table-text table{table-layout:fixed}
+.fn-table.fn-table-text th:nth-child(1){width:24%}.fn-table.fn-table-text th:nth-child(2){width:40%}.fn-table.fn-table-text th:nth-child(3){width:36%}
+.fn-table.fn-table-text td{padding-right:16px}
+.fn-table.fn-table-text td:nth-child(2){white-space:normal;font-weight:400}
+@media (max-width:640px){
+.fn-table.fn-table-text table,.fn-table.fn-table-text tbody,.fn-table.fn-table-text tr,.fn-table.fn-table-text td{display:block;width:auto}
+.fn-table.fn-table-text thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.fn-table.fn-table-text tr{border-bottom:1px solid var(--border);padding:14px 0}
+.fn-table.fn-table-text td{border:0;padding:0 0 8px}
+.fn-table.fn-table-text td:first-child{font-size:1rem;padding-bottom:6px}
+.fn-table.fn-table-text td[data-label]::before{content:attr(data-label);display:block;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+}
 .fn-chart{margin:1.75rem 0 2rem}
 .fn-chart-title{font-family:var(--serif);font-size:1.15rem;line-height:1.35;margin-bottom:.5rem}
 .fn-chart svg{display:block;width:100%;height:auto;font-family:var(--sans)}
