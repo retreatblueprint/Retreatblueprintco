@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<title>Retreat Blueprint Co. Client Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: calm, confident, owner to owner; few hues, lots of air
+   IDEA: a venue's guestbook, each client a signed page with their own voice
+   PICTURE: each result set large, the voice note beside it
+   COLOUR and TYPE: her brand: linen ground, deep olive band, terracotta accent; Fraunces + Inter
+   LAYOUT: olive masthead, one open section per venue (result left, voice right), CocoVivo pair, closing band */
+:root{color-scheme:light dark;
+--bg:light-dark(#F6F1E8,#1B1E19);--paper:light-dark(#FBF8F2,#22261F);--ink:light-dark(#29231E,#EEE8DD);--soft:light-dark(#5A5047,#BDB4A6);
+--olive:light-dark(#3E4A35,#2C3526);--olive-ink:#F3EFE6;--terra:light-dark(#9A4F30,#E08E6B);--rule:light-dark(#DDD3C3,#3A4034);--sage:light-dark(#E7EADF,#262C22)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3,.serif{font-family:Fraunces,Georgia,serif;font-weight:500;text-wrap:balance;margin:0}
+p{margin:0;text-wrap:pretty}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto}
+.band{padding:clamp(32px,5vw,64px) max(5vw,18px)}
+
+.mast{background:var(--olive);color:var(--olive-ink)}
+.mast .wrap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,40px);align-items:center}
+.mast img{width:clamp(88px,12vw,128px);aspect-ratio:1;border-radius:50%;object-fit:cover;border:3px solid rgba(243,239,230,.35)}
+.mast .who{font-size:15px;opacity:.85}
+.mast h1{font-size:clamp(32px,5vw,48px);line-height:1.08;margin:6px 0 12px}
+.mast .lede{max-width:60ch;opacity:.9}
+.contact{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px;font-size:14px}
+.contact a{text-decoration:none;border-bottom:1px solid rgba(243,239,230,.4)}
+
+.venue{border-bottom:1px solid var(--rule)}
+.venue .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px)}
+.place{font-size:14px;color:var(--soft)}
+.venue h2{font-size:clamp(26px,3.2vw,34px);line-height:1.1;margin:4px 0 22px}
+.stat{font-family:Fraunces,serif;font-size:clamp(56px,8vw,88px);line-height:1;color:var(--terra);font-weight:500;letter-spacing:-.02em}
+.stat-l{font-size:17px;margin:8px 0 26px;max-width:34ch}
+.pair{display:grid;gap:16px}
+.pair h3{font-family:Inter,sans-serif;font-size:14px;font-weight:600;color:var(--terra);margin-bottom:6px}
+.pair ul{margin:0;padding-left:18px;color:var(--soft);font-size:15px;line-height:1.55}
+.pair li{margin:2px 0}
+
+.voice{background:var(--paper);border-radius:18px;padding:clamp(22px,3vw,32px);align-self:start}
+.player{display:flex;align-items:center;gap:14px;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid var(--rule)}
+.play{flex:none;width:52px;height:52px;border-radius:50%;border:0;background:var(--terra);color:#fff;display:grid;place-items:center;cursor:pointer}
+.play:focus-visible,.bar:focus-visible,summary:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.play svg{width:20px;height:20px}
+.pmeta{flex:1;display:grid;gap:7px}
+.pmeta b{font-size:15px;font-weight:600}
+.bar{appearance:none;width:100%;height:4px;border-radius:4px;background:var(--rule);accent-color:var(--terra);cursor:pointer}
+.bar::-webkit-slider-thumb{appearance:none;width:14px;height:14px;border-radius:50%;background:var(--terra)}
+.bar::-moz-range-thumb{width:14px;height:14px;border:0;border-radius:50%;background:var(--terra)}
+.time{font-size:13px;color:var(--soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+blockquote{margin:0;font-family:Fraunces,serif;font-size:clamp(20px,2.4vw,24px);line-height:1.35}
+.by{margin-top:14px;font-size:14px;color:var(--soft)}
+.by b{color:var(--ink);font-weight:600}
+details{margin-top:16px;font-size:15px;color:var(--soft)}
+summary{cursor:pointer;color:var(--terra);font-weight:500;min-height:44px;display:flex;align-items:center;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:8px;font-size:18px}
+details[open] summary::after{content:"–"}
+details p{line-height:1.65}
+
+.coco{background:var(--sage)}
+.coco h2{font-size:clamp(26px,3.2vw,34px);line-height:1.1;margin:4px 0 26px}
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,4vw,48px)}
+.tools h3{font-size:21px;margin-bottom:8px}
+.tools p{color:var(--soft);font-size:15.5px}
+
+.close{background:var(--olive);color:var(--olive-ink)}
+.close .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px}
+.close p{font-family:Fraunces,serif;font-size:clamp(20px,2.4vw,26px);max-width:32ch}
+.close .contact{margin-top:0}
+
+@media(max-width:760px){.venue .wrap,.tools{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:520px){.mast .wrap{grid-template-columns:minmax(0,1fr)}}
+@media print{.player{display:none}details{display:block}details>summary{display:none}details p{display:block}.band{padding:28px 36px}}
+</style>
+</head>
+<body>
+
+<header class="band mast">
+  <div class="wrap">
+    <img src="../assets/img/shila-avatar.jpg" alt="Shila Kandiah">
+    <div>
+      <div class="who">Shila Kandiah · Retreat Blueprint Co.</div>
+      <h1>Client work, and what owners say</h1>
+      <p class="lede">10 years managing operations in healthcare, wellness and hospitality, now building the systems, guest experience and financial clarity behind soul-led hospitality.</p>
+    </div>
+  </div>
+</header>
+
+<section class="band venue">
+  <div class="wrap">
+    <div>
+      <div class="place">Dominical, Costa Rica</div>
+      <h2>Airborne Arts</h2>
+      <div class="stat" style="font-size:clamp(40px,5.5vw,60px);line-height:1.05">Full-time admin role replaced</div>
+      <p class="stat-l">by one connected operating system. Instead of rehiring after their administrator left, the owner now runs operations with less overhead and clearer financial oversight.</p>
+      <div class="pair">
+        <div><h3>The challenge</h3><ul><li>Scattered finances</li><li>Manual guest registration</li><li>Retreat leaders, guests and kitchen staff not connected</li></ul></div>
+        <div><h3>What I built</h3><ul><li>One customized operating system connecting bookings, payments and guest information</li><li>Portals for management, kitchen, retreat leaders and guests</li><li>Kitchen messages in English and Spanish</li><li>Every past and present client in one place</li></ul></div>
+      </div>
+    </div>
+    <div class="voice">
+      <div class="player" data-src="jon">
+        <button class="play" type="button" aria-label="Play Jonathon's voice note"></button>
+        <div class="pmeta"><b>Hear from Jonathon</b><input class="bar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek Jonathon's voice note"></div>
+        <span class="time">0:53</span>
+      </div>
+      <blockquote>“Someone who takes big challenges, and turns them into simple systems that just work.”</blockquote>
+      <div class="by"><b>Jonathon Conant</b>, Founder, Airborne Arts</div>
+      <details>
+        <summary>Read full testimonial</summary>
+        <p>I have been an entrepreneur for 50 years with small operations to international, global successes. If there is one thing you need on your team it's someone who takes big challenges, and turns them into simple systems that just work. Shila not only has mastered that skill, she also brings the level of professionalism that you crave, and the personal responsibility and drive that gets it done. Shila tamed a beast of an operation that caters to a select, and very discerning demographic. She intuitively understood the nature, and the needs of my business. She expertly extracted what was needed from sources that often didn't have a clue, created a system that just made sense. I trust her judgement, and her ability to navigate challenges while remaining calm and fair. I am grateful for her time with us, and the lasting positive impact her time has had.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="band venue">
+  <div class="wrap">
+    <div>
+      <div class="place">Ometepe, Nicaragua</div>
+      <h2>Infinity Retreat</h2>
+      <div class="stat">+37%</div>
+      <p class="stat-l">occupancy in 6 months, with no further double bookings reported. An inactive venue rebuilt and taking bookings again.</p>
+      <div class="pair">
+        <div><h3>The challenge</h3><ul><li>Disconnected booking channels</li><li>Manual payment tracking</li><li>Outdated branding</li><li>Inconsistent retreat leader communications</li></ul></div>
+        <div><h3>What I built</h3><ul><li>Launched on VRBO and integrated every booking platform into one booking manager, OwnerRez, for a seamless booking system</li><li>Mapped the guest journey and communications, and automated guest communication where it fit</li><li>New brand, rebuilt website and paid ads across Costa Rica and Nicaragua</li><li>Digital retreat welcome app</li><li>Payment processing system</li></ul></div>
+      </div>
+    </div>
+    <div class="voice">
+      <div class="player" data-src="cris">
+        <button class="play" type="button" aria-label="Play Cris's voice note"></button>
+        <div class="pmeta"><b>Hear from Cris</b><input class="bar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek Cris's voice note"></div>
+        <span class="time">0:59</span>
+      </div>
+      <blockquote>“Shila took on the nearly impossible task of building our entire digital backend from the ground up.”</blockquote>
+      <div class="by"><b>Cris Ketch</b>, Founder, Infinity Retreat</div>
+      <details>
+        <summary>Read full testimonial</summary>
+        <p>Shila took on the nearly impossible task of building our entire digital backend from the ground up. She approached this challenge with exceptional professionalism, technical skill, and determination. Throughout the project, Shila worked independently with minimal guidance, consistently demonstrating efficiency, initiative, and outstanding problem-solving abilities. She completed every requirement within the agreed timeline while maintaining a high standard of quality and organization. Her work ethic, reliability, and expertise exceeded my expectations. Shila has continued working with me as a consultant, a testament to the value she brings and the confidence I have in her abilities. I recommend Shila without reservation. She would be a tremendous asset to any organization fortunate enough to have her on their team.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="band coco">
+  <div class="wrap">
+    <div class="place">Panama · Current project, in progress</div>
+    <h2>CocoVivo Eco Lodge</h2>
+    <h3 style="font-family:Inter,sans-serif;font-size:14px;font-weight:600;color:var(--terra);margin:-12px 0 14px">Completed so far</h3>
+    <div class="tools">
+      <div><h3>Guest coordination app</h3><p>A custom app that brings every guest's boat transfers, kitchen and cleaning requests into one place, so all three teams stay coordinated and nothing gets missed.</p></div>
+      <div><h3>Bioluminescence forecast app</h3><p>A one-page forecast showing how likely bioluminescence is to be visible each night, with the moon phase and best viewing hours, so the team can tell guests exactly when to go.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="band close">
+  <div class="wrap">
+    <p>Happy to walk you through any of this on a call.</p>
+    <div class="contact">
+      <a href="https://retreatblueprintco.com">retreatblueprintco.com</a>
+      <span>hello@retreatblueprintco.com</span>
+      <span>WhatsApp +1 647-970-2759</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+{
+const SRC={jon:"../assets/audio/voice-note-jon.m4a",cris:"../assets/audio/voice-note-cris.m4a"};
+const PLAY='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>';
+const PAUSE='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>';
+const fmt=s=>{s=Math.max(0,Math.round(s||0));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+const players=[...document.querySelectorAll('.player')];
+const audios=[];
+players.forEach(p=>{
+  const btn=p.querySelector('.play'),bar=p.querySelector('.bar'),time=p.querySelector('.time');
+  const a=new Audio(SRC[p.dataset.src]);a.preload='metadata';audios.push(a);
+  btn.innerHTML=PLAY;
+  const label=btn.getAttribute('aria-label');
+  btn.addEventListener('click',()=>{
+    if(a.paused){audios.forEach(o=>{if(o!==a)o.pause()});a.play().catch(()=>{})}else a.pause();
+  });
+  a.addEventListener('play',()=>{btn.innerHTML=PAUSE;btn.setAttribute('aria-label',label.replace('Play','Pause'))});
+  a.addEventListener('pause',()=>{btn.innerHTML=PLAY;btn.setAttribute('aria-label',label)});
+  a.addEventListener('timeupdate',()=>{if(a.duration){bar.value=a.currentTime/a.duration*100;time.textContent=fmt(a.currentTime)+' / '+fmt(a.duration)}});
+  a.addEventListener('ended',()=>{bar.value=0;time.textContent=fmt(a.duration)});
+  bar.addEventListener('input',()=>{if(a.duration)a.currentTime=bar.value/100*a.duration});
+});
+}
+</script>
+</body>
+</html>
