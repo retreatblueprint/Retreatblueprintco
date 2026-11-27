@@ -522,3 +522,26 @@ dialog.astory .aclose { position: sticky; top: 0; float: right; z-index: 2; marg
 }
 @media (max-width: 760px) { .zs6 .atext > .body { display: block !important; font-size: .78rem; line-height: 1.5; margin: 0; } }
 @media (max-width: 760px) and (max-height: 700px) { .zs6 .atext > .body { display: none !important; } }
+/* v48: each service stands on its own: light glass, its own colour, a big faded number, a real button */
+.zs4 .panes { gap: 10px !important; border: 0 !important; background: transparent !important; box-shadow: none !important; }
+.zs4 .pane + .pane { border-left: 0 !important; }
+.zs4 .pane:nth-child(n+3) { border-top: 0 !important; }
+.zs4 .pane { position: relative; overflow: hidden; border-radius: 16px; border-top: 5px solid var(--acc) !important;
+  background: rgba(251,248,241,.93) !important; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  box-shadow: 0 14px 40px rgba(0,25,40,.28); color: #22190F; transition: transform .3s ease, box-shadow .3s ease; }
+.zs4 .pane::before { display: none; }
+.zs4 .pane::after { content: attr(data-n); position: absolute; top: -.12em; right: .12em; font: 600 clamp(4.2rem, 6vw, 6rem)/1 var(--serif); color: var(--acc); opacity: .1; pointer-events: none; }
+.zs4 .pane:hover, .zs4 .pane:focus-visible { transform: translateY(-5px); box-shadow: 0 22px 50px rgba(0,25,40,.36); background: rgba(255,252,246,.97) !important; }
+.zs4 .door-step { color: var(--acc) !important; font-weight: 600; }
+.zs4 .door-name { color: #22190F !important; }
+.zs4 .door-tag { color: var(--acc-d) !important; }
+.zs4 .door-best { color: var(--acc-d) !important; }
+.zs4 .door-price { color: #3B3026 !important; font-weight: 600; letter-spacing: .06em; border-top: 1px solid rgba(110,84,52,.18); }
+.zs4 .door-go { align-self: flex-start; margin-top: .55rem !important; padding: .6rem 1rem !important; border: 0 !important; border-radius: 999px; background: var(--acc); color: #fff !important; font-size: .64rem !important; letter-spacing: .16em; }
+.zs4 .pane:hover .door-go { background: var(--acc-d); }
+@media (max-width: 760px) {
+  .zs4 .panes { gap: 8px !important; }
+  .zs4 .pane { border-radius: 12px; border-top-width: 4px !important; }
+  .zs4 .pane::after { font-size: 3.2rem; }
+  .zs4 .door-go { padding: .45rem .75rem !important; font-size: .58rem !important; margin-top: .35rem !important; }
+}
