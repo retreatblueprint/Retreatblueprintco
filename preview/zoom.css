@@ -92,3 +92,13 @@ body { background: #E6DCC8; }
 /* reduced motion: still photos, nothing zooms */
 .zstatic .zstick .z1 { transform: none !important; }
 .zstatic .zshade--hero { opacity: 1; }
+/* v6: framework overlaps the end of the hero so it arrives as the hero fades; heading = one sentence per line */
+.zs2 { margin-top: -70vh; margin-top: -70svh; }
+.zs2 > .wrap { opacity: 1 !important; width: min(70%, 1000px); }
+.zs2 > .wrap > * { opacity: 0; will-change: transform, opacity; }
+.zs2 .venue-h { font-size: min(2.4rem, 2.3vw); white-space: nowrap; }
+.zs2 .venue-h em { display: block; }
+@media (max-width: 760px) {
+  .zs2 > .wrap { width: 100%; }
+  .zs2 .venue-h { white-space: normal; font-size: 1.4rem; }
+}

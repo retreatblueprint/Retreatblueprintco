@@ -3,7 +3,7 @@
   var W = document.querySelector('.zworld'), st = W.querySelector('.zstick'),
       z1 = st.querySelector('.z1'), z2 = st.querySelector('.z2'),
       sh = st.querySelector('.zshade--hero'), sw = st.querySelector('.zshade--water'), sc = st.querySelector('.zshade--cabins'),
-      cp = W.querySelector('.zcopy'), s2 = W.querySelector('.zs2'), fw = W.querySelector('.zs2 > .wrap'), s3 = W.querySelector('.zs3');
+      cp = W.querySelector('.zcopy'), s2 = W.querySelector('.zs2'), fw = W.querySelector('.zs2 > .wrap'), kids = [].slice.call(W.querySelectorAll('.zs2 > .wrap > *')), s3 = W.querySelector('.zs3');
   var bands = [].slice.call(document.querySelectorAll('.zwin')), secs = [].slice.call(document.querySelectorAll('[data-zoom]'));
   var IW = 1600, IH = 927, FX = .75, FY = .605, ZMID = 3.6, ZEND = 8;   // the cabins' spot in the lagoon photo
   var c = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; }, ease = function (t) { return t * t * (3 - 2 * t); };
@@ -15,7 +15,7 @@
     var vh = window.innerHeight, p3 = parseFloat(getComputedStyle(s3).paddingTop);
     var t2 = s2.offsetTop, h2 = s2.offsetHeight, c3 = s3.offsetTop + p3;
     // zoom lands as the framework pins; it holds; then fades as the second zoom starts
-    A = { heroOut: vh * .45, z1a: 0, z1b: t2 + vh * .05, fIn0: t2 - vh * .2, fIn1: t2 + vh * .1,
+    A = { heroOut: vh * .32, z1a: 0, z1b: t2 + vh * .42, fIn0: t2, fIn1: t2 + vh * .42,
           fOut0: t2 + h2 - vh * 1.45, fOut1: t2 + h2 - vh * 1.1,
           z2a: t2 + h2 - vh * 1.4, z2b: c3 - vh * .55, x0: t2 + h2 - vh * 1.1, x1: c3 - vh * .55 };
   }
@@ -32,9 +32,13 @@
       var x = seg(y, A.x0, A.x1);
       z2.style.opacity = x; if (!reduce) z2.style.transform = 'scale(' + (1.35 - .35 * x) + ')';
       var fi = seg(y, A.fIn0, A.fIn1), fo = seg(y, A.fOut0, A.fOut1), fv = fi * (1 - fo);
-      sw.style.opacity = fv; fw.style.opacity = fv;
-      fw.style.transform = 'translateY(' + (24 * (1 - fi) - 24 * fo) + 'px)';
-      fw.style.visibility = fv < .02 ? 'hidden' : '';
+      sw.style.opacity = seg(y, A.fIn0 - vh * .1, A.fIn1 - vh * .1) * (1 - fo);
+      // each block slides in from the left, a beat apart, and all land together as the zoom pauses
+      kids.forEach(function (el, i) {
+        var a = A.fIn0 + (A.fIn1 - A.fIn0) * i * .12, k = seg(y, a, A.fIn1 - (A.fIn1 - A.fIn0) * (3 - i) * .04), v = k * (1 - fo);
+        el.style.opacity = v; el.style.transform = 'translateX(' + (-90 * (1 - k)) + 'px) translateY(' + (-24 * fo) + 'px)';
+      });
+      fw.style.visibility = (fi * (1 - fo)) < .01 ? 'hidden' : '';
       sc.style.opacity = x;
     }
     if (reduce) return;
