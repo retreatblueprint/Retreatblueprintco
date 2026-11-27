@@ -102,3 +102,7 @@ body { background: #E6DCC8; }
   .zs2 > .wrap { width: 100%; }
   .zs2 .venue-h { white-space: normal; font-size: 1.4rem; }
 }
+/* v7: hero title = "Wellness hospitality," on one line, "run with care." below */
+.zcopy { max-width: none; }
+.zcopy h1 { white-space: nowrap; font-size: min(7rem, 7.4vw); }
+@media (max-width: 760px) { .zcopy h1 { font-size: 8.6vw; } }
