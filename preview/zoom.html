@@ -109,7 +109,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 if(h.indexOf('calendly.com')>-1||h.indexOf('cal.com/')>-1)n='Book a call';else if(h.indexOf('wa.me/')>-1||h.indexOf('whatsapp.com')>-1)n='WhatsApp';else if(h.indexOf('mailto:')===0)n='Email';
 if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,40)})}catch(_){}},true);
 </script>
-<link rel="stylesheet" href="preview/zoom.css?v=32">
+<link rel="stylesheet" href="preview/zoom.css?v=33">
 </head>
 <body>
 
@@ -205,13 +205,19 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
     <div class="pcards">
       <article class="pcard"><p class="pplace">Airborne Arts &middot; Dominical, Costa Rica</p><p class="pbig">Full-time administrative salary avoided.</p><p class="pcap">A custom operating system replaced the need for a full-time administrative assistant, eliminating that salary expense while giving the owner clearer financial oversight and a more efficient way to manage retreats.</p>
       <blockquote class="pq">&ldquo;Someone who takes big challenges, and turns them into simple systems that just work.&rdquo;</blockquote><p class="pwho"><b>Jonathon Conant</b>Founder, Airborne Arts</p>
-      <div class="vnote" data-src="assets/audio/voice-note-jon.m4a"><button class="vplay" type="button" aria-label="Play Jonathon&rsquo;s voice note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="vmeta"><b>Hear from Jonathon</b><span class="vbar"><i></i></span></div><span class="vtime">0:53</span></div></article>
+      <div class="vnote" data-src="assets/audio/voice-note-jon.m4a"><button class="vplay" type="button" aria-label="Play Jonathon&rsquo;s voice note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="vmeta"><b>Hear from Jonathon</b><span class="vbar"><i></i></span></div><span class="vtime">0:53</span></div><button class="tread" type="button" data-open="t-jon" aria-haspopup="dialog">Read full testimonial</button></article>
       <article class="pcard"><p class="pplace">Infinity Retreat &middot; Ometepe, Nicaragua</p><p class="pbig">40% <span class="parr">&rarr;</span> 55%</p><p class="pcap">Booking occupancy, with no further double bookings reported.</p>
       <blockquote class="pq">&ldquo;Shila took on the nearly impossible task of building our entire digital backend from the ground up.&rdquo;</blockquote><p class="pwho"><b>Cris Ketch</b>Founder, Infinity Retreat</p>
-      <div class="vnote" data-src="assets/audio/voice-note-cris.m4a"><button class="vplay" type="button" aria-label="Play Cris&rsquo;s voice note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="vmeta"><b>Hear from Cris</b><span class="vbar"><i></i></span></div><span class="vtime">0:59</span></div></article>
+      <div class="vnote" data-src="assets/audio/voice-note-cris.m4a"><button class="vplay" type="button" aria-label="Play Cris&rsquo;s voice note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="vmeta"><b>Hear from Cris</b><span class="vbar"><i></i></span></div><span class="vtime">0:59</span></div><button class="tread" type="button" data-open="t-cris" aria-haspopup="dialog">Read full testimonial</button></article>
     </div>
   </div>
-</section>
+<dialog class="tdlg astory" id="t-jon" aria-labelledby="t-jon-h"><div class="astory-in"><button class="aclose" type="button" aria-label="Close">&times;</button>
+      <p class="pplace">Airborne Arts</p><h3 id="t-jon-h">Replacing full-time administration with one connected operating system.</h3>
+      <div class="tba"><div><p class="tk">The challenge</p><ul><li>Scattered finances</li><li>Manual guest registration</li><li>Disconnected communication between retreat leaders, guests and kitchen staff</li></ul></div><div><p class="tk">What I delivered</p><ul><li>A custom operating system connecting bookings, payments and guest information</li><li>Dedicated portals for each team</li></ul></div></div>
+      <p class="tk">In Jonathon&rsquo;s words</p><div class="tfull"><p>I have been an entrepreneur for 50 years with small operations to international, global successes. If there is one thing you need on your team it's someone who takes big challenges, and turns them into simple systems that just work.</p><p>Shila not only has mastered that skill, she also brings the level of professionalism that you crave, and the personal responsibility and drive that gets it done.</p><p>Shila tamed a beast of an operation that caters to a select, and very discerning demographic. She intuitively understood the nature, and the needs of my business.</p><p>She expertly extracted what was needed from sources that often didn't have a clue, created a system that just made sense. I trust her judgement, and her ability to navigate challenges while remaining calm and fair.</p><p>I am grateful for her time with us, and the lasting positive impact her time has had.</p></div><p class="pwho"><b>Jonathon Conant</b>Founder, Airborne Arts</p></div></dialog><dialog class="tdlg astory" id="t-cris" aria-labelledby="t-cris-h"><div class="astory-in"><button class="aclose" type="button" aria-label="Close">&times;</button>
+      <p class="pplace">Infinity Retreat</p><h3 id="t-cris-h">From double bookings to a connected retreat operation.</h3>
+      <div class="tba"><div><p class="tk">The challenge</p><ul><li>Disconnected booking channels</li><li>Manual payment tracking</li><li>Outdated branding</li><li>Inconsistent retreat leader communications</li></ul></div><div><p class="tk">What I delivered</p><ul><li>Centralized reservations</li><li>Automated communications and payments</li><li>A rebuilt website</li><li>Marketing strategy and digital retreat guide</li></ul></div></div>
+      <p class="tk">In Cris&rsquo;s words</p><div class="tfull"><p>Shila took on the nearly impossible task of building our entire digital backend from the ground up. She approached this challenge with exceptional professionalism, technical skill, and determination.</p><p>Throughout the project, Shila worked independently with minimal guidance, consistently demonstrating efficiency, initiative, and outstanding problem-solving abilities. She completed every requirement within the agreed timeline while maintaining a high standard of quality and organization.</p><p>Her work ethic, reliability, and expertise exceeded my expectations. Shila has continued working with me as a consultant, a testament to the value she brings and the confidence I have in her abilities.</p><p>I recommend Shila without reservation. She would be a tremendous asset to any organization fortunate enough to have her on their team.</p></div><p class="pwho"><b>Cris Ketch</b>Founder, Infinity Retreat</p></div></dialog></section>
   <section class="doors-sec zs zs4" id="services">
   <div class="wrap">
     <div class="svc-head">
@@ -401,6 +407,6 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 <script src="js/menu.js?v=2026-10-21a" defer></script>
 <script src="js/luxe.js?v=2026-11-07L" defer></script>
 
-<script src="preview/zoom.js?v=30" defer></script>
+<script src="preview/zoom.js?v=33" defer></script>
 </body>
 </html>

@@ -102,6 +102,13 @@
     dlg.querySelector('.aclose').addEventListener('click', function () { if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg && dlg.close) dlg.close(); });
   }
+  // "Read full testimonial" opens the owner's complete testimonial
+  [].slice.call(document.querySelectorAll('.tread')).forEach(function (b) {
+    var d = document.getElementById(b.dataset.open); if (!d) return;
+    b.addEventListener('click', function () { if (d.showModal) d.showModal(); else d.setAttribute('open', ''); });
+    d.querySelector('.aclose').addEventListener('click', function () { if (d.close) d.close(); else d.removeAttribute('open'); });
+    d.addEventListener('click', function (e) { if (e.target === d && d.close) d.close(); });
+  });
   if (reduce) document.documentElement.classList.add('zstatic');
   var ticking = false;
   function req() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
