@@ -261,3 +261,4 @@ body { background: #E6DCC8; }
   .zs4 .pane { padding: 8px 10px; }
   .zs4 .svc-head .display { font-size: 1.55rem; }
 }
+.zs4 .panes { background: transparent !important; }
