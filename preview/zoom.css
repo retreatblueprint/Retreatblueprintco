@@ -458,3 +458,5 @@ footer { position: relative; z-index: 3; }
 dialog.astory { overflow: hidden; }
 dialog.astory .astory-in { max-height: 86vh; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 html:has(dialog[open]) { overflow: hidden; }
+/* the close button stays in the corner while the text scrolls */
+dialog.astory .aclose { position: sticky; top: 0; float: right; z-index: 2; margin: -10px -10px 0 8px; background: #EDE5D6; box-shadow: 0 2px 10px rgba(0,0,0,.12); }
