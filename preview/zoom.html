@@ -109,13 +109,13 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 if(h.indexOf('calendly.com')>-1||h.indexOf('cal.com/')>-1)n='Book a call';else if(h.indexOf('wa.me/')>-1||h.indexOf('whatsapp.com')>-1)n='WhatsApp';else if(h.indexOf('mailto:')===0)n='Email';
 if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,40)})}catch(_){}},true);
 </script>
-<link rel="stylesheet" href="preview/zoom.css?v=48">
+<link rel="stylesheet" href="preview/zoom.css?v=51">
 </head>
 <body>
 
 <!-- NAV -->
 <nav data-menu>
-  <a href="#" class="nav-logo-wrap">
+  <a href="/preview/zoom.html#top" class="nav-logo-wrap">
     <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M16 3 C22 7 28 14 25 22 C22 30 10 31 7 22 C4 13 10 7 16 3Z" fill="#B08A5A" opacity="0.2"/>
       <path d="M16 3 C22 7 28 14 25 22 C22 30 10 31 7 22 C4 13 10 7 16 3Z" stroke="#2C3E2D" stroke-width="1.1" fill="none"/>
@@ -126,17 +126,17 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
     <span class="nav-logo-text">Retreat Blueprint Co.</span>
   </a>
   <div class="nav-links" id="site-menu" data-menu-links>
-    <a href="#" class="nav-link" aria-current="page" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Home</a>
-    <a href="#testimonials" class="nav-link">Testimonials</a>
-    <a href="#assessment" class="nav-link">Assessment</a>
-    <a href="#about" class="nav-link">About</a>
+    <a href="/preview/zoom.html#top" class="nav-link" aria-current="page" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Home</a>
+    <a href="/preview/zoom.html#testimonials" class="nav-link">Testimonials</a>
+    <a href="/preview/zoom.html#assessment" class="nav-link">Assessment</a>
+    <a href="/preview/zoom.html#about" class="nav-link">About</a>
     <div class="nav-dd" data-dd><button type="button" class="nav-link dd-btn" aria-expanded="false" aria-controls="svc-menu">Services <svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="dd-panel" id="svc-menu">
       <a href="/foundation-sprint"><b>Foundation Sprint</b><span>The systems your retreat runs on, built in one go</span></a>
       <a href="/concierge-ops"><b>Concierge Ops</b><span>Your day-to-day admin, handled</span></a>
       <a href="/fractional-operations-director"><b>Fractional Retreat Operations Director</b><span>Your part-time COO, month to month</span></a>
       <a href="/growth-marketing"><b>Growth Marketing</b><span>Get your retreat seen by the right people</span></a>
       <a href="/buying-a-retreat" class="dd-feature"><b>Buying a retreat?</b><span>Pre-purchase review and your first 90 days</span></a>
-      <a href="/#services" class="dd-all">Compare all services →</a>
+      <a href="/preview/zoom.html#services" class="dd-all">Compare all services →</a>
     </div></div>
     <a href="/field-notes/" class="nav-link">Field Notes</a>
   </div>
@@ -162,14 +162,14 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
     <div class="zshade zshade--pool"></div>
     <div class="zshade zshade--warm"></div>
   </div>
-  <header class="zs zs1">
+  <header class="zs zs1"><div class="zsnap" style="top:0" aria-hidden="true"></div>
     <div class="zcopy">
       <p class="eyebrow">Operations for retreat centers, eco-lodges and wellness venues</p>
       <h1 class="reveal">Wellness hospitality,<br><em>run with care.</em></h1>
       <p class="zpromise">More bookings, steadier cash flow, and a venue that doesn&rsquo;t run through you.</p>
       <div class="hero-actions">
-        <a href="#assessment" class="btn">Begin with a complimentary assessment</a>
-        <a href="#venue" class="link-quiet">See the Retreat Blueprint</a>
+        <a href="/preview/zoom.html#assessment" class="btn">Begin with a complimentary assessment</a>
+        <a href="/preview/zoom.html#venue" class="link-quiet">See the Retreat Blueprint</a>
       </div>
     </div>
   </header>
@@ -195,7 +195,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
         <div class="venue-cards"><div class="venue-card venue-card--dark"><h3>Revenue and pricing</h3><p class="vprob">A full calendar with thin margins.</p></div><div class="venue-card venue-card--dark"><h3>Finances and cash flow</h3><p class="vprob">The quiet months catch you off guard.</p></div><div class="venue-card venue-card--dark"><h3>Systems</h3><p class="vprob">Bookings, payments and messages live in five different places.</p></div><div class="venue-card venue-card--dark"><h3>Team and operational leadership</h3><p class="vprob">Everything still runs through you.</p></div><div class="venue-card venue-card--dark"><h3>Safety and trust</h3><p class="vprob">Guest intake, privacy and risk are handled case by case.</p></div></div>
       </div>
     </div>
-    <a class="btn vcta" href="#assessment">See where your venue stands &rarr;</a>
+    <a class="btn vcta" href="/preview/zoom.html#assessment">See where your venue stands &rarr;</a>
   </div>
 </section>
   <section class="zs zs3 zp" id="testimonials" aria-labelledby="proof-h">
@@ -258,7 +258,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
         <span class="buyer-desc">An independent pre-purchase review from $1,200 USD, including how the guest experience holds up, then hands-on help through your first 90 days.</span>
       </div>
       <a class="btn btn--quiet" href="/buying-a-retreat">See the buyer's page</a>
-    </div><p class="unsure"><span class="sent">Not sure which fits?</span> <span class="sent"><a href="#assessment">Start with the complimentary Retreat Blueprint Assessment</a> and we'll work it out together.</span></p></div>
+    </div><p class="unsure"><span class="sent">Not sure which fits?</span> <span class="sent"><a href="/preview/zoom.html#assessment">Start with the complimentary Retreat Blueprint Assessment</a> and we'll work it out together.</span></p></div>
   </div>
 </section>
   <section class="zs zs5 zstop" id="assessment" aria-labelledby="assess-h">
@@ -406,6 +406,6 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 <script src="js/menu.js?v=2026-10-21a" defer></script>
 <script src="js/luxe.js?v=2026-11-07L" defer></script>
 
-<script src="preview/zoom.js?v=44" defer></script>
+<script src="preview/zoom.js?v=51" defer></script>
 </body>
 </html>

@@ -32,6 +32,10 @@
       if (i === 0) { sp.a = top + vh * .06; sp.b = top + vh * .6; }
       else { sp.a = prevOut + vh * .05; sp.b = prevOut + vh * .65; }
       sp.out = i === stops.length - 1 ? Infinity : top + hgt - vh * 1.45;
+      // phones: a landing point where this stop has fully arrived, so one swipe = one stop
+      var mk = sp.el.querySelector(':scope > .zsnap');
+      if (!mk) { mk = document.createElement('div'); mk.className = 'zsnap'; mk.setAttribute('aria-hidden', 'true'); sp.el.appendChild(mk); }
+      mk.style.top = (sp.b + vh * .08 - top) + 'px';
       prevOut = sp.out;
     });
   }
@@ -96,7 +100,7 @@
     a.addEventListener('ended', function () { bar.style.width = '0'; time.textContent = fmt(a.duration); });
   });
   // "Read my story" opens the full About text
-  var dlg = document.querySelector('.astory'), rd = document.querySelector('.aread');
+  var dlg = document.querySelector('.zs6 dialog.astory:not(.tdlg)'), rd = document.querySelector('.zs6 .aread');
   if (dlg && rd) {
     rd.addEventListener('click', function () { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); });
     dlg.querySelector('.aclose').addEventListener('click', function () { if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); });
@@ -109,6 +113,20 @@
     d.querySelector('.aclose').addEventListener('click', function () { if (d.close) d.close(); else d.removeAttribute('open'); });
     d.addEventListener('click', function (e) { if (e.target === d && d.close) d.close(); });
   });
+  // menu and in-page links: stay on this page and land where the stop has fully arrived
+  function landing(id) {
+    var el = document.getElementById(id); if (!el) return null;
+    for (var i = 0; i < stops.length; i++) if (stops[i].el === el || stops[i].el.contains(el)) return W.offsetTop + stops[i].b + window.innerHeight * .08;
+    return el.getBoundingClientRect().top + window.pageYOffset - 80;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="#"]'); if (!a) return;
+    var url = new URL(a.href, location.href); if (url.pathname !== location.pathname || !url.hash) return;
+    var y = landing(decodeURIComponent(url.hash.slice(1))); if (y === null) return;
+    e.preventDefault(); history.replaceState(null, '', url.hash);
+    window.scrollTo({ top: y, behavior: 'auto' });
+  });
+  if (location.hash) window.addEventListener('load', function () { var y = landing(location.hash.slice(1)); if (y !== null) window.scrollTo(0, y); });
   if (reduce) document.documentElement.classList.add('zstatic');
   var ticking = false;
   function req() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
