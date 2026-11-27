@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://cal.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..500,100&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,100&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <meta name="theme-color" content="#F4EEE2">
 <link rel="preload" as="image" href="assets/img/home/hero-pavilion.jpg">
 <link rel="stylesheet" href="css/menu.css?v=2026-10-21a">
@@ -109,7 +109,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 if(h.indexOf('calendly.com')>-1||h.indexOf('cal.com/')>-1)n='Book a call';else if(h.indexOf('wa.me/')>-1||h.indexOf('whatsapp.com')>-1)n='WhatsApp';else if(h.indexOf('mailto:')===0)n='Email';
 if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,40)})}catch(_){}},true);
 </script>
-<link rel="stylesheet" href="preview/zoom.css?v=2">
+<link rel="stylesheet" href="preview/zoom.css?v=3">
 </head>
 <body>
 
@@ -148,11 +148,15 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 
 
 <!-- HERO: light from above, the arch as a doorway -->
-<header class="zscene" id="top">
-  <div class="zstick">
-    <img class="z1" src="https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=2000&q=74" srcset="https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=900&q=74 900w, https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=1400&q=74 1400w, https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=2000&q=74 2000w, https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=2800&q=74 2800w" sizes="100vw" alt="Overwater cabins on a turquoise lagoon below a green mountain, seen from above" fetchpriority="high">
-    <img class="z2" src="https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=2000&q=74" srcset="https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=900&q=74 900w, https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=1400&q=74 1400w, https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=2000&q=74 2000w, https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=2800&q=74 2800w" sizes="100vw" alt="A timber walkway leading to thatched overwater cabins, a mountain beyond" loading="eager">
-    <div class="zshade" aria-hidden="true"></div>
+<div class="zworld" id="top">
+  <div class="zstick" aria-hidden="true">
+    <img class="z1" src="https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=2800&q=80" srcset="https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=1200&q=80 1200w, https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=2000&q=80 2000w, https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=2800&q=80 2800w, https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=3600&q=80 3600w, https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=4400&q=80 4400w" sizes="(max-width: 760px) 420vw, 300vw" alt="" fetchpriority="high">
+    <img class="z2" src="https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=2800&q=80" srcset="https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=1200&q=80 1200w, https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=2000&q=80 2000w, https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=2800&q=80 2800w, https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=3600&q=80 3600w" sizes="(max-width: 760px) 260vw, 130vw" alt="">
+    <div class="zshade zshade--hero"></div>
+    <div class="zshade zshade--water"></div>
+    <div class="zshade zshade--cabins"></div>
+  </div>
+  <header class="zs zs1">
     <div class="zcopy">
       <p class="eyebrow">Retreat Operations Director</p>
       <h1 class="reveal">Wellness hospitality,<br><em>run with care.</em></h1>
@@ -161,17 +165,9 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
         <a href="#assessment" class="btn">Begin with a complimentary assessment</a>
         <a href="#venue" class="link-quiet">See the Retreat Blueprint</a>
       </div>
-      <p class="zcap"><span class="sent">Remote worldwide</span><span class="sent">On-site in Costa Rica, Panama, Nicaragua and Guatemala</span></p>
     </div>
-  </div>
-</header>
-
-
-
-
-
-<!-- HOW I LOOK AT A VENUE: what guests feel above the surface, what holds it up beneath -->
-<section class="venue" id="venue" aria-labelledby="venue-h">
+  </header>
+  <section class="venue zs zs2" id="venue" aria-labelledby="venue-h">
   <div class="wrap">
     <p class="venue-eyebrow">My framework &middot; The Retreat Blueprint</p>
     <h2 class="venue-h" id="venue-h">The guest experience is what people remember. <em>The operation behind it is what makes it possible.</em></h2>
@@ -188,14 +184,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
           <div class="venue-card reveal" style="--d:.16s"><h3>Community and partners</h3><p>The retreat leaders, partners and past guests who keep a venue alive.</p></div>
         </div>
       </div>
-<svg aria-hidden="true" viewBox="0 0 1200 90" preserveAspectRatio="none" class="venue-soil" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 36 Q 100 18 200 34 T 400 32 T 600 36 T 800 30 T 1000 36 T 1200 32 L1200 90 L0 90Z" fill="#3B2E24"></path>
-<path d="M600 34 C 600 62, 450 62, 450 90" fill="none" stroke="#9C7D5F" stroke-width="2"></path>
-<path d="M600 34 C 600 62, 750 62, 750 90" fill="none" stroke="#9C7D5F" stroke-width="2"></path>
-<path d="M300 33 C 300 62, 150 62, 150 90" fill="none" stroke="#9C7D5F" stroke-width="2"></path>
-<path d="M900 33 C 900 62, 1050 62, 1050 90" fill="none" stroke="#9C7D5F" stroke-width="2"></path>
-</svg>
-      <div class="venue-below">
+<div class="venue-below">
         <p class="venue-label">Beneath it &middot; what holds it up</p>
         <div class="venue-cards">
           <div class="venue-card venue-card--dark reveal"><h3>Revenue and pricing</h3><p>Pricing, seasonality, and booking mix that support revenue performance.</p></div>
@@ -208,11 +197,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
     </div>
   </div>
 </section>
-
-
-<div class="zband" aria-hidden="true"><div class="zwin"><img src="https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=2000&q=74" srcset="https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=900&q=74 900w, https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=1400&q=74 1400w, https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=2000&q=74 2000w, https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=2800&q=74 2800w" sizes="100vw" alt="" loading="lazy"></div></div>
-<!-- GUEST JOURNEY: a sun path, six stations from the first hello to after the stay -->
-<section data-zoom class="journey" id="journey" aria-labelledby="journey-h">
+  <section class="journey zs zs3" id="journey" aria-labelledby="journey-h">
   <div class="wrap">
     <div class="journey-head center">
       <p class="eyebrow reveal">The guest journey</p>
@@ -234,7 +219,20 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
     </ol>
   </div>
 </section>
+</div>
 
+
+
+
+
+<!-- HOW I LOOK AT A VENUE: what guests feel above the surface, what holds it up beneath -->
+
+
+
+<!-- GUEST JOURNEY: a sun path, six stations from the first hello to after the stay -->
+
+
+<div class="zband" aria-hidden="true"><div class="zwin"><img src="https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=2000&q=80" srcset="https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=1200&q=80 1200w, https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=2000&q=80 2000w, https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=2800&q=80 2800w" sizes="100vw" alt="" loading="lazy"></div></div>
 <!-- SERVICES: four doorways -->
 <span id="work"></span>
 <section data-zoom class="doors-sec" id="services">
@@ -439,7 +437,7 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 
 <!-- CLOSING INVITATION -->
 <section data-zoom class="close">
-  <img class="close-img" src="https://images.unsplash.com/photo-1609601546193-f558f1ebb385?auto=format&fit=crop&w=1800&q=74" alt="" width="1200" height="800" loading="lazy">
+  <img class="close-img" src="https://images.unsplash.com/photo-1609601546193-f558f1ebb385?auto=format&fit=crop&w=1800&q=80" alt="" width="1200" height="800" loading="lazy">
   <div class="wrap">
     <p class="eyebrow reveal">Start with a conversation</p>
     <h2 class="reveal" style="--d:.06s"><span class="sent">Your guests come to feel restored.</span> <span class="sent"><em>Let's make the whole venue support that.</em></span></h2>
@@ -460,6 +458,6 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 <script src="js/menu.js?v=2026-10-21a" defer></script>
 <script src="js/luxe.js?v=2026-11-07L" defer></script>
 
-<script src="preview/zoom.js?v=1" defer></script>
+<script src="preview/zoom.js?v=3" defer></script>
 </body>
 </html>

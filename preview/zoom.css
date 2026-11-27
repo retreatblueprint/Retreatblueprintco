@@ -1,38 +1,66 @@
-/* Preview: zoom-through homepage (Nov 27). Scroll zooms from the lagoon into the cabins, then each section zooms in as it arrives. */
+/* Preview: zoom-through homepage (Nov 27, v3).
+   One photo stays in place while the sections scroll over it: hero → zoom to the cabins (framework) → zoom in close (guest journey). */
 body { background: #E6DCC8; }
-.zscene { position: relative; height: 260vh; height: 260svh; margin-bottom: -45vh; margin-bottom: -45svh; }
-.zstick { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: #0f4a63; }
-.zstick img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 75% 50%; will-change: transform, opacity; }
+.zworld { position: relative; }
+.zstick { position: sticky; top: 0; height: 100vh; height: 100svh; margin-bottom: -100vh; margin-bottom: -100svh; overflow: hidden; background: #0f4a63; z-index: 0; }
+.zstick img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; will-change: transform, opacity; }
+.zstick .z1 { object-position: 75% 50%; }
 .zstick .z2 { opacity: 0; object-position: 55% 60%; }
-.zshade { position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, rgba(250,246,238,.88) 0%, rgba(250,246,238,.78) 45%, rgba(250,246,238,.35) 62%, rgba(250,246,238,0) 76%); }
-.zcopy { position: absolute; left: 0; right: 0; top: clamp(6.2rem, 13vh, 8.5rem); margin: 0 auto; max-width: 50rem;
-  padding: 0 var(--gutter); text-align: center; will-change: transform, opacity; }
-.zcopy .eyebrow { margin-bottom: 1rem; }
-.zcopy h1 { margin: 0 auto 1.1rem; }
-.zcopy .hero-sub { margin: 0 auto .5rem; max-width: 38rem; color: var(--ink); }
-.zcopy .hero-actions { justify-content: center; margin-top: 1.6rem; }
-.zcap { margin-top: 1.1rem; font-size: .8rem; letter-spacing: .04em; color: var(--ink-soft); display: flex; flex-wrap: wrap; justify-content: center; gap: .2rem .9rem; }
-/* the venue section rises over the cabins as the zoom lands */
-.venue { position: relative; z-index: 2; border-radius: 28px 28px 0 0; box-shadow: 0 -24px 60px rgba(20, 30, 25, .18); }
+.zshade { position: absolute; inset: 0; pointer-events: none; }
+.zshade--hero { background:
+  radial-gradient(ellipse 62% 58% at 50% 34%, rgba(250,246,238,.94) 0%, rgba(250,246,238,.82) 45%, rgba(250,246,238,0) 100%),
+  linear-gradient(180deg, rgba(250,246,238,.7) 0%, rgba(250,246,238,0) 70%); }
+.zshade--water { opacity: 0; background: linear-gradient(90deg, rgba(5,34,52,.8) 0%, rgba(5,34,52,.6) 42%, rgba(5,34,52,.12) 68%, rgba(5,34,52,0) 80%); }
+.zshade--cabins { opacity: 0; background: rgba(10,30,40,.18); }
+.zs { position: relative; z-index: 1; background: transparent !important; }
+
+/* 1 · hero */
+.zs1 { min-height: 100vh; min-height: 100svh; display: flex; justify-content: center; padding: clamp(7rem, 15vh, 9.5rem) var(--gutter) 4rem; }
+.zcopy { max-width: 60rem; text-align: center; will-change: transform, opacity; }
+.zcopy .eyebrow { margin-bottom: 1.2rem; color: #6B4E2C; font-weight: 500; }
+.zcopy h1 { margin: 0 auto 1.6rem; font-size: clamp(3.3rem, 8.2vw, 7.4rem); font-weight: 650; line-height: 1.0; letter-spacing: -.03em; color: #22190F; }
+.zcopy h1 em { color: #6B4A26; }
+.zcopy .hero-sub { margin: 0 auto .6rem; max-width: 40rem; font-size: 1.08rem; line-height: 1.6; font-weight: 500; color: #22190F; }
+.zcopy .hero-actions { justify-content: center; margin-top: 2rem; }
+
+/* 2 · the framework, over the open water beside the cabins */
+.zs2 { padding: 62vh 0 18vh !important; padding: 62svh 0 18svh !important; }
+.zs2 .wrap { width: min(60%, 880px); max-width: none; margin: 0; padding-left: var(--gutter); padding-right: 0; }
+.zs2 .venue-eyebrow { color: #F0D9A8; }
+.zs2 .venue-h { color: #FFFFFF; text-shadow: 0 2px 24px rgba(0,20,30,.35); }
+.zs2 .venue-h em { color: #F3DDB0; }
+.zs2 .venue-lead { color: rgba(255,255,255,.94); }
+.zs2 .venue-label { color: #F0D9A8 !important; }
+.zs2 .venue-card { background: rgba(251,248,241,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,20,30,.18); }
+.zs2 .venue-card--dark { background: rgba(43,33,24,.86); }
+.zs2 .venue-card h3 { font-size: 24px; }
+.zs2 .venue-card p { font-size: 15px; }
+.zs2 .venue-body { margin-top: 2.2rem; }
+.zs2 .venue-below { margin-top: 1.8rem; }
+
+/* 3 · the guest journey, right on top of the cabins */
+.zs3 { padding: 70vh 0 14vh !important; padding: 70svh 0 14svh !important; }
+.zs3 > .wrap { background: rgba(250,246,238,.9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border-radius: 26px; padding: clamp(2.4rem, 5vw, 4rem) clamp(1.4rem, 4vw, 3.5rem); box-shadow: 0 20px 60px rgba(0,20,30,.22); max-width: min(1180px, calc(100% - 2 * var(--gutter))); }
+
 /* a photo window that opens to full width */
-.zband { height: 78vh; height: 78svh; padding: 0; background: var(--limewash); }
+.zband { height: 78vh; height: 78svh; background: var(--limewash); }
 .zwin { height: 100%; overflow: hidden; clip-path: inset(var(--iy, 10%) var(--ix, 18%) round var(--rr, 28px)); will-change: clip-path; }
 .zwin img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 55%; transform: scale(var(--zs, 1.25)); will-change: transform; }
-/* sections zoom in as they arrive */
+/* later sections zoom in as they arrive */
 [data-zoom] { transform-origin: 50% 0; will-change: transform; }
 .close-img { filter: saturate(.85) brightness(.8) !important; }
+
 @media (max-width: 760px) {
-  .zcopy { top: 5.6rem; }
-  .zcopy .hero-sub { font-size: .98rem; }
-  .zshade { background: linear-gradient(180deg, rgba(250,246,238,.86) 0%, rgba(250,246,238,.7) 52%, rgba(250,246,238,0) 78%); }
+  .zs1 { padding-top: 6.4rem; }
+  .zcopy h1 { font-size: clamp(2.9rem, 13vw, 4rem); }
+  .zcopy .hero-sub { font-size: 1rem; }
+  .zshade--hero { background: linear-gradient(180deg, rgba(250,246,238,.92) 0%, rgba(250,246,238,.86) 62%, rgba(250,246,238,0) 88%); }
+  .zshade--water { background: linear-gradient(180deg, rgba(5,34,52,.35) 0%, rgba(5,34,52,.72) 30%, rgba(5,34,52,.78) 100%); }
+  .zs2 .wrap { width: 100%; padding-right: var(--gutter); }
+  .zs2 .venue-card h3 { font-size: 21px; }
   .zband { height: 56vh; height: 56svh; }
-  .venue { border-radius: 22px 22px 0 0; }
 }
-/* reduced motion: a still hero, no zooming */
-.zstatic .zscene { height: auto; margin-bottom: 0; }
-.zstatic .zstick { position: relative; height: 100svh; }
-.zstatic .z2 { display: none; }
-.zstatic .zwin { clip-path: none; }
-.zstatic .zwin img { transform: none; }
-.zcap .sent { opacity: 1 !important; transform: none !important; color: var(--ink-soft); }
+/* reduced motion: still photos, nothing zooms */
+.zstatic .zstick .z1 { transform: none !important; }
+.zstatic .zshade--hero { opacity: 1; }
