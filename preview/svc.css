@@ -151,3 +151,7 @@
   .svh h2 { font-size: 1.3rem; }
   .svsub { display: none; }
 }
+/* stronger shade so small lines stay readable over busy photos */
+.svshade { background: linear-gradient(90deg, rgba(10,20,22,.72) 0%, rgba(10,20,22,.5) 50%, rgba(10,20,22,.32) 100%); }
+.svsub, .svnote { background: rgba(10,22,26,.45); border-radius: 10px; padding: .35rem .75rem; display: inline-block; }
+.sv-center .svsub, .sv-card .svsub, .svnote { display: table; }
