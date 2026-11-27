@@ -34,8 +34,10 @@
   function slide(kids, y, a, b, fo) {
     kids.forEach(function (el, i) {
       var n = kids.length, s0 = a + (b - a) * i * .12, k = seg(y, s0, b - (b - a) * (n - 1 - i) * .04), v = k * (1 - (fo || 0));
-      el.style.opacity = v;
-      el.style.transform = 'translateX(' + (-90 * (1 - k)) + 'px) translateY(' + (-24 * (fo || 0)) + 'px)';
+      var landed = k >= 1 && !(fo > 0);
+      el.style.opacity = landed ? '1' : v;
+      // once landed, drop the transform so frosted glass can blur the photo behind it
+      el.style.transform = landed ? 'none' : 'translateX(' + (-90 * (1 - k)) + 'px) translateY(' + (-24 * (fo || 0)) + 'px)';
     });
   }
   function frame() {
