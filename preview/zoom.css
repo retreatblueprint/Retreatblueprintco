@@ -1,0 +1,38 @@
+/* Preview: zoom-through homepage (Nov 27). Scroll zooms from the lagoon into the cabins, then each section zooms in as it arrives. */
+body { background: #E6DCC8; }
+.zscene { position: relative; height: 260vh; height: 260svh; margin-bottom: -45vh; margin-bottom: -45svh; }
+.zstick { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: #0f4a63; }
+.zstick img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 75% 50%; will-change: transform, opacity; }
+.zstick .z2 { opacity: 0; object-position: 55% 60%; }
+.zshade { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(250,246,238,.82) 0%, rgba(250,246,238,.62) 34%, rgba(250,246,238,0) 62%); }
+.zcopy { position: absolute; left: 0; right: 0; top: clamp(6.2rem, 13vh, 8.5rem); margin: 0 auto; max-width: 50rem;
+  padding: 0 var(--gutter); text-align: center; will-change: transform, opacity; }
+.zcopy .eyebrow { margin-bottom: 1rem; }
+.zcopy h1 { margin: 0 auto 1.1rem; }
+.zcopy .hero-sub { margin: 0 auto .5rem; max-width: 38rem; color: var(--ink); }
+.zcopy .hero-actions { justify-content: center; margin-top: 1.6rem; }
+.zcap { margin-top: 1.1rem; font-size: .8rem; letter-spacing: .04em; color: var(--ink-soft); display: flex; flex-wrap: wrap; justify-content: center; gap: .2rem .9rem; }
+/* the venue section rises over the cabins as the zoom lands */
+.venue { position: relative; z-index: 2; border-radius: 28px 28px 0 0; box-shadow: 0 -24px 60px rgba(20, 30, 25, .18); }
+/* a photo window that opens to full width */
+.zband { height: 78vh; height: 78svh; padding: 0; background: var(--limewash); }
+.zwin { height: 100%; overflow: hidden; clip-path: inset(var(--iy, 10%) var(--ix, 18%) round var(--rr, 28px)); will-change: clip-path; }
+.zwin img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 55%; transform: scale(var(--zs, 1.25)); will-change: transform; }
+/* sections zoom in as they arrive */
+[data-zoom] { transform-origin: 50% 0; will-change: transform; }
+.close-img { filter: saturate(.85) brightness(.8) !important; }
+@media (max-width: 760px) {
+  .zcopy { top: 5.6rem; }
+  .zcopy .hero-sub { font-size: .98rem; }
+  .zshade { background: linear-gradient(180deg, rgba(250,246,238,.86) 0%, rgba(250,246,238,.7) 52%, rgba(250,246,238,0) 78%); }
+  .zband { height: 56vh; height: 56svh; }
+  .venue { border-radius: 22px 22px 0 0; }
+}
+/* reduced motion: a still hero, no zooming */
+.zstatic .zscene { height: auto; margin-bottom: 0; }
+.zstatic .zstick { position: relative; height: 100svh; }
+.zstatic .z2 { display: none; }
+.zstatic .zwin { clip-path: none; }
+.zstatic .zwin img { transform: none; }
+.zcap .sent { opacity: 1 !important; transform: none !important; color: var(--ink-soft); }
