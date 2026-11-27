@@ -591,3 +591,4 @@ dialog.astory .aclose { position: sticky; top: 0; float: right; z-index: 2; marg
 }
 @media (max-width: 760px) { .zs5 .assess-viz { min-height: 0 !important; height: auto !important; padding: 0 !important; aspect-ratio: auto !important; } }
 @media (max-width: 760px) { .zs5 .assess-viz, .zs5 .stext { flex: none !important; } }
+@media (max-width: 760px) { .zs6 .aphoto img { object-position: 50% 38%; height: 32vh; } }
