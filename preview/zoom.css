@@ -106,3 +106,12 @@ body { background: #E6DCC8; }
 .zcopy { max-width: none; }
 .zcopy h1 { white-space: nowrap; font-size: min(7rem, 7.4vw); }
 @media (max-width: 760px) { .zcopy h1 { font-size: 8.6vw; } }
+/* v8: hero block sits lower, with more air under the navigation */
+.zs1 { align-items: center; padding-top: clamp(8rem, 18vh, 11rem); padding-bottom: clamp(2rem, 6vh, 4rem); }
+.zshade--hero { background:
+  radial-gradient(ellipse 64% 60% at 50% 50%, rgba(250,246,238,.94) 0%, rgba(250,246,238,.82) 45%, rgba(250,246,238,0) 100%),
+  linear-gradient(180deg, rgba(250,246,238,.7) 0%, rgba(250,246,238,.2) 60%, rgba(250,246,238,0) 85%); }
+@media (max-width: 760px) {
+  .zs1 { padding-top: 8.5rem; }
+  .zshade--hero { background: linear-gradient(180deg, rgba(250,246,238,.92) 0%, rgba(250,246,238,.86) 72%, rgba(250,246,238,0) 96%); }
+}
