@@ -123,7 +123,7 @@
     var a = e.target.closest && e.target.closest('a[href*="#"]'); if (!a) return;
     var url = new URL(a.href, location.href); if (url.pathname !== location.pathname || !url.hash) return;
     var y = landing(decodeURIComponent(url.hash.slice(1))); if (y === null) return;
-    e.preventDefault(); history.replaceState(null, '', url.hash);
+    e.preventDefault(); history.replaceState(null, '', location.pathname + location.search + url.hash);
     window.scrollTo({ top: y, behavior: 'auto' });
   });
   if (location.hash) window.addEventListener('load', function () { var y = landing(location.hash.slice(1)); if (y !== null) window.scrollTo(0, y); });
