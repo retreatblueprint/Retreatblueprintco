@@ -109,7 +109,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 if(h.indexOf('calendly.com')>-1||h.indexOf('cal.com/')>-1)n='Book a call';else if(h.indexOf('wa.me/')>-1||h.indexOf('whatsapp.com')>-1)n='WhatsApp';else if(h.indexOf('mailto:')===0)n='Email';
 if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,40)})}catch(_){}},true);
 </script>
-<link rel="stylesheet" href="preview/zoom.css?v=15">
+<link rel="stylesheet" href="preview/zoom.css?v=17">
 </head>
 <body>
 
@@ -152,9 +152,11 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
   <div class="zstick" aria-hidden="true">
     <img class="z1" src="https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=2800&q=80" srcset="https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=1200&q=80 1200w, https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=2000&q=80 2000w, https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=2800&q=80 2800w, https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=3600&q=80 3600w, https://images.unsplash.com/photo-1706461168147-490f14bfeca5?auto=format&fit=crop&w=4400&q=80 4400w" sizes="(max-width: 760px) 420vw, 300vw" alt="" fetchpriority="high">
     <img class="z2" src="https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=2800&q=80" srcset="https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=1200&q=80 1200w, https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=2000&q=80 2000w, https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=2800&q=80 2800w, https://images.unsplash.com/photo-1738762932365-a43e3796a86f?auto=format&fit=crop&w=3600&q=80 3600w" sizes="(max-width: 760px) 260vw, 130vw" alt="">
+    <img class="z3" src="https://images.unsplash.com/photo-1543489822-c49534f3271f?auto=format&fit=crop&w=2400&q=80" srcset="https://images.unsplash.com/photo-1543489822-c49534f3271f?auto=format&fit=crop&w=1200&q=80 1200w, https://images.unsplash.com/photo-1543489822-c49534f3271f?auto=format&fit=crop&w=2000&q=80 2000w, https://images.unsplash.com/photo-1543489822-c49534f3271f?auto=format&fit=crop&w=2800&q=80 2800w" sizes="(max-width: 760px) 240vw, 110vw" alt="">
     <div class="zshade zshade--hero"></div>
     <div class="zshade zshade--water"></div>
     <div class="zshade zshade--cabins"></div>
+    <div class="zshade zshade--pool"></div>
   </div>
   <header class="zs zs1">
     <div class="zcopy">
@@ -226,6 +228,50 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
     </ol><p class="jdetail" aria-live="polite"></p></div>
   </div>
 </section>
+  <section class="doors-sec zs zs4" id="services">
+  <div class="wrap">
+    <div class="svc-head">
+      <p class="eyebrow">Services</p>
+      <h2 class="display">Build, run, lead, grow</h2>
+      <p class="svc-intro">From building operational foundations to managing daily workflows, providing leadership, and supporting growth, my services are designed around the needs and stage of your retreat business.</p>
+    </div>
+    <div class="panes">
+<a class="pane" href="/foundation-sprint"><span class="door-step">01 · Build</span>
+        <b class="door-name">Foundation Sprint</b>
+        <span class="door-desc">The systems behind a smooth stay, built piece by piece: bookings, payments, guest communication and your numbers.</span>
+        <span class="door-pillars">Systems · Finances · Revenue</span>
+        <span class="door-price">From $100 USD</span>
+        <span class="door-go">Explore →</span></a>
+<a class="pane" href="/concierge-ops"><span class="door-step">02 · Run the day to day</span>
+        <b class="door-name">Concierge Ops</b>
+        <span class="door-desc">Every inquiry and guest message answered in your voice, so guests feel looked after from the first email.</span>
+        <span class="door-pillars">Guest experience · Systems</span>
+        <span class="door-price">From $250 USD / month</span>
+        <span class="door-go">Explore →</span></a>
+<a class="pane" href="/fractional-operations-director"><span class="door-step">03 · Lead</span>
+        <b class="door-name">Fractional Operations Director</b>
+        <span class="door-tag">Operational leadership</span>
+        <span class="door-desc">Your part-time operations director for the guest experience, the numbers, the team and the systems.</span>
+        <span class="door-pillars">All 8 pillars</span>
+        <span class="door-price">From $1,800 USD / month</span>
+        <span class="door-go">Explore →</span></a>
+<a class="pane" href="/growth-marketing"><span class="door-step">04 · Grow</span>
+        <b class="door-name">Growth Marketing</b>
+        <span class="door-desc">Strategy, content and outreach so the right guests and retreat leaders find you and know what to expect.</span>
+        <span class="door-pillars">Visibility · Community</span>
+        <span class="door-price">Pricing on inquiry</span>
+        <span class="door-go">Explore →</span></a>
+    </div>
+    <div class="svc-foot"><div class="buyer">
+      <div class="buyer-txt">
+        <span class="buyer-tag">For buyers</span>
+        <b>Buying a retreat property?</b>
+        <span class="buyer-desc">An independent pre-purchase review from $1,200 USD, including how the guest experience holds up, then hands-on help through your first 90 days.</span>
+      </div>
+      <a class="btn btn--quiet" href="/buying-a-retreat">See the buyer's page</a>
+    </div><p class="unsure"><span class="sent">Not sure which fits?</span> <span class="sent"><a href="#assessment">Start with the complimentary Retreat Blueprint Assessment</a> and we'll work it out together.</span></p></div>
+  </div>
+</section>
 </div>
 
 
@@ -239,68 +285,13 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 <!-- GUEST JOURNEY: a sun path, six stations from the first hello to after the stay -->
 
 
-<div class="zband" aria-hidden="true"><div class="zwin"><img src="https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=2000&q=80" srcset="https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=1200&q=80 1200w, https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=2000&q=80 2000w, https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=2800&q=80 2800w" sizes="100vw" alt="" loading="lazy"></div></div>
+
 <!-- SERVICES: four doorways -->
 <span id="work"></span>
-<section data-zoom class="doors-sec" id="services">
-  <div class="wrap">
-    <div class="narrow center">
-      <p class="eyebrow reveal">Services</p>
-      <h2 class="display reveal" style="--d:.06s">Build, run, lead, grow</h2>
-      <p class="svc-intro reveal" style="--d:.1s">From building operational foundations to managing daily workflows, providing leadership, and supporting growth, my services are designed around the needs and stage of your retreat business.</p>
-    </div>
-    <div class="doors">
-      <a class="door reveal" href="/foundation-sprint">
-        <div class="arch-frame"><div class="arch"><img src="assets/img/home/door-build.jpg" alt="" width="720" height="1080" loading="lazy"></div></div>
-        <span class="door-step">01 · Build</span>
-        <b class="door-name">Foundation Sprint</b>
-        <span class="door-desc">The systems behind a smooth stay, built piece by piece: bookings, payments, guest communication and your numbers.</span>
-        <span class="door-pillars">Systems · Finances · Revenue</span>
-        <span class="door-price">From $100 USD</span>
-        <span class="door-go">Explore →</span>
-      </a>
-      <a class="door reveal" href="/concierge-ops" style="--d:.1s">
-        <div class="arch-frame"><div class="arch"><img src="assets/img/home/door-run.jpg" alt="" width="800" height="930" loading="lazy"></div></div>
-        <span class="door-step">02 · Run the day to day</span>
-        <b class="door-name">Concierge Ops</b>
-        <span class="door-desc">Every inquiry and guest message answered in your voice, so guests feel looked after from the first email.</span>
-        <span class="door-pillars">Guest experience · Systems</span>
-        <span class="door-price">From $250 USD / month</span>
-        <span class="door-go">Explore →</span>
-      </a>
-      <a class="door reveal" href="/fractional-operations-director" style="--d:.2s">
-        <div class="arch-frame"><div class="arch"><img src="assets/img/cta-1200.jpg" alt="" width="1200" height="800" loading="lazy" style="object-position:56% 50%"></div></div>
-        <span class="door-step">03 · Lead</span>
-        <b class="door-name">Fractional Operations Director</b>
-        <span class="door-tag">Operational leadership</span>
-        <span class="door-desc">Your part-time operations director for the guest experience, the numbers, the team and the systems.</span>
-        <span class="door-pillars">All 8 pillars</span>
-        <span class="door-price">From $1,800 USD / month</span>
-        <span class="door-go">Explore →</span>
-      </a>
-      <a class="door reveal" href="/growth-marketing" style="--d:.3s">
-        <div class="arch-frame"><div class="arch"><img src="assets/img/hero-1200.jpg" alt="" width="1200" height="800" loading="lazy" style="object-position:74% 50%"></div></div>
-        <span class="door-step">04 · Grow</span>
-        <b class="door-name">Growth Marketing</b>
-        <span class="door-desc">Strategy, content and outreach so the right guests and retreat leaders find you and know what to expect.</span>
-        <span class="door-pillars">Visibility · Community</span>
-        <span class="door-price">Pricing on inquiry</span>
-        <span class="door-go">Explore →</span>
-      </a>
-    </div>
-    <div class="buyer reveal">
-      <div class="buyer-txt">
-        <span class="buyer-tag">For buyers</span>
-        <b>Buying a retreat property?</b>
-        <span class="buyer-desc">An independent pre-purchase review from $1,200 USD, including how the guest experience holds up, then hands-on help through your first 90 days.</span>
-      </div>
-      <a class="btn btn--quiet" href="/buying-a-retreat">See the buyer's page</a>
-    </div>
-    <p class="unsure reveal"><span class="sent">Not sure which fits?</span> <span class="sent"><a href="#assessment">Start with the complimentary Retreat Blueprint Assessment</a> and we'll work it out together.</span></p>
-  </div>
-</section>
+
 
 <!-- VOICES: the dark thatch band -->
+<div class="zband" aria-hidden="true"><div class="zwin"><img src="https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=2000&q=80" srcset="https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=1200&q=80 1200w, https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=2000&q=80 2000w, https://images.unsplash.com/photo-1738762932370-468a90e0ff68?auto=format&fit=crop&w=2800&q=80 2800w" sizes="100vw" alt="" loading="lazy"></div></div>
 <section data-zoom class="cs" id="testimonials">
   <div class="wrap">
     <p class="eyebrow center reveal">Client work</p>
@@ -465,6 +456,6 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 <script src="js/menu.js?v=2026-10-21a" defer></script>
 <script src="js/luxe.js?v=2026-11-07L" defer></script>
 
-<script src="preview/zoom.js?v=14" defer></script>
+<script src="preview/zoom.js?v=17" defer></script>
 </body>
 </html>
