@@ -477,3 +477,48 @@ dialog.astory .aclose { position: sticky; top: 0; float: right; z-index: 2; marg
 .zs4 .door-desc { display: none !important; }
 .zs4 .pane { gap: .45rem; }
 @media (max-width: 760px) { .zs4 .svc-intro { display: none; } .zs4 .pane { padding: 9px 10px; gap: .2rem; } }
+/* ===== v45: phone pass ===== */
+/* the photo stage always covers the full screen, even when the address bar hides */
+.zstick { height: 100vh; height: 100lvh; margin-bottom: -100vh; margin-bottom: -100lvh; }
+@media (max-width: 760px) {
+  /* every stop sits centred under the menu bar, no empty photo above it */
+  .zs2 > .wrap, .zs3 > .wrap, .zs4 > .wrap, .zstop > .wrap { justify-content: center !important; padding-top: 78px !important; padding-bottom: 14px !important; }
+  .zs2 .vcta { align-self: stretch; margin-top: .7rem; }
+  /* services: intro and "Explore" back, panes right under the heading */
+  .zs4 .svc-intro { display: block; font-size: .78rem; line-height: 1.45; padding: .3rem .6rem; }
+  .zs4 .svc-head .display { margin: .15rem 0 .45rem; }
+  .zs4 .panes { margin-top: .8rem; }
+  .zs4 .door-go { display: inline-block; margin-top: .25rem; font-size: .62rem; }
+  .zs4 .door-price { padding-top: .3rem; }
+  .zs4 .svc-foot { margin-top: 8px; }
+  /* how we start: tidier label */
+  .zs5 .assess-eyebrow { font-size: 10.5px; letter-spacing: .12em; line-height: 1.5; }
+  /* about: photo and text side by side, first paragraph back, stats in a clean row */
+  .zs6 .agrid { grid-template-columns: 104px minmax(0, 1fr); align-items: start; }
+  .zs6 .atext > .body:first-of-type { display: block; font-size: .8rem; line-height: 1.5; margin: 0; }
+  .zs6 .atext > .body ~ .body { display: none; }
+  .zs6 .display { margin: .2rem 0 .5rem; }
+  .zs6 .about-quote { font-size: .95rem; margin: .6rem 0; }
+  .zs6 .stats { flex-direction: row !important; gap: 1rem; margin-top: .2rem; }
+  .zs6 .stats div { border: 0 !important; padding: 0 !important; margin: 0 !important; display: grid !important; gap: .1rem; }
+  .zs6 .stats b { font-size: 1.35rem; }
+  .zs6 .stats span { font-size: .68rem; }
+}
+@media (max-width: 760px) and (max-height: 700px) {
+  .zs4 .svc-intro { display: none; }
+  .zs6 .atext > .body:first-of-type { display: none; }
+}
+@media (max-width: 760px) {
+  .zs4 .pane { padding: 10px 11px 10px !important; gap: .2rem !important; min-height: 0 !important; }
+  .zs4 .pane > * { margin-top: 0; }
+  .zs4 .door-step { margin: 0 !important; font-size: .58rem; letter-spacing: .14em; }
+  .zs4 .door-name { margin: .1rem 0 0 !important; }
+  .zs4 .door-best { font-size: .76rem !important; margin: .1rem 0 !important; }
+  .zs4 .door-price { font-size: .68rem !important; padding-top: .35rem !important; margin-top: auto; }
+  .zs4 .svc-intro { font-size: .74rem; }
+  .zs4 .svc-head .eyebrow { margin-top: 6px; }
+  .zs4 .buyer-txt b { font-size: 1rem; }
+  .zs4 .svc-foot { gap: .4rem; }
+}
+@media (max-width: 760px) { .zs6 .atext > .body { display: block !important; font-size: .78rem; line-height: 1.5; margin: 0; } }
+@media (max-width: 760px) and (max-height: 700px) { .zs6 .atext > .body { display: none !important; } }
