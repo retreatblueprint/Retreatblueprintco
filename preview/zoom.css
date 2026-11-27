@@ -422,3 +422,5 @@ body { background: #E6DCC8; }
 .tk { font: 500 .66rem/1.4 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--thatch); }
 .tfull p { margin: .5rem 0 .9rem; font: 400 1.02rem/1.7 var(--serif); color: #22190F; }
 @media (max-width: 760px) { .tba { grid-template-columns: minmax(0, 1fr); } .tread { margin-top: 6px; } }
+dialog.astory[open] { position: fixed; inset: 0; margin: auto; height: fit-content; }
+.astory .astory-in { max-height: 86vh; overflow-y: auto; }
