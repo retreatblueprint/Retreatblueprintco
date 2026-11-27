@@ -116,3 +116,36 @@ body { background: #E6DCC8; }
   .zshade--hero { background: linear-gradient(180deg, rgba(250,246,238,.92) 0%, rgba(250,246,238,.86) 72%, rgba(250,246,238,0) 96%); }
 }
 .zs2 { height: 280vh; height: 280svh; }
+/* v10: heading carries the weight; roots join what guests feel to what holds it up */
+.zs2 .venue-body { overflow: visible !important; border-radius: 0 !important; }
+.zs2 > .wrap { width: calc(100% - var(--gutter)); max-width: none; padding-right: var(--gutter); }
+.zs2 .venue-h { font-size: min(3.7rem, 3.45vw); line-height: 1.08; font-weight: 500; }
+.zs2 .venue-intro { max-width: 68ch; }
+.zs2 .venue-intro .venue-lead:first-child { font: 400 clamp(.98rem, 1.15vw, 1.08rem)/1.45 var(--sans) !important; color: rgba(255,255,255,.96) !important; margin-top: .4rem !important; }
+.zs2 .venue-intro .venue-lead { font-size: clamp(.82rem, .92vw, .88rem) !important; color: rgba(255,255,255,.82) !important; }
+.zs2 .venue-body { width: min(64%, 900px); }
+.zs2 .venue-below { margin-top: 0 !important; }
+.vroots { display: block; width: 100%; height: clamp(34px, 5vh, 54px); margin: 4px 0 2px; overflow: visible; }
+.vroots path { fill: none; stroke: #E8C98F; stroke-width: 1.6; stroke-opacity: .75; vector-effect: non-scaling-stroke; }
+.vroots .vline { stroke: #BFE6EA; stroke-opacity: .7; stroke-dasharray: 4 5; }
+.vroots circle { fill: #E8C98F; }
+@media (max-width: 760px) {
+  .zs2 > .wrap { width: 100%; }
+  .zs2 .venue-h { font-size: 1.5rem; }
+  .zs2 .venue-body { width: 100%; }
+  .vroots { display: none; }
+}
+/* v11: cards show titles; the chosen card's description shows in one panel below (hover on laptops, tap on phones) */
+.zs2 .venue-card { padding: 13px 15px !important; cursor: pointer; transition: transform .25s ease, outline-color .25s ease; outline: 2px solid transparent; outline-offset: 1px; }
+.zs2 .venue-card p { display: none !important; }
+.zs2 .venue-card h3 { margin: 0 !important; }
+.zs2 .venue-card.on { outline-color: #F0D9A8; transform: translateY(-2px); }
+.zs2 .vdetail { display: block !important; margin-top: 12px; min-height: 3.4em; padding: 12px 16px; border-radius: 12px; background: rgba(251,248,241,.95); color: #2B2118; font-size: clamp(.86rem, 1vw, .95rem); line-height: 1.5; box-shadow: 0 8px 24px rgba(0,20,30,.18); }
+.zs2 .vdetail b { display: inline; font-family: var(--serif); font-weight: 600; margin-right: .5rem; }
+@media (max-width: 760px) {
+  .zs2 .venue-h { font-size: 1.36rem; }
+  .zs2 .venue-intro .venue-lead { font-size: .78rem !important; }
+  .zs2 .venue-body { margin-top: .7rem; }
+  .zs2 .venue-label { font-size: 11px !important; margin-bottom: 6px !important; }
+  .zs2 .venue-below { margin-top: .7rem !important; }
+}

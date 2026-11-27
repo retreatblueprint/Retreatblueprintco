@@ -109,7 +109,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 if(h.indexOf('calendly.com')>-1||h.indexOf('cal.com/')>-1)n='Book a call';else if(h.indexOf('wa.me/')>-1||h.indexOf('whatsapp.com')>-1)n='WhatsApp';else if(h.indexOf('mailto:')===0)n='Email';
 if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,40)})}catch(_){}},true);
 </script>
-<link rel="stylesheet" href="preview/zoom.css?v=9">
+<link rel="stylesheet" href="preview/zoom.css?v=12">
 </head>
 <body>
 
@@ -184,6 +184,13 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
           <div class="venue-card" style="--d:.16s"><h3>Community and partners</h3><p>The retreat leaders, partners and past guests who keep a venue alive.</p></div>
         </div>
       </div>
+<svg class="vroots" aria-hidden="true" viewBox="0 0 1000 64" preserveAspectRatio="none">
+<path class="vline" d="M0 6 Q 125 0 250 6 T 500 6 T 750 6 T 1000 6"/>
+<path d="M167 6 C 167 36, 100 34, 100 64"/><path d="M167 6 C 167 36, 300 34, 300 64"/>
+<path d="M500 6 L 500 64"/>
+<path d="M833 6 C 833 36, 700 34, 700 64"/><path d="M833 6 C 833 36, 900 34, 900 64"/>
+<circle cx="167" cy="6" r="3"/><circle cx="500" cy="6" r="3"/><circle cx="833" cy="6" r="3"/>
+</svg>
 <div class="venue-below">
         <p class="venue-label">Beneath it &middot; what holds it up</p>
         <div class="venue-cards">
@@ -458,6 +465,6 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 <script src="js/menu.js?v=2026-10-21a" defer></script>
 <script src="js/luxe.js?v=2026-11-07L" defer></script>
 
-<script src="preview/zoom.js?v=9" defer></script>
+<script src="preview/zoom.js?v=11" defer></script>
 </body>
 </html>

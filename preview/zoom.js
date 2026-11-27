@@ -64,7 +64,7 @@
     cards.forEach(function (k) { k.classList.toggle('on', k === card); });
     det.innerHTML = '<b>' + card.querySelector('h3').textContent + '</b>' + card.querySelector('p').textContent;
   }
-  cards.forEach(function (k) { k.setAttribute('tabindex', '0'); k.addEventListener('click', function () { pick(k); });
+  cards.forEach(function (k) { k.setAttribute('tabindex', '0'); k.addEventListener('click', function () { pick(k); }); k.addEventListener('mouseenter', function () { pick(k); });
     k.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(k); } }); });
   if (cards.length) pick(cards[0]);
   if (reduce) document.documentElement.classList.add('zstatic');
