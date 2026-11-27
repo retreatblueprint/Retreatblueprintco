@@ -449,3 +449,7 @@ footer { position: relative; z-index: 3; }
 .fn-latest .fl-txt h3 { max-width: none !important; text-wrap: balance; }
 .fn-latest .fl-card { flex: 0 1 auto; width: auto !important; }
 .fn-latest .fl-txt { width: auto !important; max-width: 34rem; }
+/* pinned layers overlap: only the visible stop takes clicks */
+.zworld .zs { pointer-events: none; }
+.zworld .zs > .wrap { pointer-events: auto; }
+.zworld .zs > .wrap[style*="hidden"] { pointer-events: none; }
