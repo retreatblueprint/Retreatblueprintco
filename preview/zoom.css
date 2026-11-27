@@ -266,3 +266,4 @@ body { background: #E6DCC8; }
 .zs4 .pane:hover, .zs4 .pane:focus-visible { background: linear-gradient(170deg, rgba(10,44,60,.62), rgba(8,36,50,.78)) !important; }
 .zs4 .pane::before { background: linear-gradient(115deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,0) 20%); }
 .zs4 .svc-intro { background: rgba(4,32,48,.28); border-radius: 10px; padding: .35rem .8rem; }
+.zs4 > .wrap > * { will-change: auto; }
