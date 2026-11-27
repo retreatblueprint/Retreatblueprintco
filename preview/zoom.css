@@ -453,3 +453,8 @@ footer { position: relative; z-index: 3; }
 .zworld .zs { pointer-events: none; }
 .zworld .zs > .wrap { pointer-events: auto; }
 .zworld .zs > .wrap[style*="hidden"] { pointer-events: none; }
+/* pop-ups take scroll and clicks; the page behind stays still */
+.zworld dialog { pointer-events: auto; }
+dialog.astory { overflow: hidden; }
+dialog.astory .astory-in { max-height: 86vh; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+html:has(dialog[open]) { overflow: hidden; }
