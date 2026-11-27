@@ -1,94 +1,106 @@
 (function () {
-  // One photo stays in place while three pinned screens play over it:
-  // hero → zoom to the cabins with the framework → zoom in close with the guest journey.
+  // One stage of photos stays in place while each section pins over it in turn.
+  // Lagoon (hero) → cabins from above (framework) → cabin close-up (proof) → pool view (services)
+  // → open-air lounge (how we start) → glass room (about) → dock at dusk (close).
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W = document.querySelector('.zworld'), st = W.querySelector('.zstick'),
-      z1 = st.querySelector('.z1'), z2 = st.querySelector('.z2'), z3 = st.querySelector('.z3'), sp = st.querySelector('.zshade--pool'),
-      sh = st.querySelector('.zshade--hero'), sw = st.querySelector('.zshade--water'), sc = st.querySelector('.zshade--cabins'),
-      s1 = W.querySelector('.zs1'), cp = W.querySelector('.zcopy'),
-      s2 = W.querySelector('.zs2'), f2 = s2.querySelector(':scope > .wrap'), k2 = [].slice.call(s2.querySelectorAll(':scope > .wrap > *')),
-      s3 = W.querySelector('.zs3'), f3 = s3.querySelector(':scope > .wrap'), k3 = [].slice.call(s3.querySelectorAll(':scope > .wrap > *')),
-      s4 = W.querySelector('.zs4'), f4 = s4.querySelector(':scope > .wrap'), k4 = [].slice.call(s4.querySelectorAll(':scope > .wrap > *'));
+  var W = document.querySelector('.zworld'), st = W.querySelector('.zstick');
+  var q = function (sel, root) { return (root || document).querySelector(sel); };
+  var img = [null, q('.z1', st), q('.z2', st), q('.z3', st), q('.z4', st), q('.z5', st), q('.z6', st)];
+  var shade = { hero: q('.zshade--hero', st), water: q('.zshade--water', st), cabins: q('.zshade--cabins', st), pool: q('.zshade--pool', st), warm: q('.zshade--warm', st) };
+  var s1 = q('.zs1', W), cp = q('.zcopy', W);
+  // stops in order: framework, proof, services, how we start, about, close
+  var stops = ['.zs2', '.zs3', '.zs4', '.zs5', '.zs6', '.zs7'].map(function (sel) {
+    var el = q(sel, W);
+    return { el: el, wrap: el.querySelector(':scope > .wrap'), kids: [].slice.call(el.querySelectorAll(':scope > .wrap > *')) };
+  });
   var bands = [].slice.call(document.querySelectorAll('.zwin')), secs = [].slice.call(document.querySelectorAll('[data-zoom]'));
   var IW = 1600, IH = 927, FX = .75, FY = .605, ZMID = 3.6, ZEND = 8;   // the cabins' spot in the lagoon photo
   var c = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; }, ease = function (t) { return t * t * (3 - 2 * t); };
   var seg = function (y, a, b) { return ease(c((y - a) / (b - a))); };
-  var A = {};
+  var heroOut = 0;
   function layout() {
     var w = st.clientWidth, h = st.clientHeight, s = Math.max(w / IW, h / IH), rw = IW * s, rh = IH * s;
-    z1.style.transformOrigin = ((w - rw) * .75 + FX * rw) + 'px ' + ((h - rh) * .5 + FY * rh) + 'px';
-    var vh = window.innerHeight;
-    s2.style.marginTop = (-s1.offsetHeight) + 'px';               // framework layer starts at the top, already pinned
-    var t2 = s2.offsetTop, h2 = s2.offsetHeight, out2 = t2 + h2 - vh * 1.45;
-    s3.style.marginTop = (out2 - (t2 + h2)) + 'px';                // journey layer is pinned by the time the framework leaves
-    A = { heroOut: vh * .3,
-          in2a: t2 + vh * .06, in2b: t2 + vh * .6,                 // zoom 1 and framework land together
-          out2a: out2, out2b: out2 + vh * .3,
-          zoom2b: out2 + vh * .7,                                  // zoom 2 into the cabins
-          in3a: out2 + vh * .05, in3b: out2 + vh * .65 };           // journey lands as zoom 2 lands
-    var t3 = s3.offsetTop, h3 = s3.offsetHeight, out3 = t3 + h3 - vh * 1.45;
-    s4.style.marginTop = (out3 - (t3 + h3)) + 'px';                // services layer is pinned by the time the journey leaves
-    A.out3a = out3; A.out3b = out3 + vh * .3;
-    A.in4a = out3 + vh * .05; A.in4b = out3 + vh * .65;            // step inside: the pool view and the services land together
+    img[1].style.transformOrigin = ((w - rw) * .75 + FX * rw) + 'px ' + ((h - rh) * .5 + FY * rh) + 'px';
+    var vh = window.innerHeight; heroOut = vh * .3;
+    var prevOut = 0;
+    stops.forEach(function (sp, i) {
+      sp.el.style.marginTop = '0px';
+      var natural = sp.el.offsetTop;
+      // framework starts at the very top; every later stop is already pinned when the one before it starts to leave
+      sp.el.style.marginTop = ((i === 0 ? 0 : prevOut) - natural) + 'px';
+      var top = sp.el.offsetTop, hgt = sp.el.offsetHeight;
+      if (i === 0) { sp.a = top + vh * .06; sp.b = top + vh * .6; }
+      else { sp.a = prevOut + vh * .05; sp.b = prevOut + vh * .65; }
+      sp.out = i === stops.length - 1 ? Infinity : top + hgt - vh * 1.45;
+      prevOut = sp.out;
+    });
   }
   function slide(kids, y, a, b, fo) {
     kids.forEach(function (el, i) {
-      var n = kids.length, s0 = a + (b - a) * i * .12, k = seg(y, s0, b - (b - a) * (n - 1 - i) * .04), v = k * (1 - (fo || 0));
+      var n = kids.length, s0 = a + (b - a) * i * .12, k = seg(y, s0, b - (b - a) * (n - 1 - i) * .04), v = k * (1 - fo);
       var landed = k >= 1 && !(fo > 0);
       el.style.opacity = landed ? '1' : v;
-      // once landed, drop the transform so frosted glass can blur the photo behind it
-      el.style.transform = landed ? 'none' : 'translateX(' + (-90 * (1 - k)) + 'px) translateY(' + (-24 * (fo || 0)) + 'px)';
+      // once landed, no transform, so frosted glass can blur the photo behind it
+      el.style.transform = landed ? 'none' : 'translateX(' + (-90 * (1 - k)) + 'px) translateY(' + (-24 * fo) + 'px)';
     });
   }
   function frame() {
     ticking = false;
     var vh = window.innerHeight, y = -W.getBoundingClientRect().top;
     if (y < W.offsetHeight) {
-      var h = c(y / A.heroOut);
-      cp.style.opacity = 1 - h; cp.style.transform = 'translateY(' + (-70 * h) + 'px)'; sh.style.opacity = 1 - h;
-      var i2 = seg(y, A.in2a, A.in2b), o2 = seg(y, A.out2a, A.out2b), x = seg(y, A.in3a, A.in3b), zz = seg(y, A.out2a, A.zoom2b);
-      if (!reduce) {
-        z1.style.transform = 'scale(' + (1 + (ZMID - 1) * i2 + (ZEND - ZMID) * zz) + ')';
+      var h = c(y / heroOut);
+      cp.style.opacity = 1 - h; cp.style.transform = 'translateY(' + (-70 * h) + 'px)'; shade.hero.style.opacity = 1 - h;
+      var kin = stops.map(function (sp) { return seg(y, sp.a, sp.b); });
+      var kout = stops.map(function (sp) { return sp.out === Infinity ? 0 : seg(y, sp.out, sp.out + vh * .3); });
+      stops.forEach(function (sp, i) {
+        slide(sp.kids, y, sp.a, sp.b, kout[i]);
+        sp.wrap.style.visibility = kin[i] * (1 - kout[i]) < .01 ? 'hidden' : '';
+      });
+      // each stop's photo fades in over the last; the outgoing photo keeps drifting closer
+      if (!reduce) img[1].style.transform = 'scale(' + (1 + (ZMID - 1) * kin[0] + (ZEND - ZMID) * seg(y, stops[0].out, stops[1].b)) + ')';
+      for (var n = 2; n <= 6; n++) {
+        var kk = kin[n - 1], next = kin[n] || 0;
+        img[n].style.opacity = kk;
+        if (!reduce) img[n].style.transform = 'scale(' + (1.3 - .3 * kk + .22 * next) + ')';
       }
-      z2.style.opacity = x;
-      sw.style.opacity = seg(y, A.in2a - vh * .06, A.in2b - vh * .1) * (1 - o2);
-      slide(k2, y, A.in2a, A.in2b, o2);
-      f2.style.visibility = i2 * (1 - o2) < .01 ? 'hidden' : '';
-      var o3 = seg(y, A.out3a, A.out3b), x4 = seg(y, A.in4a, A.in4b);
-      slide(k3, y, A.in3a, A.in3b, o3);
-      f3.style.visibility = x * (1 - o3) < .01 ? 'hidden' : '';
-      z3.style.opacity = x4; sp.style.opacity = x4; sc.style.opacity = x * (1 - x4);
-      if (!reduce) { z3.style.transform = 'scale(' + (1.3 - .3 * x4) + ')'; z2.style.transform = 'scale(' + (1.35 - .35 * x + .25 * x4) + ')'; }
-      slide(k4, y, A.in4a, A.in4b, 0);
-      f4.style.visibility = x4 < .01 ? 'hidden' : '';
+      shade.water.style.opacity = seg(y, stops[0].a - vh * .06, stops[0].b - vh * .1) * (1 - kout[0]);
+      shade.cabins.style.opacity = kin[1] * (1 - kin[2]);
+      shade.pool.style.opacity = kin[2] * (1 - kin[3]);
+      shade.warm.style.opacity = kin[3];
     }
     if (reduce) return;
     bands.forEach(function (b) {
-      var q = b.getBoundingClientRect(); if (q.bottom < 0 || q.top > vh) return;
-      var k = ease(c((vh - q.top) / (vh * .85)));
+      var r = b.getBoundingClientRect(); if (r.bottom < 0 || r.top > vh) return;
+      var k = ease(c((vh - r.top) / (vh * .85)));
       b.style.setProperty('--ix', (18 * (1 - k)) + '%'); b.style.setProperty('--iy', (10 * (1 - k)) + '%');
       b.style.setProperty('--rr', (28 * (1 - k)) + 'px'); b.style.setProperty('--zs', 1.25 - .25 * k);
     });
     secs.forEach(function (s) {
-      var q = s.getBoundingClientRect(); if (q.top > vh || q.bottom < 0) return;
-      var k = ease(c((vh - q.top) / (vh * .6)));
+      var r = s.getBoundingClientRect(); if (r.top > vh || r.bottom < 0) return;
+      var k = ease(c((vh - r.top) / (vh * .6)));
       s.style.transform = k < 1 ? 'scale(' + (.93 + .07 * k) + ')' : ''; s.style.borderRadius = k < 1 ? (30 * (1 - k)) + 'px' : '';
     });
   }
-  // cards show their titles; hovering (laptops) or tapping (phones) shows the detail line in one panel
-  function picker(items, panel, title, body) {
-    if (!items.length || !panel) return;
-    function pick(it) {
-      items.forEach(function (k) { k.classList.toggle('on', k === it); });
-      panel.innerHTML = '<b>' + title(it) + '</b>' + body(it);
-    }
-    items.forEach(function (k) {
-      k.setAttribute('tabindex', '0');
-      k.addEventListener('click', function () { pick(k); });
-      k.addEventListener('mouseenter', function () { pick(k); });
-      k.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(k); } });
-    });
-    pick(items[0]);
+  // voice notes in the proof stop
+  var players = [].slice.call(document.querySelectorAll('.vnote')), audios = [];
+  var PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>';
+  var PAUSE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>';
+  var fmt = function (s) { s = Math.max(0, Math.round(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+  players.forEach(function (p) {
+    var btn = p.querySelector('.vplay'), bar = p.querySelector('.vbar i'), time = p.querySelector('.vtime'), label = btn.getAttribute('aria-label');
+    var a = new Audio(p.dataset.src); a.preload = 'metadata'; audios.push(a);
+    btn.addEventListener('click', function () { if (a.paused) { audios.forEach(function (o) { if (o !== a) o.pause(); }); a.play().catch(function () {}); } else a.pause(); });
+    a.addEventListener('play', function () { btn.innerHTML = PAUSE; btn.setAttribute('aria-label', label.replace('Play', 'Pause')); });
+    a.addEventListener('pause', function () { btn.innerHTML = PLAY; btn.setAttribute('aria-label', label); });
+    a.addEventListener('timeupdate', function () { if (a.duration) { bar.style.width = (a.currentTime / a.duration * 100) + '%'; time.textContent = fmt(a.currentTime) + ' / ' + fmt(a.duration); } });
+    a.addEventListener('ended', function () { bar.style.width = '0'; time.textContent = fmt(a.duration); });
+  });
+  // "Read my story" opens the full About text
+  var dlg = document.querySelector('.astory'), rd = document.querySelector('.aread');
+  if (dlg && rd) {
+    rd.addEventListener('click', function () { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); });
+    dlg.querySelector('.aclose').addEventListener('click', function () { if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg && dlg.close) dlg.close(); });
   }
   if (reduce) document.documentElement.classList.add('zstatic');
   var ticking = false;
@@ -97,7 +109,6 @@
   window.addEventListener('scroll', req, { passive: true });
   window.addEventListener('resize', function () { layout(); req(); });
   window.addEventListener('load', function () { layout(); req(); });
-  // fonts and images can change heights after load: keep the timeline in step
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { layout(); req(); });
-  if (window.ResizeObserver) { var ro = new ResizeObserver(function () { layout(); req(); }); ro.observe(s1); ro.observe(W); }
+  if (window.ResizeObserver) { var ro = new ResizeObserver(function () { layout(); req(); }); ro.observe(s1); }
 })();
