@@ -90,10 +90,6 @@
     });
     pick(items[0]);
   }
-  var det2 = document.createElement('p'); det2.className = 'vdetail'; det2.setAttribute('aria-live', 'polite');
-  s2.querySelector('.venue-body').appendChild(det2);
-  picker([].slice.call(s2.querySelectorAll('.venue-card')), det2,
-    function (k) { return k.querySelector('h3').textContent; }, function (k) { return k.querySelector('p').textContent; });
   picker([].slice.call(s3.querySelectorAll('.stop')), s3.querySelector('.jdetail'),
     function (k) { return k.querySelector('.stop-feel').textContent; }, function (k) { return k.querySelector('.stop-behind').textContent; });
   if (reduce) document.documentElement.classList.add('zstatic');
