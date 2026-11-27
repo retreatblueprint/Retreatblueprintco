@@ -23,20 +23,48 @@ body { background: #E6DCC8; }
 .zcopy .hero-sub { margin: 0 auto .6rem; max-width: 40rem; font-size: 1.08rem; line-height: 1.6; font-weight: 500; color: #22190F; }
 .zcopy .hero-actions { justify-content: center; margin-top: 2rem; }
 
-/* 2 · the framework, over the open water beside the cabins */
-.zs2 { padding: 62vh 0 18vh !important; padding: 62svh 0 18svh !important; }
-.zs2 .wrap { width: min(60%, 880px); max-width: none; margin: 0; padding-left: var(--gutter); padding-right: 0; }
-.zs2 .venue-eyebrow { color: #F0D9A8; }
-.zs2 .venue-h { color: #FFFFFF; text-shadow: 0 2px 24px rgba(0,20,30,.35); }
+/* 2 · the framework: pinned on one screen over the open water, everything arrives together */
+.zs2 { height: 240vh; height: 240svh; padding: 0 !important; }
+.zs2 > .wrap { position: sticky; top: 0; height: 100vh; height: 100svh; width: min(64%, 940px); max-width: none; margin: 0;
+  padding: clamp(84px, 11vh, 104px) 0 clamp(18px, 3vh, 32px) var(--gutter); display: flex; flex-direction: column; justify-content: center;
+  opacity: 0; will-change: opacity, transform; }
+.zs2 .venue-eyebrow { color: #F0D9A8; margin: 0 0 .5rem; text-shadow: 0 1px 10px rgba(0,20,30,.5); }
+.zs2 .venue-h { color: #FFFFFF; font-size: clamp(1.7rem, 2.6vw, 2.5rem); line-height: 1.12; margin: 0; text-shadow: 0 2px 24px rgba(0,20,30,.35); }
 .zs2 .venue-h em { color: #F3DDB0; }
-.zs2 .venue-lead { color: rgba(255,255,255,.94); }
-.zs2 .venue-label { color: #F0D9A8 !important; }
-.zs2 .venue-card { background: rgba(251,248,241,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,20,30,.18); }
-.zs2 .venue-card--dark { background: rgba(43,33,24,.86); }
-.zs2 .venue-card h3 { font-size: 24px; }
-.zs2 .venue-card p { font-size: 15px; }
-.zs2 .venue-body { margin-top: 2.2rem; }
-.zs2 .venue-below { margin-top: 1.8rem; }
+.zs2 .venue-intro { margin-top: clamp(.6rem, 1.6vh, 1rem) !important; max-width: 62ch; }
+.zs2 .venue-intro .venue-lead, .zs2 .venue-intro .venue-lead:first-child { color: #FFFFFF !important; font-style: normal !important; margin: 0 0 .4rem !important; }
+.zs2 .venue-intro .venue-lead:first-child { font: 500 clamp(1.02rem, 1.35vw, 1.2rem)/1.4 var(--sans) !important; }
+.zs2 .venue-intro .venue-lead { font-size: clamp(.84rem, 1vw, .94rem) !important; line-height: 1.55 !important; }
+.zs2 .venue-body { margin-top: clamp(.9rem, 2.4vh, 1.6rem); }
+.zs2 .venue-above, .zs2 .venue-below { background: transparent !important; padding: 0 !important; }
+.zs2 .venue-below { margin-top: clamp(.6rem, 1.6vh, 1rem); }
+.zs2 .venue-label { color: #F0D9A8 !important; font-size: 12px !important; margin: 0 0 8px !important; text-shadow: 0 1px 10px rgba(0,20,30,.5); }
+.zs2 .venue-cards { display: grid !important; gap: 10px; }
+.zs2 .venue-above .venue-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.zs2 .venue-below .venue-cards { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.zs2 .venue-card { padding: 14px 14px 15px !important; border-radius: 12px; background: rgba(251,248,241,.93); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 8px 24px rgba(0,20,30,.18); }
+.zs2 .venue-card--dark { background: rgba(43,33,24,.88); }
+.zs2 .venue-card h3 { font-size: clamp(15px, 1.25vw, 18px) !important; line-height: 1.15; margin: 0 0 5px !important; }
+.zs2 .venue-card p { font-size: clamp(12px, .9vw, 13.5px) !important; line-height: 1.45 !important; }
+.zs2 .vdetail { display: none; }
+@media (max-height: 760px) and (min-width: 761px) {
+  .zs2 .venue-intro .venue-lead:not(:first-child) { font-size: .82rem !important; }
+  .zs2 .venue-card p { font-size: 12px !important; }
+}
+@media (max-width: 760px) {
+  .zs2 > .wrap { width: 100%; padding: 78px var(--gutter) 18px; justify-content: flex-end; }
+  .zs2 .venue-h { font-size: 1.45rem; }
+  .zs2 .venue-intro .venue-lead:first-child { font-size: .98rem !important; }
+  .zs2 .venue-intro .venue-lead { font-size: .8rem !important; line-height: 1.5 !important; }
+  .zs2 .venue-above .venue-cards, .zs2 .venue-below .venue-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+  .zs2 .venue-below .venue-card:last-child { grid-column: span 2; }
+  .zs2 .venue-card { padding: 10px 11px !important; cursor: pointer; }
+  .zs2 .venue-card h3 { font-size: 14px !important; margin: 0 !important; }
+  .zs2 .venue-card p { display: none; }
+  .zs2 .venue-card.on { outline: 2px solid #F0D9A8; outline-offset: 1px; }
+  .zs2 .vdetail { display: block; margin-top: 10px; min-height: 3.6em; padding: 10px 12px; border-radius: 10px; background: rgba(251,248,241,.94); color: #2B2118; font-size: .84rem; line-height: 1.45; }
+  .zs2 .vdetail b { display: block; font-family: var(--serif); font-weight: 600; font-size: .95rem; margin-bottom: 2px; }
+}
 
 /* 3 · the guest journey, right on top of the cabins */
 .zs3 { padding: 70vh 0 14vh !important; padding: 70svh 0 14svh !important; }
@@ -64,14 +92,3 @@ body { background: #E6DCC8; }
 /* reduced motion: still photos, nothing zooms */
 .zstatic .zstick .z1 { transform: none !important; }
 .zstatic .zshade--hero { opacity: 1; }
-/* framework over the water: no boxes, readable intro, compact card grid */
-.zs2 .venue-intro .venue-lead, .zs2 .venue-intro .venue-lead:first-child { color: #FFFFFF !important; font-style: normal !important; }
-.zs2 .venue-intro .venue-lead:first-child { font-size: clamp(1.2rem, 1.7vw, 1.45rem); }
-.zs2 .venue-above, .zs2 .venue-below { background: transparent !important; padding: 0 !important; }
-.zs2 .venue-label { margin-bottom: 12px; text-shadow: 0 1px 10px rgba(0,20,30,.5); }
-.zs2 .venue-cards { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.zs2 .venue-card { padding: 18px 18px 20px !important; border-radius: 12px; }
-.zs2 .venue-card h3 { font-size: 20px !important; margin-bottom: 6px; }
-.zs2 .venue-card p { font-size: 14px !important; line-height: 1.5; }
-.zs2 .venue-h { font-size: clamp(2rem, 3.4vw, 3rem); }
-@media (max-width: 760px) { .zs2 .venue-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

@@ -109,7 +109,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 if(h.indexOf('calendly.com')>-1||h.indexOf('cal.com/')>-1)n='Book a call';else if(h.indexOf('wa.me/')>-1||h.indexOf('whatsapp.com')>-1)n='WhatsApp';else if(h.indexOf('mailto:')===0)n='Email';
 if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,40)})}catch(_){}},true);
 </script>
-<link rel="stylesheet" href="preview/zoom.css?v=4">
+<link rel="stylesheet" href="preview/zoom.css?v=5">
 </head>
 <body>
 
@@ -179,19 +179,19 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
       <div class="venue-above">
         <p class="venue-label">Above the surface &middot; what guests feel</p>
         <div class="venue-cards">
-          <div class="venue-card reveal"><h3>Guest experience</h3><p>How people are welcomed, looked after and remembered.</p></div>
-          <div class="venue-card reveal" style="--d:.08s"><h3>Visibility and demand</h3><p>How the right guests and retreat leaders find you, and how inquiries turn into bookings.</p></div>
-          <div class="venue-card reveal" style="--d:.16s"><h3>Community and partners</h3><p>The retreat leaders, partners and past guests who keep a venue alive.</p></div>
+          <div class="venue-card"><h3>Guest experience</h3><p>How people are welcomed, looked after and remembered.</p></div>
+          <div class="venue-card" style="--d:.08s"><h3>Visibility and demand</h3><p>How the right guests and retreat leaders find you, and how inquiries turn into bookings.</p></div>
+          <div class="venue-card" style="--d:.16s"><h3>Community and partners</h3><p>The retreat leaders, partners and past guests who keep a venue alive.</p></div>
         </div>
       </div>
 <div class="venue-below">
         <p class="venue-label">Beneath it &middot; what holds it up</p>
         <div class="venue-cards">
-          <div class="venue-card venue-card--dark reveal"><h3>Revenue and pricing</h3><p>Pricing, seasonality, and booking mix that support revenue performance.</p></div>
-          <div class="venue-card venue-card--dark reveal" style="--d:.04s"><h3>Finances and cash flow</h3><p>Budget, real costs and cash flow, including the quiet months.</p></div>
-          <div class="venue-card venue-card--dark reveal" style="--d:.08s"><h3>Systems</h3><p>Bookings, payments, communication and the tools that connect them.</p></div>
-          <div class="venue-card venue-card--dark reveal" style="--d:.16s"><h3>Team and operational leadership</h3><p>Clear responsibilities, accountable teams, and the operating standards that keep a property running effectively.</p></div>
-          <div class="venue-card venue-card--dark reveal" style="--d:.24s"><h3>Safety and trust</h3><p>Privacy, risk, guest care and the responsible practices retreat guests expect.</p></div>
+          <div class="venue-card venue-card--dark"><h3>Revenue and pricing</h3><p>Pricing, seasonality, and booking mix that support revenue performance.</p></div>
+          <div class="venue-card venue-card--dark" style="--d:.04s"><h3>Finances and cash flow</h3><p>Budget, real costs and cash flow, including the quiet months.</p></div>
+          <div class="venue-card venue-card--dark" style="--d:.08s"><h3>Systems</h3><p>Bookings, payments, communication and the tools that connect them.</p></div>
+          <div class="venue-card venue-card--dark" style="--d:.16s"><h3>Team and operational leadership</h3><p>Clear responsibilities, accountable teams, and the operating standards that keep a property running effectively.</p></div>
+          <div class="venue-card venue-card--dark" style="--d:.24s"><h3>Safety and trust</h3><p>Privacy, risk, guest care and the responsible practices retreat guests expect.</p></div>
         </div>
       </div>
     </div>
@@ -458,6 +458,6 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 <script src="js/menu.js?v=2026-10-21a" defer></script>
 <script src="js/luxe.js?v=2026-11-07L" defer></script>
 
-<script src="preview/zoom.js?v=3" defer></script>
+<script src="preview/zoom.js?v=5" defer></script>
 </body>
 </html>

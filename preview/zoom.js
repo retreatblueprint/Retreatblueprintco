@@ -3,7 +3,7 @@
   var W = document.querySelector('.zworld'), st = W.querySelector('.zstick'),
       z1 = st.querySelector('.z1'), z2 = st.querySelector('.z2'),
       sh = st.querySelector('.zshade--hero'), sw = st.querySelector('.zshade--water'), sc = st.querySelector('.zshade--cabins'),
-      cp = W.querySelector('.zcopy'), s2 = W.querySelector('.zs2'), s3 = W.querySelector('.zs3');
+      cp = W.querySelector('.zcopy'), s2 = W.querySelector('.zs2'), fw = W.querySelector('.zs2 > .wrap'), s3 = W.querySelector('.zs3');
   var bands = [].slice.call(document.querySelectorAll('.zwin')), secs = [].slice.call(document.querySelectorAll('[data-zoom]'));
   var IW = 1600, IH = 927, FX = .75, FY = .605, ZMID = 3.6, ZEND = 8;   // the cabins' spot in the lagoon photo
   var c = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; }, ease = function (t) { return t * t * (3 - 2 * t); };
@@ -12,10 +12,12 @@
   function layout() {
     var w = st.clientWidth, h = st.clientHeight, s = Math.max(w / IW, h / IH), rw = IW * s, rh = IH * s;
     z1.style.transformOrigin = ((w - rw) * .75 + FX * rw) + 'px ' + ((h - rh) * .5 + FY * rh) + 'px';
-    var vh = window.innerHeight, p2 = parseFloat(getComputedStyle(s2).paddingTop), p3 = parseFloat(getComputedStyle(s3).paddingTop);
-    var c2 = s2.offsetTop + p2, c3 = s3.offsetTop + p3, e2 = s2.offsetTop + s2.offsetHeight - parseFloat(getComputedStyle(s2).paddingBottom);
-    A = { heroOut: vh * .45, z1a: 0, z1b: c2 - vh * .6, wIn0: c2 - vh * .95, wIn1: c2 - vh * .6,
-          z2a: e2 - vh * .55, z2b: c3 - vh * .55, x0: e2 - vh * .2, x1: c3 - vh * .55 };
+    var vh = window.innerHeight, p3 = parseFloat(getComputedStyle(s3).paddingTop);
+    var t2 = s2.offsetTop, h2 = s2.offsetHeight, c3 = s3.offsetTop + p3;
+    // zoom lands as the framework pins; it holds; then fades as the second zoom starts
+    A = { heroOut: vh * .45, z1a: 0, z1b: t2 + vh * .05, fIn0: t2 - vh * .2, fIn1: t2 + vh * .1,
+          fOut0: t2 + h2 - vh * 1.45, fOut1: t2 + h2 - vh * 1.1,
+          z2a: t2 + h2 - vh * 1.4, z2b: c3 - vh * .55, x0: t2 + h2 - vh * 1.1, x1: c3 - vh * .55 };
   }
   function frame() {
     ticking = false;
@@ -29,7 +31,10 @@
       }
       var x = seg(y, A.x0, A.x1);
       z2.style.opacity = x; if (!reduce) z2.style.transform = 'scale(' + (1.35 - .35 * x) + ')';
-      sw.style.opacity = seg(y, A.wIn0, A.wIn1) * (1 - seg(y, A.z2a, A.x0 + vh * .15));
+      var fi = seg(y, A.fIn0, A.fIn1), fo = seg(y, A.fOut0, A.fOut1), fv = fi * (1 - fo);
+      sw.style.opacity = fv; fw.style.opacity = fv;
+      fw.style.transform = 'translateY(' + (24 * (1 - fi) - 24 * fo) + 'px)';
+      fw.style.visibility = fv < .02 ? 'hidden' : '';
       sc.style.opacity = x;
     }
     if (reduce) return;
@@ -45,6 +50,17 @@
       s.style.transform = k < 1 ? 'scale(' + (.93 + .07 * k) + ')' : ''; s.style.borderRadius = k < 1 ? (30 * (1 - k)) + 'px' : '';
     });
   }
+  // phones: cards show titles; tapping one shows its description underneath
+  var cards = [].slice.call(W.querySelectorAll('.zs2 .venue-card')), det = document.createElement('p');
+  det.className = 'vdetail'; det.setAttribute('aria-live', 'polite');
+  W.querySelector('.zs2 .venue-body').appendChild(det);
+  function pick(card) {
+    cards.forEach(function (k) { k.classList.toggle('on', k === card); });
+    det.innerHTML = '<b>' + card.querySelector('h3').textContent + '</b>' + card.querySelector('p').textContent;
+  }
+  cards.forEach(function (k) { k.setAttribute('tabindex', '0'); k.addEventListener('click', function () { pick(k); });
+    k.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(k); } }); });
+  if (cards.length) pick(cards[0]);
   if (reduce) document.documentElement.classList.add('zstatic');
   var ticking = false;
   function req() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
