@@ -424,3 +424,8 @@ body { background: #E6DCC8; }
 @media (max-width: 760px) { .tba { grid-template-columns: minmax(0, 1fr); } .tread { margin-top: 6px; } }
 dialog.astory[open] { position: fixed; inset: 0; margin: auto; height: fit-content; }
 .astory .astory-in { max-height: 86vh; overflow-y: auto; }
+/* after the journey: Field Notes slides up over the dock as a solid card, then the footer */
+.fn-latest { position: relative; z-index: 3; background: var(--limewash); border-radius: 28px 28px 0 0;
+  box-shadow: 0 -24px 60px rgba(0,0,0,.28); padding: clamp(4rem, 7vw, 5.5rem) 0 clamp(3.5rem, 6vw, 5rem) !important; }
+footer { position: relative; z-index: 3; }
+.zs7 { height: 230vh; height: 230svh; }
