@@ -90,8 +90,6 @@
     });
     pick(items[0]);
   }
-  picker([].slice.call(s3.querySelectorAll('.stop')), s3.querySelector('.jdetail'),
-    function (k) { return k.querySelector('.stop-feel').textContent; }, function (k) { return k.querySelector('.stop-behind').textContent; });
   if (reduce) document.documentElement.classList.add('zstatic');
   var ticking = false;
   function req() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }

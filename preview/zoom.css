@@ -284,3 +284,16 @@ body { background: #E6DCC8; }
 }
 .zs2 .venue-h { max-width: 31ch; }
 @media (max-width: 760px) { .zs2 .venue-h { max-width: none; } }
+/* v25: guest journey as proof: what was built at each stage, and where */
+.zs3 .stop { cursor: default; }
+.zs3 .stop-feel { font: 500 clamp(.92rem, 1.1vw, 1.05rem)/1.25 var(--serif) !important; }
+.zs3 .stop-where { margin-top: .45rem; font: 500 .66rem/1.35 var(--sans); letter-spacing: .06em; color: var(--thatch); }
+.zs3 .jresult { margin-top: 10px; padding: 12px 16px; border-radius: 12px; background: rgba(251,248,241,.95); color: #2B2118; font-size: clamp(.86rem, 1vw, .95rem); line-height: 1.5; box-shadow: 0 8px 24px rgba(0,20,30,.18); text-align: left; }
+.zs3 .jresult b { font-family: var(--serif); font-weight: 600; font-size: 1.05em; color: #6B4A26; }
+.zs3 .jresult a { color: #2B2118; font-weight: 500; margin-left: .4rem; white-space: nowrap; }
+@media (max-width: 760px) {
+  .zs3 .stop-feel { font-size: .82rem !important; }
+  .zs3 .stop-where { font-size: .6rem; margin-top: .3rem; }
+  .zs3 .jresult { font-size: .8rem; padding: 10px 12px; }
+}
+@media (max-width: 760px) and (max-height: 700px) { .zs3 .journey-intro { display: none; } .zs3 .stop { padding: 7px 9px; } }

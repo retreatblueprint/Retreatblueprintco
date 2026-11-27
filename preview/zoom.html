@@ -109,7 +109,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 if(h.indexOf('calendly.com')>-1||h.indexOf('cal.com/')>-1)n='Book a call';else if(h.indexOf('wa.me/')>-1||h.indexOf('whatsapp.com')>-1)n='WhatsApp';else if(h.indexOf('mailto:')===0)n='Email';
 if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,40)})}catch(_){}},true);
 </script>
-<link rel="stylesheet" href="preview/zoom.css?v=23">
+<link rel="stylesheet" href="preview/zoom.css?v=26">
 </head>
 <body>
 
@@ -198,22 +198,16 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
   <div class="wrap">
     <div class="journey-head center">
       <p class="eyebrow">The guest journey</p>
-      <h2 class="display" id="journey-h" style="--d:.06s">From the first hello to <em>long after they leave.</em></h2>
-      <p class="journey-intro" style="--d:.12s">Every interaction shapes how guests experience a retreat, from the confidence of a first response to the lasting impression they take home.</p>
+      <h2 class="display" id="journey-h">What this looks like <em>at a real venue.</em></h2>
+      <p class="journey-intro">Every stage of a guest&rsquo;s stay, set up at venues I&rsquo;ve worked with.</p>
     </div>
     <div class="jfoot"><svg class="sun" aria-hidden="true" viewBox="0 22 1000 90" xmlns="http://www.w3.org/2000/svg">
       <defs><linearGradient id="rbArc" x1="0" x2="1"><stop offset="0" stop-color="#B08A5A" stop-opacity=".25"/><stop offset=".5" stop-color="#D9A55B"/><stop offset="1" stop-color="#B08A5A" stop-opacity=".25"/></linearGradient></defs>
       <path d="M20 100 Q500 -40 980 100" fill="none" stroke="url(#rbArc)" stroke-width="1.5"/>
       <circle cx="83.3" cy="82.7" r="6" fill="#D9A55B"/><circle cx="83.3" cy="82.7" r="12" fill="none" stroke="#D9A55B" stroke-opacity=".35"/><circle cx="250.0" cy="49.0" r="6" fill="#D9A55B"/><circle cx="250.0" cy="49.0" r="12" fill="none" stroke="#D9A55B" stroke-opacity=".35"/><circle cx="416.7" cy="32.1" r="9" fill="#D9A55B"/><circle cx="416.7" cy="32.1" r="16" fill="none" stroke="#D9A55B" stroke-opacity=".35"/><circle cx="583.3" cy="32.1" r="9" fill="#D9A55B"/><circle cx="583.3" cy="32.1" r="16" fill="none" stroke="#D9A55B" stroke-opacity=".35"/><circle cx="750.0" cy="49.0" r="6" fill="#D9A55B"/><circle cx="750.0" cy="49.0" r="12" fill="none" stroke="#D9A55B" stroke-opacity=".35"/><circle cx="916.7" cy="82.7" r="6" fill="#D9A55B"/><circle cx="916.7" cy="82.7" r="12" fill="none" stroke="#D9A55B" stroke-opacity=".35"/>
-    </svg>
-    <ol class="stations">
-      <li class="stop" style="--d:0.00s"><p class="stop-n">01 · Inquiry</p><h3 class="stop-feel">Heard quickly, and clearly.</h3><p class="stop-behind">A reply process, answers to common questions, and follow-up until they book or decide.</p></li>
-      <li class="stop" style="--d:0.08s"><p class="stop-n">02 · Before arrival</p><h3 class="stop-feel">Prepared and looked after.</h3><p class="stop-behind">Forms, dietary and health intake, travel and pickup details, and a clear welcome email.</p></li>
-      <li class="stop" style="--d:0.16s"><p class="stop-n">03 · Arrival</p><h3 class="stop-feel">Welcomed, not processed.</h3><p class="stop-behind">A simple check-in, and a team that knows who is coming and what they need.</p></li>
-      <li class="stop" style="--d:0.24s"><p class="stop-n">04 · The stay</p><h3 class="stop-feel">Comfortable and cared for.</h3><p class="stop-behind">Schedules, meals, housekeeping and support that run smoothly with a team equipped to deliver consistently.</p></li>
-      <li class="stop" style="--d:0.32s"><p class="stop-n">05 · Departure</p><h3 class="stop-feel">Complete.</h3><p class="stop-behind">A gentle checkout, payments settled, and no loose ends.</p></li>
-      <li class="stop" style="--d:0.40s"><p class="stop-n">06 · After the stay</p><h3 class="stop-feel">Remembered.</h3><p class="stop-behind">A thank-you, a review request, an invitation to return, and a way to stay connected.</p></li>
-    </ol><p class="jdetail" aria-live="polite"></p></div>
+    </svg><ol class="stations"><li class="stop"><p class="stop-n">01 · Inquiry</p><h3 class="stop-feel">Every booking platform connected into one booking manager</h3><p class="stop-where">Infinity Retreat · Nicaragua</p></li><li class="stop"><p class="stop-n">02 · Before arrival</p><h3 class="stop-feel">Guest registration and information in one connected system</h3><p class="stop-where">Airborne Arts · Costa Rica</p></li><li class="stop"><p class="stop-n">03 · Arrival</p><h3 class="stop-feel">Portals for management, kitchen, retreat leaders and guests</h3><p class="stop-where">Airborne Arts · Costa Rica</p></li><li class="stop"><p class="stop-n">04 · The stay</p><h3 class="stop-feel">A digital retreat welcome app, with kitchen messages in English and Spanish</h3><p class="stop-where">Infinity Retreat · Airborne Arts</p></li><li class="stop"><p class="stop-n">05 · Departure</p><h3 class="stop-feel">A payment processing system, so every stay is settled cleanly</h3><p class="stop-where">Infinity Retreat · Nicaragua</p></li><li class="stop"><p class="stop-n">06 · After the stay</p><h3 class="stop-feel">Guest communication mapped and automated where it fits</h3><p class="stop-where">Infinity Retreat · Nicaragua</p></li></ol>
+      <p class="jresult"><b>+37% occupancy in 6 months</b> at Infinity Retreat, with no further double bookings reported. <a href="#testimonials">Hear from the owners &darr;</a></p>
+    </div>
   </div>
 </section>
   <section class="doors-sec zs zs4" id="services">
@@ -444,6 +438,6 @@ if(n)try{umami.track(n,{page:location.pathname,link:(a.textContent||a.getAttribu
 <script src="js/menu.js?v=2026-10-21a" defer></script>
 <script src="js/luxe.js?v=2026-11-07L" defer></script>
 
-<script src="preview/zoom.js?v=22" defer></script>
+<script src="preview/zoom.js?v=25" defer></script>
 </body>
 </html>
