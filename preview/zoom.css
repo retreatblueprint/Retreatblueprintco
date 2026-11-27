@@ -412,3 +412,5 @@ body { background: #E6DCC8; }
 @media (max-height: 740px) and (min-width: 761px) { .zs4 .door-pillars { display: none; } }
 .aphoto img { height: auto; aspect-ratio: 506 / 760; }
 .zclose h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -.015em; }
+.zclose > .wrap { background: radial-gradient(ellipse 52% 46% at 50% 52%, rgba(8,18,24,.6), rgba(8,18,24,.25) 60%, rgba(8,18,24,0) 85%); }
+.zclose .body, .zclose .note-block { text-shadow: 0 1px 12px rgba(0,0,0,.6); }
