@@ -12,10 +12,12 @@
   function layout() {
     var w = st.clientWidth, h = st.clientHeight, s = Math.max(w / IW, h / IH), rw = IW * s, rh = IH * s;
     z1.style.transformOrigin = ((w - rw) * .75 + FX * rw) + 'px ' + ((h - rh) * .5 + FY * rh) + 'px';
-    var vh = window.innerHeight, p3 = parseFloat(getComputedStyle(s3).paddingTop);
-    var t2 = s2.offsetTop, h2 = s2.offsetHeight, c3 = s3.offsetTop + p3;
-    // zoom lands as the framework pins; it holds; then fades as the second zoom starts
-    A = { heroOut: vh * .32, z1a: 0, z1b: t2 + vh * .42, fIn0: t2, fIn1: t2 + vh * .42,
+    var vh = window.innerHeight, s1 = W.querySelector('.zs1');
+    // the framework layer starts at the very top, so it is already pinned while the hero fades
+    s2.style.marginTop = (-s1.offsetHeight) + 'px';
+    var p3 = parseFloat(getComputedStyle(s3).paddingTop), t2 = s2.offsetTop, h2 = s2.offsetHeight, c3 = s3.offsetTop + p3;
+    // zoom and words travel together: both start as you scroll and land at the same moment
+    A = { heroOut: vh * .3, z1a: 0, z1b: t2 + vh * .6, fIn0: t2 + vh * .06, fIn1: t2 + vh * .6,
           fOut0: t2 + h2 - vh * 1.45, fOut1: t2 + h2 - vh * 1.1,
           z2a: t2 + h2 - vh * 1.4, z2b: c3 - vh * .55, x0: t2 + h2 - vh * 1.1, x1: c3 - vh * .55 };
   }
