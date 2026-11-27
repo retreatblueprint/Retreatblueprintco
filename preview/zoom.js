@@ -1,9 +1,13 @@
 (function () {
+  // One photo stays in place while three pinned screens play over it:
+  // hero → zoom to the cabins with the framework → zoom in close with the guest journey.
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var W = document.querySelector('.zworld'), st = W.querySelector('.zstick'),
       z1 = st.querySelector('.z1'), z2 = st.querySelector('.z2'),
       sh = st.querySelector('.zshade--hero'), sw = st.querySelector('.zshade--water'), sc = st.querySelector('.zshade--cabins'),
-      cp = W.querySelector('.zcopy'), s2 = W.querySelector('.zs2'), fw = W.querySelector('.zs2 > .wrap'), kids = [].slice.call(W.querySelectorAll('.zs2 > .wrap > *')), s3 = W.querySelector('.zs3');
+      s1 = W.querySelector('.zs1'), cp = W.querySelector('.zcopy'),
+      s2 = W.querySelector('.zs2'), f2 = s2.querySelector(':scope > .wrap'), k2 = [].slice.call(s2.querySelectorAll(':scope > .wrap > *')),
+      s3 = W.querySelector('.zs3'), f3 = s3.querySelector(':scope > .wrap'), k3 = [].slice.call(s3.querySelectorAll(':scope > .wrap > *'));
   var bands = [].slice.call(document.querySelectorAll('.zwin')), secs = [].slice.call(document.querySelectorAll('[data-zoom]'));
   var IW = 1600, IH = 927, FX = .75, FY = .605, ZMID = 3.6, ZEND = 8;   // the cabins' spot in the lagoon photo
   var c = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; }, ease = function (t) { return t * t * (3 - 2 * t); };
@@ -12,14 +16,22 @@
   function layout() {
     var w = st.clientWidth, h = st.clientHeight, s = Math.max(w / IW, h / IH), rw = IW * s, rh = IH * s;
     z1.style.transformOrigin = ((w - rw) * .75 + FX * rw) + 'px ' + ((h - rh) * .5 + FY * rh) + 'px';
-    var vh = window.innerHeight, s1 = W.querySelector('.zs1');
-    // the framework layer starts at the very top, so it is already pinned while the hero fades
-    s2.style.marginTop = (-s1.offsetHeight) + 'px';
-    var p3 = parseFloat(getComputedStyle(s3).paddingTop), t2 = s2.offsetTop, h2 = s2.offsetHeight, c3 = s3.offsetTop + p3;
-    // zoom and words travel together: both start as you scroll and land at the same moment
-    A = { heroOut: vh * .3, z1a: 0, z1b: t2 + vh * .6, fIn0: t2 + vh * .06, fIn1: t2 + vh * .6,
-          fOut0: t2 + h2 - vh * 1.45, fOut1: t2 + h2 - vh * 1.1,
-          z2a: t2 + h2 - vh * 1.4, z2b: c3 - vh * .55, x0: t2 + h2 - vh * 1.1, x1: c3 - vh * .55 };
+    var vh = window.innerHeight;
+    s2.style.marginTop = (-s1.offsetHeight) + 'px';               // framework layer starts at the top, already pinned
+    var t2 = s2.offsetTop, h2 = s2.offsetHeight, out2 = t2 + h2 - vh * 1.45;
+    s3.style.marginTop = (out2 - (t2 + h2)) + 'px';                // journey layer is pinned by the time the framework leaves
+    A = { heroOut: vh * .3,
+          in2a: t2 + vh * .06, in2b: t2 + vh * .6,                 // zoom 1 and framework land together
+          out2a: out2, out2b: out2 + vh * .3,
+          zoom2b: out2 + vh * .7,                                  // zoom 2 into the cabins
+          in3a: out2 + vh * .05, in3b: out2 + vh * .65 };           // journey lands as zoom 2 lands
+  }
+  function slide(kids, y, a, b, fo) {
+    kids.forEach(function (el, i) {
+      var n = kids.length, s0 = a + (b - a) * i * .12, k = seg(y, s0, b - (b - a) * (n - 1 - i) * .04), v = k * (1 - (fo || 0));
+      el.style.opacity = v;
+      el.style.transform = 'translateX(' + (-90 * (1 - k)) + 'px) translateY(' + (-24 * (fo || 0)) + 'px)';
+    });
   }
   function frame() {
     ticking = false;
@@ -27,21 +39,17 @@
     if (y < W.offsetHeight) {
       var h = c(y / A.heroOut);
       cp.style.opacity = 1 - h; cp.style.transform = 'translateY(' + (-70 * h) + 'px)'; sh.style.opacity = 1 - h;
+      var i2 = seg(y, A.in2a, A.in2b), o2 = seg(y, A.out2a, A.out2b), x = seg(y, A.in3a, A.in3b), zz = seg(y, A.out2a, A.zoom2b);
       if (!reduce) {
-        var k1 = seg(y, A.z1a, A.z1b), k2 = seg(y, A.z2a, A.z2b);
-        z1.style.transform = 'scale(' + (1 + (ZMID - 1) * k1 + (ZEND - ZMID) * k2) + ')';
+        z1.style.transform = 'scale(' + (1 + (ZMID - 1) * i2 + (ZEND - ZMID) * zz) + ')';
+        z2.style.transform = 'scale(' + (1.35 - .35 * x) + ')';
       }
-      var x = seg(y, A.x0, A.x1);
-      z2.style.opacity = x; if (!reduce) z2.style.transform = 'scale(' + (1.35 - .35 * x) + ')';
-      var fi = seg(y, A.fIn0, A.fIn1), fo = seg(y, A.fOut0, A.fOut1), fv = fi * (1 - fo);
-      sw.style.opacity = seg(y, A.fIn0 - vh * .1, A.fIn1 - vh * .1) * (1 - fo);
-      // each block slides in from the left, a beat apart, and all land together as the zoom pauses
-      kids.forEach(function (el, i) {
-        var a = A.fIn0 + (A.fIn1 - A.fIn0) * i * .12, k = seg(y, a, A.fIn1 - (A.fIn1 - A.fIn0) * (3 - i) * .04), v = k * (1 - fo);
-        el.style.opacity = v; el.style.transform = 'translateX(' + (-90 * (1 - k)) + 'px) translateY(' + (-24 * fo) + 'px)';
-      });
-      fw.style.visibility = (fi * (1 - fo)) < .01 ? 'hidden' : '';
-      sc.style.opacity = x;
+      z2.style.opacity = x; sc.style.opacity = x;
+      sw.style.opacity = seg(y, A.in2a - vh * .06, A.in2b - vh * .1) * (1 - o2);
+      slide(k2, y, A.in2a, A.in2b, o2);
+      f2.style.visibility = i2 * (1 - o2) < .01 ? 'hidden' : '';
+      slide(k3, y, A.in3a, A.in3b, 0);
+      f3.style.visibility = x < .01 ? 'hidden' : '';
     }
     if (reduce) return;
     bands.forEach(function (b) {
@@ -56,17 +64,27 @@
       s.style.transform = k < 1 ? 'scale(' + (.93 + .07 * k) + ')' : ''; s.style.borderRadius = k < 1 ? (30 * (1 - k)) + 'px' : '';
     });
   }
-  // phones: cards show titles; tapping one shows its description underneath
-  var cards = [].slice.call(W.querySelectorAll('.zs2 .venue-card')), det = document.createElement('p');
-  det.className = 'vdetail'; det.setAttribute('aria-live', 'polite');
-  W.querySelector('.zs2 .venue-body').appendChild(det);
-  function pick(card) {
-    cards.forEach(function (k) { k.classList.toggle('on', k === card); });
-    det.innerHTML = '<b>' + card.querySelector('h3').textContent + '</b>' + card.querySelector('p').textContent;
+  // cards show their titles; hovering (laptops) or tapping (phones) shows the detail line in one panel
+  function picker(items, panel, title, body) {
+    if (!items.length || !panel) return;
+    function pick(it) {
+      items.forEach(function (k) { k.classList.toggle('on', k === it); });
+      panel.innerHTML = '<b>' + title(it) + '</b>' + body(it);
+    }
+    items.forEach(function (k) {
+      k.setAttribute('tabindex', '0');
+      k.addEventListener('click', function () { pick(k); });
+      k.addEventListener('mouseenter', function () { pick(k); });
+      k.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(k); } });
+    });
+    pick(items[0]);
   }
-  cards.forEach(function (k) { k.setAttribute('tabindex', '0'); k.addEventListener('click', function () { pick(k); }); k.addEventListener('mouseenter', function () { pick(k); });
-    k.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(k); } }); });
-  if (cards.length) pick(cards[0]);
+  var det2 = document.createElement('p'); det2.className = 'vdetail'; det2.setAttribute('aria-live', 'polite');
+  s2.querySelector('.venue-body').appendChild(det2);
+  picker([].slice.call(s2.querySelectorAll('.venue-card')), det2,
+    function (k) { return k.querySelector('h3').textContent; }, function (k) { return k.querySelector('p').textContent; });
+  picker([].slice.call(s3.querySelectorAll('.stop')), s3.querySelector('.jdetail'),
+    function (k) { return k.querySelector('.stop-feel').textContent; }, function (k) { return k.querySelector('.stop-behind').textContent; });
   if (reduce) document.documentElement.classList.add('zstatic');
   var ticking = false;
   function req() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }

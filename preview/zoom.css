@@ -66,10 +66,36 @@ body { background: #E6DCC8; }
   .zs2 .vdetail b { display: block; font-family: var(--serif); font-weight: 600; font-size: .95rem; margin-bottom: 2px; }
 }
 
-/* 3 · the guest journey, right on top of the cabins */
-.zs3 { padding: 70vh 0 14vh !important; padding: 70svh 0 14svh !important; }
-.zs3 > .wrap { background: rgba(250,246,238,.9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
-  border-radius: 26px; padding: clamp(2.4rem, 5vw, 4rem) clamp(1.4rem, 4vw, 3.5rem); box-shadow: 0 20px 60px rgba(0,20,30,.22); max-width: min(1180px, calc(100% - 2 * var(--gutter))); }
+/* 3 · the guest journey: pinned on the cabin close-up, arrives with the second zoom */
+.zs3 { height: 240vh; height: 240svh; padding: 0 !important; margin-top: -145vh; margin-top: -145svh; }
+.zs3 > .wrap { position: sticky; top: 0; height: 100vh; height: 100svh; max-width: none; width: 100%; margin: 0;
+  padding: clamp(92px, 13vh, 120px) var(--gutter) clamp(18px, 4vh, 40px); display: flex; flex-direction: column; justify-content: space-between; }
+.zs3 > .wrap > * { opacity: 0; will-change: transform, opacity; }
+.zs3 .journey-head { margin: 0 auto; text-align: center; }
+.zs3 .journey-head .eyebrow { color: #FFF3DA; text-shadow: 0 1px 12px rgba(0,25,40,.6); }
+.zs3 .journey-head .display { color: #FFFFFF; max-width: none; white-space: nowrap; font-size: min(3.7rem, 3.6vw); line-height: 1.08; margin: .4rem auto .8rem; text-shadow: 0 2px 26px rgba(0,25,40,.45); }
+.zs3 .journey-head .display em { display: block; color: #FCE3B4; }
+.zs3 .journey-intro { color: rgba(255,255,255,.95); font-size: clamp(.92rem, 1.05vw, 1.02rem); line-height: 1.55; margin-top: 0; text-shadow: 0 1px 14px rgba(0,25,40,.6); }
+.zs3 .jfoot { margin-top: auto; }
+.zs3 .sun { max-height: 90px; margin-bottom: -6px; }
+.zs3 .stations { margin-top: 0; gap: 10px; }
+.zs3 .stop { padding: 12px 12px 13px; border-radius: 12px; background: rgba(251,248,241,.93); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0,20,30,.2); cursor: pointer; outline: 2px solid transparent; outline-offset: 1px; transition: transform .25s ease, outline-color .25s ease; }
+.zs3 .stop.on { outline-color: #D9A55B; transform: translateY(-2px); }
+.zs3 .stop-feel { margin-top: .3rem; font: 500 clamp(1rem, 1.3vw, 1.2rem)/1.15 var(--serif) !important; }
+.zs3 .stop-behind, .zs3 .stop-measure { display: none; }
+.zs3 .jdetail { margin-top: 10px; min-height: 3.2em; padding: 12px 16px; border-radius: 12px; background: rgba(251,248,241,.95); color: #2B2118; font-size: clamp(.86rem, 1vw, .95rem); line-height: 1.5; box-shadow: 0 8px 24px rgba(0,20,30,.18); text-align: left; }
+.zs3 .jdetail b { font-family: var(--serif); font-weight: 600; margin-right: .5rem; }
+.zshade--cabins { background: linear-gradient(180deg, rgba(4,32,48,.62) 0%, rgba(4,32,48,.28) 40%, rgba(4,32,48,.05) 60%, rgba(4,32,48,.35) 100%) !important; }
+@media (max-width: 760px) {
+  .zs3 > .wrap { padding-top: 84px; }
+  .zs3 .journey-head .display { white-space: normal; font-size: 1.5rem; }
+  .zs3 .journey-intro { font-size: .82rem; }
+  .zs3 .sun { display: none; }
+  .zs3 .stations { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+  .zs3 .stop { padding: 9px 10px; text-align: left; }
+  .zs3 .stop-feel { font-size: .95rem !important; }
+}
 
 /* a photo window that opens to full width */
 .zband { height: 78vh; height: 78svh; background: var(--limewash); }
@@ -149,3 +175,8 @@ body { background: #E6DCC8; }
   .zs2 .venue-label { font-size: 11px !important; margin-bottom: 6px !important; }
   .zs2 .venue-below { margin-top: .7rem !important; }
 }
+/* journey arc spans the six stops so each sun dot sits over its card */
+.zs3 .sun { width: 100%; height: auto; max-height: none; margin: 0 0 -10px; }
+.zs3 .stations::before, .zs3 .stations::after, .zs3 .stop::before, .zs3 .stop::after { display: none !important; }
+.zs3 .journey-head .display { margin-bottom: .5rem; }
+@media (max-width: 760px) { .zs3 .stations { padding-left: 0 !important; margin-left: 0 !important; } .zs3 .stop { margin: 0 !important; } }
