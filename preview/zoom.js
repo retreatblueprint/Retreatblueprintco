@@ -114,8 +114,14 @@
   function req() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
   layout(); frame();
   window.addEventListener('scroll', req, { passive: true });
-  window.addEventListener('resize', function () { layout(); req(); });
+  // phones: the address bar showing/hiding changes the height only; don't re-time the page mid-scroll for that
+  var lastW = window.innerWidth, lastH = window.innerHeight;
+  window.addEventListener('resize', function () {
+    var w = window.innerWidth, h = window.innerHeight;
+    if (w === lastW && Math.abs(h - lastH) < 160) { req(); return; }
+    lastW = w; lastH = h; layout(); req();
+  });
   window.addEventListener('load', function () { layout(); req(); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { layout(); req(); });
-  if (window.ResizeObserver) { var ro = new ResizeObserver(function () { layout(); req(); }); ro.observe(s1); }
+  if (window.ResizeObserver) { var roW = s1.offsetWidth, ro = new ResizeObserver(function () { if (s1.offsetWidth !== roW) { roW = s1.offsetWidth; layout(); } req(); }); ro.observe(s1); }
 })();
