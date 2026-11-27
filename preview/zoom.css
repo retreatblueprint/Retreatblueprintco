@@ -64,3 +64,14 @@ body { background: #E6DCC8; }
 /* reduced motion: still photos, nothing zooms */
 .zstatic .zstick .z1 { transform: none !important; }
 .zstatic .zshade--hero { opacity: 1; }
+/* framework over the water: no boxes, readable intro, compact card grid */
+.zs2 .venue-intro .venue-lead, .zs2 .venue-intro .venue-lead:first-child { color: #FFFFFF !important; font-style: normal !important; }
+.zs2 .venue-intro .venue-lead:first-child { font-size: clamp(1.2rem, 1.7vw, 1.45rem); }
+.zs2 .venue-above, .zs2 .venue-below { background: transparent !important; padding: 0 !important; }
+.zs2 .venue-label { margin-bottom: 12px; text-shadow: 0 1px 10px rgba(0,20,30,.5); }
+.zs2 .venue-cards { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.zs2 .venue-card { padding: 18px 18px 20px !important; border-radius: 12px; }
+.zs2 .venue-card h3 { font-size: 20px !important; margin-bottom: 6px; }
+.zs2 .venue-card p { font-size: 14px !important; line-height: 1.5; }
+.zs2 .venue-h { font-size: clamp(2rem, 3.4vw, 3rem); }
+@media (max-width: 760px) { .zs2 .venue-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
