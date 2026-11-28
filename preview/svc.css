@@ -406,3 +406,8 @@
 @media (max-width: 760px) {
   .svpanel, .svmetrics { background: rgba(10,22,26,.52); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-radius: 16px; padding: 4px 14px; }
 }
+.svpk .svpk-ph { margin: .9rem 22px 0; }
+.svpk .svpk-ph + ul { padding-top: 6px; padding-bottom: 4px; }
+.svpk .svpk-after { margin: 1rem 22px 22px; }
+.svpk-plus + .svpk-ph { margin-top: .7rem; }
+.svpk p.svpk-plus:has(+ .svpk-ph) { text-transform: none; letter-spacing: 0; font: 400 .86rem/1.5 var(--sans); color: #3B3026; }
