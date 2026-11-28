@@ -95,7 +95,7 @@ PAGES = {
      dict(kind='together2', eyebrow='How we&rsquo;ll work together', h2='From first call to <em>a team that runs it.</em>',  # DRAFT heading (merges two sections)
           sub='Handing over access takes trust. We protect and manage the privacy of your accounts, your access and your guests&rsquo; information, so you are never left wondering who can see what.',
           steps=[('Free call', 'Your bookings, your tools, and where the admin piles up.'),
-                 ('Set-up', 'Confidential transfer of access to your inboxes and booking systems; your voice, policies and templates handed over.'),
+                 ('Set-up', 'Confidential transfer of access to your inboxes and booking systems. We learn your brand, tone and policies, so every message sounds like you before our team takes over.'),
                  ('Your team takes over', 'Inquiries, guests, coordination and the back office, handled every day.'),
                  ('Monthly check-in', 'What came in, what got booked, and what to improve next.')],
           points=[('You own every account.', 'Nothing is moved or transferred. We work inside the inbox and booking system you already use.'),
@@ -508,8 +508,8 @@ def build(slug, pg, shell_head, shell_nav, shell_foot):
     head = re.sub(r'<link rel="canonical"[^>]*>\s*', '', head)
     head = re.sub(r'<script type="application/ld\+json">.*?</script>\s*', '', head, flags=re.S)
     head = re.sub(r'preview/zoom\.css\?v=\d+', 'preview/zoom.css?v=60', head)
-    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=14">\n</head>')
-    foot = re.sub(r'<script src="preview/zoom\.js[^"]*" defer></script>', '<script src="preview/svc.js?v=2" defer></script><script src="preview/svdemo.js?v=2" defer></script>', shell_foot)
+    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=16">\n</head>')
+    foot = re.sub(r'<script src="preview/zoom\.js[^"]*" defer></script>', '<script src="preview/svc.js?v=3" defer></script><script src="preview/svdemo.js?v=2" defer></script>', shell_foot)
     page = head + shell_nav + world + foot
     page = page.replace('href="/preview/zoom.html#', 'href="/preview/zoom.html#')
     os.makedirs('preview/svc', exist_ok=True)

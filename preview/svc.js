@@ -29,6 +29,14 @@
         var mk = sp.el.querySelector(':scope > .zsnap');
         if (!mk) { mk = document.createElement('div'); mk.className = 'zsnap'; mk.setAttribute('aria-hidden', 'true'); sp.el.appendChild(mk); }
         mk.style.top = (sp.b + vh * .08 - top) + 'px';
+      } else {
+        // calm-scroll cards: a firm stop at the card's top, then gentle stops every ~80% of a screen, so phones can't fling past the FAQ
+        [].slice.call(sp.el.querySelectorAll(':scope > .zsnap')).forEach(function (m) { m.remove(); });
+        var card = sp.el.querySelector('.svflow-card'), cTop = card ? card.offsetTop - 84 : 0, cEnd = card ? card.offsetTop + card.offsetHeight : hgt;
+        for (var yy = cTop, n = 0; yy < cEnd - vh * .5; yy += vh * .8, n++) {
+          var m = document.createElement('div'); m.className = 'zsnap' + (n ? ' zsnap--soft' : ''); m.setAttribute('aria-hidden', 'true');
+          m.style.top = Math.max(0, yy) + 'px'; sp.el.appendChild(m);
+        }
       }
       prevOut = sp.out;
     });
