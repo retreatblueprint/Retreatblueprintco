@@ -39,10 +39,10 @@ PAGES = {
    photos=['photo-1754078219069-7565df2033b0', 'photo-1775283537748-4fc2b5fb28c0', 'photo-1791535766539-32200ac0ba30',
            'photo-1777913319909-1d27d36db93e', 'photo-1767324672978-f26a05319e63'],
    hero=dict(eyebrow='Foundation Sprint &middot; retreat center systems setup',
-             h1='Run on systems,<br><em>not memory.</em>',  # DRAFT
-             promise='Bookings, payments, guest communication and your numbers, built once and connected.',  # DRAFT
+             h1='A calm stay starts<br><em>behind the scenes.</em>',  # DRAFT idea-led
+             promise='Bookings, payments, guest messages and your numbers, built once and connected, so your retreat runs the same way whether you&rsquo;re there or not.',  # DRAFT
              aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
-             price='Pieces from $100 USD &middot; no minimum &middot; 10% off 3 or more, 15% off the full package', jump=('#quote', 'Build your quote &darr;')),
+             price=None, jump=('#quote', 'Build your quote &darr;')),
    stops=[
      dict(kind='signs', eyebrow='Is this you?', h2='When the business runs on memory, everything waits for you.',  # DRAFT
           sub='Each piece of the Foundation Sprint replaces a gap like these with a system.',  # DRAFT
@@ -66,10 +66,10 @@ PAGES = {
    photos=['photo-1762177446992-4cac5b44a05d', 'photo-1572511443032-a3cfe6823872', 'photo-1596436876625-091f67351709',
            'photo-1596436891234-ab1fbd9353e5', 'photo-1596436891234-ab1fbd9353e5', 'photo-1635248518288-2bdc4402fe37'],
    hero=dict(eyebrow='Concierge Ops &middot; retreat admin &amp; booking management',
-             h1='Hand over<br><em>the inbox.</em>',  # DRAFT
-             promise='A dedicated team, led by your Retreat Operations Director, answers every inquiry within 2 business hours, in your voice, in English and Spanish.',  # DRAFT (facts from the page)
+             h1='Guests decide<br><em>in the first reply.</em>',  # DRAFT idea-led
+             promise='A dedicated team, led by your Retreat Operations Director, answers every inquiry within 2 business hours, in your voice, in English and Spanish, so no guest waits while you host.',  # DRAFT (facts from the page)
              aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
-             price='From $250 USD / month &middot; 3-month minimum', jump=('#handover', 'See what you hand over &darr;')),
+             price=None, jump=('#handover', 'See what you hand over &darr;')),
    stops=[
      dict(kind='signs', eyebrow='Is this you?', h2='When the admin waits for you, your guests wait too.',  # DRAFT
           sub='Every one of these is work your Concierge Ops team takes over.',
@@ -95,18 +95,25 @@ PAGES = {
                   ('Access ends when you say so.', 'If you stop, access is removed and your accounts stay with you.')]),
      dict(kind='flow', id='faq'),
      dict(kind='close', eyebrow='Start with a conversation', h2='Give every guest your full attention.<br><em>We&rsquo;ll handle the admin.</em>',
-          body='A free 30-minute call. No obligation, just a clear next step.'),
+          body='A free 30-minute call. No obligation, just a clear next step.',
+          price='From $250 USD / month &middot; 3-month minimum'),
    ]),
  'fractional-operations-director': dict(
    name='Fractional Retreat Operations Director', acc='#2F6467', accd='#234D50', soft='#DCE8E8', call=CAL + 'fractional-director-call',
    photos=['photo-1587242778880-f5a1b727a006', 'photo-1590172815327-22cbf36dd2be', 'photo-1589982146187-a6cc277751ea',
            'photo-1567491634123-460945ea86dd', 'photo-1730815252343-f80770ec8eaa', 'photo-1791535771068-e0fa043957dc', 'photo-1788690732470-7a72a0a34d96'],
    hero=dict(eyebrow='Fractional Retreat Operations Director &middot; fractional COO for retreat centers',
-             h1='Senior leadership,<br><em>without a full-time hire.</em>',
-             promise='I manage your department leads, coordinate retreat delivery, and follow through on the improvements we agree on.',
+             h1='Grow on numbers<br><em>you can trust.</em>',  # approved
+             promise='Occupancy, ADR, cost per occupied room and cash flow, tracked every month and turned into your next move. Senior leadership, without a full-time hire.',  # approved
              aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
-             price='From $1,800 USD / month &middot; 6-month minimum', jump=('#tiers', 'Compare packages &darr;')),
+             price=None, jump=('#tiers', 'Compare packages &darr;')),
    stops=[
+     dict(kind='metrics', eyebrow='The numbers', h2='Performance is more <em>than occupancy.</em>',
+          sub='A full calendar doesn&rsquo;t always translate into a healthy bottom line. I connect financial performance with the operational realities behind it, helping owners understand what is driving results and where changes can make the greatest difference.',
+          groups=[('Revenue performance', ['Occupancy', 'ADR', 'RevPAR', 'Booking mix']),
+                  ('Operating profitability', ['Cost per occupied room', 'Break-even occupancy', 'Operating margin']),
+                  ('Financial planning', ['Cash flow', 'Budget versus actuals', 'Seasonal forecasting'])],
+          note='For exclusive-use or package-based retreats, the measures are shaped around your business model.'),
      dict(kind='signs', eyebrow='Who it&rsquo;s for', h2='When the business needs another level of leadership.',
           sub='Not every retreat needs a full-time operations director. But as a property develops, the decisions become more complex, and the need for experienced oversight becomes more important. This partnership may be right for you if:',
           list=['Your property is operating, but performance isn&rsquo;t where it should be.',
@@ -144,12 +151,6 @@ PAGES = {
                   'Operational planning for expansion or a new offer, with up to three improvements at a time.',
                   'On-site support in Central America available as part of a tailored scope.'])],
           note='Six-month minimum. We agree on departments, retreat coverage, working hours, and escalation windows before we start. Your department leads carry out the work on site. Concierge Ops can be added to any tier for day-to-day admin, including inboxes, booking updates, guest messages, and payment tracking.')),
-     dict(kind='metrics', eyebrow='The numbers &middot; part of Core and Embedded', h2='Performance is more <em>than occupancy.</em>',
-          sub='A full calendar doesn&rsquo;t always translate into a healthy bottom line. I connect financial performance with the operational realities behind it, helping owners understand what is driving results and where changes can make the greatest difference.',
-          groups=[('Revenue performance', ['Occupancy', 'ADR', 'RevPAR', 'Booking mix']),
-                  ('Operating profitability', ['Cost per occupied room', 'Break-even occupancy', 'Operating margin']),
-                  ('Financial planning', ['Cash flow', 'Budget versus actuals', 'Seasonal forecasting'])],
-          note='For exclusive-use or package-based retreats, the measures are shaped around your business model.'),
      dict(kind='flow', id='faq'),
      dict(kind='close', eyebrow='Start with a conversation', h2='Tell me what you&rsquo;d like <em>to hand over.</em>',
           body='We&rsquo;ll talk through what your venue needs and which level of support fits.'),
@@ -159,10 +160,10 @@ PAGES = {
    photos=['photo-1588504633950-9dc518941e93', 'photo-1772064901543-fb4a5d9f4736', 'photo-1772064901616-00264a6c4104',
            'photo-1782739249749-62de55c76535', 'photo-1782739249749-62de55c76535', 'photo-1762254923872-5bdc4210eb90'],
    hero=dict(eyebrow='Growth Marketing &middot; retreat center marketing',
-             h1='Seen by the guests<br><em>who fit your retreat.</em>',
-             promise='Scope built around what you actually need, from strategy only to full execution with a dedicated team, so the guests who fit your retreat find it, trust it and book.',  # DRAFT (joins two lines from the page)
+             h1='The right guests are already looking<br><em>for a place like yours.</em>',  # DRAFT idea-led
+             promise='Strategy, content and outreach that help them find your retreat, trust it and book.',
              aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
-             price='From $500 USD &middot; strategy only or fully managed', jump=('#levels', 'Choose your level &darr;')),  # DRAFT price from Shila
+             price=None, jump=('#levels', 'Choose your level &darr;')),  # DRAFT price from Shila
    stops=[
      dict(kind='signs', eyebrow='Is this you?', h2='Great retreats stay quiet when the right people can&rsquo;t find them.',  # DRAFT
           sub='Growth Marketing closes each of these gaps.',  # DRAFT
@@ -174,7 +175,7 @@ PAGES = {
      dict(kind='levels', id='levels', eyebrow='Choose your level', h2='From strategy only <em>to fully managed.</em>',
           levels=[('Strategy only', 'The plan, ready for your team', 'For venues with someone to run marketing day to day, who need the direction.', ['Marketing strategy and positioning', 'Content direction']),
                   ('Fully managed', 'Strategy plus a dedicated team', 'Everything in strategy only, then executed for you, end to end.', ['Dedicated marketing lead, fully managed', 'Content creation handled end to end', 'Social media systems and scheduling', 'Outreach campaigns and sales funnel', 'Custom lead generator'])],
-          note='Scope discussed on inquiry.'),
+          note='From $500 USD &middot; scope discussed on inquiry.'),
      dict(kind='steps', eyebrow='How it starts', h2='From first call to campaigns going out.',
           steps=[('Free call', 'Your guests, your goals, and what&rsquo;s worked so far.'),
                  ('Strategy', 'Positioning, channels and a content plan.'),
@@ -189,10 +190,10 @@ PAGES = {
            'photo-1711948728889-614d5d0030f8', 'photo-1789930153509-2c8a0c3ccec4', 'photo-1789930153694-14f21db66d1d',
            'photo-1772703003096-fe4096559f81', 'photo-1709390083401-4fdbc56970d9', 'photo-1731924823462-5614a26b4ede'],
    hero=dict(eyebrow='Buying a retreat center? &middot; pre-purchase operations review',
-             h1='Know what you&rsquo;re buying.<br><em>Run it well from day one.</em>',
-             promise='An independent operations review before you buy a retreat venue, and a hands-on 90-day plan after you get the keys. So the property you fell in love with becomes a business that works.',
+             h1='Buy the business<br><em>behind the view.</em>',  # DRAFT idea-led
+             promise='An independent operations review before you sign, and a hands-on 90-day plan after you get the keys.',
              aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
-             price='Pre-purchase review from $1,200 USD', jump=('#packages', 'See the packages &darr;'), jump2=('#agents', 'Real estate agents &darr;')),
+             price=None, jump=('#packages', 'See the packages &darr;'), jump2=('#agents', 'Real estate agents &darr;')),
    stops=[
      dict(kind='gap', eyebrow='The gap', h2='Your lawyer checks the title. Your inspector checks the roof. <em>Nobody checks the operation.</em>',
           sub='When you buy a retreat venue, you&rsquo;re buying a business as much as a property. How well it runs depends on bookings, people and systems that never show up in a listing, and that&rsquo;s where buyers lose money.',
@@ -349,7 +350,7 @@ def stop_html(st, pg, i):
     elif k == 'roles':
         inner = head() + '<div class="svroles">' + ''.join(
             f'<div class="svrole"><p class="svrk">{r}</p><b>{t}</b><ul>' + ''.join(f'<li>{x}</li>' for x in tasks) + f'</ul><p class="svkeep"><span>You keep:</span> {keep}</p></div>'
-            for t, r, tasks, keep in st['roles']) + '</div>'
+            for t, r, tasks, keep in st['roles']) + '</div>' + (f'<p class="svnote">{st["note"]}</p>' if st.get('note') else '')
         cls = 'svstop sv-center'
     elif k == 'tiers':
         inner = head() + '<div class="svtiers">' + ''.join(
@@ -418,8 +419,8 @@ def stop_html(st, pg, i):
             parts.append(more_html(slug_of[pg['name']], pg))
         return f'<section class="svflow"{sid}><div class="wrap"><div class="svflow-card">' + ''.join(parts) + '</div></div></section>'
     elif k == 'close':
-        inner = (f'<p class="eyebrow">{st["eyebrow"]}</p><h2>{st["h2"]}</h2><p class="body">{st["body"]}</p>'
-                 f'<a class="btn btn--light" href="{pg["call"]}" target="_blank" rel="noopener">Book a free call</a>'
+        inner = (f'<p class="eyebrow">{st["eyebrow"]}</p><h2>{st["h2"]}</h2><p class="body">{st["body"]}</p>' +
+                 (f'<p class="svhprice svhprice--close">{st["price"]}</p>' if st.get('price') else '') + f'<a class="btn btn--light" href="{pg["call"]}" target="_blank" rel="noopener">Book a free call</a>'
                  '<div class="note-block"><p>Prefer to write first? <a href="mailto:hello@retreatblueprintco.com?subject=Retreat%20Blueprint%20Co.%20inquiry">hello@retreatblueprintco.com</a> or <a href="https://wa.me/16479702759" target="_blank" rel="noopener">WhatsApp</a></p></div>')
         cls = 'svstop sv-close'
     return f'<section class="{cls}"{sid}><div class="wrap">{inner}</div></section>'
@@ -431,7 +432,7 @@ def build(slug, pg, shell_head, shell_nav, shell_foot):
                    for n, p in enumerate(pg['photos']))
     h = pg['hero']
     hero = (f'<header class="zs zs1 svhero"><div class="zsnap" style="top:0" aria-hidden="true"></div><div class="zcopy">'
-            f'<p class="eyebrow">{h["eyebrow"]}</p><h1>{h["h1"]}</h1><p class="zpromise">{h["promise"]}</p>' + (f'<p class="svaud">{h["aud"]}</p>' if h.get('aud') else '') + f'<p class="svhprice">{h["price"]}</p>'
+            f'<p class="eyebrow">{h["eyebrow"]}</p><h1>{h["h1"]}</h1><p class="zpromise">{h["promise"]}</p>' + (f'<p class="svaud">{h["aud"]}</p>' if h.get('aud') else '') + (f'<p class="svhprice">{h["price"]}</p>' if h.get('price') else '') +
             f'<div class="hero-actions"><a class="btn" href="{pg["call"]}" target="_blank" rel="noopener">Book a free call</a>'
             f'<a class="link-quiet" href="{h["jump"][0]}">{h["jump"][1]}</a>' + (f'<a class="link-quiet" href="{h["jump2"][0]}">{h["jump2"][1]}</a>' if h.get('jump2') else '') + '</div></div></header>')
     stops = ''.join(stop_html(st, pg, i) for i, st in enumerate(pg['stops']))
@@ -442,7 +443,7 @@ def build(slug, pg, shell_head, shell_nav, shell_foot):
     head = re.sub(r'<link rel="canonical"[^>]*>\s*', '', head)
     head = re.sub(r'<script type="application/ld\+json">.*?</script>\s*', '', head, flags=re.S)
     head = re.sub(r'preview/zoom\.css\?v=\d+', 'preview/zoom.css?v=60', head)
-    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=8">\n</head>')
+    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=9">\n</head>')
     foot = re.sub(r'<script src="preview/zoom\.js[^"]*" defer></script>', '<script src="preview/svc.js?v=2" defer></script>', shell_foot)
     page = head + shell_nav + world + foot
     page = page.replace('href="/preview/zoom.html#', 'href="/preview/zoom.html#')
