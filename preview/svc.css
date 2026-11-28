@@ -403,3 +403,6 @@
   .sv-card .svsteps li { padding: 9px 10px; } .svsteps p { font-size: .7rem; line-height: 1.35; }
   .pcard { padding-top: 10px; padding-bottom: 10px; }
 }
+@media (max-width: 760px) {
+  .svpanel, .svmetrics { background: rgba(10,22,26,.52); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-radius: 16px; padding: 4px 14px; }
+}
