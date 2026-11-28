@@ -66,13 +66,13 @@ PAGES = {
    photos=['photo-1762177446992-4cac5b44a05d', 'photo-1572511443032-a3cfe6823872', 'photo-1572511443032-a3cfe6823872', 'photo-1596436876625-091f67351709',
            'photo-1596436891234-ab1fbd9353e5', 'photo-1596436891234-ab1fbd9353e5', 'photo-1635248518288-2bdc4402fe37'],
    hero=dict(eyebrow='Concierge Ops &middot; retreat admin &amp; booking management',
-             h1='Guests decide<br><em>in the first reply.</em>',  # DRAFT idea-led
-             promise='A dedicated team answers every inquiry within 2 business hours, in your voice and in your guests&rsquo; language.',  # DRAFT (facts from the page)
+             h1='From first inquiry<br><em>to final invoice.</em>',  # approved
+             promise='A dedicated team handles your inquiries, guests, retreat coordination and invoices, in your voice and in your guests&rsquo; language, with replies within 2 business hours.',  # approved  # DRAFT (facts from the page)
              aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
              price=None, jump=('#handover', 'See what you hand over &darr;')),
    stops=[
      dict(kind='demo', demo='concierge', eyebrow='Behind the scenes &middot; an example week', h2='Every message handled, <em>and every one logged.</em>',  # DRAFT heading
-          note='An example retreat, so you can see what happens behind the scenes. You don&rsquo;t track any of it: your Retreat Operations Director oversees it all.'),  # DRAFT note
+          note='A week behind the scenes. Your Retreat Operations Director leads this team for you, and you only step in when something needs your approval.'),  # approved
      dict(kind='signs', style='fromto', eyebrow='Is this you?', h2='When the admin waits for you, your guests wait too.',  # DRAFT
           sub='Every one of these is work your Concierge Ops team takes over.',
           cards=[('Inquiries wait until you have a free evening', 'Replies within 2 business hours, in your voice, including while a retreat is in session.'),
