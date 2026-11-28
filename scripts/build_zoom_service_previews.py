@@ -63,7 +63,7 @@ PAGES = {
    ]),
  'concierge-ops': dict(
    name='Concierge Ops', acc='#4A6E4E', accd='#3A5A3E', soft='#E2EBE2', call=CAL + 'concierge-ops-call',
-   photos=['photo-1762177446992-4cac5b44a05d', 'photo-1572511443032-a3cfe6823872', 'photo-1596436876625-091f67351709',
+   photos=['photo-1762177446992-4cac5b44a05d', 'photo-1572511443032-a3cfe6823872', 'photo-1572511443032-a3cfe6823872', 'photo-1596436876625-091f67351709',
            'photo-1596436891234-ab1fbd9353e5', 'photo-1596436891234-ab1fbd9353e5', 'photo-1635248518288-2bdc4402fe37'],
    hero=dict(eyebrow='Concierge Ops &middot; retreat admin &amp; booking management',
              h1='Guests decide<br><em>in the first reply.</em>',  # DRAFT idea-led
@@ -71,6 +71,7 @@ PAGES = {
              aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
              price=None, jump=('#handover', 'See what you hand over &darr;')),
    stops=[
+     dict(kind='demo', demo='concierge', eyebrow='A week with your team', h2='Every message handled, <em>and every one logged.</em>'),  # DRAFT heading
      dict(kind='signs', eyebrow='Is this you?', h2='When the admin waits for you, your guests wait too.',  # DRAFT
           sub='Every one of these is work your Concierge Ops team takes over.',
           cards=[('Inquiries wait until you have a free evening', 'Replies within 2 business hours, in your voice, including while a retreat is in session.'),
@@ -108,11 +109,8 @@ PAGES = {
              aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
              price=None, jump=('#tiers', 'Compare packages &darr;')),
    stops=[
-     dict(kind='metrics', eyebrow='The numbers', h2='Performance is more <em>than occupancy.</em>',
+     dict(kind='demo', demo='director', eyebrow='The numbers', h2='Performance is more <em>than occupancy.</em>',
           sub='A full calendar doesn&rsquo;t always translate into a healthy bottom line. I connect financial performance with the operational realities behind it, helping owners understand what is driving results and where changes can make the greatest difference.',
-          groups=[('Revenue performance', ['Occupancy', 'ADR', 'RevPAR', 'Booking mix']),
-                  ('Operating profitability', ['Cost per occupied room', 'Break-even occupancy', 'Operating margin']),
-                  ('Financial planning', ['Cash flow', 'Budget versus actuals', 'Seasonal forecasting'])],
           note='For exclusive-use or package-based retreats, the measures are shaped around your business model.'),
      dict(kind='signs', eyebrow='Who it&rsquo;s for', h2='When the business needs another level of leadership.',
           sub='Not every retreat needs a full-time operations director. But as a property develops, the decisions become more complex, and the need for experienced oversight becomes more important. This partnership may be right for you if:',
@@ -321,6 +319,42 @@ def more_html(slug, pg):
         rd = '<div class="svread"><p class="label">Further reading &middot; Field Notes</p>' + ''.join(f'<a href="{h}">{t} &rarr;</a>' for h, t in READING[slug]) + '</div>'
     return me + others + rd
 
+def demo_html(kind):
+    if kind == 'concierge':
+        days = ''.join(f'<span>{d}</span>' for d in ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'])
+        roles = ''.join(f'<div class="dm-role"><b>{a}</b><span>{b}</span><i>0</i></div>' for a, b in [
+            ('Booking Assistant', 'Inquiries and bookings'), ('Guest Experience', 'Guest communication'),
+            ('Coordinator', 'Retreat coordination'), ('Back Office', 'Invoices and records')])
+        srcs = ''.join(f'<div class="dm-src">{x}</div>' for x in ['Email', 'WhatsApp', 'Booking sites', 'Retreat leaders'])
+        return ('<div class="dm" data-demo="concierge">'
+                '<div class="dm-top"><div class="dm-id"><b>Concierge Ops board</b><span>Sample venue &middot; illustrative numbers</span></div>'
+                '<div class="dm-time"><span class="dm-live">running</span><span class="dm-clock">Mon 00:00</span></div>'
+                f'<div class="dm-scrub"><i class="dm-knob"></i>{days}</div></div>'
+                '<div class="dm-kpis"><div class="dm-kpi"><span>Messages handled</span><b>0</b></div>'
+                '<div class="dm-kpi"><span>Typical reply</span><b>&ndash;</b></div>'
+                '<div class="dm-kpi"><span>Waiting for you</span><b>0</b></div>'
+                '<div class="dm-kpi dm-kpi--acc"><span>Your hours back</span><b>0 h</b></div></div>'
+                f'<div class="dm-flow"><div class="dm-srcs">{srcs}</div>'
+                '<div class="dm-hub"><b>Your team</b><span>in your voice &middot; English and Spanish</span></div>'
+                f'<div class="dm-roles">{roles}</div></div>'
+                '<div class="dm-bottom"><div class="dm-qw"><p>For you to decide</p><div class="dm-q"></div><small>Pricing and special requests stay with you.</small></div>'
+                '<div class="dm-log"><p>Activity</p><ul></ul></div></div></div>')
+    if kind == 'director':
+        months = ''.join(f'<span>{m}</span>' for m in ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'])
+        kp = ''.join(f'<div class="dm-kpi"><span>{x}</span><b>&ndash;</b></div>' for x in
+                     ['Occupancy', 'ADR', 'RevPAR', 'Cost per occupied room', 'Break-even occupancy', 'Net cash flow'])
+        return ('<div class="dm dm--dir" data-demo="director">'
+                '<div class="dm-top"><div class="dm-id"><b>Monthly owner report</b><span>Sample venue &middot; illustrative numbers</span></div>'
+                '<div class="dm-time"><span class="dm-live">built monthly</span><span class="dm-clock">Jan report</span></div>'
+                f'<div class="dm-scrub"><i class="dm-knob"></i>{months}</div></div>'
+                f'<div class="dm-kpis dm-kpis--6">{kp}</div>'
+                '<div class="dm-main"><div class="dm-chart"><p>Occupancy against break-even <span><i class="l1"></i>Occupancy <i class="l2"></i>Break-even</span></p>'
+                '<svg viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true">'
+                + ''.join(f'<line x1="20" x2="580" y1="{180 - (v - 40) * 160 / 30:.0f}" y2="{180 - (v - 40) * 160 / 30:.0f}" class="g"/><text x="0" y="{184 - (v - 40) * 160 / 30:.0f}">{v}</text>' for v in (40, 50, 60, 70))
+                + '<path class="dm-be" d=""/><path class="dm-occ" d=""/><circle class="dm-dot" r="6" cx="20" cy="180"/></svg></div>'
+                '<div class="dm-log"><p>Decisions and follow-through</p><ul></ul></div></div></div>')
+    return ''
+
 PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>'
 
 def proof_card(key):
@@ -392,6 +426,9 @@ def stop_html(st, pg, i):
     elif k == 'report':
         inner = head() + '<ol class="svreport">' + ''.join(f'<li><span>Page {n+1}</span><b>{a}</b><p>{b}</p></li>' for n, (a, b) in enumerate(st['pages'])) + '</ol>' + f'<a class="btn svcta svcta--c" href="{st["link"][0]}" target="_blank" rel="noopener">{st["link"][1]}</a>'
         cls = 'svstop sv-center'
+    elif k == 'demo':
+        inner = head() + demo_html(st['demo']) + (f'<p class="svnote">{st["note"]}</p>' if st.get('note') else '')
+        cls = 'svstop sv-center sv-demo'
     elif k == 'unseen':
         inner = head() + '<ol class="svunseen">' + ''.join(f'<li><span>{n+1:02d}</span><p>{x}</p></li>' for n, x in enumerate(st['items'])) + '</ol>'
         cls = 'svstop sv-center'
@@ -443,8 +480,8 @@ def build(slug, pg, shell_head, shell_nav, shell_foot):
     head = re.sub(r'<link rel="canonical"[^>]*>\s*', '', head)
     head = re.sub(r'<script type="application/ld\+json">.*?</script>\s*', '', head, flags=re.S)
     head = re.sub(r'preview/zoom\.css\?v=\d+', 'preview/zoom.css?v=60', head)
-    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=9">\n</head>')
-    foot = re.sub(r'<script src="preview/zoom\.js[^"]*" defer></script>', '<script src="preview/svc.js?v=2" defer></script>', shell_foot)
+    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=11">\n</head>')
+    foot = re.sub(r'<script src="preview/zoom\.js[^"]*" defer></script>', '<script src="preview/svc.js?v=2" defer></script><script src="preview/svdemo.js?v=1" defer></script>', shell_foot)
     page = head + shell_nav + world + foot
     page = page.replace('href="/preview/zoom.html#', 'href="/preview/zoom.html#')
     os.makedirs('preview/svc', exist_ok=True)
