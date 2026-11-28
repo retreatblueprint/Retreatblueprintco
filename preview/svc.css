@@ -392,3 +392,14 @@
 }
 .svn.svn--d { font: 600 .7rem/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; opacity: 1; margin-bottom: .45rem; }
 @media (max-width: 760px) { .svn.svn--d { font-size: .6rem; margin-bottom: .2rem; } }
+/* mid-height phones (most phones with browser bars showing) */
+@media (max-width: 760px) and (max-height: 820px) and (min-height: 701px) {
+  .svh h2 { font-size: 1.32rem; }
+  .svh .eyebrow { margin-bottom: .2rem; }
+  .svrole { padding: 8px 10px; } .svrole ul { font-size: .68rem; line-height: 1.35; } .svkeep { font-size: .68rem; line-height: 1.35; }
+  .svcol { padding: 9px 12px; } .svcolk { margin-bottom: .35rem; }
+  .svtl li { padding-bottom: 4px; } .svtl b { font-size: .8rem; } .svtl p { font-size: .66rem; line-height: 1.35; }
+  .svtrust { gap: 4px; } .svtrust li { font-size: .66rem; line-height: 1.35; } .svtrust b { font-size: .78rem; }
+  .sv-card .svsteps li { padding: 9px 10px; } .svsteps p { font-size: .7rem; line-height: 1.35; }
+  .pcard { padding-top: 10px; padding-bottom: 10px; }
+}
