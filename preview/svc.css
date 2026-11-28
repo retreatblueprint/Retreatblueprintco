@@ -795,3 +795,29 @@
   .dm-id { min-height: 38px; } .dm-crest { width: 36px; height: 36px; }
   .dm-log { padding-top: 6px; } .dm-log p { margin-bottom: .3rem; }
 }
+/* v22: cleaner figure tiles, no layout shift while playing */
+.dm-kpis { border: 0; gap: 10px; margin: 12px 0; }
+.dm-kpi, .dm-kpi:first-child { border: 0; border-radius: 12px; background: rgba(176,138,90,.09); padding: 10px 14px; }
+.dm-kpi--acc { background: var(--acc); } .dm-kpi--acc span { color: rgba(255,255,255,.8); } .dm-kpi--acc b { color: #fff; }
+.dm-kpi b { white-space: nowrap; }
+.dm-clock { display: inline-block; min-width: 6.4em; text-align: right; white-space: nowrap; }
+.dm-log ul { height: calc(3 * 1.35em * 1.05 + 2 * 7px + 12px); overflow: hidden; align-content: start; }
+.dm--dir .dm-log ul { height: auto; min-height: 8.5em; }
+.dm-log li { min-height: 1.35em; }
+.dm-team .dm-hub { justify-content: center; text-align: center; }
+@media (max-width: 760px) {
+  .dm-kpis { gap: 6px; } .dm-kpis--6 .dm-kpi:nth-child(n+4) { border-top: 0; }
+  .dm-kpi, .dm-kpi:first-child, .dm-kpis:not(.dm-kpis--6) .dm-kpi { padding: 7px 7px; border-radius: 10px; }
+  .dm-top { grid-template-columns: 1fr auto; }
+  .dm-id span { white-space: nowrap; text-transform: none; letter-spacing: .02em; font-size: .6rem; }
+  .dm-log ul { height: 5.4em; } .dm-log li:nth-child(n+3) { display: none; }
+  .dm--dir .dm-log ul { height: 6.2em; min-height: 0; }
+}
+@media (max-width: 760px) and (max-height: 700px) { .dm-log ul { height: 5em; } }
+@media (max-width: 760px) {
+  .dm-top { position: relative; grid-template-columns: minmax(0, 1fr); }
+  .dm-id { min-width: 0; padding-right: 0; }
+  .dm-id span { display: block; overflow: hidden; text-overflow: ellipsis; }
+  .dm-time { position: absolute; top: 4px; right: 0; }
+  .dm-clock { min-width: 0; font-size: .95rem; }
+}
