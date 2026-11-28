@@ -30,18 +30,25 @@ def faq_from(page):
     out = []
     for d in items:
         d = re.sub(r'href="/(?=[a-z])', 'href="/preview/svc/', d)  # keep links inside the preview where a preview page exists
+        for a, b in FAQ_WORDS: d = d.replace(a, b)
         out.append(d)
     return '\n'.join(out)
+
+FAQ_WORDS = [  # boutique wellness hospitality wording for the FAQ copied from the live pages
+    ('for retreat properties anywhere in the world', 'for properties anywhere in the world'),
+    ('available for retreat properties anywhere in the world', 'available for properties anywhere in the world'),
+    ('Selling a retreat property?', 'Selling a retreat or boutique hospitality property?'),
+]
 
 PAGES = {
  'foundation-sprint': dict(
    name='Foundation Sprint', acc='#985033', accd='#7E4029', soft='#F3E4D9', call=CAL + 'foundation-sprint-call',
    photos=['photo-1754078219069-7565df2033b0', 'photo-1775283537748-4fc2b5fb28c0', 'photo-1791535766539-32200ac0ba30',
            'photo-1777913319909-1d27d36db93e', 'photo-1767324672978-f26a05319e63'],
-   hero=dict(eyebrow='Foundation Sprint &middot; retreat center systems setup',
+   hero=dict(eyebrow='Foundation Sprint &middot; systems setup for retreats and boutique hotels',
              h1='A calm stay starts<br><em>behind the scenes.</em>',  # DRAFT idea-led
-             promise='Bookings, payments, guest messages and your numbers, built once and connected, so your retreat runs the same way whether you&rsquo;re there or not.',  # DRAFT
-             aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
+             promise='Bookings, payments, guest messages and your numbers, built once and connected, so your property runs the same way whether you&rsquo;re there or not.',  # DRAFT
+             aud='For retreat centers, eco-lodges, boutique hotels and resorts.',
              price=None, jump=('#quote', 'Build your quote &darr;')),
    stops=[
      dict(kind='signs', eyebrow='Is this you?', h2='When the business runs on memory, everything waits for you.',  # DRAFT
@@ -65,10 +72,10 @@ PAGES = {
    name='Concierge Ops', acc='#4A6E4E', accd='#3A5A3E', soft='#E2EBE2', call=CAL + 'concierge-ops-call',
    photos=['photo-1762177446992-4cac5b44a05d', 'photo-1572511443032-a3cfe6823872', 'photo-1572511443032-a3cfe6823872', 'photo-1596436876625-091f67351709',
            'photo-1596436891234-ab1fbd9353e5', 'photo-1596436891234-ab1fbd9353e5', 'photo-1635248518288-2bdc4402fe37'],
-   hero=dict(eyebrow='Concierge Ops &middot; retreat admin &amp; booking management',
+   hero=dict(eyebrow='Concierge Ops &middot; admin &amp; booking management for boutique wellness hospitality',
              h1='From first inquiry<br><em>to final invoice.</em>',  # approved
              promise='A dedicated team handles your inquiries, guests, retreat coordination and invoices, in your voice and in your guests&rsquo; language, with replies within 2 business hours.',  # approved  # DRAFT (facts from the page)
-             aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
+             aud='For retreat centers, eco-lodges, boutique hotels and resorts.',
              price=None, jump=('#handover', 'See what you hand over &darr;')),
    stops=[
      dict(kind='demo', demo='concierge', eyebrow='Behind the scenes &middot; an example week', h2='Every message handled, <em>and every one logged.</em>',  # DRAFT heading
@@ -104,10 +111,10 @@ PAGES = {
    name='Fractional Retreat Operations Director', acc='#2F6467', accd='#234D50', soft='#DCE8E8', call=CAL + 'fractional-director-call',
    photos=['photo-1587242778880-f5a1b727a006', 'photo-1590172815327-22cbf36dd2be', 'photo-1589982146187-a6cc277751ea',
            'photo-1567491634123-460945ea86dd', 'photo-1730815252343-f80770ec8eaa', 'photo-1791535771068-e0fa043957dc', 'photo-1788690732470-7a72a0a34d96'],
-   hero=dict(eyebrow='Fractional Retreat Operations Director &middot; fractional COO for retreat centers',
+   hero=dict(eyebrow='Fractional Retreat Operations Director &middot; fractional COO for boutique wellness hospitality',
              h1='Grow on numbers<br><em>you can trust.</em>',  # approved
              promise='Occupancy, ADR, cost per occupied room and cash flow, tracked every month and turned into your next move. Senior leadership, without a full-time hire.',  # approved
-             aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
+             aud='For retreat centers, eco-lodges, boutique hotels and resorts.',
              price=None, jump=('#tiers', 'Compare packages &darr;')),
    stops=[
      dict(kind='demo', demo='director', eyebrow='The numbers', h2='Performance is more <em>than occupancy.</em>',
@@ -158,15 +165,15 @@ PAGES = {
    name='Growth Marketing', acc='#8A5414', accd='#6E420F', soft='#F2E6D3', call=CAL + 'growth-marketing-call',
    photos=['photo-1588504633950-9dc518941e93', 'photo-1772064901543-fb4a5d9f4736', 'photo-1772064901616-00264a6c4104',
            'photo-1782739249749-62de55c76535', 'photo-1782739249749-62de55c76535', 'photo-1762254923872-5bdc4210eb90'],
-   hero=dict(eyebrow='Growth Marketing &middot; retreat center marketing',
+   hero=dict(eyebrow='Growth Marketing &middot; marketing for retreats and boutique hotels',
              h1='The right guests are already looking<br><em>for a place like yours.</em>',  # DRAFT idea-led
-             promise='Strategy, content and outreach that help them find your retreat, trust it and book.',
-             aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
+             promise='Strategy, content and outreach that help them find your property, trust it and book.',
+             aud='For retreat centers, eco-lodges, boutique hotels and resorts.',
              price=None, jump=('#levels', 'Choose your level &darr;')),  # DRAFT price from Shila
    stops=[
-     dict(kind='signs', eyebrow='Is this you?', h2='Great retreats stay quiet when the right people can&rsquo;t find them.',  # DRAFT
+     dict(kind='signs', eyebrow='Is this you?', h2='Great properties stay quiet when the right people can&rsquo;t find them.',  # DRAFT
           sub='Growth Marketing closes each of these gaps.',  # DRAFT
-          cards=[('Your website says what you have, not who it&rsquo;s for', 'A clear position: who your retreat is for.'),
+          cards=[('Your website says what you have, not who it&rsquo;s for', 'A clear position: who your property is for.'),
                  ('Your best moments never make it online', 'Content that shows the experience.'),
                  ('Posting waits for a free afternoon', 'A consistent presence, scheduled.'),
                  ('Inquiries come in waves, then stop', 'A steady pipeline from outreach and a lead generator.')],
@@ -188,14 +195,14 @@ PAGES = {
    photos=['photo-1675432979329-e8f2ac1cd914', 'photo-1656039306242-0d36a34cda1d', 'photo-1710330758725-ff587bc14ffe',
            'photo-1711948728889-614d5d0030f8', 'photo-1789930153509-2c8a0c3ccec4', 'photo-1789930153694-14f21db66d1d',
            'photo-1772703003096-fe4096559f81', 'photo-1709390083401-4fdbc56970d9', 'photo-1731924823462-5614a26b4ede'],
-   hero=dict(eyebrow='Buying a retreat center? &middot; pre-purchase operations review',
+   hero=dict(eyebrow='Buying a retreat, eco-lodge or boutique hotel? &middot; pre-purchase operations review',
              h1='Buy the business<br><em>behind the view.</em>',  # DRAFT idea-led
              promise='An independent operations review before you sign, and a hands-on 90-day plan after you get the keys.',
-             aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
+             aud='For retreat centers, eco-lodges, boutique hotels and resorts.',
              price=None, jump=('#packages', 'See the packages &darr;'), jump2=('#agents', 'Real estate agents &darr;')),
    stops=[
      dict(kind='gap', eyebrow='The gap', h2='Your lawyer checks the title. Your inspector checks the roof. <em>Nobody checks the operation.</em>',
-          sub='When you buy a retreat venue, you&rsquo;re buying a business as much as a property. How well it runs depends on bookings, people and systems that never show up in a listing, and that&rsquo;s where buyers lose money.',
+          sub='When you buy a retreat or boutique hospitality property, you&rsquo;re buying a business as much as a property. How well it runs depends on bookings, people and systems that never show up in a listing, and that&rsquo;s where buyers lose money.',
           roles=[('Lawyer or notary', 'Title, liens and transfer'), ('Inspector', 'The buildings'), ('Accountant', 'The books and taxes'), ('Retreat Blueprint Co.', 'How the business runs')]),
      dict(kind='flow', id='review', faq=False, extra_html='@@BUYTWO@@'),
      dict(kind='unseen', eyebrow='After closing', h2='What buyers often don&rsquo;t see <em>until after closing.</em>',
@@ -233,7 +240,7 @@ EXTRA = {
    <ul><li>Operations Health Score across 8 areas</li><li>Key numbers verified against records</li><li>Risks to address, each with a suggested next step</li><li>The true monthly cost to operate</li><li>The upside: what the venue could earn with stronger operations</li><li>A week-by-week 90-day roadmap</li></ul>
    <a class="svlink" href="assets/docs/sample-report.pdf" data-viewer="report" data-page="1">See what the 5-page report looks like &rarr;</a></div>
   <div class="svpath svpath--acc" id="ninety"><p class="svrk">After the acquisition &middot; just bought</p><h3>The First 90 Days</h3>
-   <p class="svpath-d">Hands-on support through the acquisition of your new retreat property, across the whole business:</p>
+   <p class="svpath-d">Hands-on support through the acquisition of your new property, across the whole business:</p>
    <p class="svcovers"><span>Financial management</span><span>Operational planning</span><span>Technology</span><span>Marketing</span><span>Training</span><span>Guest experience</span><span>Next stage of growth</span></p>
    <ul><li><b>Days 1&ndash;30, Protect:</b> the P&amp;L tracked from day one, the seller&rsquo;s know-how captured, every booked guest and retreat leader kept, and the team steadied</li><li><b>Days 31&ndash;60, Build:</b> a budget and forecast, an operational plan, one system for administration, finances and client relationships, the team trained, and the guest experience defined from inquiry to checkout</li><li><b>Days 61&ndash;90, Grow:</b> your marketing relaunched, past guests and leaders reconnected, and the next stage of growth mapped in a 12-month plan</li></ul></div>
  </div></div>
@@ -260,14 +267,14 @@ EXTRA = {
    <p class="svpk-ph">Days 61&ndash;90 &middot; Grow</p><ul><li>Marketing relaunched and past guests reconnected</li><li>The next stage of growth: a 12-month plan</li></ul>
    <p class="svpk-after">After day 90, keep it running with a <a href="/preview/svc/fractional-operations-director.html">part-time retreat operations director</a>, or hand the daily admin to <a href="/preview/svc/concierge-ops.html">Concierge Ops</a>.</p></div>
  </div>
- <div class="svworld-note"><b>Buying a retreat property anywhere in the world?</b><p>The Desk Review is fully remote, so it works for retreat venues in any country, and for buyers who can&rsquo;t be on site yet.</p></div>
+ <div class="svworld-note"><b>Buying a property anywhere in the world?</b><p>The Desk Review is fully remote, so it works for properties in any country, and for buyers who can&rsquo;t be on site yet.</p></div>
  <p class="svpk-note">This review covers operations only. Legal, structural and tax checks stay with your lawyer, inspector and accountant.</p></div>""",
  '@@BUYAGENTS@@': """<div class="svind"><p class="label">Independent and confidential</p><h2 class="title">A clear picture you can trust, on both sides of the deal.</h2>
  <div class="svind-g"><div><b>Independent</b><p>You hire me, and my findings are the same whether or not the sale goes ahead. If an agent referred you, any referral fee is disclosed to you in writing and never depends on what I find.</p></div>
  <div><b>Confidential</b><p>Everything shared by buyers and sellers is protected and kept confidential. An NDA is signed before any records are shared, and reports are released only with your permission.</p></div>
  <div><b>Fair to both sides</b><p>The review isn&rsquo;t about catching anyone out. It gives buyer and seller the same clear picture, which helps good deals close.</p></div></div></div>
- <div class="svagents"><p class="label">For real estate agents</p><h2 class="title">Help retreat deals close, on both sides.</h2>
- <p class="lead">Whether you&rsquo;re listing a retreat property or representing a buyer, I add an independent view of how the business runs, without slowing the deal down.</p>
+ <div class="svagents"><p class="label">For real estate agents</p><h2 class="title">Help hospitality deals close, on both sides.</h2>
+ <p class="lead">Whether you&rsquo;re listing a retreat or boutique hospitality property, or representing a buyer, I add an independent view of how the business runs, without slowing the deal down.</p>
  <div class="svlanes">
   <div class="svlane" id="listing-snapshot"><button class="svlane-pages" type="button" data-viewer="snapshot" data-page="1" aria-label="Open the sample Listing Snapshot"><img src="@@IMG@@sample-listing-snapshot-page-1.jpg" alt="Page 1 of the sample Listing Snapshot" loading="lazy"><img src="@@IMG@@sample-listing-snapshot-page-2.jpg" alt="Page 2 of the sample Listing Snapshot" loading="lazy"></button>
    <p class="svrk">For your sellers &middot; Listing Snapshot</p><h3>Help your listing sell</h3><p>A 2-page independent summary of how the business runs, checked against records. Share it with serious buyers before they make an offer.</p>
@@ -293,7 +300,7 @@ def _viewer():
     return live[a:b]
 VIEWER_HTML = _viewer()
 ME = ('<div class="svme"><img src="assets/img/shila-avatar.jpg" alt="Shila Kandiah" width="56" height="56" loading="lazy">'
-      '<p><b>Shila Kandiah, Retreat Operations Director.</b> 10 years in business operations management, now focused entirely on retreat venue operations. On-site across Central America, remote worldwide. '
+      '<p><b>Shila Kandiah, Retreat Operations Director.</b> 10 years in business operations management, now focused entirely on boutique wellness hospitality. On-site across Central America, remote worldwide. '
       '<a href="/preview/zoom.html#about">Read my story &rarr;</a></p></div>')
 
 OTHERS = {
@@ -311,7 +318,7 @@ READING = {
 }
 def more_html(slug, pg):
     me = ('<div class="svbio"><img src="assets/img/shila-avatar.jpg" alt="Shila Kandiah" width="120" height="120" loading="lazy">'
-          '<div><p class="label">Who you&rsquo;ll work with</p><p class="svbio-t"><b>Shila Kandiah, Retreat Operations Director.</b> 10 years in business operations management, now focused entirely on retreat venue operations. On-site across Central America, remote worldwide.</p>'
+          '<div><p class="label">Who you&rsquo;ll work with</p><p class="svbio-t"><b>Shila Kandiah, Retreat Operations Director.</b> 10 years in business operations management, now focused entirely on boutique wellness hospitality. On-site across Central America, remote worldwide.</p>'
           '<p class="svbio-l"><a href="/preview/zoom.html#about">Read my story &rarr;</a><a href="/preview/zoom.html#testimonials">See client results &rarr;</a></p></div></div>')
     cards = ''.join(f'<a class="svother" href="/preview/svc/{k}.html"><b>{n}</b><p>{d}</p><span>{pr} &rarr;</span></a>' for k, (n, d, pr) in OTHERS.items() if k != slug)
     others = f'<div class="svothers-w"><p class="label">Other services</p><h2 class="title">Need something different?</h2><div class="svothers">{cards}</div></div>'
