@@ -22,15 +22,15 @@
     [1.2, 0, 'EN', 0, 'Inquiry for a 5-night yoga retreat · replied in your voice', 0],
     [3.5, 1, 'ES', 1, 'Guest asks about airport pickup · answered, details sent', 0],
     [6.0, 2, 'EN', 0, 'Booking.com request · calendar updated, confirmation sent', 0],
-    [9.4, 0, 'EN', 0, 'Group of 14 asks for a custom rate · flagged for your pricing call', 1],
+    [9.4, 0, 'EN', 0, 'Group of 14 asks for a custom rate · sent for owner approval', 1],
     [13.1, 3, 'ES', 2, 'Retreat leader sends rooming changes · list updated', 0],
     [17.8, 0, 'EN', 0, 'Interested guest went quiet · day-2 follow-up sent', 0],
-    [22.0, 1, 'EN', 1, 'Pre-arrival form and dietary intake sent to 9 guests', 0],
+    [22.0, 1, 'FR', 1, 'Pre-arrival form and dietary intake sent, in French for this group', 0],
     [27.5, 0, 'EN', 3, 'Deposit received · invoice marked paid', 0],
     [31.0, 0, 'ES', 0, 'Inquiry for a couples retreat · replied in Spanish', 0],
     [36.2, 1, 'EN', 1, 'Reminders sent for Friday arrivals', 0],
-    [41.5, 2, 'EN', 0, 'Airbnb message about late check-in · answered', 0],
-    [45.0, 0, 'EN', 0, 'Request for a private chef night · flagged as a special request', 1],
+    [41.5, 2, 'DE', 0, 'Airbnb message about late check-in · answered in German', 0],
+    [45.0, 0, 'EN', 0, 'Request for a private chef night · sent for owner approval', 1],
     [50.3, 3, 'EN', 2, 'Schedule and meal plan ready for next week&rsquo;s group', 0],
     [55.8, 1, 'EN', 1, 'Review requests sent after Sunday checkout', 0],
     [60.4, 0, 'EN', 3, 'Month-end summary drafted: what came in, what&rsquo;s owed', 0]
@@ -58,7 +58,7 @@
       rc[e[3]]++; $(r, 'i').textContent = rc[e[3]];
       if (e[5]) { flagged++; var c = document.createElement('span'); c.textContent = ['Pricing', 'Special request'][flagged % 2 ? 0 : 1]; q.appendChild(c); }
       var hw = e[0] / 64 * 168, d = Math.floor(hw / 24), hh = Math.floor(hw % 24);
-      logLine(list, '<time>' + DAYS[d] + ' ' + (hh < 10 ? '0' : '') + hh + ':00</time><em class="dm-lang">' + e[2] + '</em>' + e[4] + (e[5] ? ' <strong>for you</strong>' : ''), 4);
+      logLine(list, '<time>' + DAYS[d] + ' ' + (hh < 10 ? '0' : '') + hh + ':00</time><em class="dm-lang">' + e[2] + '</em>' + e[4] + '', 4);
     }
     function step(now) {
       if (!playing) return;

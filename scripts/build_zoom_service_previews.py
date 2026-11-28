@@ -67,24 +67,25 @@ PAGES = {
            'photo-1596436891234-ab1fbd9353e5', 'photo-1596436891234-ab1fbd9353e5', 'photo-1635248518288-2bdc4402fe37'],
    hero=dict(eyebrow='Concierge Ops &middot; retreat admin &amp; booking management',
              h1='Guests decide<br><em>in the first reply.</em>',  # DRAFT idea-led
-             promise='A dedicated team, led by your Retreat Operations Director, answers every inquiry within 2 business hours, in your voice, in English and Spanish, so no guest waits while you host.',  # DRAFT (facts from the page)
+             promise='A dedicated team answers every inquiry within 2 business hours, in your voice and in your guests&rsquo; language.',  # DRAFT (facts from the page)
              aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
              price=None, jump=('#handover', 'See what you hand over &darr;')),
    stops=[
-     dict(kind='demo', demo='concierge', eyebrow='A week with your team', h2='Every message handled, <em>and every one logged.</em>'),  # DRAFT heading
-     dict(kind='signs', eyebrow='Is this you?', h2='When the admin waits for you, your guests wait too.',  # DRAFT
+     dict(kind='demo', demo='concierge', eyebrow='Behind the scenes &middot; an example week', h2='Every message handled, <em>and every one logged.</em>',  # DRAFT heading
+          note='An example retreat, so you can see what happens behind the scenes. You don&rsquo;t track any of it: your Retreat Operations Director oversees it all.'),  # DRAFT note
+     dict(kind='signs', style='fromto', eyebrow='Is this you?', h2='When the admin waits for you, your guests wait too.',  # DRAFT
           sub='Every one of these is work your Concierge Ops team takes over.',
           cards=[('Inquiries wait until you have a free evening', 'Replies within 2 business hours, in your voice, including while a retreat is in session.'),
                  ('Interested guests go quiet', 'Well-timed, polite follow-ups until they book or decide.'),
                  ('Forms and reminders go out late, or not at all', 'Pre-arrival emails, forms and reminders sent on time.'),
                  ('Invoices and payments live in your head', 'Invoices sent, payments tracked, a month-end summary.')],
           cta=('#handover', 'See what you hand over &darr;')),
-     dict(kind='roles', id='handover', eyebrow='Exactly what you hand over', h2='Four roles. <em>Every task named.</em>',
+     dict(kind='roles', id='handover', eyebrow='Exactly what you hand over', h2='Who handles what, <em>role by role.</em>',  # DRAFT
           roles=[('Inquiries and bookings', 'Remote Booking Assistant', ['Replies to every inquiry in your voice, within 2 business hours', 'Well-timed, polite follow-ups', 'Confirmations and reservation details sent', 'Calendar and booking sites kept current'], 'Pricing decisions and special requests.'),
                  ('Guest communication', 'Guest Experience Assistant', ['Pre-arrival emails and forms', 'Reminders sent on time, every time', 'Questions answered before and after the stay', 'Feedback and review requests'], 'The welcome and the experience itself.'),
                  ('Retreat coordination', 'Operations Coordinator', ['Organizers, guests and your team coordinated in one place', 'Rooming lists and schedules ready before arrival', 'Event preparation checklists'], 'Meeting retreat leaders and hosting.'),
                  ('Back office', 'Back Office Administrator', ['Invoices sent and payments tracked', 'Records organized in one place', 'A month-end summary of what came in'], 'Spending and strategy decisions.')]),
-     dict(kind='together', eyebrow='How we&rsquo;ll work together', h2='From first call to a team that runs it, <em>with your inbox treated with care.</em>',  # DRAFT heading (merges two sections)
+     dict(kind='together2', eyebrow='How we&rsquo;ll work together', h2='From first call to <em>a team that runs it.</em>',  # DRAFT heading (merges two sections)
           sub='Handing over access takes trust. We protect and manage the privacy of your accounts, your access and your guests&rsquo; information, so you are never left wondering who can see what.',
           steps=[('Free call', 'Your bookings, your tools, and where the admin piles up.'),
                  ('Set-up', 'Access to your inbox and booking system; your voice, policies and templates handed over.'),
@@ -327,25 +328,25 @@ def demo_html(kind):
             ('Coordinator', 'Retreat coordination'), ('Back Office', 'Invoices and records')])
         srcs = ''.join(f'<div class="dm-src">{x}</div>' for x in ['Email', 'WhatsApp', 'Booking sites', 'Retreat leaders'])
         return ('<div class="dm" data-demo="concierge">'
-                '<div class="dm-top"><div class="dm-id"><b>Concierge Ops board</b><span>Sample venue &middot; illustrative numbers</span></div>'
+                '<div class="dm-top"><div class="dm-id"><b>Casa Ceiba Retreat</b><span>Concierge Ops &middot; overseen by your Retreat Operations Director</span></div>'
                 '<div class="dm-time"><span class="dm-live">running</span><span class="dm-clock">Mon 00:00</span></div>'
                 f'<div class="dm-scrub"><i class="dm-knob"></i>{days}</div></div>'
                 '<div class="dm-kpis"><div class="dm-kpi"><span>Messages handled</span><b>0</b></div>'
                 '<div class="dm-kpi"><span>Typical reply</span><b>&ndash;</b></div>'
-                '<div class="dm-kpi"><span>Waiting for you</span><b>0</b></div>'
-                '<div class="dm-kpi dm-kpi--acc"><span>Your hours back</span><b>0 h</b></div></div>'
-                f'<div class="dm-flow"><div class="dm-srcs">{srcs}</div>'
-                '<div class="dm-hub"><b>Your team</b><span>in your voice &middot; English and Spanish</span></div>'
-                f'<div class="dm-roles">{roles}</div></div>'
-                '<div class="dm-bottom"><div class="dm-qw"><p>For you to decide</p><div class="dm-q"></div><small>Pricing and special requests stay with you.</small></div>'
+                '<div class="dm-kpi"><span>Pending owner approval</span><b>0</b></div>'
+                '<div class="dm-kpi dm-kpi--acc"><span>Owner hours back</span><b>0 h</b></div></div>'
+                f'<div class="dm-flow"><div class="dm-srcs"><p>Messages come in</p>{srcs}</div><div class="dm-arrow" aria-hidden="true"></div>'
+                '<div class="dm-team"><div class="dm-hub"><b>Casa Ceiba&rsquo;s Concierge Ops team</b><span>in your voice &middot; multiple languages</span></div>'
+                f'<div class="dm-roles">{roles}</div></div></div>'
+                '<div class="dm-bottom"><div class="dm-qw"><p>Pending owner approval</p><div class="dm-q"></div><small>Pricing and special requests go to the owner.</small></div>'
                 '<div class="dm-log"><p>Activity</p><ul></ul></div></div></div>')
     if kind == 'director':
         months = ''.join(f'<span>{m}</span>' for m in ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'])
         kp = ''.join(f'<div class="dm-kpi"><span>{x}</span><b>&ndash;</b></div>' for x in
                      ['Occupancy', 'ADR', 'RevPAR', 'Cost per occupied room', 'Break-even occupancy', 'Net cash flow'])
         return ('<div class="dm dm--dir" data-demo="director">'
-                '<div class="dm-top"><div class="dm-id"><b>Monthly owner report</b><span>Sample venue &middot; illustrative numbers</span></div>'
-                '<div class="dm-time"><span class="dm-live">built monthly</span><span class="dm-clock">Jan report</span></div>'
+                '<div class="dm-top"><div class="dm-id"><b>Casa Ceiba Retreat</b><span>Owner report &middot; prepared monthly by your Retreat Operations Director</span></div>'
+                '<div class="dm-time"><span class="dm-live">monthly</span><span class="dm-clock">Jan report</span></div>'
                 f'<div class="dm-scrub"><i class="dm-knob"></i>{months}</div></div>'
                 f'<div class="dm-kpis dm-kpis--6">{kp}</div>'
                 '<div class="dm-main"><div class="dm-chart"><p>Occupancy against break-even <span><i class="l1"></i>Occupancy <i class="l2"></i>Break-even</span></p>'
@@ -368,13 +369,16 @@ def stop_html(st, pg, i):
     k = st['kind']; sid = f' id="{st["id"]}"' if st.get('id') else ''
     head = lambda: f'<div class="svh"><p class="eyebrow">{st["eyebrow"]}</p><h2>{st["h2"]}</h2>' + (f'<p class="svsub">{st["sub"]}</p>' if st.get('sub') else '') + '</div>'
     if k == 'signs':
-        if st.get('cards'):
+        if st.get('style') == 'fromto':
+            body = ('<div class="svft"><div class="svft-h"><span>Today</span><span></span><span>With Concierge Ops</span></div>'
+                    + ''.join(f'<div class="svft-r"><p class="svft-a">{a}</p><span class="svft-ar" aria-hidden="true">&rarr;</span><p class="svft-b">{b}</p></div>' for a, b in st['cards']) + '</div>')
+        elif st.get('cards'):
             body = '<div class="svsigns">' + ''.join(f'<div class="svsign"><p class="svp">{a}</p><p class="svfix">{b}</p></div>' for a, b in st['cards']) + '</div>'
         else:
             body = '<ul class="svlist">' + ''.join(f'<li>{x}</li>' for x in st['list']) + '</ul>'
         cta = f'<a class="btn svcta" href="{st["cta"][0]}">{st["cta"][1]}</a>' if st.get('cta') else ''
         inner = head() + body + cta
-        cls = 'svstop sv-left'
+        cls = 'svstop sv-center sv-ftstop' if st.get('style') == 'fromto' else 'svstop sv-left'
     elif k == 'steps':
         inner = head() + '<ol class="svsteps">' + ''.join(f'<li><span class="svn{" svn--d" if len(x) > 2 else ""}">{x[2] if len(x) > 2 else f"{n+1:02d}"}</span><b>{x[0]}</b><p>{x[1]}</p></li>' for n, x in enumerate(st['steps'])) + '</ol>' + (f'<p class="svnote">{st["note"]}</p>' if st.get('note') else '')
         cls = 'svstop sv-card'
@@ -404,6 +408,11 @@ def stop_html(st, pg, i):
         tl = '<ol class="svtl">' + ''.join(f'<li><span class="svtl-dot">{n+1}</span><div><b>{a}</b><p>{b}</p></div></li>' for n, (a, b) in enumerate(st['steps'])) + '</ol>'
         tr = '<ul class="svtrust">' + ''.join(f'<li><b>{a}</b> {b}</li>' for a, b in st['points']) + '</ul>'
         inner = head() + f'<div class="svtogether"><div class="svcol"><p class="svcolk">How it starts</p>{tl}</div><div class="svcol svcol--trust"><p class="svcolk">Your accounts and your guests&rsquo; details</p>{tr}</div></div>'
+        cls = 'svstop sv-center'
+    elif k == 'together2':
+        tl = '<ol class="svt2-steps">' + ''.join(f'<li><span>{n+1}</span><b>{a}</b><p>{b}</p></li>' for n, (a, b) in enumerate(st['steps'])) + '</ol>'
+        tr = '<ul class="svt2-trust">' + ''.join(f'<li>{a.rstrip(".")}</li>' for a, b in st['points']) + '</ul>'
+        inner = head() + f'<div class="svt2">{tl}<div class="svt2-band"><p>Your accounts and your guests&rsquo; details</p>{tr}</div></div>'
         cls = 'svstop sv-center'
     elif k == 'panel':
         inner = head() + '<div class="svpanel">' + ''.join(f'<div><b>{a}</b><p>{b}</p></div>' for a, b in st['points']) + '</div>'
@@ -480,8 +489,8 @@ def build(slug, pg, shell_head, shell_nav, shell_foot):
     head = re.sub(r'<link rel="canonical"[^>]*>\s*', '', head)
     head = re.sub(r'<script type="application/ld\+json">.*?</script>\s*', '', head, flags=re.S)
     head = re.sub(r'preview/zoom\.css\?v=\d+', 'preview/zoom.css?v=60', head)
-    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=11">\n</head>')
-    foot = re.sub(r'<script src="preview/zoom\.js[^"]*" defer></script>', '<script src="preview/svc.js?v=2" defer></script><script src="preview/svdemo.js?v=1" defer></script>', shell_foot)
+    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=13">\n</head>')
+    foot = re.sub(r'<script src="preview/zoom\.js[^"]*" defer></script>', '<script src="preview/svc.js?v=2" defer></script><script src="preview/svdemo.js?v=2" defer></script>', shell_foot)
     page = head + shell_nav + world + foot
     page = page.replace('href="/preview/zoom.html#', 'href="/preview/zoom.html#')
     os.makedirs('preview/svc', exist_ok=True)
