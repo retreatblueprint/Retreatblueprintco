@@ -508,7 +508,7 @@ def build(slug, pg, shell_head, shell_nav, shell_foot):
     head = re.sub(r'<link rel="canonical"[^>]*>\s*', '', head)
     head = re.sub(r'<script type="application/ld\+json">.*?</script>\s*', '', head, flags=re.S)
     head = re.sub(r'preview/zoom\.css\?v=\d+', 'preview/zoom.css?v=60', head)
-    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=16">\n</head>')
+    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=19">\n</head>')
     foot = re.sub(r'<script src="preview/zoom\.js[^"]*" defer></script>', '<script src="preview/svc.js?v=3" defer></script><script src="preview/svdemo.js?v=2" defer></script>', shell_foot)
     page = head + shell_nav + world + foot
     page = page.replace('href="/preview/zoom.html#', 'href="/preview/zoom.html#')
