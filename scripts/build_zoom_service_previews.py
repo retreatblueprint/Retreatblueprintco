@@ -71,10 +71,10 @@ PAGES = {
  'concierge-ops': dict(
    name='Concierge Ops', acc='#4A6E4E', accd='#3A5A3E', soft='#E2EBE2', call=CAL + 'concierge-ops-call',
    photos=['photo-1762177446992-4cac5b44a05d', 'photo-1572511443032-a3cfe6823872', 'photo-1572511443032-a3cfe6823872', 'photo-1596436876625-091f67351709',
-           'photo-1596436891234-ab1fbd9353e5', 'photo-1596436891234-ab1fbd9353e5', 'photo-1635248518288-2bdc4402fe37'],
+           'photo-1596436891234-ab1fbd9353e5', 'photo-1596436891234-ab1fbd9353e5', 'photo-1596436891234-ab1fbd9353e5', 'photo-1635248518288-2bdc4402fe37'],
    hero=dict(eyebrow='Concierge Ops &middot; admin &amp; booking management for boutique wellness hospitality',
              h1='From first inquiry<br><em>to final invoice.</em>',  # approved
-             promise='A dedicated team handles your inquiries, guests, retreat coordination and invoices, in your voice and in your guests&rsquo; language, with replies within 2 business hours.',  # approved  # DRAFT (facts from the page)
+             promise='Inquiries, guests, coordination and invoices, handled in your voice within 2 business hours.',  # DRAFT shorter  # DRAFT (facts from the page)
              aud='For retreat centers, eco-lodges, boutique hotels and resorts.',
              price=None, jump=('#handover', 'See what you hand over &darr;')),
    stops=[
@@ -95,17 +95,23 @@ PAGES = {
      dict(kind='together2', eyebrow='How we&rsquo;ll work together', h2='From first call to <em>a team that runs it.</em>',  # DRAFT heading (merges two sections)
           sub='Handing over access takes trust. We protect and manage the privacy of your accounts, your access and your guests&rsquo; information, so you are never left wondering who can see what.',
           steps=[('Free call', 'Your bookings, your tools, and where the admin piles up.'),
-                 ('Set-up', 'Access to your inbox and booking system; your voice, policies and templates handed over.'),
+                 ('Set-up', 'Confidential transfer of access to your inboxes and booking systems; your voice, policies and templates handed over.'),
                  ('Your team takes over', 'Inquiries, guests, coordination and the back office, handled every day.'),
                  ('Monthly check-in', 'What came in, what got booked, and what to improve next.')],
           points=[('You own every account.', 'Nothing is moved or transferred. We work inside the inbox and booking system you already use.'),
                   ('Access only for the work.', 'Each team member gets what their role needs, and nothing more.'),
                   ('Guest information stays private.', 'Details are used only to look after your guests.'),
                   ('Access ends when you say so.', 'If you stop, access is removed and your accounts stay with you.')]),
+     dict(kind='price', id='pricing', eyebrow='Pricing', h2='Priced to your property, <em>from $250 USD a month.</em>',  # DRAFT
+          price='From $250', unit='USD / month', terms='3-month minimum',
+          factors=[('Booking volume', 'Your average bookings and inquiries each month'),
+                   ('Property size', 'Your rooms and guest capacity'),
+                   ('Your team', 'How many people we coordinate with'),
+                   ('Channels', 'The inboxes, booking sites and messaging apps we look after')],  # DRAFT: channels is new
+          note='Your exact monthly price is confirmed on your free call, after a quick look at your inbox, bookings and setup.'),  # DRAFT
      dict(kind='flow', id='faq'),
      dict(kind='close', eyebrow='Start with a conversation', h2='Give every guest your full attention.<br><em>We&rsquo;ll handle the admin.</em>',
-          body='A free 30-minute call. No obligation, just a clear next step.',
-          price='From $250 USD / month &middot; 3-month minimum'),
+          body='A free 30-minute call. No obligation, just a clear next step.'),
    ]),
  'fractional-operations-director': dict(
    name='Fractional Retreat Operations Director', acc='#2F6467', accd='#234D50', soft='#DCE8E8', call=CAL + 'fractional-director-call',
@@ -421,6 +427,12 @@ def stop_html(st, pg, i):
         tr = '<ul class="svt2-trust">' + ''.join(f'<li>{a.rstrip(".")}</li>' for a, b in st['points']) + '</ul>'
         inner = head() + f'<div class="svt2">{tl}<div class="svt2-band"><p>Your accounts and your guests&rsquo; details</p>{tr}</div></div>'
         cls = 'svstop sv-center'
+    elif k == 'price':
+        fac = ''.join(f'<li><b>{a}</b><span>{b}</span></li>' for a, b in st['factors'])
+        inner = head() + (f'<div class="svprice-c"><div class="svprice-l"><p class="svrk">Concierge Ops</p><p class="svprice-n"><b>{st["price"]}</b> {st["unit"]}</p>'
+                          f'<p class="svprice-t">{st["terms"]}</p><a class="btn svtb" href="{pg["call"]}" target="_blank" rel="noopener">Book a free call</a></div>'
+                          f'<div class="svprice-r"><p class="svrk">Your price depends on</p><ul>{fac}</ul><p class="svprice-note">{st["note"]}</p></div></div>')
+        cls = 'svstop sv-center'
     elif k == 'panel':
         inner = head() + '<div class="svpanel">' + ''.join(f'<div><b>{a}</b><p>{b}</p></div>' for a, b in st['points']) + '</div>'
         cls = 'svstop sv-center'
@@ -496,7 +508,7 @@ def build(slug, pg, shell_head, shell_nav, shell_foot):
     head = re.sub(r'<link rel="canonical"[^>]*>\s*', '', head)
     head = re.sub(r'<script type="application/ld\+json">.*?</script>\s*', '', head, flags=re.S)
     head = re.sub(r'preview/zoom\.css\?v=\d+', 'preview/zoom.css?v=60', head)
-    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=13">\n</head>')
+    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=14">\n</head>')
     foot = re.sub(r'<script src="preview/zoom\.js[^"]*" defer></script>', '<script src="preview/svc.js?v=2" defer></script><script src="preview/svdemo.js?v=2" defer></script>', shell_foot)
     page = head + shell_nav + world + foot
     page = page.replace('href="/preview/zoom.html#', 'href="/preview/zoom.html#')
