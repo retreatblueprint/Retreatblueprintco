@@ -87,7 +87,7 @@
   }
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href*="#"]'); if (!a) return;
-    var url = new URL(a.href, location.href); if (url.pathname !== location.pathname || !url.hash) return;
+    var raw = a.getAttribute('href') || ''; var url = new URL(raw.charAt(0) === '#' ? location.pathname + location.search + raw : a.href, location.href); if (url.pathname !== location.pathname || !url.hash) return;
     var y = landing(decodeURIComponent(url.hash.slice(1))); if (y === null) return;
     e.preventDefault(); history.replaceState(null, '', location.pathname + location.search + url.hash);
     window.scrollTo({ top: y, behavior: 'auto' });

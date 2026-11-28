@@ -188,39 +188,64 @@ PAGES = {
            'photo-1772703003096-fe4096559f81', 'photo-1709390083401-4fdbc56970d9', 'photo-1709390083401-4fdbc56970d9', 'photo-1731924823462-5614a26b4ede'],
    hero=dict(eyebrow='Buying a retreat center? &middot; pre-purchase operations review',
              h1='Know what you&rsquo;re buying.<br><em>Run it well from day one.</em>',
-             promise='An independent operations review before you buy, and a hands-on 90-day plan after you get the keys.',
-             price='Pre-purchase review from $1,200 USD', jump=('#packages', 'See the packages &darr;')),
+             promise='An independent operations review before you buy a retreat venue, and a hands-on 90-day plan after you get the keys. So the property you fell in love with becomes a business that works.',
+             aud='For retreat centers, eco-lodges and wellness properties that host retreats.',
+             price='Pre-purchase review from $1,200 USD', jump=('#packages', 'See the packages &darr;'), jump2=('#agents', 'Real estate agents &darr;')),
    stops=[
      dict(kind='gap', eyebrow='The gap', h2='Your lawyer checks the title. Your inspector checks the roof. <em>Nobody checks the operation.</em>',
           sub='When you buy a retreat venue, you&rsquo;re buying a business as much as a property. How well it runs depends on bookings, people and systems that never show up in a listing, and that&rsquo;s where buyers lose money.',
           roles=[('Lawyer or notary', 'Title, liens and transfer'), ('Inspector', 'The buildings'), ('Accountant', 'The books and taxes'), ('Retreat Blueprint Co.', 'How the business runs')]),
-     dict(kind='two', eyebrow='Two ways I help', h2='Before you buy, <em>and after you get the keys.</em>',
-          cols=[('Thinking of buying', 'See the full picture before you sign.', 'Bookings, team, systems and the real cost to run it.', ['Operations Health Score across 8 areas', 'Key numbers verified against records', 'Risks to address, each with a suggested next step', 'The true monthly cost to operate', 'The upside: what the venue could earn with stronger operations', 'A week-by-week 90-day roadmap']),
-                ('Just bought', 'Take over without losing a season.', 'Finances, operations, technology, marketing and team, set up in 90 days.', ['Days 1&ndash;30, Protect: the P&amp;L tracked, the seller&rsquo;s know-how captured, booked guests and the team kept', 'Days 31&ndash;60, Build: a budget, forecast and operational plan, one system and a trained team', 'Days 61&ndash;90, Grow: marketing relaunched, past guests reconnected, a 12-month plan'])]),
-     dict(kind='eight', eyebrow='What I review', h2='Eight areas, <em>each scored and explained.</em>',
-          areas=[('Revenue &amp; bookings', '24 months by revenue line, repeat business and future bookings.'), ('Demand &amp; channels', 'Where guests come from, and how much rests on one source.'),
-                 ('Pricing &amp; margins', 'Rates against nearby venues and the true cost of a retreat week.'), ('Guest experience', 'Review trends, response times, leader contracts and deposits.'),
-                 ('Team &amp; owner dependence', 'Who does what, and what lives only in the owner&rsquo;s head.'), ('Systems &amp; tools', 'Booking, payments and accounts, and whether they transfer.'),
-                 ('Operations &amp; suppliers', 'Kitchen, housekeeping, transport and maintenance routines.'), ('Compliance &amp; risk', 'Licenses and insurance, flagged for your lawyer.')]),
-     dict(kind='report', eyebrow='What you receive', h2='A detailed 5-page report, so you know <em>exactly what you&rsquo;re buying.</em>',
-          pages=[('Score &amp; summary', 'Your Operations Health Score, the verified revenue and the true cost at a glance.'), ('Findings', 'Key metrics, the listing checked against real records, and each risk with a next step.'),
-                 ('Costs &amp; upside', 'The true monthly cost to operate and what the venue could earn with stronger operations.'), ('Before closing to day 30', 'What to secure before you sign, and how to protect bookings, accounts and the team.'),
-                 ('Days 31 to 90', 'Systems, procedures and training, then the plan to fill the calendar.')],
-          link=('assets/docs/sample-report.pdf', 'View the sample report &rarr;')),
+     dict(kind='flow', id='review', faq=False, extra_html='@@BUYTWO@@'),
+     dict(kind='unseen', eyebrow='After closing', h2='What buyers often don&rsquo;t see <em>until after closing.</em>',
+          items=['Bookings that depend on the owner&rsquo;s personal relationships', 'Know-how that lives only in the owner&rsquo;s head',
+                 'Booking and payment accounts that don&rsquo;t transfer easily', 'Deposits already collected for retreats after closing']),
+     dict(kind='flow', id='sample', faq=False, extra_html='@@BUYREPORT@@'),
      dict(kind='steps', eyebrow='How it works', h2='7 to 10 business days, <em>inside your due diligence window.</em>',
-          steps=[('Kickoff call', 'Your goals, budget, timeline and concerns.'), ('Data request', 'The seller shares records through your agent.'),
-                 ('Analysis', 'Financials, bookings, reviews and a mystery-shop inquiry.'), ('Walk-through', 'On-site for 2&ndash;3 days, or a video walk-through and owner call.'),
-                 ('Report &amp; debrief', 'Your 5-page report and a call on findings and negotiation points.')],
-          note='The best time to start: once your offer is accepted and before you sign the final purchase agreement.'),
+          steps=[('Kickoff call', 'Your goals, budget, timeline and concerns.', 'Day 1'), ('Data request', 'The seller shares records through your agent.', 'Days 1&ndash;3'),
+                 ('Analysis', 'Financials, bookings, reviews and a mystery-shop inquiry.', 'Days 3&ndash;6'), ('Walk-through', 'On-Site: 2&ndash;3 days on the property with the owner and team. Desk: a video walk-through and owner call.', 'Days 6&ndash;8'),
+                 ('Report &amp; debrief', 'Your 5-page report and a call on findings and negotiation points.', 'Days 9&ndash;10')],
+          note='<b>The best time to start:</b> once your offer is accepted and before you sign the final purchase agreement. <span class="svnote-x">Ask your lawyer to make the review a condition of your offer, so you have time to act on what it finds.</span>'),
      dict(kind='flow', id='packages', faq=False, tiers=None, extra_html='@@BUYPACKAGES@@'),
-     dict(kind='proof', eyebrow='Proof', h2='I build the operations behind retreats <em>like the one you&rsquo;re buying.</em>', cards=['infinity', 'airborne']),
-     dict(kind='flow', id='agents', faq_page='buying-a-retreat', extra_html='@@BUYAGENTS@@'),
+     dict(kind='proof', eyebrow='Proof', h2='I build the operations behind retreats <em>like the one you&rsquo;re buying.</em>', cards=['infinity', 'airborne'], me=True),
+     dict(kind='flow', id='agents', faq_page='buying-a-retreat', extra_html='@@BUYAGENTS@@', after_html='@@BUYREAD@@'),
      dict(kind='close', eyebrow='Start with a conversation', h2='Tell me about the property <em>you&rsquo;re looking at.</em>',
           body='A free 30-minute call. No obligation, just a clear next step.'),
    ]),
 }
 
+AREAS = [('Revenue &amp; bookings', '24 months by revenue line, repeat business and future bookings.'), ('Demand &amp; channels', 'Where guests come from, and how much rests on one source.'),
+         ('Pricing &amp; margins', 'Rates against nearby venues and the true cost of a retreat week.'), ('Guest experience', 'Review trends, response times, leader contracts and deposits.'),
+         ('Team &amp; owner dependence', 'Who does what, and what lives only in the owner&rsquo;s head.'), ('Systems &amp; tools', 'Booking, payments and accounts, and whether they transfer.'),
+         ('Operations &amp; suppliers', 'Kitchen, housekeeping, transport and maintenance routines.'), ('Compliance &amp; risk', 'Licenses and insurance, flagged for your lawyer.')]
+RP = [('Score &amp; summary', 'Your Operations Health Score across 8 areas, the verified revenue and the true cost at a glance.'),
+      ('Findings', 'Key business metrics, the listing checked against real records, and each risk with a suggested next step.'),
+      ('Costs &amp; upside', 'The true monthly cost to operate, what the venue could earn with stronger operations, and the bottom line.'),
+      ('Roadmap: before closing to day 30', 'What to secure before you sign, and how to protect bookings, accounts and the team in month one.'),
+      ('Roadmap: days 31 to 90', 'Systems, procedures and training, then the plan to fill the calendar, with targets to track.')]
+IMG = 'assets/img/buying-a-retreat/'
+
 EXTRA = {
+ '@@BUYTWO@@': """<div class="svbuy"><p class="label">Two ways I help</p><h2 class="title">Before you buy, and after you get the keys.</h2>
+ <div class="svpaths">
+  <div class="svpath"><p class="svrk">For buyers and investors &middot; thinking of buying</p><h3>Pre-Purchase Operations Review</h3>
+   <p class="svpath-d">An independent, neutral picture of how the venue runs, so you can decide with confidence and plan from day one.</p>
+   <ul><li>Operations Health Score across 8 areas</li><li>Key numbers verified against records</li><li>Risks to address, each with a suggested next step</li><li>The true monthly cost to operate</li><li>The upside: what the venue could earn with stronger operations</li><li>A week-by-week 90-day roadmap</li></ul>
+   <a class="svlink" href="assets/docs/sample-report.pdf" data-viewer="report" data-page="1">See what the 5-page report looks like &rarr;</a></div>
+  <div class="svpath svpath--acc" id="ninety"><p class="svrk">After the acquisition &middot; just bought</p><h3>The First 90 Days</h3>
+   <p class="svpath-d">Hands-on support through the acquisition of your new retreat property, across the whole business:</p>
+   <p class="svcovers"><span>Financial management</span><span>Operational planning</span><span>Technology</span><span>Marketing</span><span>Training</span><span>Guest experience</span><span>Next stage of growth</span></p>
+   <ul><li><b>Days 1&ndash;30, Protect:</b> the P&amp;L tracked from day one, the seller&rsquo;s know-how captured, every booked guest and retreat leader kept, and the team steadied</li><li><b>Days 31&ndash;60, Build:</b> a budget and forecast, an operational plan, one system for administration, finances and client relationships, the team trained, and the guest experience defined from inquiry to checkout</li><li><b>Days 61&ndash;90, Grow:</b> your marketing relaunched, past guests and leaders reconnected, and the next stage of growth mapped in a 12-month plan</li></ul></div>
+ </div></div>
+ <div class="svbuy svbuy--areas" id="areas"><p class="label">What I review</p><h2 class="title">Eight areas, each scored and explained.</h2>
+ <p class="lead">An outside view that gives buyer and seller the same clear picture of how the business runs, explained in plain language.</p>
+ <ol class="svareas">""" + ''.join(f'<li><span>{n+1:02d}</span><b>{a}</b><p>{b}</p></li>' for n, (a, b) in enumerate(AREAS)) + """</ol></div>""",
+ '@@BUYREPORT@@': """<div class="svbuy"><p class="label">What you receive</p><h2 class="title">A detailed 5-page report, so you know exactly what you&rsquo;re buying.</h2>
+ <p class="lead">Every review ends with a detailed 5-page report. You&rsquo;ll know what the business really earns and costs, what could go wrong after closing and what to ask for before you sign, plus a week-by-week plan for your first 90 days. Written in plain language and ready to share with your lawyer, accountant and agent.</p>
+ <div class="svrp">""" + ''.join(
+    f'<figure><button type="button" data-viewer="report" data-page="{n+1}" aria-label="Open page {n+1} of the sample report"><img src="{IMG}sample-report-page-{n+1}.jpg" alt="Page {n+1} of the sample report: {a}" loading="lazy"></button><span>Page {n+1}</span><b>{a}</b><p>{b}</p></figure>'
+    for n, (a, b) in enumerate(RP)) + """</div>
+ <p class="svrp-cta"><a class="btn svtb" href="assets/docs/sample-report.pdf" target="_blank" rel="noopener" data-viewer="report" data-page="1">View the sample report</a></p>
+ <p class="svpk-note">Sample report for a fictional venue, prepared as an On-Site Review. Every report is prepared under NDA and released only with your permission.</p></div>""",
  '@@BUYPACKAGES@@': """<div class="svpkwrap"><p class="label">Packages</p><h2 class="title">A small cost against a six- or seven-figure decision.</h2>
  <div class="svpks">
   <div class="svpk"><div class="svpk-top"><p class="svrk">Remote &middot; anywhere in the world</p><h3>Desk Review</h3><p class="svpk-price"><b>$1,200</b> <span>USD</span></p><p class="svpk-desc">Know what you&rsquo;re really buying, without getting on a plane.</p><a class="btn svtb" href="@@CALL@@" target="_blank" rel="noopener">Book a free call</a></div>
@@ -228,20 +253,47 @@ EXTRA = {
   <div class="svpk svpk--mid"><div class="svpk-top"><p class="svrk">Most complete &middot; before you make an offer</p><h3>On-Site Review</h3><p class="svpk-price"><b>$2,500</b> <span>USD + travel</span></p><p class="svpk-desc">See the operation running before you sign.</p><a class="btn svtb" href="@@CALL@@" target="_blank" rel="noopener">Book a free call</a></div>
    <p class="svpk-plus">Everything in the Desk Review, plus</p><ul><li>2&ndash;3 days on the property with the owner and team</li><li>A changeover or live retreat observed first-hand</li><li>The guest experience tested in person</li><li>Team interviews: who owns what, and any flags to watch</li><li>An upside plan: what the venue could earn with stronger operations</li><li>Delivered in 10 business days</li></ul></div>
   <div class="svpk"><div class="svpk-top"><p class="svrk">Post-acquisition</p><h3>The First 90 Days</h3><p class="svpk-price"><b>Priced on scope</b> <span>half your review fee credited</span></p><p class="svpk-desc">Take over without losing a season.</p><a class="btn svtb" href="@@CALL@@" target="_blank" rel="noopener">Book a free call</a></div>
-   <p class="svpk-plus">From financial management to the next stage of growth</p><ul><li>Days 1&ndash;30 &middot; Protect: the P&amp;L tracked (revenue, ROI, EBITDA and guest retention); the seller&rsquo;s know-how, booked guests and team kept</li><li>Days 31&ndash;60 &middot; Build: a budget, forecast and operational plan; one system, a trained team and the guest experience defined</li><li>Days 61&ndash;90 &middot; Grow: marketing relaunched and past guests reconnected; the next stage of growth in a 12-month plan</li></ul></div>
+   <p class="svpk-plus">From financial management and operational planning to technology, marketing, training, guest experience and the next stage of growth.</p>
+   <p class="svpk-ph">Days 1&ndash;30 &middot; Protect</p><ul><li>The P&amp;L tracked: revenue, ROI, EBITDA and guest retention</li><li>The seller&rsquo;s know-how, booked guests and team kept</li></ul>
+   <p class="svpk-ph">Days 31&ndash;60 &middot; Build</p><ul><li>A budget, forecast and operational plan</li><li>One system, a trained team and the guest experience defined</li></ul>
+   <p class="svpk-ph">Days 61&ndash;90 &middot; Grow</p><ul><li>Marketing relaunched and past guests reconnected</li><li>The next stage of growth: a 12-month plan</li></ul>
+   <p class="svpk-after">After day 90, keep it running with a <a href="/preview/svc/fractional-operations-director.html">part-time retreat operations director</a>, or hand the daily admin to <a href="/preview/svc/concierge-ops.html">Concierge Ops</a>.</p></div>
  </div>
- <p class="svpk-note">The Desk Review is fully remote, so it works for retreat venues in any country. This review covers operations only. Legal, structural and tax checks stay with your lawyer, inspector and accountant.</p></div>""",
+ <div class="svworld-note"><b>Buying a retreat property anywhere in the world?</b><p>The Desk Review is fully remote, so it works for retreat venues in any country, and for buyers who can&rsquo;t be on site yet.</p></div>
+ <p class="svpk-note">This review covers operations only. Legal, structural and tax checks stay with your lawyer, inspector and accountant.</p></div>""",
  '@@BUYAGENTS@@': """<div class="svind"><p class="label">Independent and confidential</p><h2 class="title">A clear picture you can trust, on both sides of the deal.</h2>
  <div class="svind-g"><div><b>Independent</b><p>You hire me, and my findings are the same whether or not the sale goes ahead. If an agent referred you, any referral fee is disclosed to you in writing and never depends on what I find.</p></div>
  <div><b>Confidential</b><p>Everything shared by buyers and sellers is protected and kept confidential. An NDA is signed before any records are shared, and reports are released only with your permission.</p></div>
  <div><b>Fair to both sides</b><p>The review isn&rsquo;t about catching anyone out. It gives buyer and seller the same clear picture, which helps good deals close.</p></div></div></div>
- <div class="svagents" id="agents-partners"><p class="label">For real estate agents</p><h2 class="title">Help retreat deals close, on both sides.</h2>
+ <div class="svagents"><p class="label">For real estate agents</p><h2 class="title">Help retreat deals close, on both sides.</h2>
  <p class="lead">Whether you&rsquo;re listing a retreat property or representing a buyer, I add an independent view of how the business runs, without slowing the deal down.</p>
- <div class="svind-g"><div><b>For your sellers &middot; Listing Snapshot</b><p>A 2-page independent summary of how the business runs, checked against records. Key numbers checked, handover readiness across 8 areas, gaps fixed before listing. Priced per property.</p></div>
- <div><b>For your buyers &middot; Pre-Purchase Review</b><p>I don&rsquo;t tell buyers whether to buy. I give them a clear picture and a plan, inside their due diligence window: a detailed 5-page report within 10 business days, and support through their first 90 days. From $1,200 USD.</p></div>
- <div><b>Referral fee</b><p>Paid on every review, Listing Snapshot and 90-day plan you refer, and always disclosed to your client. Details on a partner call.</p></div></div>
+ <div class="svlanes">
+  <div class="svlane" id="listing-snapshot"><button class="svlane-pages" type="button" data-viewer="snapshot" data-page="1" aria-label="Open the sample Listing Snapshot"><img src="@@IMG@@sample-listing-snapshot-page-1.jpg" alt="Page 1 of the sample Listing Snapshot" loading="lazy"><img src="@@IMG@@sample-listing-snapshot-page-2.jpg" alt="Page 2 of the sample Listing Snapshot" loading="lazy"></button>
+   <p class="svrk">For your sellers &middot; Listing Snapshot</p><h3>Help your listing sell</h3><p>A 2-page independent summary of how the business runs, checked against records. Share it with serious buyers before they make an offer.</p>
+   <ul><li>Key numbers checked against records</li><li>Handover readiness across 8 areas</li><li>Gaps fixed before listing</li></ul><p class="svlane-price">Priced per property</p>
+   <button class="btn svtb" type="button" data-viewer="snapshot" data-page="1">See a sample Listing Snapshot</button></div>
+  <div class="svlane"><button class="svlane-pages" type="button" data-viewer="report" data-page="1" aria-label="Open the sample Pre-Purchase report"><img src="@@IMG@@sample-report-page-1.jpg" alt="Page 1 of the sample Pre-Purchase report" loading="lazy"><img src="@@IMG@@sample-report-page-4.jpg" alt="Page 4 of the sample Pre-Purchase report" loading="lazy"></button>
+   <p class="svrk">For your buyers &middot; Pre-Purchase Review</p><h3>Help your buyers close with confidence</h3><p>I don&rsquo;t tell buyers whether to buy. I give them a clear picture and a plan, inside their due diligence window.</p>
+   <ul><li>A detailed 5-page report</li><li>Delivered within 10 business days</li><li>Support through their first 90 days</li></ul><p class="svlane-price">From $1,200 USD</p>
+   <button class="btn svtb" type="button" data-viewer="report" data-page="1">See the sample report</button></div>
+ </div>
+ <div class="svind-g svind-g--2"><div><b>Referral fee</b><p>Paid on every review, Listing Snapshot and 90-day plan you refer, and always disclosed to your client. Details on a partner call.</p></div>
+ <div><b>Happy owners</b><p>Buyers who succeed send you their friends.</p></div></div>
+ <p class="svag-h">How it works for you</p>
+ <ol class="svtl svtl--row"><li><span class="svtl-dot">1</span><div><b>You introduce the buyer or seller</b><p>A quick email or WhatsApp intro is all it takes.</p></div></li><li><span class="svtl-dot">2</span><div><b>I deliver within 10 business days</b><p>I work through you to request records, so the deal stays on track.</p></div></li><li><span class="svtl-dot">3</span><div><b>You receive your referral fee</b><p>Paid as soon as your client pays for their service.</p></div></li></ol>
  <p><a class="btn svtb" href="https://cal.com/shila-kandiah/agent-partner-call" target="_blank" rel="noopener">Book a partner call</a></p></div>""",
+ '@@BUYREAD@@': """<div class="svread"><p class="label">Further reading &middot; Field Notes</p><a href="/field-notes/buying-a-retreat-center-costa-rica">Buying a Retreat Center in Costa Rica: 9 Checks Before You Sign &rarr;</a></div>""",
 }
+for k in EXTRA: EXTRA[k] = EXTRA[k].replace('@@IMG@@', IMG)
+
+def _viewer():
+    live = open('buying-a-retreat.html').read()
+    a = live.index('<dialog class="rv"'); b = live.index('</script>', a) + len('</script>')
+    return live[a:b]
+VIEWER_HTML = _viewer()
+ME = ('<div class="svme"><img src="assets/img/shila-avatar.jpg" alt="Shila Kandiah" width="56" height="56" loading="lazy">'
+      '<p><b>Shila Kandiah, Retreat Operations Director.</b> 10 years in business operations management, now focused entirely on retreat venue operations. On-site across Central America, remote worldwide. '
+      '<a href="/preview/zoom.html#about">Read my story &rarr;</a></p></div>')
 
 PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>'
 
@@ -264,7 +316,7 @@ def stop_html(st, pg, i):
         inner = head() + body + cta
         cls = 'svstop sv-left'
     elif k == 'steps':
-        inner = head() + '<ol class="svsteps">' + ''.join(f'<li><span class="svn">{n+1:02d}</span><b>{a}</b><p>{b}</p></li>' for n, (a, b) in enumerate(st['steps'])) + '</ol>' + (f'<p class="svnote">{st["note"]}</p>' if st.get('note') else '')
+        inner = head() + '<ol class="svsteps">' + ''.join(f'<li><span class="svn{" svn--d" if len(x) > 2 else ""}">{x[2] if len(x) > 2 else f"{n+1:02d}"}</span><b>{x[0]}</b><p>{x[1]}</p></li>' for n, x in enumerate(st['steps'])) + '</ol>' + (f'<p class="svnote">{st["note"]}</p>' if st.get('note') else '')
         cls = 'svstop sv-card'
     elif k == 'points':
         inner = head() + '<div class="svpoints">' + ''.join(f'<div class="svpt"><b>{a}</b><p>{b}</p></div>' for a, b in st['points']) + '</div>'
@@ -286,7 +338,7 @@ def stop_html(st, pg, i):
         cls = 'svstop sv-center'
     elif k == 'proof':
         extra = ('<ul class="svextra">' + ''.join(f'<li>{x}</li>' for x in st['extra']) + '</ul>') if st.get('extra') else ''
-        inner = head() + f'<div class="pcards{" pcards--1" if len(st["cards"]) == 1 else ""}">' + ''.join(proof_card(c) for c in st['cards']) + '</div>' + extra
+        inner = head() + f'<div class="pcards{" pcards--1" if len(st["cards"]) == 1 else ""}">' + ''.join(proof_card(c) for c in st['cards']) + '</div>' + extra + (ME if st.get('me') else '')
         cls = 'svstop sv-center zp'
     elif k == 'together':
         tl = '<ol class="svtl">' + ''.join(f'<li><span class="svtl-dot">{n+1}</span><div><b>{a}</b><p>{b}</p></div></li>' for n, (a, b) in enumerate(st['steps'])) + '</ol>'
@@ -314,6 +366,9 @@ def stop_html(st, pg, i):
     elif k == 'report':
         inner = head() + '<ol class="svreport">' + ''.join(f'<li><span>Page {n+1}</span><b>{a}</b><p>{b}</p></li>' for n, (a, b) in enumerate(st['pages'])) + '</ol>' + f'<a class="btn svcta svcta--c" href="{st["link"][0]}" target="_blank" rel="noopener">{st["link"][1]}</a>'
         cls = 'svstop sv-center'
+    elif k == 'unseen':
+        inner = head() + '<ol class="svunseen">' + ''.join(f'<li><span>{n+1:02d}</span><p>{x}</p></li>' for n, x in enumerate(st['items'])) + '</ol>'
+        cls = 'svstop sv-center'
     elif k == 'flow':
         parts = []
         if st.get('builder'):
@@ -332,6 +387,8 @@ def stop_html(st, pg, i):
             parts.append(EXTRA.get(st['extra_html'], st['extra_html']).replace('@@CALL@@', pg['call']))
         if st.get('faq', True):
             parts.append('<div class="svfaq"><p class="label">Questions</p><h2 class="title">Before you book</h2>' + faq_from(st.get('faq_page') or slug_of[pg['name']]) + '</div>')
+        if st.get('after_html'):
+            parts.append(EXTRA[st['after_html']])
         return f'<section class="svflow"{sid}><div class="wrap"><div class="svflow-card">' + ''.join(parts) + '</div></div></section>'
     elif k == 'close':
         inner = (f'<p class="eyebrow">{st["eyebrow"]}</p><h2>{st["h2"]}</h2><p class="body">{st["body"]}</p>'
@@ -347,19 +404,19 @@ def build(slug, pg, shell_head, shell_nav, shell_foot):
                    for n, p in enumerate(pg['photos']))
     h = pg['hero']
     hero = (f'<header class="zs zs1 svhero"><div class="zsnap" style="top:0" aria-hidden="true"></div><div class="zcopy">'
-            f'<p class="eyebrow">{h["eyebrow"]}</p><h1>{h["h1"]}</h1><p class="zpromise">{h["promise"]}</p><p class="svhprice">{h["price"]}</p>'
+            f'<p class="eyebrow">{h["eyebrow"]}</p><h1>{h["h1"]}</h1><p class="zpromise">{h["promise"]}</p>' + (f'<p class="svaud">{h["aud"]}</p>' if h.get('aud') else '') + f'<p class="svhprice">{h["price"]}</p>'
             f'<div class="hero-actions"><a class="btn" href="{pg["call"]}" target="_blank" rel="noopener">Book a free call</a>'
-            f'<a class="link-quiet" href="{h["jump"][0]}">{h["jump"][1]}</a></div></div></header>')
+            f'<a class="link-quiet" href="{h["jump"][0]}">{h["jump"][1]}</a>' + (f'<a class="link-quiet" href="{h["jump2"][0]}">{h["jump2"][1]}</a>' if h.get('jump2') else '') + '</div></div></header>')
     stops = ''.join(stop_html(st, pg, i) for i, st in enumerate(pg['stops']))
     world = (f'<div class="zworld svworld" id="top" style="--acc:{pg["acc"]};--acc-d:{pg["accd"]};--acc-soft:{pg["soft"]}">'
              f'<div class="zstick" aria-hidden="true">{imgs}<div class="zshade zshade--hero"></div><div class="svshade"></div></div>'
-             f'{hero}{stops}</div>')
+             f'{hero}{stops}</div>' + (VIEWER_HTML if 'data-viewer' in stops else ''))
     head = re.sub(r'<title>.*?</title>', f'<title>Preview · {pg["name"]} · Retreat Blueprint Co.</title>', shell_head, flags=re.S)
     head = re.sub(r'<link rel="canonical"[^>]*>\s*', '', head)
     head = re.sub(r'<script type="application/ld\+json">.*?</script>\s*', '', head, flags=re.S)
     head = re.sub(r'preview/zoom\.css\?v=\d+', 'preview/zoom.css?v=60', head)
-    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=3">\n</head>')
-    foot = re.sub(r'<script src="preview/zoom\.js[^"]*" defer></script>', '<script src="preview/svc.js?v=1" defer></script>', shell_foot)
+    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=4">\n</head>')
+    foot = re.sub(r'<script src="preview/zoom\.js[^"]*" defer></script>', '<script src="preview/svc.js?v=2" defer></script>', shell_foot)
     page = head + shell_nav + world + foot
     page = page.replace('href="/preview/zoom.html#', 'href="/preview/zoom.html#')
     os.makedirs('preview/svc', exist_ok=True)
