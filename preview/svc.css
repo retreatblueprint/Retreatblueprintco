@@ -740,3 +740,58 @@
   .dm-bottom { margin-top: 6px; } .dm-log { padding: 6px 10px; }
   .sv-demo .svh h2 { font-size: 1.2rem; }
 }
+/* v20: luxury boutique demo boards (cream, gold hairlines, serif figures, more air) */
+.dm { --gold: #B08A5A; --hair: rgba(176,138,90,.32); background: #FBF7EE; border: 1px solid rgba(176,138,90,.5); box-shadow: 0 30px 70px rgba(0,20,30,.28); }
+.dm-top { border-bottom-color: var(--hair); }
+.dm-id { position: relative; padding-left: 52px; min-height: 42px; }
+.dm-crest { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--gold); display: grid; place-items: center; font: 500 .82rem/1 var(--serif); font-style: italic; letter-spacing: .06em; color: var(--gold); background: #fff; box-shadow: inset 0 0 0 3px #FBF7EE, inset 0 0 0 4px var(--hair); }
+.dm-id b { font-weight: 500; letter-spacing: .01em; font-size: 1.12rem; }
+.dm-id span { letter-spacing: .1em; text-transform: uppercase; font-size: .56rem; color: var(--gold); }
+.dm-live { background: transparent; border: 1px solid var(--hair); color: #6B5A44; }
+.dm-live::before { background: var(--gold); }
+.dm-clock { font-weight: 500; }
+.dm-scrub::before { background: var(--hair); height: 1px; }
+.dm-knob { background: var(--gold); box-shadow: 0 0 0 4px rgba(176,138,90,.18); }
+.dm-kpis { gap: 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); margin: 14px 0; }
+.dm-kpi { background: transparent; border: 0; border-radius: 0; border-left: 1px solid var(--hair); padding: 12px 16px; }
+.dm-kpi:first-child { border-left: 0; padding-left: 4px; }
+.dm-kpi span { font-size: .56rem; letter-spacing: .12em; text-transform: uppercase; color: #8A7A68; }
+.dm-kpi b { font-weight: 400; font-size: clamp(1.5rem, 2.4vw, 2.1rem); letter-spacing: -.01em; }
+.dm-kpi--acc { background: transparent; } .dm-kpi--acc span { color: var(--gold); } .dm-kpi--acc b { color: var(--acc-d); }
+.dm-kpi.neg b { color: #9A4A30; }
+.dm-flow, .dm-log, .dm-chart, .dm-qw { background: transparent; border: 0; padding-left: 0; padding-right: 0; }
+.dm-srcs p, .dm-log p, .dm-chart p { color: var(--gold); letter-spacing: .16em; }
+.dm-src { background: transparent; border: 1px solid var(--hair); border-radius: 999px; text-align: center; font-size: .74rem; letter-spacing: .03em; }
+.dm-src.on { background: #fff; border-color: var(--gold); }
+.dm-arrow::before { background: var(--gold); height: 1px; } .dm-arrow::after { border-left-color: var(--gold); }
+.dm-team { border: 1px solid var(--gold); border-radius: 18px; background: #fff; }
+.dm-team .dm-hub { background: transparent; color: #22190F; border-bottom: 1px solid var(--hair); padding: 10px 16px; }
+.dm-team .dm-hub b { font-weight: 500; font-size: 1rem; } .dm-team .dm-hub span { color: var(--gold); letter-spacing: .08em; text-transform: uppercase; font-size: .56rem; opacity: 1; }
+.dm-role { background: transparent; border: 0; border-radius: 0; border-left: 1px solid var(--hair); padding: 8px 12px; }
+.dm-role b { font-weight: 500; } .dm-role i { color: var(--gold); font: 400 1.05rem/1 var(--serif); }
+.dm-role.on { background: rgba(176,138,90,.08); transform: none; border-left-color: var(--gold); }
+.dm-log { border-top: 1px solid var(--hair); border-radius: 0; padding-top: 10px; }
+.dm-log time { color: var(--gold); font-weight: 500; }
+.dm-log li:first-child time { color: var(--gold); }
+.dm-lang { background: transparent; border: 1px solid var(--hair); color: #6B5A44; font-weight: 500; }
+.dm-chart { border-right: 1px solid var(--hair); border-radius: 0; padding-right: 18px; }
+.dm-main { gap: 18px; }
+.dm--dir .dm-log { border-top: 0; padding-top: 0; }
+.dm-chart .g { stroke: var(--hair); }
+@media (max-width: 760px) {
+  .dm-id { padding-left: 42px; min-height: 34px; } .dm-crest { width: 32px; height: 32px; font-size: .68rem; }
+  .dm-id span { font-size: .5rem; }
+  .dm-kpi { padding: 8px 8px; } .dm-kpi:first-child { padding-left: 2px; }
+  .dm-kpis:not(.dm-kpis--6) .dm-kpi { padding: 7px 6px; } .dm-kpis:not(.dm-kpis--6) .dm-kpi b { font-size: 1.15rem; }
+  .dm-kpi span { font-size: .46rem; letter-spacing: .08em; }
+  .dm-kpis--6 .dm-kpi:nth-child(4) { border-left: 0; padding-left: 2px; } .dm-kpis--6 .dm-kpi:nth-child(n+4) { border-top: 1px solid var(--hair); }
+  .dm-team .dm-hub { padding: 7px 12px; }
+  .dm-role { padding: 6px 10px; }
+  .dm-chart { border-right: 0; padding-right: 0; border-bottom: 1px solid var(--hair); padding-bottom: 8px; }
+}
+@media (min-width: 761px) and (max-height: 920px) {
+  .dm-kpi { padding: 8px 14px; } .dm-kpi b { font-size: 1.55rem; }
+  .dm-kpis { margin: 10px 0; }
+  .dm-id { min-height: 38px; } .dm-crest { width: 36px; height: 36px; }
+  .dm-log { padding-top: 6px; } .dm-log p { margin-bottom: .3rem; }
+}

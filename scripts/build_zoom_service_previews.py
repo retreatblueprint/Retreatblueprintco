@@ -341,7 +341,7 @@ def demo_html(kind):
             ('Coordinator', 'Retreat coordination'), ('Back Office', 'Invoices and records')])
         srcs = ''.join(f'<div class="dm-src">{x}</div>' for x in ['Email', 'WhatsApp', 'Booking sites', 'Retreat leaders'])
         return ('<div class="dm" data-demo="concierge">'
-                '<div class="dm-top"><div class="dm-id"><b>Casa Ceiba Retreat</b><span>Concierge Ops &middot; overseen by your Retreat Operations Director</span></div>'
+                '<div class="dm-top"><div class="dm-id"><i class="dm-crest" aria-hidden="true">CC</i><b>Casa Ceiba Retreat</b><span>Concierge Ops &middot; overseen by your Retreat Operations Director</span></div>'
                 '<div class="dm-time"><span class="dm-live">running</span><span class="dm-clock">Mon 00:00</span></div>'
                 f'<div class="dm-scrub"><i class="dm-knob"></i>{days}</div></div>'
                 '<div class="dm-kpis"><div class="dm-kpi"><span>Messages handled</span><b>0</b></div>'
@@ -358,7 +358,7 @@ def demo_html(kind):
         kp = ''.join(f'<div class="dm-kpi"><span>{x}</span><b>&ndash;</b></div>' for x in
                      ['Occupancy', 'ADR', 'RevPAR', 'Cost per occupied room', 'Break-even occupancy', 'Net cash flow'])
         return ('<div class="dm dm--dir" data-demo="director">'
-                '<div class="dm-top"><div class="dm-id"><b>Casa Ceiba Retreat</b><span>Owner report &middot; prepared monthly by your Retreat Operations Director</span></div>'
+                '<div class="dm-top"><div class="dm-id"><i class="dm-crest" aria-hidden="true">CC</i><b>Casa Ceiba Retreat</b><span>Owner report &middot; prepared monthly by your Retreat Operations Director</span></div>'
                 '<div class="dm-time"><span class="dm-live">monthly</span><span class="dm-clock">Jan report</span></div>'
                 f'<div class="dm-scrub"><i class="dm-knob"></i>{months}</div></div>'
                 f'<div class="dm-kpis dm-kpis--6">{kp}</div>'
@@ -508,7 +508,7 @@ def build(slug, pg, shell_head, shell_nav, shell_foot):
     head = re.sub(r'<link rel="canonical"[^>]*>\s*', '', head)
     head = re.sub(r'<script type="application/ld\+json">.*?</script>\s*', '', head, flags=re.S)
     head = re.sub(r'preview/zoom\.css\?v=\d+', 'preview/zoom.css?v=60', head)
-    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=19">\n</head>')
+    head = head.replace('</head>', '<link rel="stylesheet" href="preview/svc.css?v=21">\n</head>')
     foot = re.sub(r'<script src="preview/zoom\.js[^"]*" defer></script>', '<script src="preview/svc.js?v=3" defer></script><script src="preview/svdemo.js?v=2" defer></script>', shell_foot)
     page = head + shell_nav + world + foot
     page = page.replace('href="/preview/zoom.html#', 'href="/preview/zoom.html#')
